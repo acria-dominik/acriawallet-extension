@@ -23,7 +23,6 @@ const BASE_CLASS_NAME = 'box';
 const Sizes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const ValidSize = PropTypes.oneOf(Sizes);
-const ValidBlockSize = PropTypes.oneOf(Object.values(BLOCK_SIZES));
 const ValidSizeAndAuto = PropTypes.oneOf([...Sizes, 'auto']);
 export const ValidBackgroundColors = PropTypes.oneOf(
   Object.values(BACKGROUND_COLORS),
@@ -31,19 +30,11 @@ export const ValidBackgroundColors = PropTypes.oneOf(
 export const ValidBorderColors = PropTypes.oneOf(Object.values(BORDER_COLORS));
 export const ValidTextColors = PropTypes.oneOf(Object.values(TEXT_COLORS));
 export const ValidIconColors = PropTypes.oneOf(Object.values(ICON_COLORS));
-const ValidAlignItem = PropTypes.oneOf(Object.values(ALIGN_ITEMS));
-const ValidJustifyContent = PropTypes.oneOf(Object.values(JUSTIFY_CONTENT));
 
 const ArrayOfValidSizes = PropTypes.arrayOf(ValidSize);
 export const MultipleSizes = PropTypes.oneOfType([
   ValidSize,
   ArrayOfValidSizes,
-]);
-
-const ArrayOfValidBlockSizes = PropTypes.arrayOf(ValidBlockSize);
-export const MultipleBlockSizes = PropTypes.oneOfType([
-  ValidBlockSize,
-  ArrayOfValidBlockSizes,
 ]);
 
 const ArrayOfValidSizesAndAuto = PropTypes.arrayOf(ValidSizeAndAuto);
@@ -71,18 +62,6 @@ export const MultipleTextColors = PropTypes.oneOfType([
   ArrayOfValidTextColors,
   ValidIconColors,
   ArrayOfValidIconColors,
-]);
-
-const ArrayOfValidAlignItems = PropTypes.arrayOf(ValidAlignItem);
-export const MultipleAlignItems = PropTypes.oneOfType([
-  ValidAlignItem,
-  ArrayOfValidAlignItems,
-]);
-
-const ArrayOfValidJustifyContents = PropTypes.arrayOf(ValidJustifyContent);
-export const MultipleJustifyContents = PropTypes.oneOfType([
-  ValidJustifyContent,
-  ArrayOfValidJustifyContents,
 ]);
 
 function isValidSize(type, value) {
@@ -316,8 +295,14 @@ Box.propTypes = {
     PropTypes.oneOf(Object.values(BORDER_STYLE)),
     PropTypes.arrayOf(PropTypes.oneOf(Object.values(BORDER_STYLE))),
   ]),
-  alignItems: MultipleAlignItems,
-  justifyContent: MultipleJustifyContents,
+  alignItems: PropTypes.oneOfType([
+    PropTypes.oneOf(Object.values(ALIGN_ITEMS)),
+    PropTypes.arrayOf(PropTypes.oneOf(Object.values(ALIGN_ITEMS))),
+  ]),
+  justifyContent: PropTypes.oneOfType([
+    PropTypes.oneOf(Object.values(JUSTIFY_CONTENT)),
+    PropTypes.arrayOf(PropTypes.oneOf(Object.values(JUSTIFY_CONTENT))),
+  ]),
   textAlign: PropTypes.oneOfType([
     PropTypes.oneOf(Object.values(TEXT_ALIGN)),
     PropTypes.arrayOf(PropTypes.oneOf(Object.values(TEXT_ALIGN))),
@@ -326,8 +311,14 @@ Box.propTypes = {
     PropTypes.oneOf(Object.values(DISPLAY)),
     PropTypes.arrayOf(PropTypes.oneOf(Object.values(DISPLAY))),
   ]),
-  width: MultipleBlockSizes,
-  height: MultipleBlockSizes,
+  width: PropTypes.oneOfType([
+    PropTypes.oneOf(Object.values(BLOCK_SIZES)),
+    PropTypes.arrayOf(PropTypes.oneOf(Object.values(BLOCK_SIZES))),
+  ]),
+  height: PropTypes.oneOfType([
+    PropTypes.oneOf(Object.values(BLOCK_SIZES)),
+    PropTypes.arrayOf(PropTypes.oneOf(Object.values(BLOCK_SIZES))),
+  ]),
   backgroundColor: MultipleBackgroundColors,
   className: PropTypes.string,
   /**

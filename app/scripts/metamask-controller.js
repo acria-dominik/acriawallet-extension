@@ -201,9 +201,6 @@ export default class MetamaskController extends EventEmitter {
 
     this.controllerMessenger = new ControllerMessenger();
 
-    // instance of a class that wraps the extension's storage local API.
-    this.localStoreApiWrapper = opts.localStore;
-
     // observable state store
     this.store = new ComposableObservableStore({
       state: initState,
@@ -3483,15 +3480,7 @@ export default class MetamaskController extends EventEmitter {
     this.emit('controllerConnectionChanged', this.activeControllerConnections);
 
     // set up postStream transport
-    outStream.on(
-      'data',
-      createMetaRPCHandler(
-        api,
-        outStream,
-        this.store,
-        this.localStoreApiWrapper,
-      ),
-    );
+    outStream.on('data', createMetaRPCHandler(api, outStream));
     const handleUpdate = (update) => {
       if (outStream._writableState.ended) {
         return;
