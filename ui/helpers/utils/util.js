@@ -43,11 +43,11 @@ export function formatDateWithYearContext(
   );
 }
 /**
- * Determines if the provided chainId is a default MetaMask chain
+ * Determines if the provided chainId is a default AcriaWallet chain
  *
  * @param {string} chainId - chainId to check
  */
-export function isDefaultMetaMaskChain(chainId) {
+export function isDefaultAcriaWalletChain(chainId) {
   if (
     !chainId ||
     chainId === MAINNET_CHAIN_ID ||

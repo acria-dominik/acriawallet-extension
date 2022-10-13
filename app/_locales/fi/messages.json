@@ -33,7 +33,7 @@
     "message": "toimintaloki"
   },
   "addAcquiredTokens": {
-    "message": "Lisää MetaMaskia käyttämällä hankkimasi tietueet"
+    "message": "Lisää Acria Walletia käyttämällä hankkimasi tietueet"
   },
   "addAlias": {
     "message": "Lisää alias"
@@ -61,15 +61,15 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Acria Wallet",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMask Beta",
+    "message": "Acria Wallet Beta",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
-    "message": "MetaMask Flask",
+    "message": "Acria Wallet Flask",
     "description": "The name of the application (Flask)"
   },
   "approve": {
@@ -97,7 +97,7 @@
     "message": "Automaattisen uloskirjautumisen ajastin (minuuttia)"
   },
   "autoLockTimeLimitDescription": {
-    "message": "Määritä, montako minuuttia MetaMask on ollut joutilaana ennen kuin sinut kirjataan automaattisesti ulos"
+    "message": "Määritä, montako minuuttia Acria Wallet on ollut joutilaana ennen kuin sinut kirjataan automaattisesti ulos"
   },
   "average": {
     "message": "Keskiverto"
@@ -109,7 +109,7 @@
     "message": "Takaisin kaikkiin"
   },
   "backupApprovalInfo": {
-    "message": "Tämä salainen koodi vaaditaan kukkarosi palauttamiseen siinä tapauksessa, että kadotat laitteesi, unohdat salasanasi, joudut asentamaan MetaMaskin uudestaan tai haluat käyttää lompakkoasi jollakin toisella laitteella."
+    "message": "Tämä salainen koodi vaaditaan kukkarosi palauttamiseen siinä tapauksessa, että kadotat laitteesi, unohdat salasanasi, joudut asentamaan Acria Walletin uudestaan tai haluat käyttää lompakkoasi jollakin toisella laitteella."
   },
   "backupApprovalNotice": {
     "message": "Varmuuskopioi salainen palautuskoodisi pitääksesi kukkarosi ja varasi turvassa."
@@ -140,7 +140,7 @@
     "message": "Osta $1 :ta Wyrella"
   },
   "buyWithWyreDescription": {
-    "message": "Wyre antaa sinun käyttää luottokorttia, jotta voit tallettaa $1 :ta suoraan MetaMask-tilillesi."
+    "message": "Wyre antaa sinun käyttää luottokorttia, jotta voit tallettaa $1 :ta suoraan Acria Wallet-tilillesi."
   },
   "bytes": {
     "message": "Tavua"
@@ -158,7 +158,7 @@
     "message": "Ketjun tunnus"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "Sinun tarvitsee käyttää MetaMaskia Google Chromessa voidaksesi yhdistää laitteistokukkaroosi."
+    "message": "Sinun tarvitsee käyttää Acria Walletia Google Chromessa voidaksesi yhdistää laitteistokukkaroosi."
   },
   "clickToRevealSeed": {
     "message": "Paljasta salaiset sanat napsauttamalla tästä"
@@ -308,13 +308,13 @@
     "message": "Älä koskaan luovuta lausetta kenellekään."
   },
   "endOfFlowMessage5": {
-    "message": "Varo tietojenkalastelua! MetaMask ei koskaan pyydä spontaanisti siemenlausettasi."
+    "message": "Varo tietojenkalastelua! Acria Wallet ei koskaan pyydä spontaanisti siemenlausettasi."
   },
   "endOfFlowMessage6": {
     "message": "Jos tarvitse uuden varmuuskopion juurilauseestasi, niin se löytyy osiosta Asetukset -> Turvallisuus."
   },
   "endOfFlowMessage8": {
-    "message": "MetaMask ei pysty palauttamaan salaustekstiäsi. Lue lisää."
+    "message": "Acria Wallet ei pysty palauttamaan salaustekstiäsi. Lue lisää."
   },
   "endOfFlowMessage9": {
     "message": "Lue lisää."
@@ -419,7 +419,7 @@
     "message": "Yhdistä kiinteän laitteiston lompakko"
   },
   "hardwareWalletsMsg": {
-    "message": "Valitse laitteistokukkaro, jota haluaisit käyttää MetaMaskilla"
+    "message": "Valitse laitteistokukkaro, jota haluaisit käyttää Acria Walletilla"
   },
   "here": {
     "message": "tässä",
@@ -445,7 +445,7 @@
     "message": "Tuo tili"
   },
   "importAccountMsg": {
-    "message": "Tuotuja tilejä ei liitetä alkuperäisen MetaMask-tilisi siemenlauseeseen. Lue lisää tuoduista tileistä"
+    "message": "Tuotuja tilejä ei liitetä alkuperäisen Acria Wallet-tilisi siemenlauseeseen. Lue lisää tuoduista tileistä"
   },
   "importAccountSeedPhrase": {
     "message": "Tuo tili siemenlauseella"
@@ -546,7 +546,7 @@
     "message": "Sinua yhdistetään Ethereumiin ja hajautettuun verkkoon."
   },
   "metamaskVersion": {
-    "message": "MetaMask-versio"
+    "message": "Acria Wallet-versio"
   },
   "mustSelectOne": {
     "message": "Valittava vähintään 1 poletti."
@@ -589,8 +589,8 @@
   "newPassword": {
     "message": "Uusi salasana (väh. 8 merkkiä)"
   },
-  "newToMetaMask": {
-    "message": "Onko MetaMask ennestään outo?"
+  "newToAcriaWallet": {
+    "message": "Onko Acria Wallet ennestään outo?"
   },
   "newTotal": {
     "message": "Uusi kokonaissumma"
@@ -641,7 +641,7 @@
     "message": "Osallistu MetaMetricsiin"
   },
   "participateInMetaMetricsDescription": {
-    "message": "Osallistu MetaMetricsiin auttaaksesi meitä tekemään MetaMaskista paremman"
+    "message": "Osallistu MetaMetricsiin auttaaksesi meitä tekemään Acria Walletista paremman"
   },
   "password": {
     "message": "Salasana"
@@ -904,16 +904,16 @@
     "message": "Varmista, ettei kukaan muu katsele näyttöäsi, kun skannaat koodin"
   },
   "syncWithMobileComplete": {
-    "message": "Tietojesi synkronoiminen onnistui. Nauti MetaMask-mobiilisovelluksesta!"
+    "message": "Tietojesi synkronoiminen onnistui. Nauti Acria Wallet-mobiilisovelluksesta!"
   },
   "syncWithMobileDesc": {
-    "message": "Voit synkronoida tilisi ja tietosi mobiililaitteidesi kesken. Avaa MetaMaskin mobiilisovellus, siirry \"Asetukset\"-osioon ja napauta \"Synkronoi selainlaajennuksesta\" -vaihtoehtoa"
+    "message": "Voit synkronoida tilisi ja tietosi mobiililaitteidesi kesken. Avaa Acria Walletin mobiilisovellus, siirry \"Asetukset\"-osioon ja napauta \"Synkronoi selainlaajennuksesta\" -vaihtoehtoa"
   },
   "syncWithMobileDescNewUsers": {
-    "message": "Jos avaat MetaMaskin mobiilisovelluksen vasta ensimmäistä kertaa, noudata vain puhelimesi ilmoittamia vaiheita."
+    "message": "Jos avaat Acria Walletin mobiilisovelluksen vasta ensimmäistä kertaa, noudata vain puhelimesi ilmoittamia vaiheita."
   },
   "syncWithMobileScanThisCode": {
-    "message": "Lue tämä koodi MetaMask-mobiilisovelluksellasi"
+    "message": "Lue tämä koodi Acria Wallet-mobiilisovelluksellasi"
   },
   "syncWithMobileTitle": {
     "message": "Synkronoi mobiililaitteen kanssa"
@@ -1004,7 +1004,7 @@
     "message": "Yritä uudelleen"
   },
   "typePassword": {
-    "message": "Kirjoita MetaMask-salasanasi"
+    "message": "Kirjoita Acria Wallet-salasanasi"
   },
   "unapproved": {
     "message": "Ei hyväksytty"
@@ -1055,7 +1055,7 @@
     "message": "Vieraile verkkosivustollamme"
   },
   "welcome": {
-    "message": "Tervetuloa MetaMaskiin"
+    "message": "Tervetuloa Acria Walletiin"
   },
   "welcomeBack": {
     "message": "Tervetuloa takaisin!"

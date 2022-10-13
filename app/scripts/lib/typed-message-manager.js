@@ -19,7 +19,7 @@ import { isValidHexAddress } from '../../../shared/modules/hexstring-utils';
  * @property {number} id An id to track and identify the message object
  * @property {object} msgParams The parameters to pass to the eth_signTypedData method once the signature request is
  * approved.
- * @property {object} msgParams.metamaskId Added to msgParams for tracking and identification within MetaMask.
+ * @property {object} msgParams.metamaskId Added to msgParams for tracking and identification within Acria Wallet.
  * @property {object} msgParams.from The address that is making the signature request.
  * @property {string} msgParams.data A hex string conversion of the raw buffer data of the signature request
  * @property {number} time The epoch time at which the this message was created
@@ -91,17 +91,17 @@ export default class TypedMessageManager extends EventEmitter {
           case 'rejected':
             return reject(
               ethErrors.provider.userRejectedRequest(
-                'MetaMask Message Signature: User denied message signature.',
+                'Acria Wallet Message Signature: User denied message signature.',
               ),
             );
           case 'errored':
             return reject(
-              new Error(`MetaMask Message Signature: ${data.error}`),
+              new Error(`Acria Wallet Message Signature: ${data.error}`),
             );
           default:
             return reject(
               new Error(
-                `MetaMask Message Signature: Unknown problem: ${JSON.stringify(
+                `Acria Wallet Message Signature: Unknown problem: ${JSON.stringify(
                   msgParams,
                 )}`,
               ),
@@ -205,7 +205,7 @@ export default class TypedMessageManager extends EventEmitter {
           const activeChainId = parseInt(this._getCurrentChainId(), 16);
           assert.ok(
             !Number.isNaN(activeChainId),
-            `Cannot sign messages for chainId "${chainId}", because MetaMask is switching networks.`,
+            `Cannot sign messages for chainId "${chainId}", because Acria Wallet is switching networks.`,
           );
           if (typeof chainId === 'string') {
             chainId = parseInt(chainId, chainId.startsWith('0x') ? 16 : 10);
@@ -249,8 +249,8 @@ export default class TypedMessageManager extends EventEmitter {
    * Approves a TypedMessage. Sets the message status via a call to this.setMsgStatusApproved, and returns a promise
    * with any the message params modified for proper signing.
    *
-   * @param {object} msgParams - The msgParams to be used when eth_sign is called, plus data added by MetaMask.
-   * @param {object} msgParams.metamaskId - Added to msgParams for tracking and identification within MetaMask.
+   * @param {object} msgParams - The msgParams to be used when eth_sign is called, plus data added by Acria Wallet.
+   * @param {object} msgParams.metamaskId - Added to msgParams for tracking and identification within Acria Wallet.
    * @returns {Promise<object>} Promises the msgParams object with metamaskId removed.
    */
   approveMessage(msgParams) {

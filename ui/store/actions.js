@@ -19,7 +19,7 @@ import txHelper from '../helpers/utils/tx-helper';
 import { getEnvironmentType, addHexPrefix } from '../../app/scripts/lib/util';
 import { decimalToHex } from '../helpers/utils/conversions.util';
 import {
-  getMetaMaskAccounts,
+  getAcriaWalletAccounts,
   getPermittedAccountsForCurrentTab,
   getSelectedAddress,
   ///: BEGIN:ONLY_INCLUDE_IN(flask)
@@ -1177,7 +1177,7 @@ export function cancelMsgs(msgDataList) {
               default:
                 reject(
                   new Error(
-                    `MetaMask Message Signature: Unknown message type: ${id}`,
+                    `AcriaWallet Message Signature: Unknown message type: ${id}`,
                   ),
                 );
             }
@@ -1448,8 +1448,8 @@ export function updateMetamaskState(newState) {
 
     const newAddressBook = newState.addressBook?.[newProvider?.chainId] ?? {};
     const oldAddressBook = currentState.addressBook?.[provider?.chainId] ?? {};
-    const newAccounts = getMetaMaskAccounts({ metamask: newState });
-    const oldAccounts = getMetaMaskAccounts({ metamask: currentState });
+    const newAccounts = getAcriaWalletAccounts({ metamask: newState });
+    const oldAccounts = getAcriaWalletAccounts({ metamask: currentState });
     const newSelectedAccount = newAccounts[newSelectedAddress];
     const oldSelectedAccount = newAccounts[selectedAddress];
     // dispatch an ACCOUNT_CHANGED for any account whose balance or other
@@ -1670,7 +1670,7 @@ export function addToken(
 ) {
   return async (dispatch) => {
     if (!address) {
-      throw new Error('MetaMask - Cannot add token without address');
+      throw new Error('AcriaWallet - Cannot add token without address');
     }
     if (!dontShowLoadingIndicator) {
       dispatch(showLoadingIndication());
@@ -1768,10 +1768,10 @@ export async function getBalancesInSingleCall(tokens) {
 export function addCollectible(address, tokenID, dontShowLoadingIndicator) {
   return async (dispatch) => {
     if (!address) {
-      throw new Error('MetaMask - Cannot add collectible without address');
+      throw new Error('AcriaWallet - Cannot add collectible without address');
     }
     if (!tokenID) {
-      throw new Error('MetaMask - Cannot add collectible without tokenID');
+      throw new Error('AcriaWallet - Cannot add collectible without tokenID');
     }
     if (!dontShowLoadingIndicator) {
       dispatch(showLoadingIndication());
@@ -1795,10 +1795,10 @@ export function addCollectibleVerifyOwnership(
 ) {
   return async (dispatch) => {
     if (!address) {
-      throw new Error('MetaMask - Cannot add collectible without address');
+      throw new Error('AcriaWallet - Cannot add collectible without address');
     }
     if (!tokenID) {
-      throw new Error('MetaMask - Cannot add collectible without tokenID');
+      throw new Error('AcriaWallet - Cannot add collectible without tokenID');
     }
     if (!dontShowLoadingIndicator) {
       dispatch(showLoadingIndication());
@@ -1832,10 +1832,10 @@ export function removeAndIgnoreCollectible(
 ) {
   return async (dispatch) => {
     if (!address) {
-      throw new Error('MetaMask - Cannot ignore collectible without address');
+      throw new Error('AcriaWallet - Cannot ignore collectible without address');
     }
     if (!tokenID) {
-      throw new Error('MetaMask - Cannot ignore collectible without tokenID');
+      throw new Error('AcriaWallet - Cannot ignore collectible without tokenID');
     }
     if (!dontShowLoadingIndicator) {
       dispatch(showLoadingIndication());
@@ -1858,10 +1858,10 @@ export function removeAndIgnoreCollectible(
 export function removeCollectible(address, tokenID, dontShowLoadingIndicator) {
   return async (dispatch) => {
     if (!address) {
-      throw new Error('MetaMask - Cannot remove collectible without address');
+      throw new Error('AcriaWallet - Cannot remove collectible without address');
     }
     if (!tokenID) {
-      throw new Error('MetaMask - Cannot remove collectible without tokenID');
+      throw new Error('AcriaWallet - Cannot remove collectible without tokenID');
     }
     if (!dontShowLoadingIndicator) {
       dispatch(showLoadingIndication());
@@ -3463,19 +3463,19 @@ export function getRequestAccountTabIds() {
   };
 }
 
-export function setOpenMetamaskTabsIDs(openMetaMaskTabIDs) {
+export function setOpenMetamaskTabsIDs(openAcriaWalletTabIDs) {
   return {
     type: actionConstants.SET_OPEN_METAMASK_TAB_IDS,
-    value: openMetaMaskTabIDs,
+    value: openAcriaWalletTabIDs,
   };
 }
 
 export function getOpenMetamaskTabsIds() {
   return async (dispatch) => {
-    const openMetaMaskTabIDs = await submitRequestToBackground(
+    const openAcriaWalletTabIDs = await submitRequestToBackground(
       'getOpenMetamaskTabsIds',
     );
-    dispatch(setOpenMetamaskTabsIDs(openMetaMaskTabIDs));
+    dispatch(setOpenMetamaskTabsIDs(openAcriaWalletTabIDs));
   };
 }
 
@@ -3930,12 +3930,12 @@ export function addCustomNetwork(customRpc) {
   };
 }
 
-export function requestAddNetworkApproval(customRpc, originIsMetaMask) {
+export function requestAddNetworkApproval(customRpc, originIsAcriaWallet) {
   return async (dispatch) => {
     try {
       await submitRequestToBackground('requestAddNetworkApproval', [
         customRpc,
-        originIsMetaMask,
+        originIsAcriaWallet,
       ]);
     } catch (error) {
       log.error(error);

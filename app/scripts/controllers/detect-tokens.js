@@ -141,7 +141,7 @@ export default class DetectTokensController {
         );
       } catch (error) {
         warn(
-          `MetaMask - DetectTokensController single call balance fetch failed`,
+          `Acria Wallet - DetectTokensController single call balance fetch failed`,
           error,
         );
         return;

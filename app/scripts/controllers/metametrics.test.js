@@ -40,7 +40,7 @@ const MOCK_INVALID_TRAITS = {
 };
 
 const DEFAULT_TEST_CONTEXT = {
-  app: { name: 'MetaMask Extension', version: VERSION },
+  app: { name: 'Acria Wallet Extension', version: VERSION },
   page: METAMETRICS_BACKGROUND_PAGE_OBJECT,
   referrer: undefined,
   userAgent: window.navigator.userAgent,

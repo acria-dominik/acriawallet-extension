@@ -15,7 +15,7 @@ import { EVENT } from '../../../shared/constants/metametrics';
  * @typedef {object} Message
  * @property {number} id An id to track and identify the message object
  * @property {object} msgParams The parameters to pass to the eth_sign method once the signature request is approved.
- * @property {object} msgParams.metamaskId Added to msgParams for tracking and identification within MetaMask.
+ * @property {object} msgParams.metamaskId Added to msgParams for tracking and identification within Acria Wallet.
  * @property {string} msgParams.data A hex string conversion of the raw buffer data of the signature request
  * @property {number} time The epoch time at which the this message was created
  * @property {string} status Indicates whether the signature request is 'unapproved', 'approved', 'signed' or 'rejected'
@@ -82,17 +82,17 @@ export default class MessageManager extends EventEmitter {
           case 'rejected':
             return reject(
               ethErrors.provider.userRejectedRequest(
-                'MetaMask Message Signature: User denied message signature.',
+                'Acria Wallet Message Signature: User denied message signature.',
               ),
             );
           case 'errored':
             return reject(
-              new Error(`MetaMask Message Signature: ${data.error}`),
+              new Error(`Acria Wallet Message Signature: ${data.error}`),
             );
           default:
             return reject(
               new Error(
-                `MetaMask Message Signature: Unknown problem: ${JSON.stringify(
+                `Acria Wallet Message Signature: Unknown problem: ${JSON.stringify(
                   msgParams,
                 )}`,
               ),
@@ -158,8 +158,8 @@ export default class MessageManager extends EventEmitter {
    * Approves a Message. Sets the message status via a call to this.setMsgStatusApproved, and returns a promise with
    * any the message params modified for proper signing.
    *
-   * @param {object} msgParams - The msgParams to be used when eth_sign is called, plus data added by MetaMask.
-   * @param {object} msgParams.metamaskId - Added to msgParams for tracking and identification within MetaMask.
+   * @param {object} msgParams - The msgParams to be used when eth_sign is called, plus data added by Acria Wallet.
+   * @param {object} msgParams.metamaskId - Added to msgParams for tracking and identification within Acria Wallet.
    * @returns {Promise<object>} Promises the msgParams object with metamaskId removed.
    */
   approveMessage(msgParams) {

@@ -33,7 +33,7 @@
     "message": "יומן פעילות"
   },
   "addAcquiredTokens": {
-    "message": "הוספת הטוקנים שהשגת באמצעות MetaMask"
+    "message": "הוספת הטוקנים שהשגת באמצעות Acria Wallet"
   },
   "addAlias": {
     "message": "הוסף כינוי"
@@ -61,15 +61,15 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Acria Wallet",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMask Beta",
+    "message": "Acria Wallet Beta",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
-    "message": "MetaMask Flask",
+    "message": "Acria Wallet Flask",
     "description": "The name of the application (Flask)"
   },
   "approve": {
@@ -97,7 +97,7 @@
     "message": "טיימר התנתקות אוטומטית (דקות)"
   },
   "autoLockTimeLimitDescription": {
-    "message": "הגדר/י את זמן היעדר הפעילות בדקות לפני ש-MetaMask יתנתק אוטומטית."
+    "message": "הגדר/י את זמן היעדר הפעילות בדקות לפני ש-Acria Wallet יתנתק אוטומטית."
   },
   "average": {
     "message": "ממוצע"
@@ -109,7 +109,7 @@
     "message": "חזרה אל 'הכל'"
   },
   "backupApprovalInfo": {
-    "message": "קוד סודי זה נדרש כדי לשחזר את הארנק שלך במקרה שתאבד/י את מכשירך, תשכח/י את הססמה, תצטרכ/י להתקין מחדש את MetaMask או שתרצה/י לגשת לארנק שלך במכשיר אחר."
+    "message": "קוד סודי זה נדרש כדי לשחזר את הארנק שלך במקרה שתאבד/י את מכשירך, תשכח/י את הססמה, תצטרכ/י להתקין מחדש את Acria Wallet או שתרצה/י לגשת לארנק שלך במכשיר אחר."
   },
   "backupApprovalNotice": {
     "message": "גבה/י את קוד השחזור הסודי שלך כדי לשמור את בטיחות הארנק והכספים שלך."
@@ -140,7 +140,7 @@
     "message": "רכישת את'ר עם Wyre"
   },
   "buyWithWyreDescription": {
-    "message": "Wyre מאפשרת לך להשתמש בכרטיס אשראי כדי להפקיד $1 ישירות בחשבון ה-MetaMask שלך."
+    "message": "Wyre מאפשרת לך להשתמש בכרטיס אשראי כדי להפקיד $1 ישירות בחשבון ה-Acria Wallet שלך."
   },
   "bytes": {
     "message": "בייטים"
@@ -158,7 +158,7 @@
     "message": "מזהה שרשרת"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "עליך להשתמש ב-MetaMask בגוגל כרום כדי להתחבר לארנק החומרה שלך."
+    "message": "עליך להשתמש ב-Acria Wallet בגוגל כרום כדי להתחבר לארנק החומרה שלך."
   },
   "clickToRevealSeed": {
     "message": "לחצ/י כאן לחשיפת מילים סודיות"
@@ -308,13 +308,13 @@
     "message": "לעולם אל תשתפ/י את הצירוף עם אף אחד."
   },
   "endOfFlowMessage5": {
-    "message": "היזהר/י מהתחזות! MetaMask לעולם לא יבקש באופן ספונטני את צירוף הגרעין שלך."
+    "message": "היזהר/י מהתחזות! Acria Wallet לעולם לא יבקש באופן ספונטני את צירוף הגרעין שלך."
   },
   "endOfFlowMessage6": {
     "message": "אם עליך לגבות את צירוף הגרעין שלך שוב, תוכל/י למצוא זאת בהגדרות -> אבטחה."
   },
   "endOfFlowMessage8": {
-    "message": "MetaMask לא הצליח לשחזר את ה-seedphrase שלך. למד/י עוד."
+    "message": "Acria Wallet לא הצליח לשחזר את ה-seedphrase שלך. למד/י עוד."
   },
   "endOfFlowMessage9": {
     "message": "למד עוד."
@@ -419,7 +419,7 @@
     "message": "חבר ארנק חומרה"
   },
   "hardwareWalletsMsg": {
-    "message": "בחר/י ארנק חומרה שבו תרצה להשתמש עם MetaMask"
+    "message": "בחר/י ארנק חומרה שבו תרצה להשתמש עם Acria Wallet"
   },
   "here": {
     "message": "כאן",
@@ -445,7 +445,7 @@
     "message": "יבא חשבון"
   },
   "importAccountMsg": {
-    "message": "חשבונות מיובאים לא ישויכו לצירוף הגרעין (seed) שנוצר במקור עבור חשבון ה-MetaMask שלך. למד/י עוד על חשבונות מיובאים"
+    "message": "חשבונות מיובאים לא ישויכו לצירוף הגרעין (seed) שנוצר במקור עבור חשבון ה-Acria Wallet שלך. למד/י עוד על חשבונות מיובאים"
   },
   "importAccountSeedPhrase": {
     "message": "יבא חשבון באמצעות Seed Phrase"
@@ -543,7 +543,7 @@
     "message": "מחבר אותך לאתריום ולרשת המבוזרת."
   },
   "metamaskVersion": {
-    "message": "גרסת MetaMask"
+    "message": "גרסת Acria Wallet"
   },
   "mustSelectOne": {
     "message": "חובה לבחור לפחות אסימון אחד."
@@ -586,8 +586,8 @@
   "newPassword": {
     "message": "ססמה חדשה (לפחות 8 תווים)"
   },
-  "newToMetaMask": {
-    "message": "חדש/ה ב- MetaMask?"
+  "newToAcriaWallet": {
+    "message": "חדש/ה ב- Acria Wallet?"
   },
   "newTotal": {
     "message": "סכום כולל חדש"
@@ -641,7 +641,7 @@
     "message": "קח/י חלק ב- MetaMetrics"
   },
   "participateInMetaMetricsDescription": {
-    "message": "קח/י חלק ב-MetaMetrics כדי לעזור לנו לשפר את MetaMask"
+    "message": "קח/י חלק ב-MetaMetrics כדי לעזור לנו לשפר את Acria Wallet"
   },
   "password": {
     "message": "סיסמה"
@@ -904,16 +904,16 @@
     "message": "ודא/י כי איש אינו מסתכל על המסך שלך בזמן סריקת קוד זה"
   },
   "syncWithMobileComplete": {
-    "message": "הנתונים שלך סונכרנו בהצלחה. תיהנה/י מאפליקציית MetaMask לטלפונים ניידים! "
+    "message": "הנתונים שלך סונכרנו בהצלחה. תיהנה/י מאפליקציית Acria Wallet לטלפונים ניידים! "
   },
   "syncWithMobileDesc": {
-    "message": "באפשרותך לסנכרן את החשבונות והמידע שלך עם המכשיר הנייד שלך. יש לפתוח את האפליקציה לנייד של MetaMask, לעבור אל \"הגדרות\" וללחוץ על \"סנכרון מהרחבה לדפדפן\""
+    "message": "באפשרותך לסנכרן את החשבונות והמידע שלך עם המכשיר הנייד שלך. יש לפתוח את האפליקציה לנייד של Acria Wallet, לעבור אל \"הגדרות\" וללחוץ על \"סנכרון מהרחבה לדפדפן\""
   },
   "syncWithMobileDescNewUsers": {
-    "message": "אם את/ה פותח/ת  את אפליקציית MetaMask Mobile בפעם הראשונה, פשוט בצע/י את השלבים בטלפון שלך."
+    "message": "אם את/ה פותח/ת  את אפליקציית Acria Wallet Mobile בפעם הראשונה, פשוט בצע/י את השלבים בטלפון שלך."
   },
   "syncWithMobileScanThisCode": {
-    "message": "יש לסרוק קוד QR זה באמצעות אפליקציית MetaMask לטלפון נייד"
+    "message": "יש לסרוק קוד QR זה באמצעות אפליקציית Acria Wallet לטלפון נייד"
   },
   "syncWithMobileTitle": {
     "message": "סנכרן עם הנייד"
@@ -1004,7 +1004,7 @@
     "message": "ניסיון חוזר"
   },
   "typePassword": {
-    "message": "נא להקליד את סיסמת MetaMask שלך"
+    "message": "נא להקליד את סיסמת Acria Wallet שלך"
   },
   "unapproved": {
     "message": "לא אושר"
@@ -1055,7 +1055,7 @@
     "message": "בקר/י באתר שלנו"
   },
   "welcome": {
-    "message": "ברוכים הבאים ל- MetaMask"
+    "message": "ברוכים הבאים ל- Acria Wallet"
   },
   "welcomeBack": {
     "message": "ברוך שובך!"

@@ -75,7 +75,7 @@ export default function setupSentry({ release, getState }) {
   } else if (METAMASK_DEBUG && !IN_TEST) {
     /**
      * Workaround until the following issue is resolved
-     * https://github.com/MetaMask/metamask-extension/issues/15691
+     * https://github.com/Acria Wallet/metamask-extension/issues/15691
      * The IN_TEST condition allows the e2e tests to run with both
      * yarn start:test and yarn build:test
      */
@@ -109,7 +109,7 @@ export default function setupSentry({ release, getState }) {
    * A function that returns whether MetaMetrics is enabled. This should also
    * return `false` if state has not yet been initialzed.
    *
-   * @returns `true` if MetaMask's state has been initialized, and MetaMetrics
+   * @returns `true` if Acria Wallet's state has been initialized, and MetaMetrics
    * is enabled, `false` otherwise.
    */
   function getMetaMetricsEnabled() {

@@ -26,7 +26,7 @@ export class FilterEvents implements Integration {
    * A function that returns whether MetaMetrics is enabled. This should also
    * return `false` if state has not yet been initialzed.
    *
-   * @returns `true` if MetaMask's state has been initialized, and MetaMetrics
+   * @returns `true` if Acria Wallet's state has been initialized, and MetaMetrics
    * is enabled, `false` otherwise.
    */
   private getMetaMetricsEnabled: () => boolean;

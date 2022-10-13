@@ -17,7 +17,7 @@ import { getPlatform } from './lib/util';
 const MESSAGE_TEXT = 'isRunning';
 
 const showWarning = () =>
-  console.warn('Warning! You have multiple instances of MetaMask running!');
+  console.warn('Warning! You have multiple instances of Acria Wallet running!');
 
 /**
  * Handles the ping message sent from other extension.

@@ -100,7 +100,7 @@ describe('FeeCard', () => {
     expect(getByText(props.primaryFee.fee)).toBeInTheDocument();
     expect(getByText(props.secondaryFee.fee)).toBeInTheDocument();
     expect(getByText(`: ${props.secondaryFee.maxFee}`)).toBeInTheDocument();
-    expect(getByText('Includes a 0.875% MetaMask fee.')).toBeInTheDocument();
+    expect(getByText('Includes a 0.875% AcriaWallet fee.')).toBeInTheDocument();
     expect(
       document.querySelector('.fee-card__top-bordered-row'),
     ).toMatchSnapshot();
@@ -120,7 +120,7 @@ describe('FeeCard', () => {
     expect(getByText(props.primaryFee.fee)).toBeInTheDocument();
     expect(getByText(props.secondaryFee.fee)).toBeInTheDocument();
     expect(getByText(`: ${props.secondaryFee.maxFee}`)).toBeInTheDocument();
-    expect(getByText('Includes a 0.875% MetaMask fee.')).toBeInTheDocument();
+    expect(getByText('Includes a 0.875% AcriaWallet fee.')).toBeInTheDocument();
     expect(
       document.querySelector('.fee-card__top-bordered-row'),
     ).toMatchSnapshot();

@@ -82,13 +82,13 @@ export const getCaveatSpecifications = ({ getIdentities }) => {
  *   getIdentities: () => Record<string, Identity>,
  * }} options - Options bag.
  * @param options.getAllAccounts - A function that returns all Ethereum accounts
- * in the current MetaMask instance.
+ * in the current Acria Wallet instance.
  * @param options.getIdentities - A function that returns the
  * `PreferencesController` identity objects for all Ethereum accounts in the
  * @param options.captureKeyringTypesWithMissingIdentities - A function that
  * captures extra error information about the "Missing identity for address"
  * error.
- * current MetaMask instance.
+ * current Acria Wallet instance.
  */
 export const getPermissionSpecifications = ({
   getAllAccounts,

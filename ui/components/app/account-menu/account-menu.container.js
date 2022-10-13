@@ -9,8 +9,8 @@ import {
 } from '../../../store/actions';
 import {
   getAddressConnectedSubjectMap,
-  getMetaMaskAccountsOrdered,
-  getMetaMaskKeyrings,
+  getAcriaWalletAccountsOrdered,
+  getAcriaWalletKeyrings,
   getOriginOfCurrentTab,
   getSelectedAddress,
   ///: BEGIN:ONLY_INCLUDE_IN(flask)
@@ -28,7 +28,7 @@ function mapStateToProps(state) {
   const {
     metamask: { isAccountMenuOpen },
   } = state;
-  const accounts = getMetaMaskAccountsOrdered(state);
+  const accounts = getAcriaWalletAccountsOrdered(state);
   const origin = getOriginOfCurrentTab(state);
   const selectedAddress = getSelectedAddress(state);
   ///: BEGIN:ONLY_INCLUDE_IN(flask)
@@ -39,7 +39,7 @@ function mapStateToProps(state) {
     addressConnectedSubjectMap: getAddressConnectedSubjectMap(state),
     originOfCurrentTab: origin,
     selectedAddress,
-    keyrings: getMetaMaskKeyrings(state),
+    keyrings: getAcriaWalletKeyrings(state),
     accounts,
     shouldShowAccountsSearch: accounts.length >= SHOW_SEARCH_ACCOUNTS_MIN_COUNT,
     ///: BEGIN:ONLY_INCLUDE_IN(flask)

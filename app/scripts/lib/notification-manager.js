@@ -29,7 +29,7 @@ export default class NotificationManager extends EventEmitter {
   }
 
   /**
-   * Either brings an existing MetaMask notification window into focus, or creates a new notification window. New
+   * Either brings an existing Acria Wallet notification window into focus, or creates a new notification window. New
    * notification windows are given a 'popup' type.
    *
    */
@@ -86,7 +86,7 @@ export default class NotificationManager extends EventEmitter {
   }
 
   /**
-   * Checks all open MetaMask windows, and returns the first one it finds that is a notification window (i.e. has the
+   * Checks all open Acria Wallet windows, and returns the first one it finds that is a notification window (i.e. has the
    * type 'popup')
    *
    * @private
@@ -97,10 +97,10 @@ export default class NotificationManager extends EventEmitter {
   }
 
   /**
-   * Given an array of windows, returns the 'popup' that has been opened by MetaMask, or null if no such window exists.
+   * Given an array of windows, returns the 'popup' that has been opened by Acria Wallet, or null if no such window exists.
    *
    * @private
-   * @param {Array} windows - An array of objects containing data about the open MetaMask extension windows.
+   * @param {Array} windows - An array of objects containing data about the open Acria Wallet extension windows.
    */
   _getPopupIn(windows) {
     return windows

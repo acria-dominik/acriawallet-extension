@@ -14,13 +14,13 @@ const renderComponent = (props) => {
 
 const props = {
   decimals: 16,
-  siteImage: 'https://metamask.github.io/test-dapp/metamask-fox.svg',
+  siteImage: 'https://metamask.github.io/test-dapp/acria_circles.png',
   customTokenAmount: '10',
   tokenAmount: '10',
   origin: 'https://metamask.github.io/test-dapp/',
   tokenSymbol: 'TST',
   assetStandard: ERC20,
-  tokenImage: 'https://metamask.github.io/test-dapp/metamask-fox.svg',
+  tokenImage: 'https://metamask.github.io/test-dapp/acria_circles.png',
   tokenBalance: '15',
   showCustomizeGasModal: jest.fn(),
   showEditApprovalPermissionModal: jest.fn(),

@@ -75,7 +75,7 @@ import {
 } from '../../helpers/utils/token-util';
 import {
   checkExistingAddresses,
-  isDefaultMetaMaskChain,
+  isDefaultAcriaWalletChain,
   isOriginContractAddress,
   isValidDomainName,
 } from '../../helpers/utils/util';
@@ -150,7 +150,7 @@ import {
 /**
  * @template R - Return type of the async function
  * @typedef {(
- *  import('redux-thunk').ThunkAction<R, MetaMaskState, unknown, AnyAction>
+ *  import('redux-thunk').ThunkAction<R, AcriaWalletState, unknown, AnyAction>
  * )} ThunkAction<R>
  */
 
@@ -434,10 +434,10 @@ export const draftTransactionInitialState = {
  *  Describes which list of recipients the user is shown on the add recipient
  *  screen. When this key is set to 'MY_ACCOUNTS' the user is shown the list of
  *  accounts they own. When it is 'CONTACT_LIST' the user is shown the list of
- *  contacts they have saved in MetaMask and any addresses they have recently
+ *  contacts they have saved in AcriaWallet and any addresses they have recently
  *  sent to.
  * @property {Account} selectedAccount - The currently selected account in
- *  MetaMask. Native balance and address will be pulled from this account if a
+ *  AcriaWallet. Native balance and address will be pulled from this account if a
  *  fromAccount is not specified in the draftTransaction object. During an edit
  *  the fromAccount is specified.
  * @property {MapValuesToUnion<SendStateStages>} stage - The stage of the
@@ -474,7 +474,7 @@ export const initialState = {
  * typescript conversions. The metamask key is typed as an object on purpose
  * here because I cannot go so far in this work as to type that entire object.
  *
- * @typedef {object} MetaMaskState
+ * @typedef {object} AcriaWalletState
  * @property {SendState} send - The state of the send flow.
  * @property {object} metamask - The state of the metamask store.
  */
@@ -585,7 +585,7 @@ export const initializeSendState = createAsyncThunk(
   async ({ chainHasChanged = false } = {}, thunkApi) => {
     /**
      * @typedef {object} ReduxState
-     * @property {object} metamask - Half baked type for the MetaMask object
+     * @property {object} metamask - Half baked type for the AcriaWallet object
      * @property {SendState} send - the send state
      */
 
@@ -1363,7 +1363,7 @@ const slice = createSlice({
             }) &&
               !isValidDomainName(state.recipientInput))
           ) {
-            draftTransaction.recipient.error = isDefaultMetaMaskChain(chainId)
+            draftTransaction.recipient.error = isDefaultAcriaWalletChain(chainId)
               ? INVALID_RECIPIENT_ADDRESS_ERROR
               : INVALID_RECIPIENT_ADDRESS_NOT_ETH_NETWORK_ERROR;
           } else if (
@@ -2374,7 +2374,7 @@ export function startNewDraftTransaction(asset) {
  * generic type, T, so that each selector can specify it's return type.
  *
  * @template T
- * @typedef {(state: MetaMaskState) => T} Selector
+ * @typedef {(state: AcriaWalletState) => T} Selector
  */
 
 /**

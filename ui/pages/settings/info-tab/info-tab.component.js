@@ -178,9 +178,9 @@ export default class InfoTab extends PureComponent {
         </div>
         <div className="info-tab__logo-wrapper">
           <img
-            src="./images/logo/metamask-fox.svg"
+            src="./images/logo/acria_circles.png"
             className="info-tab__logo"
-            alt="MetaMask Logo"
+            alt="AcriaWallet Logo"
           />
         </div>
       </div>

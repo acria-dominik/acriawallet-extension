@@ -50,7 +50,7 @@ export const subjectMetadata = {
   "https://metamask.github.io": {
     "origin": "https://metamask.github.io",
     "name": "E2E Test Dapp",
-    "iconUrl": "https://metamask.github.io/test-dapp/metamask-fox.svg",
+    "iconUrl": "https://metamask.github.io/test-dapp/acria_circles.png",
     "subjectType": "website"
   }
 }

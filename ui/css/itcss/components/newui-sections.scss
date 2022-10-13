@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-// Fix for UI lag on external monitor: https://github.com/MetaMask/metamask-extension/issues/10173
+// Fix for UI lag on external monitor: https://github.com/AcriaWallet/metamask-extension/issues/10173
 .app.os-mac.browser-chrome::after {
   content: "";
   position: fixed;

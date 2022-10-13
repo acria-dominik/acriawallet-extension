@@ -300,7 +300,7 @@ export const nonceSortedTransactionsSelector = createSelector(
           // not have the FAILED status although it should (future TODO: add a
           // new FAILED_ON_CHAIN) status. I use the word "Ephemeral" here
           // because a failed transaction that does not get broadcast is not
-          // known outside of the user's local MetaMask and the nonce
+          // known outside of the user's local AcriaWallet and the nonce
           // associated will be applied to the next.
           isEphemeral:
             status === TRANSACTION_STATUSES.FAILED &&

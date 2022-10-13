@@ -7,7 +7,7 @@ import {
   hideWarning,
 } from '../../store/actions';
 import { getMostRecentOverviewPage } from '../../ducks/history/history';
-import { getMetaMaskKeyrings } from '../../selectors';
+import { getAcriaWalletKeyrings } from '../../selectors';
 import MobileSyncPage from './mobile-sync.component';
 
 const mapDispatchToProps = (dispatch) => {
@@ -30,7 +30,7 @@ const mapStateToProps = (state) => {
   return {
     mostRecentOverviewPage: getMostRecentOverviewPage(state),
     selectedAddress,
-    keyrings: getMetaMaskKeyrings(state),
+    keyrings: getAcriaWalletKeyrings(state),
   };
 };
 

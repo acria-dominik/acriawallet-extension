@@ -253,9 +253,9 @@ export function deprecatedGetCurrentNetworkId(state) {
   return state.metamask.network;
 }
 
-export const getMetaMaskAccounts = createSelector(
-  getMetaMaskAccountsRaw,
-  getMetaMaskCachedBalances,
+export const getAcriaWalletAccounts = createSelector(
+  getAcriaWalletAccountsRaw,
+  getAcriaWalletCachedBalances,
   (currentAccounts, cachedBalances) =>
     Object.entries(currentAccounts).reduce(
       (selectedAccounts, [accountID, account]) => {
@@ -297,19 +297,19 @@ export function getNumberOfTokens(state) {
   return tokens ? tokens.length : 0;
 }
 
-export function getMetaMaskKeyrings(state) {
+export function getAcriaWalletKeyrings(state) {
   return state.metamask.keyrings;
 }
 
-export function getMetaMaskIdentities(state) {
+export function getAcriaWalletIdentities(state) {
   return state.metamask.identities;
 }
 
-export function getMetaMaskAccountsRaw(state) {
+export function getAcriaWalletAccountsRaw(state) {
   return state.metamask.accounts;
 }
 
-export function getMetaMaskCachedBalances(state) {
+export function getAcriaWalletCachedBalances(state) {
   const chainId = getCurrentChainId(state);
 
   // Fallback to fetching cached balances from network id
@@ -325,10 +325,10 @@ export function getMetaMaskCachedBalances(state) {
 /**
  * Get ordered (by keyrings) accounts with identity and balance
  */
-export const getMetaMaskAccountsOrdered = createSelector(
-  getMetaMaskKeyrings,
-  getMetaMaskIdentities,
-  getMetaMaskAccounts,
+export const getAcriaWalletAccountsOrdered = createSelector(
+  getAcriaWalletKeyrings,
+  getAcriaWalletIdentities,
+  getAcriaWalletAccounts,
   (keyrings, identities, accounts) =>
     keyrings
       .reduce((list, keyring) => list.concat(keyring.accounts), [])
@@ -336,8 +336,8 @@ export const getMetaMaskAccountsOrdered = createSelector(
       .map((address) => ({ ...identities[address], ...accounts[address] })),
 );
 
-export const getMetaMaskAccountsConnected = createSelector(
-  getMetaMaskAccountsOrdered,
+export const getAcriaWalletAccountsConnected = createSelector(
+  getAcriaWalletAccountsOrdered,
   (connectedAccounts) =>
     connectedAccounts.map(({ address }) => address.toLowerCase()),
 );
@@ -351,21 +351,21 @@ export function isBalanceCached(state) {
 }
 
 export function getSelectedAccountCachedBalance(state) {
-  const cachedBalances = getMetaMaskCachedBalances(state);
+  const cachedBalances = getAcriaWalletCachedBalances(state);
   const selectedAddress = getSelectedAddress(state);
 
   return cachedBalances && cachedBalances[selectedAddress];
 }
 
 export function getSelectedAccount(state) {
-  const accounts = getMetaMaskAccounts(state);
+  const accounts = getAcriaWalletAccounts(state);
   const selectedAddress = getSelectedAddress(state);
 
   return accounts[selectedAddress];
 }
 
 export function getTargetAccount(state, targetAddress) {
-  const accounts = getMetaMaskAccounts(state);
+  const accounts = getAcriaWalletAccounts(state);
   return accounts[targetAddress];
 }
 
@@ -402,8 +402,8 @@ export function getAddressBookEntryOrAccountName(state, address) {
 }
 
 export function accountsWithSendEtherInfoSelector(state) {
-  const accounts = getMetaMaskAccounts(state);
-  const identities = getMetaMaskIdentities(state);
+  const accounts = getAcriaWalletAccounts(state);
+  const identities = getAcriaWalletIdentities(state);
 
   const accountsWithSendEtherInfo = Object.entries(identities).map(
     ([key, identity]) => {
@@ -415,7 +415,7 @@ export function accountsWithSendEtherInfoSelector(state) {
 }
 
 export function getAccountsWithLabels(state) {
-  return getMetaMaskAccountsOrdered(state).map(
+  return getAcriaWalletAccountsOrdered(state).map(
     ({ address, name, balance }) => ({
       address,
       addressLabel: `${
@@ -1186,7 +1186,7 @@ export function getIsNetworkUsed(state) {
 }
 
 export function getAllAccountsOnNetworkAreEmpty(state) {
-  const balances = getMetaMaskCachedBalances(state) ?? {};
+  const balances = getAcriaWalletCachedBalances(state) ?? {};
   const hasNoNativeFundsOnAnyAccounts = Object.values(balances).every(
     (balance) => balance === '0x0' || balance === '0x00',
   );

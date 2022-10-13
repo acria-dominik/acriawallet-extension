@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { createRef, Component } from 'react';
-import MetaMaskLogo from '@metamask/logo';
+import AcriaWalletLogo from '@metamask/logo';
 import { debounce } from 'lodash';
 
 import { getBuildSpecificAsset } from '../../../helpers/utils/build-types';
@@ -40,7 +40,7 @@ export default class Mascot extends Component {
 
     const { width, height, followMouse } = props;
 
-    this.logo = MetaMaskLogo({
+    this.logo = AcriaWalletLogo({
       followMouse,
       pxNotRatio: true,
       width,

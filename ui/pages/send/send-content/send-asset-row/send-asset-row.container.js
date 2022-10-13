@@ -4,7 +4,7 @@ import {
   getNativeCurrency,
 } from '../../../../ducks/metamask/metamask';
 import {
-  getMetaMaskAccounts,
+  getAcriaWalletAccounts,
   getNativeCurrencyImage,
 } from '../../../../selectors';
 import { updateSendAsset, getSendAsset } from '../../../../ducks/send';
@@ -16,7 +16,7 @@ function mapStateToProps(state) {
     selectedAddress: state.metamask.selectedAddress,
     collectibles: getCollectibles(state),
     sendAsset: getSendAsset(state),
-    accounts: getMetaMaskAccounts(state),
+    accounts: getAcriaWalletAccounts(state),
     nativeCurrency: getNativeCurrency(state),
     nativeCurrencyImage: getNativeCurrencyImage(state),
   };

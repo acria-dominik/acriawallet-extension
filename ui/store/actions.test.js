@@ -2,7 +2,7 @@ import sinon from 'sinon';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import enLocale from '../../app/_locales/en/messages.json';
-import MetaMaskController from '../../app/scripts/metamask-controller';
+import AcriaWalletController from '../../app/scripts/metamask-controller';
 import { TRANSACTION_STATUSES } from '../../shared/constants/transaction';
 import { DEVICE_NAMES } from '../../shared/constants/hardware-wallets';
 import { GAS_LIMITS } from '../../shared/constants/gas';
@@ -40,7 +40,7 @@ describe('Actions', () => {
   const currentNetworkId = '5';
 
   beforeEach(async () => {
-    background = sinon.createStubInstance(MetaMaskController, {
+    background = sinon.createStubInstance(AcriaWalletController, {
       getState: sinon.stub().callsFake((cb) => cb(null, baseMockState)),
     });
   });

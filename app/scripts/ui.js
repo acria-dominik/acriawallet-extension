@@ -11,7 +11,7 @@ import Eth from 'ethjs';
 import EthQuery from 'eth-query';
 import StreamProvider from 'web3-stream-provider';
 import log from 'loglevel';
-import launchMetaMaskUi, { updateBackgroundConnection } from '../../ui';
+import launchAcriaWalletUi, { updateBackgroundConnection } from '../../ui';
 import {
   ENVIRONMENT_TYPE_FULLSCREEN,
   ENVIRONMENT_TYPE_POPUP,
@@ -165,7 +165,7 @@ function initializeUi(activeTab, connectionStream, cb) {
       return;
     }
 
-    launchMetaMaskUi(
+    launchAcriaWalletUi(
       {
         activeTab,
         container,

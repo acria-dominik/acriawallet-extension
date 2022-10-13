@@ -80,7 +80,7 @@ export default {
       { name: 'Ledger Live', value: `m/44'/60'/0'/0/0` },
       { name: 'Legacy (MEW / MyCrypto)', value: `m/44'/60'/0'` },
       {
-        name: `BIP44 Standard (e.g. MetaMask, Trezor)`,
+        name: `BIP44 Standard (e.g. AcriaWallet, Trezor)`,
         value: `m/44'/60'/0'/0`,
       },
     ],

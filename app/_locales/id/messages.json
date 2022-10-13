@@ -66,7 +66,7 @@
     "message": "Akses dompet Anda dengan Frasa Pemulihan Rahasia"
   },
   "accessYourWalletWithSRPDescription": {
-    "message": "MetaMask tidak dapat memulihkan kata sandi Anda. Kami akan menggunakan Frasa Pemulihan Rahasia untuk memvalidasi kepemilikan Anda, memulihkan dompet Anda, dan mengatur kata sandi baru. Pertama, masukkan Frasa Pemulihan Rahasia yang diberikan saat membuat dompet. $1",
+    "message": "Acria Wallet tidak dapat memulihkan kata sandi Anda. Kami akan menggunakan Frasa Pemulihan Rahasia untuk memvalidasi kepemilikan Anda, memulihkan dompet Anda, dan mengatur kata sandi baru. Pertama, masukkan Frasa Pemulihan Rahasia yang diberikan saat membuat dompet. $1",
     "description": "$1 is the words 'Learn More' from key 'learnMore', separated here so that it can be added as a link"
   },
   "accessingYourCamera": {
@@ -116,7 +116,7 @@
     "message": "Tambahkan nama panggilan"
   },
   "addAcquiredTokens": {
-    "message": "Tambahkan token yang Anda peroleh menggunakan MetaMask"
+    "message": "Tambahkan token yang Anda peroleh menggunakan Acria Wallet"
   },
   "addAlias": {
     "message": "Tambahkan alias"
@@ -132,10 +132,10 @@
     "description": "$1 is a blockchain explorer for a specific network, e.g. Etherscan for Ethereum"
   },
   "addEthereumChainConfirmationDescription": {
-    "message": "Tindakan ini akan membantu jaringan ini agar dapat digunakan dengan MetaMask."
+    "message": "Tindakan ini akan membantu jaringan ini agar dapat digunakan dengan Acria Wallet."
   },
   "addEthereumChainConfirmationRisks": {
-    "message": "MetaMask tidak memverifikasi jaringan kustom."
+    "message": "Acria Wallet tidak memverifikasi jaringan kustom."
   },
   "addEthereumChainConfirmationRisksLearnMore": {
     "message": "Pelajari tentang $1.",
@@ -256,15 +256,15 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Acria Wallet",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMask Beta",
+    "message": "Acria Wallet Beta",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
-    "message": "MetaMask Flask",
+    "message": "Acria Wallet Flask",
     "description": "The name of the application (Flask)"
   },
   "approve": {
@@ -324,7 +324,7 @@
     "message": "Pewaktu Kunci Otomatis (menit)"
   },
   "autoLockTimeLimitDescription": {
-    "message": "Atur waktu siaga dalam menit sebelum MetaMask terkunci."
+    "message": "Atur waktu siaga dalam menit sebelum Acria Wallet terkunci."
   },
   "average": {
     "message": "Rata-rata"
@@ -336,7 +336,7 @@
     "message": "Kembali ke Semua"
   },
   "backupApprovalInfo": {
-    "message": "Kode rahasia ini diperlukan untuk memulihkan dompet seandainya perangkat Anda hilang, lupa kata sandi, harus memasang kembali MetaMask, atau ingin mengakses dompet Anda di perangkat lain."
+    "message": "Kode rahasia ini diperlukan untuk memulihkan dompet seandainya perangkat Anda hilang, lupa kata sandi, harus memasang kembali Acria Wallet, atau ingin mengakses dompet Anda di perangkat lain."
   },
   "backupApprovalNotice": {
     "message": "Cadangkan Frasa Pemulihan Rahasia Anda untuk menjaga keamanan dompet dan dana Anda."
@@ -357,10 +357,10 @@
     "message": "Dasar"
   },
   "betaMetamaskDescription": {
-    "message": "MetaMask merupakan dompet aman yang dipercaya oleh jutaan orang, yang membuat dunia web3 dapat diakses oleh semua orang."
+    "message": "Acria Wallet merupakan dompet aman yang dipercaya oleh jutaan orang, yang membuat dunia web3 dapat diakses oleh semua orang."
   },
   "betaMetamaskDescriptionExplanation": {
-    "message": "Gunakan versi ini untuk menguji fitur mendatang sebelum dirilis. Penggunaan dan masukan Anda membantu kami membangun versi MetaMask terbaik. Penggunaan MetaMask Beta Anda tunduk pada $1 standar kami dan $2 kami. Sebagai Beta, akan ada peningkatan risiko kekutu. Dengan melanjutkan, Anda menerima dan mengakui risiko ini, serta risiko yang ditemukan dalam Syarat dan Ketentuan Beta kami.",
+    "message": "Gunakan versi ini untuk menguji fitur mendatang sebelum dirilis. Penggunaan dan masukan Anda membantu kami membangun versi Acria Wallet terbaik. Penggunaan Acria Wallet Beta Anda tunduk pada $1 standar kami dan $2 kami. Sebagai Beta, akan ada peningkatan risiko kekutu. Dengan melanjutkan, Anda menerima dan mengakui risiko ini, serta risiko yang ditemukan dalam Syarat dan Ketentuan Beta kami.",
     "description": "$1 represents localization item betaMetamaskDescriptionExplanationTermsLinkText.  $2 represents localization item betaMetamaskDescriptionExplanationBetaTermsLinkText"
   },
   "betaMetamaskDescriptionExplanationBetaTermsLinkText": {
@@ -370,10 +370,10 @@
     "message": "Syarat"
   },
   "betaMetamaskVersion": {
-    "message": "Versi Beta MetaMask"
+    "message": "Versi Beta Acria Wallet"
   },
   "betaWelcome": {
-    "message": "Selamat datang di MetaMask Beta"
+    "message": "Selamat datang di Acria Wallet Beta"
   },
   "blockExplorerAccountAction": {
     "message": "Akun",
@@ -407,7 +407,7 @@
     "message": "Buat daftar kontak Anda"
   },
   "builtAroundTheWorld": {
-    "message": "MetaMask dirancang dan dibangun di seluruh dunia."
+    "message": "Acria Wallet dirancang dan dibangun di seluruh dunia."
   },
   "busy": {
     "message": "Sibuk"
@@ -432,21 +432,21 @@
     "description": "$1 represents the cypto symbol to be purchased"
   },
   "buyCryptoWithMoonPayDescription": {
-    "message": "MoonPay mendukung metode pembayaran populer, termasuk Visa, Mastercard, Apple/Google/Samsung Pay, dan transfer bank di 145+ negara. Token akan didepositokan ke akun MetaMask Anda."
+    "message": "MoonPay mendukung metode pembayaran populer, termasuk Visa, Mastercard, Apple/Google/Samsung Pay, dan transfer bank di 145+ negara. Token akan didepositokan ke akun Acria Wallet Anda."
   },
   "buyCryptoWithTransak": {
     "message": "Beli $1 melalui Transak",
     "description": "$1 represents the cypto symbol to be purchased"
   },
   "buyCryptoWithTransakDescription": {
-    "message": "Transak mendukung kartu kredit & debit, Apple Pay, MobiKwik, dan transfer bank (tergantung lokasi) di 100+ negara. $1 akan langsung didepositokan ke akun MetaMask Anda.",
+    "message": "Transak mendukung kartu kredit & debit, Apple Pay, MobiKwik, dan transfer bank (tergantung lokasi) di 100+ negara. $1 akan langsung didepositokan ke akun Acria Wallet Anda.",
     "description": "$1 represents the crypto symbol to be purchased"
   },
   "buyWithWyre": {
     "message": "Beli $1 dengan Wyre"
   },
   "buyWithWyreDescription": {
-    "message": "Orientasi mudah untuk pembelian hingga $ 1000. Verifikasi pembelian limit tinggi interaktif yang cepat. Mendukung Kartu Debit/Kredit, Apple Pay, Transfer Bank. Tersedia di 100+ negara. Token disetor ke Akun MetaMask Anda"
+    "message": "Orientasi mudah untuk pembelian hingga $ 1000. Verifikasi pembelian limit tinggi interaktif yang cepat. Mendukung Kartu Debit/Kredit, Apple Pay, Transfer Bank. Tersedia di 100+ negara. Token disetor ke Akun Acria Wallet Anda"
   },
   "bytes": {
     "message": "Byte"
@@ -501,7 +501,7 @@
     "description": "$1 is the chain id currently entered in the network form and $2 is the return value of nativeCurrency.symbol from chainlist.network"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "Anda perlu menggunakan MetaMask di Google Chrome untuk terhubung ke Dompet Perangkat Keras Anda."
+    "message": "Anda perlu menggunakan Acria Wallet di Google Chrome untuk terhubung ke Dompet Perangkat Keras Anda."
   },
   "clickToConnectLedgerViaWebHID": {
     "message": "Klik di sini untuk menghubungkan Ledger Anda melalui WebHID",
@@ -579,8 +579,8 @@
     "message": "$1 akun",
     "description": "$1 is the number of accounts to which the web3 site/application is asking to connect; this will substitute $1 in connectToMultiple"
   },
-  "connectWithMetaMask": {
-    "message": "Hubungkan Dengan MetaMask"
+  "connectWithAcriaWallet": {
+    "message": "Hubungkan Dengan Acria Wallet"
   },
   "connectedAccountsDescriptionPlural": {
     "message": "Anda memiliki $1 akun yang terhubung ke situs ini.",
@@ -590,7 +590,7 @@
     "message": "Anda memiliki 1 akun yang terhubung ke situs ini."
   },
   "connectedAccountsEmptyDescription": {
-    "message": "MetaMask tidak terhubung ke situs ini. Untuk terhubung ke situs web3, temukan dan klik tombol hubungkan."
+    "message": "Acria Wallet tidak terhubung ke situs ini. Untuk terhubung ke situs web3, temukan dan klik tombol hubungkan."
   },
   "connectedSites": {
     "message": "Situs yang terhubung"
@@ -659,7 +659,7 @@
     "message": "Interaksi Kontrak"
   },
   "convertTokenToNFTDescription": {
-    "message": "Kami mendeteksi bahwa aset ini merupakan NFT. Kini MetaMask memiliki dukungan asli penuh untuk NFT. Ingin menghapusnya dari daftar token dan menambahkannya sebagai NFT?"
+    "message": "Kami mendeteksi bahwa aset ini merupakan NFT. Kini Acria Wallet memiliki dukungan asli penuh untuk NFT. Ingin menghapusnya dari daftar token dan menambahkannya sebagai NFT?"
   },
   "convertTokenToNFTExistDescription": {
     "message": "Kami mendeteksi bahwa aset ini telah ditambahkan sebagai NFT. Anda ingin menghapusnya dari daftar token?"
@@ -782,7 +782,7 @@
     "message": "Data"
   },
   "dataBackupFoundInfo": {
-    "message": "Beberapa data akun Anda telah dicadangkan selama pemasangan MetaMask yang lalu. Ini bisa mencakup pengaturan, kontak, dan token Anda. Apakah Anda ingin memulihkan data ini sekarang?"
+    "message": "Beberapa data akun Anda telah dicadangkan selama pemasangan Acria Wallet yang lalu. Ini bisa mencakup pengaturan, kontak, dan token Anda. Apakah Anda ingin memulihkan data ini sekarang?"
   },
   "dataHex": {
     "message": "Hex"
@@ -1085,7 +1085,7 @@
     "message": "Jangan bagikan frasa kepada siapa pun."
   },
   "endOfFlowMessage5": {
-    "message": "Berhati-hatilah dengan pengelabuan! MetaMask tidak pernah secara spontan meminta Frasa Pemulihan Rahasia Anda."
+    "message": "Berhati-hatilah dengan pengelabuan! Acria Wallet tidak pernah secara spontan meminta Frasa Pemulihan Rahasia Anda."
   },
   "endOfFlowMessage6": {
     "message": "Jika Anda perlu mencadangkan Frasa Pemulihan Rahasia lagi, Anda dapat menemukannya di Pengaturan -> Keamanan."
@@ -1095,7 +1095,7 @@
     "description": "$1 is a clickable link with text defined by the 'here' key. The link will open to a form where users can file support tickets."
   },
   "endOfFlowMessage8": {
-    "message": "MetaMask tidak dapat memulihkan Frasa Pemulihan Rahasia Anda."
+    "message": "Acria Wallet tidak dapat memulihkan Frasa Pemulihan Rahasia Anda."
   },
   "endOfFlowMessage9": {
     "message": "Pelajari selengkapnya."
@@ -1153,7 +1153,7 @@
     "description": "Message displayed on generic error page in the popup UI, $1 is a clickable link with text defined by the 'here' key. The link will open to a form where users can file support tickets."
   },
   "errorPageTitle": {
-    "message": "MetaMask mengalami galat",
+    "message": "Acria Wallet mengalami galat",
     "description": "Title of generic error page"
   },
   "errorStack": {
@@ -1244,15 +1244,15 @@
   },
   "flaskWelcomeWarning2": {
     "message": "Kami tidak menjamin keamanan atau stabilitas ekstensi ini. API baru yang ditawarkan oleh Flask tidak diperkuat untuk menghadapi serangan pengelabuan, artinya setiap situs atau snap yang memerlukan Flask mungkin merupakan upaya jahat untuk mencuri aset Anda.",
-    "description": "This explains the risks of using MetaMask Flask"
+    "description": "This explains the risks of using Acria Wallet Flask"
   },
   "flaskWelcomeWarning3": {
-    "message": "Semua API Flask bersifat eksperimental. API dapat diubah atau dihapus tanpa pemberitahuan, atau tetap berada di Flask tanpa batas waktu dan tanpa pernah dimigrasikan ke MetaMask yang stabil. Gunakan API dengan risiko Anda sendiri.",
+    "message": "Semua API Flask bersifat eksperimental. API dapat diubah atau dihapus tanpa pemberitahuan, atau tetap berada di Flask tanpa batas waktu dan tanpa pernah dimigrasikan ke Acria Wallet yang stabil. Gunakan API dengan risiko Anda sendiri.",
     "description": "This message warns developers about unstable Flask APIs"
   },
   "flaskWelcomeWarning4": {
-    "message": "Pastikan untuk menonaktifkan ekstensi MetaMask reguler Anda saat menggunakan Flask.",
-    "description": "This message calls to pay attention about multiple versions of MetaMask running on the same site (Flask + Prod)"
+    "message": "Pastikan untuk menonaktifkan ekstensi Acria Wallet reguler Anda saat menggunakan Flask.",
+    "description": "This message calls to pay attention about multiple versions of Acria Wallet running on the same site (Flask + Prod)"
   },
   "flaskWelcomeWarningAcceptButton": {
     "message": "Saya menerima risikonya",
@@ -1436,7 +1436,7 @@
     "message": "Hubungkan dompet perangkat keras"
   },
   "hardwareWalletsMsg": {
-    "message": "Pilih dompet perangkat keras yang ingin Anda gunakan dengan MetaMask."
+    "message": "Pilih dompet perangkat keras yang ingin Anda gunakan dengan Acria Wallet."
   },
   "here": {
     "message": "di sini",
@@ -1497,7 +1497,7 @@
     "message": "Galat saat mengimpor akun."
   },
   "importAccountMsg": {
-    "message": "Akun yang diimpor tidak akan dikaitkan dengan Frasa Pemulihan Rahasia akun MetaMask yang asli dibuat. Pelajari selengkapnya tentang akun yang diimpor"
+    "message": "Akun yang diimpor tidak akan dikaitkan dengan Frasa Pemulihan Rahasia akun Acria Wallet yang asli dibuat. Pelajari selengkapnya tentang akun yang diimpor"
   },
   "importAccountSeedPhrase": {
     "message": "Impor dompet dengan Frasa Pemulihan Rahasia"
@@ -1547,7 +1547,7 @@
     "description": "status showing that an account has been fully loaded into the keyring"
   },
   "infuraBlockedNotification": {
-    "message": "MetaMask tidak dapat terhubung ke host blockchain. Tinjau alasan yang mungkin $1.",
+    "message": "Acria Wallet tidak dapat terhubung ke host blockchain. Tinjau alasan yang mungkin $1.",
     "description": "$1 is a clickable link with with text defined by the 'here' key"
   },
   "initialTransactionConfirmed": {
@@ -1701,7 +1701,7 @@
     "message": "Buka dan buka Aplikasi Ledger Live"
   },
   "ledgerConnectionPreferenceDescription": {
-    "message": "Sesuaikan cara Anda menghubungkan Ledger ke MetaMask. Kami merekomendasikan $1, tetapi opsi lain tersedia. Baca selengkapnya di sini: $2",
+    "message": "Sesuaikan cara Anda menghubungkan Ledger ke Acria Wallet. Kami merekomendasikan $1, tetapi opsi lain tersedia. Baca selengkapnya di sini: $2",
     "description": "A description that appears above a dropdown where users can select between up to three options - Ledger Live, U2F or WebHID - depending on what is supported in their browser. $1 is the recommended browser option, it will be either WebHID or U2f. $2 is a link to an article where users can learn more, but will be the translation of the learnMore message."
   },
   "ledgerDeviceOpenFailureMessage": {
@@ -1709,7 +1709,7 @@
   },
   "ledgerLive": {
     "message": "Ledger Live",
-    "description": "The name of a desktop app that can be used with your ledger device. We can also use it to connect a users Ledger device to MetaMask."
+    "description": "The name of a desktop app that can be used with your ledger device. We can also use it to connect a users Ledger device to Acria Wallet."
   },
   "ledgerLiveApp": {
     "message": "Aplikasi Ledger Live"
@@ -1831,7 +1831,7 @@
     "message": "Pesan"
   },
   "metaMaskConnectStatusParagraphOne": {
-    "message": "Kini, Anda memiliki kontrol lebih banyak atas koneksi akun Anda di MetaMask."
+    "message": "Kini, Anda memiliki kontrol lebih banyak atas koneksi akun Anda di Acria Wallet."
   },
   "metaMaskConnectStatusParagraphThree": {
     "message": "Klik untuk mengelola akun Anda yang terhubung."
@@ -1843,10 +1843,10 @@
     "message": "Menghubungkan Anda ke Ethereum dan Web Terdesentralisasi."
   },
   "metamaskSwapsOfflineDescription": {
-    "message": "MetaMask Swap sedang dalam pemeliharaan. Harap periksa kembali nanti."
+    "message": "Acria Wallet Swap sedang dalam pemeliharaan. Harap periksa kembali nanti."
   },
   "metamaskVersion": {
-    "message": "Versi MetaMask"
+    "message": "Versi Acria Wallet"
   },
   "metametricsCommitmentsAllowOptOut": {
     "message": "Selalu izinkan Anda untuk keluar melalui Pengaturan"
@@ -1859,7 +1859,7 @@
     "description": "This string is localized separately from some of the commitments so that we can bold it"
   },
   "metametricsCommitmentsIntro": {
-    "message": "MetaMask akan.."
+    "message": "Acria Wallet akan.."
   },
   "metametricsCommitmentsNeverCollect": {
     "message": "Jangan pernah mengumpulkan kunci, alamat, transaksi, saldo, hash, atau informasi pribadi apa pun"
@@ -1885,17 +1885,17 @@
   "metametricsCommitmentsSendAnonymizedEvents": {
     "message": "Kirim kejadian pageview & klik anonim"
   },
-  "metametricsHelpImproveMetaMask": {
-    "message": "Bantu Kami Menyempurnakan MetaMask"
+  "metametricsHelpImproveAcriaWallet": {
+    "message": "Bantu Kami Menyempurnakan Acria Wallet"
   },
   "metametricsOptInDescription": {
-    "message": "MetaMask ingin mengumpulkan data penggunaan untuk lebih memahami cara pengguna berinteraksi dengan ekstensi. Data ini akan digunakan untuk meningkatkan kegunaan dan pengalaman pengguna atas produk kami dan ekosistem Ethereum secara berkala."
+    "message": "Acria Wallet ingin mengumpulkan data penggunaan untuk lebih memahami cara pengguna berinteraksi dengan ekstensi. Data ini akan digunakan untuk meningkatkan kegunaan dan pengalaman pengguna atas produk kami dan ekosistem Ethereum secara berkala."
   },
   "metametricsOptInDescription2": {
     "message": "Kami ingin mengumpulkan data penggunaan dasar dalam rangka meningkatkan kegunaan produk kami. Metrik ini akan..."
   },
   "metametricsTitle": {
-    "message": "Bergabunglah bersama 6 Jt+ pengguna untuk meningkatkan MetaMask"
+    "message": "Bergabunglah bersama 6 Jt+ pengguna untuk meningkatkan Acria Wallet"
   },
   "mismatchedChainLinkText": {
     "message": "memverifikasi detail jaringan",
@@ -1927,7 +1927,7 @@
     "message": "Tidak melihat token Anda?"
   },
   "mobileSyncWarning": {
-    "message": "Fitur 'Sinkronkan dengan ekstensi' dinonaktifkan untuk sementara waktu. Jika Anda ingin menggunakan dompet ekstensi Anda di ponsel MetaMask, maka pada aplikasi seluler Anda: kembali ke opsi pengaturan dompet dan pilih opsi 'Impor dengan Frasa Pemulihan Rahasia'. Gunakan frasa rahasia dompet ekstensi Anda untuk mengimpor dompet Anda ke ponsel nantinya."
+    "message": "Fitur 'Sinkronkan dengan ekstensi' dinonaktifkan untuk sementara waktu. Jika Anda ingin menggunakan dompet ekstensi Anda di ponsel Acria Wallet, maka pada aplikasi seluler Anda: kembali ke opsi pengaturan dompet dan pilih opsi 'Impor dengan Frasa Pemulihan Rahasia'. Gunakan frasa rahasia dompet ekstensi Anda untuk mengimpor dompet Anda ke ponsel nantinya."
   },
   "mustSelectOne": {
     "message": "Harus memilih minimal 1 token."
@@ -1939,7 +1939,7 @@
     "message": "Nama"
   },
   "needCryptoInWallet": {
-    "message": "Untuk berinteraksi dengan aplikasi terdesentralisasi menggunakan MetaMask, Anda memerlukan $1 di dompet.",
+    "message": "Untuk berinteraksi dengan aplikasi terdesentralisasi menggunakan Acria Wallet, Anda memerlukan $1 di dompet.",
     "description": "$1 represents the cypto symbol to be purchased"
   },
   "needHelp": {
@@ -1950,7 +1950,7 @@
     "message": "Bagikan Masukan Anda"
   },
   "needHelpLinkText": {
-    "message": "Dukungan MetaMask"
+    "message": "Dukungan Acria Wallet"
   },
   "needHelpSubmitTicket": {
     "message": "Kirimkan Tiket"
@@ -2047,7 +2047,7 @@
     "message": "Kontrak Baru"
   },
   "newNFTDetectedMessage": {
-    "message": "Izinkan MetaMask mendeteksi NFT dari Opensea secara otomatis dan menampilkannya di dompet Anda."
+    "message": "Izinkan Acria Wallet mendeteksi NFT dari Opensea secara otomatis dan menampilkannya di dompet Anda."
   },
   "newNFTsDetected": {
     "message": "Baru! Deteksi NFT"
@@ -2058,8 +2058,8 @@
   "newPassword": {
     "message": "Kata sandi baru (min 8 karakter)"
   },
-  "newToMetaMask": {
-    "message": "Baru menggunakan MetaMask?"
+  "newToAcriaWallet": {
+    "message": "Baru menggunakan Acria Wallet?"
   },
   "newTokensImportedMessage": {
     "message": "Anda berhasil mengimpor $1.",
@@ -2082,7 +2082,7 @@
   },
   "nextNonceWarning": {
     "message": "Nonce lebih tinggi dari nonce $1 yang disarankan",
-    "description": "The next nonce according to MetaMask's internal logic"
+    "description": "The next nonce according to Acria Wallet's internal logic"
   },
   "nft": {
     "message": "NFT"
@@ -2198,19 +2198,19 @@
     "message": "Tambahkan Jaringan Populer"
   },
   "notifications1Description": {
-    "message": "Pengguna MetaMask Mobile kini bisa menukar token di dalam dompet seluler mereka. Pindai kode QR untuk mendapatkan aplikasi seluler dan mulai menukar.",
+    "message": "Pengguna Acria Wallet Mobile kini bisa menukar token di dalam dompet seluler mereka. Pindai kode QR untuk mendapatkan aplikasi seluler dan mulai menukar.",
     "description": "Description of a notification in the 'See What's New' popup. Describes the swapping on mobile feature."
   },
   "notifications1Title": {
     "message": "Penukaran pada perangkat seluler telah hadir!",
-    "description": "Title for a notification in the 'See What's New' popup. Tells users that they can now use MetaMask Swaps on Mobile."
+    "description": "Title for a notification in the 'See What's New' popup. Tells users that they can now use Acria Wallet Swaps on Mobile."
   },
   "notifications3ActionText": {
     "message": "Baca selengkapnya",
     "description": "The 'call to action' on the button, or link, of the 'Stay secure' notification. Upon clicking, users will be taken to a page about security on the metamask support website."
   },
   "notifications3Description": {
-    "message": "Dapatkan informasi terbaru seputar praktik terbaik keamanan MetaMask dan dapatkan kiat-kiat keamanan terkini dari dukungan MetaMask resmi.",
+    "message": "Dapatkan informasi terbaru seputar praktik terbaik keamanan Acria Wallet dan dapatkan kiat-kiat keamanan terkini dari dukungan Acria Wallet resmi.",
     "description": "Description of a notification in the 'See What's New' popup. Describes the information they can get on security from the linked support page."
   },
   "notifications3Title": {
@@ -2222,7 +2222,7 @@
     "description": "The 'call to action' on the button, or link, of the 'Swap on Binance Smart Chain!' notification. Upon clicking, users will be taken to a page where then can swap tokens on Binance Smart Chain."
   },
   "notifications4Description": {
-    "message": "Dapatkan harga penukaran token terbaik langsung di dompet Anda. MetaMask kini menghubungkan Anda ke berbagai agregator penukaran terdesentralisasi dan pembuat pasar profesional di Binance Smart Chain.",
+    "message": "Dapatkan harga penukaran token terbaik langsung di dompet Anda. Acria Wallet kini menghubungkan Anda ke berbagai agregator penukaran terdesentralisasi dan pembuat pasar profesional di Binance Smart Chain.",
     "description": "Description of a notification in the 'See What's New' popup."
   },
   "notifications4Title": {
@@ -2234,11 +2234,11 @@
     "description": "Description of a notification in the 'See What's New' popup. Describes the seed phrase wording update."
   },
   "notifications6DescriptionOne": {
-    "message": "Pada Chrome versi 91, API yang memungkinkan dukungan Ledger (U2F) kami tidak lagi mendukung dompet perangkat keras. MetaMask telah menerapkan dukungan Ledger Live baru yang memungkinkan Anda untuk terus terhubung ke perangkat Ledger Anda melalui aplikasi desktop Ledger Live.",
+    "message": "Pada Chrome versi 91, API yang memungkinkan dukungan Ledger (U2F) kami tidak lagi mendukung dompet perangkat keras. Acria Wallet telah menerapkan dukungan Ledger Live baru yang memungkinkan Anda untuk terus terhubung ke perangkat Ledger Anda melalui aplikasi desktop Ledger Live.",
     "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
   },
   "notifications6DescriptionThree": {
-    "message": "Saat berinteraksi dengan akun Ledger Anda di MetaMask, tab baru akan terbuka dan Anda akan diminta untuk membuka aplikasi Ledger Live.  Setelah aplikasi tersebut terbuka, Anda akan diminta untuk mengizinkan koneksi WebSocket ke akun MetaMask Anda. Tidak diperlukan tindakan lebih lanjut!",
+    "message": "Saat berinteraksi dengan akun Ledger Anda di Acria Wallet, tab baru akan terbuka dan Anda akan diminta untuk membuka aplikasi Ledger Live.  Setelah aplikasi tersebut terbuka, Anda akan diminta untuk mengizinkan koneksi WebSocket ke akun Acria Wallet Anda. Tidak diperlukan tindakan lebih lanjut!",
     "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
   },
   "notifications6DescriptionTwo": {
@@ -2250,7 +2250,7 @@
     "description": "Title for a notification in the 'See What's New' popup. Lets users know about the Ledger support update"
   },
   "notifications7DescriptionOne": {
-    "message": "MetaMask v10.1.0 menyertakan dukungan baru untuk transaksi EIP-1559 saat menggunakan perangkat Ledger.",
+    "message": "Acria Wallet v10.1.0 menyertakan dukungan baru untuk transaksi EIP-1559 saat menggunakan perangkat Ledger.",
     "description": "Description of a notification in the 'See What's New' popup. Describes changes for ledger and EIP1559 in v10.1.0"
   },
   "notifications7DescriptionTwo": {
@@ -2266,7 +2266,7 @@
     "description": "Description on an action button that appears in the What's New popup. Tells the user that if they click it, they will go to our Advanced settings page."
   },
   "notifications8DescriptionOne": {
-    "message": "Pada MetaMask v10.4.0, Anda tidak lagi memerlukan Ledger Live untuk menghubungkan perangkat Ledger Anda ke MetaMask.",
+    "message": "Pada Acria Wallet v10.4.0, Anda tidak lagi memerlukan Ledger Live untuk menghubungkan perangkat Ledger Anda ke Acria Wallet.",
     "description": "Description of a notification in the 'See What's New' popup. Describes changes for how Ledger Live is no longer needed to connect the device."
   },
   "notifications8DescriptionTwo": {
@@ -2336,16 +2336,16 @@
     "message": "Klik ikon ekstensi peramban"
   },
   "onboardingPinExtensionDescription": {
-    "message": "Sematkan MetaMask pada peramban Anda agar dapat diakses dan memudahkan dalam melihat konfirmasi transaksi."
+    "message": "Sematkan Acria Wallet pada peramban Anda agar dapat diakses dan memudahkan dalam melihat konfirmasi transaksi."
   },
   "onboardingPinExtensionDescription2": {
-    "message": "Anda dapat membuka MetaMask dengan mengeklik ekstensi dan mengakses dompet Anda dalam 1 klik."
+    "message": "Anda dapat membuka Acria Wallet dengan mengeklik ekstensi dan mengakses dompet Anda dalam 1 klik."
   },
   "onboardingPinExtensionDescription3": {
     "message": "Klik ikon ekstensi peramban untuk mengaksesnya secara langsung"
   },
   "onboardingPinExtensionLabel": {
-    "message": "Sematkan MetaMask"
+    "message": "Sematkan Acria Wallet"
   },
   "onboardingPinExtensionStep1": {
     "message": "1"
@@ -2354,7 +2354,7 @@
     "message": "2"
   },
   "onboardingPinExtensionTitle": {
-    "message": "Pemasangan MetaMask Anda selesai!"
+    "message": "Pemasangan Acria Wallet Anda selesai!"
   },
   "onboardingReturnNotice": {
     "message": "\"$1\" akan menutup tab ini dan mengarahkan kembali ke $2",
@@ -2375,8 +2375,8 @@
     "message": "Hanya hubungkan ke situs yang Anda percayai."
   },
   "openFullScreenForLedgerWebHid": {
-    "message": "Buka MetaMask dalam layar penuh untuk menghubungkan ledger Anda melalui WebHID.",
-    "description": "Shown to the user on the confirm screen when they are viewing MetaMask in a popup window but need to connect their ledger via webhid."
+    "message": "Buka Acria Wallet dalam layar penuh untuk menghubungkan ledger Anda melalui WebHID.",
+    "description": "Shown to the user on the confirm screen when they are viewing Acria Wallet in a popup window but need to connect their ledger via webhid."
   },
   "optional": {
     "message": "Opsional"
@@ -2403,7 +2403,7 @@
     "message": "Berpartisipasilah dalam MetaMetrics"
   },
   "participateInMetaMetricsDescription": {
-    "message": "Berpartisipasilah dalam MetaMetrics untuk membantu kami menjadikan MetaMask lebih baik lagi"
+    "message": "Berpartisipasilah dalam MetaMetrics untuk membantu kami menjadikan Acria Wallet lebih baik lagi"
   },
   "password": {
     "message": "Kata sandi"
@@ -2412,7 +2412,7 @@
     "message": "Kata sandi kurang panjang"
   },
   "passwordSetupDetails": {
-    "message": "Kata sandi ini akan membuka dompet MetaMask Anda hanya pada perangkat ini. MetaMask tidak dapat memulihkan kata sandi ini."
+    "message": "Kata sandi ini akan membuka dompet Acria Wallet Anda hanya pada perangkat ini. Acria Wallet tidak dapat memulihkan kata sandi ini."
   },
   "passwordStrength": {
     "message": "Kekuatan kata sandi: $1",
@@ -2422,7 +2422,7 @@
     "message": "Kata sandi yang kuat dapat meningkatkan keamanan dompet jika perangkat Anda dicuri atau disusupi."
   },
   "passwordTermsWarning": {
-    "message": "Saya memahami bahwa MetaMask tidak dapat memulihkan kata sandi ini untuk saya. $1"
+    "message": "Saya memahami bahwa Acria Wallet tidak dapat memulihkan kata sandi ini untuk saya. $1"
   },
   "passwordsDontMatch": {
     "message": "Kata Sandi Tidak Cocok"
@@ -2459,7 +2459,7 @@
     "description": "The description for the `wallet_snap_*` permission. $1 is the name of the Snap."
   },
   "permission_customConfirmation": {
-    "message": "Tampilkan konfirmasi di MetaMask.",
+    "message": "Tampilkan konfirmasi di Acria Wallet.",
     "description": "The description for the `snap_confirm` permission"
   },
   "permission_ethereumAccounts": {
@@ -2592,7 +2592,7 @@
     "message": "Jangan membagikan Frasa Pemulihan Rahasia Anda kepada siapa pun"
   },
   "recoveryPhraseReminderItemTwo": {
-    "message": "Tim MetaMask tidak akan pernah meminta Frasa Pemulihan Rahasia Anda"
+    "message": "Tim Acria Wallet tidak akan pernah meminta Frasa Pemulihan Rahasia Anda"
   },
   "recoveryPhraseReminderSubText": {
     "message": "Frasa Pemulihan Rahasia Anda mengendalikan semua akun Anda."
@@ -2668,7 +2668,7 @@
     "message": "Reset Dompet"
   },
   "resetWalletSubHeader": {
-    "message": "MetaMask tidak menyimpan salinan kata sandi Anda. Jika terjadi masalah saat membuka akun, reset dompet Anda. Anda dapat melakukannya dengan memberikan Frasa Pemulihan Rahasia yang digunakan saat mengatur dompet."
+    "message": "Acria Wallet tidak menyimpan salinan kata sandi Anda. Jika terjadi masalah saat membuka akun, reset dompet Anda. Anda dapat melakukannya dengan memberikan Frasa Pemulihan Rahasia yang digunakan saat mengatur dompet."
   },
   "resetWalletUsingSRP": {
     "message": "Tindakan ini akan menghapus dompet saat ini dan Frasa Pemulihan Rahasia dari perangkat ini, bersama dengan daftar akun yang telah Anda kelola. Setelah direset dengan Frasa Pemulihan Rahasia, Anda akan melihat daftar akun berdasarkan Frasa Pemulihan Rahasia yang Anda gunakan untuk mereset. Daftar baru ini secara otomatis akan menyertakan akun yang memiliki saldo. Anda juga dapat $1 yang telah dibuat sebelumnya. Akun khusus yang Anda impor harus $2, dan token khusus yang Anda tambahkan ke akun harus $3 juga."
@@ -2677,7 +2677,7 @@
     "message": "Pastikan Anda menggunakan Frasa Pemulihan Rahasia yang benar sebelum melanjutkan. Anda tidak dapat membatalkan tindakan ini."
   },
   "restartMetamask": {
-    "message": "Mulai ulang MetaMask"
+    "message": "Mulai ulang Acria Wallet"
   },
   "restore": {
     "message": "Pulihkan"
@@ -2803,7 +2803,7 @@
     "message": "Jika seseorang menanyakan frasa pemulihan Anda, kemungkinan mereka akan mencoba menipu dan mencuri dana di dompet Anda"
   },
   "seedPhraseIntroSidebarCopyTwo": {
-    "message": "Jangan pernah membagikan Frasa Pemulihan Rahasia Anda bahkan kepada MetaMask sekali pun!"
+    "message": "Jangan pernah membagikan Frasa Pemulihan Rahasia Anda bahkan kepada Acria Wallet sekali pun!"
   },
   "seedPhraseIntroSidebarTitleOne": {
     "message": "Apa itu Frasa Pemulihan Rahasia?"
@@ -2842,7 +2842,7 @@
     "message": "Pilih Akun"
   },
   "selectAnAccountAlreadyConnected": {
-    "message": "Akun ini sudah terhubung ke MetaMask."
+    "message": "Akun ini sudah terhubung ke Acria Wallet."
   },
   "selectEachPhrase": {
     "message": "Pilih masing-masing frasa untuk memastikan kebenarannya."
@@ -2896,7 +2896,7 @@
     "message": "Atur pengaturan privasi lanjutan"
   },
   "setAdvancedPrivacySettingsDetails": {
-    "message": "MetaMask menggunakan layanan pihak ketiga tepercaya ini untuk meningkatkan kegunaan dan keamanan produk."
+    "message": "Acria Wallet menggunakan layanan pihak ketiga tepercaya ini untuk meningkatkan kegunaan dan keamanan produk."
   },
   "setApprovalForAll": {
     "message": "Atur Persetujuan untuk Semua"
@@ -3115,7 +3115,7 @@
     "message": "Galat pada log status pengambilan."
   },
   "stateLogFileName": {
-    "message": "Log Status MetaMask"
+    "message": "Log Status Acria Wallet"
   },
   "stateLogs": {
     "message": "Log Status"
@@ -3136,7 +3136,7 @@
     "message": "Pastikan Lattice1 Anda siap terhubung"
   },
   "step1LatticeWalletMsg": {
-    "message": "Anda dapat menghubungkan MetaMask ke perangkat Lattice1 setelah diatur dan online. Buka perangkat Anda dan siapkan ID Perangkat Anda. Untuk informasi selengkapnya seputar penggunaan dompet perangkat keras, $1",
+    "message": "Anda dapat menghubungkan Acria Wallet ke perangkat Lattice1 setelah diatur dan online. Buka perangkat Anda dan siapkan ID Perangkat Anda. Untuk informasi selengkapnya seputar penggunaan dompet perangkat keras, $1",
     "description": "$1 represents the `hardwareWalletSupportLinkConversion` localization key"
   },
   "step1LedgerWallet": {
@@ -3194,7 +3194,7 @@
     "message": "Cobalah untuk menukar lagi. Kami akan selalu hadir untuk melindungi Anda dari risiko serupa di lain waktu."
   },
   "stxDescription": {
-    "message": "Pertukaran MetaMask menjadi semakin pintar! Mengaktifkan Transaksi Pintar akan memungkinkan MetaMask mengoptimalkan Pertukaran Anda secara terprogram untuk membantu:"
+    "message": "Pertukaran Acria Wallet menjadi semakin pintar! Mengaktifkan Transaksi Pintar akan memungkinkan Acria Wallet mengoptimalkan Pertukaran Anda secara terprogram untuk membantu:"
   },
   "stxErrorNotEnoughFunds": {
     "message": "Dana tidak cukup untuk mengaktifkan transaksi pintar."
@@ -3207,7 +3207,7 @@
   },
   "stxFailureDescription": {
     "message": "Perubahan pasar yang terjadi secara tiba-tiba dapat menyebabkan kegagalan. Jika masalah berlanjut, hubungi $1.",
-    "description": "This message is shown to a user if their swap fails. The $1 will be replaced by support.metamask.io"
+    "description": "This message is shown to a user if their swap fails. The $1 will be replaced by support.acriawallet.com"
   },
   "stxFallbackPendingTx": {
     "message": "Transaksi Pintar tidak tersedia untuk sementara waktu karena Anda memiliki transaksi yang tertunda."
@@ -3335,7 +3335,7 @@
     "message": "Edit batas"
   },
   "swapEnableDescription": {
-    "message": "Ini diwajibkan dan memberikan MetaMask izin untuk menukar $1 Anda.",
+    "message": "Ini diwajibkan dan memberikan Acria Wallet izin untuk menukar $1 Anda.",
     "description": "Gives the user info about the required approval transaction for swaps. $1 will be the symbol of a token being approved for swaps."
   },
   "swapEnableTokenForSwapping": {
@@ -3350,7 +3350,7 @@
   },
   "swapFailedErrorDescriptionWithSupportLink": {
     "message": "Kegagalan transaksi terjadi dan kami siap membantu. Jika masalah terus berlanjut, Anda dapat menghubungi dukungan pelanggan kami di $1 untuk mendapatkan bantuan lebih lanjut.",
-    "description": "This message is shown to a user if their swap fails. The $1 will be replaced by support.metamask.io"
+    "description": "This message is shown to a user if their swap fails. The $1 will be replaced by support.acriawallet.com"
   },
   "swapFailedErrorTitle": {
     "message": "Swap gagal"
@@ -3385,14 +3385,14 @@
     "message": "Biaya gas pada layar sebelumnya dibagi antara kedua transaksi ini."
   },
   "swapGasFeesSummary": {
-    "message": "Biaya gas dibayarkan kepada penambang kripto yang memproses transaksi di jaringan $1. MetaMask tidak mengambil keuntungan dari biaya gas.",
+    "message": "Biaya gas dibayarkan kepada penambang kripto yang memproses transaksi di jaringan $1. Acria Wallet tidak mengambil keuntungan dari biaya gas.",
     "description": "$1 is the selected network, e.g. Ethereum or BSC"
   },
   "swapHighSlippageWarning": {
     "message": "Jumlah slippage sangat tinggi."
   },
   "swapIncludesMMFee": {
-    "message": "Termasuk $1% biaya MetaMask.",
+    "message": "Termasuk $1% biaya Acria Wallet.",
     "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapLowSlippageError": {
@@ -3401,10 +3401,10 @@
   "swapMaxSlippage": {
     "message": "Slippage maks"
   },
-  "swapMetaMaskFee": {
-    "message": "Biaya MetaMask"
+  "swapAcriaWalletFee": {
+    "message": "Biaya Acria Wallet"
   },
-  "swapMetaMaskFeeDescription": {
+  "swapAcriaWalletFeeDescription": {
     "message": "Kami menemukan harga terbaik dari sumber likuiditas teratas, setiap waktu. Biaya sebesar $1% otomatis diperhitungkan ke kuotasi ini.",
     "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
@@ -3589,7 +3589,7 @@
     "message": "Lihat di laman aktivitas"
   },
   "switchEthereumChainConfirmationDescription": {
-    "message": "Ini akan mengalihkan jaringan yang dipilih dalam MetaMask ke jaringan yang ditambahkan sebelumnya:"
+    "message": "Ini akan mengalihkan jaringan yang dipilih dalam Acria Wallet ke jaringan yang ditambahkan sebelumnya:"
   },
   "switchEthereumChainConfirmationTitle": {
     "message": "Izinkan situs ini untuk beralih jaringan?"
@@ -3629,16 +3629,16 @@
     "message": "Pastikan tidak ada orang lain yang melihat layar Anda saat memindai kode ini"
   },
   "syncWithMobileComplete": {
-    "message": "Data Anda telah berhasil disinkronkan. Nikmati aplikasi seluler MetaMask!"
+    "message": "Data Anda telah berhasil disinkronkan. Nikmati aplikasi seluler Acria Wallet!"
   },
   "syncWithMobileDesc": {
-    "message": "Anda dapat menyinkronkan akun dan informasi dengan perangkat seluler Anda. Buka aplikasi seluler MetaMask, buka \"Pengaturan\" dan ketuk \"Sinkronkan dari Ekstensi Peramban\""
+    "message": "Anda dapat menyinkronkan akun dan informasi dengan perangkat seluler Anda. Buka aplikasi seluler Acria Wallet, buka \"Pengaturan\" dan ketuk \"Sinkronkan dari Ekstensi Peramban\""
   },
   "syncWithMobileDescNewUsers": {
-    "message": "Jika Anda baru membuka aplikasi seluler MetaMask untuk pertama kali, cukup ikuti langkah-langkah yang ada di ponsel Anda."
+    "message": "Jika Anda baru membuka aplikasi seluler Acria Wallet untuk pertama kali, cukup ikuti langkah-langkah yang ada di ponsel Anda."
   },
   "syncWithMobileScanThisCode": {
-    "message": "Pindai kode ini dengan aplikasi seluler MetaMask Anda"
+    "message": "Pindai kode ini dengan aplikasi seluler Acria Wallet Anda"
   },
   "syncWithMobileTitle": {
     "message": "Sinkronkan dengan seluler"
@@ -3671,7 +3671,7 @@
     "message": "Tema"
   },
   "themeDescription": {
-    "message": "Pilih tema MetaMask yang Anda sukai."
+    "message": "Pilih tema Acria Wallet yang Anda sukai."
   },
   "thisWillCreate": {
     "message": "Ini akan membuat Frasa Pemulihan Rahasia dan dompet baru"
@@ -3764,7 +3764,7 @@
     "message": "Situs yang disarankan"
   },
   "transactionDetailDappGasTooltip": {
-    "message": "Edit untuk menggunakan biaya gas yang direkomendasikan MetaMask berdasarkan blok terbaru."
+    "message": "Edit untuk menggunakan biaya gas yang direkomendasikan Acria Wallet berdasarkan blok terbaru."
   },
   "transactionDetailGasHeading": {
     "message": "Estimasi biaya gas"
@@ -3779,7 +3779,7 @@
     "message": "Biaya gas ditetapkan oleh jaringan dan berfluktuasi berdasarkan lalu lintas jaringan dan kompleksitas transaksi."
   },
   "transactionDetailGasTooltipIntro": {
-    "message": "Biaya gas dibayarkan kepada penambang kripto yang memproses transaksi di jaringan $1. MetaMask tidak mengambil keuntungan dari biaya gas."
+    "message": "Biaya gas dibayarkan kepada penambang kripto yang memproses transaksi di jaringan $1. Acria Wallet tidak mengambil keuntungan dari biaya gas."
   },
   "transactionDetailGasTotalSubtitle": {
     "message": "Jumlah + biaya gas"
@@ -3849,7 +3849,7 @@
     "description": "$1 is the wallet device name; $2 is a link to wallet connection guide"
   },
   "troubleStarting": {
-    "message": "MetaMask mengalami masalah saat memulai. Kesalahan ini dapat terjadi berselang, coba mulai ulang ekstensi."
+    "message": "Acria Wallet mengalami masalah saat memulai. Kesalahan ini dapat terjadi berselang, coba mulai ulang ekstensi."
   },
   "troubleTokenBalances": {
     "message": "Kami mengalami masalah saat memuat saldo token Anda. Anda dapat melihatnya ",
@@ -3871,14 +3871,14 @@
     "message": "Pemahaman transaksi tidak didukung untuk kontrak ini saat ini."
   },
   "typePassword": {
-    "message": "Ketikkan kata sandi MetaMask Anda"
+    "message": "Ketikkan kata sandi Acria Wallet Anda"
   },
   "typeYourSRP": {
     "message": "Ketik Frasa Pemulihan Rahasia"
   },
   "u2f": {
     "message": "U2F",
-    "description": "A name on an API for the browser to interact with devices that support the U2F protocol. On some browsers we use it to connect MetaMask to Ledger devices."
+    "description": "A name on an API for the browser to interact with devices that support the U2F protocol. On some browsers we use it to connect Acria Wallet to Ledger devices."
   },
   "unapproved": {
     "message": "Tidak disetujui"
@@ -4012,10 +4012,10 @@
     "message": "Anda telah berhasil melindungi dompet Anda. Jaga agar Frasa Pemulihan Rahasia tetap aman dan terlindungi -- ini merupakan tanggung jawab Anda!"
   },
   "walletCreationSuccessReminder1": {
-    "message": "MetaMask tidak dapat memulihkan Frasa Pemulihan Rahasia Anda."
+    "message": "Acria Wallet tidak dapat memulihkan Frasa Pemulihan Rahasia Anda."
   },
   "walletCreationSuccessReminder2": {
-    "message": "MetaMask tidak akan pernah menanyakan Frasa Pemulihan Rahasia Anda."
+    "message": "Acria Wallet tidak akan pernah menanyakan Frasa Pemulihan Rahasia Anda."
   },
   "walletCreationSuccessReminder3": {
     "message": "$1 dengan siapa pun atau dana Anda berisiko dicuri",
@@ -4046,7 +4046,7 @@
     "description": "Refers to a interface for connecting external devices to the browser. Used for connecting ledger to the browser. Read more here https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API"
   },
   "welcome": {
-    "message": "Selamat datang di MetaMask"
+    "message": "Selamat datang di Acria Wallet"
   },
   "welcomeBack": {
     "message": "Selamat Datang Kembali!"
@@ -4058,20 +4058,20 @@
     "message": "Jelajahi aplikasi terdesentralisasi"
   },
   "welcomeLoginDescription": {
-    "message": "Gunakan MetaMask Anda untuk masuk ke aplikasi terdesentralisasi - tak perlu mendaftar."
+    "message": "Gunakan Acria Wallet Anda untuk masuk ke aplikasi terdesentralisasi - tak perlu mendaftar."
   },
   "welcomeLoginTitle": {
     "message": "Ucapkan halo pada dompet Anda"
   },
-  "welcomeToMetaMask": {
+  "welcomeToAcriaWallet": {
     "message": "Mari kita mulai"
   },
-  "welcomeToMetaMaskIntro": {
-    "message": "MetaMask merupakan dompet aman yang dipercaya oleh jutaan orang, yang membuat dunia web3 dapat diakses oleh semua orang."
+  "welcomeToAcriaWalletIntro": {
+    "message": "Acria Wallet merupakan dompet aman yang dipercaya oleh jutaan orang, yang membuat dunia web3 dapat diakses oleh semua orang."
   },
   "whatsNew": {
     "message": "Apa yang baru",
-    "description": "This is the title of a popup that gives users notifications about new features and updates to MetaMask."
+    "description": "This is the title of a popup that gives users notifications about new features and updates to Acria Wallet."
   },
   "whatsThis": {
     "message": "Apa ini?"

@@ -59,18 +59,18 @@ const AddNetwork = () => {
   const [showPopover, setShowPopover] = useState(false);
 
   useEffect(() => {
-    const anAddNetworkConfirmationFromMetaMaskExists =
+    const anAddNetworkConfirmationFromAcriaWalletExists =
       unapprovedConfirmations?.find((confirmation) => {
         return (
           confirmation.origin === 'metamask' &&
           confirmation.type === MESSAGE_TYPE.ADD_ETHEREUM_CHAIN
         );
       });
-    if (!showPopover && anAddNetworkConfirmationFromMetaMaskExists) {
+    if (!showPopover && anAddNetworkConfirmationFromAcriaWalletExists) {
       setShowPopover(true);
     }
 
-    if (showPopover && !anAddNetworkConfirmationFromMetaMaskExists) {
+    if (showPopover && !anAddNetworkConfirmationFromAcriaWalletExists) {
       setShowPopover(false);
     }
   }, [unapprovedConfirmations, showPopover]);

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useI18nContext } from '../../../hooks/useI18nContext';
-import MetaMaskTemplateRenderer, {
+import AcriaWalletTemplateRenderer, {
   SectionShape,
 } from '../metamask-template-renderer/metamask-template-renderer';
 
 /**
- * MetaMaskTranslation is a simple helper component for adding full translation
+ * AcriaWalletTranslation is a simple helper component for adding full translation
  * support to the template system. We do pass the translation function to the
  * template getValues function, but passing it React components as variables
  * would require React to be in scope, and breaks the object pattern paradigm.
@@ -25,7 +25,7 @@ import MetaMaskTemplateRenderer, {
  * @param options.translationKey
  * @param options.variables
  */
-export default function MetaMaskTranslation({ translationKey, variables }) {
+export default function AcriaWalletTranslation({ translationKey, variables }) {
   const t = useI18nContext();
 
   return t(
@@ -38,7 +38,7 @@ export default function MetaMaskTranslation({ translationKey, variables }) {
       ) {
         if (!variable.key) {
           throw new Error(
-            `When using MetaMask Template Language in a MetaMaskTranslation variable, you must provide a key for the section regardless of syntax.
+            `When using AcriaWallet Template Language in a AcriaWalletTranslation variable, you must provide a key for the section regardless of syntax.
             Section with element '${variable.element}' for translationKey: '${translationKey}' has no key property`,
           );
         }
@@ -48,7 +48,7 @@ export default function MetaMaskTranslation({ translationKey, variables }) {
           variable.children.length > 2
         ) {
           throw new Error(
-            'MetaMaskTranslation only renders templates with a single section and maximum two children',
+            'AcriaWalletTranslation only renders templates with a single section and maximum two children',
           );
         } else if (
           (variable.children?.[0]?.children !== undefined &&
@@ -57,11 +57,11 @@ export default function MetaMaskTranslation({ translationKey, variables }) {
             typeof variable.children[1].children !== 'string')
         ) {
           throw new Error(
-            'MetaMaskTranslation does not allow for component trees of non trivial depth',
+            'AcriaWalletTranslation does not allow for component trees of non trivial depth',
           );
         }
         return (
-          <MetaMaskTemplateRenderer
+          <AcriaWalletTemplateRenderer
             key={`${translationKey}-${variable.key}`}
             sections={variable}
           />
@@ -72,13 +72,13 @@ export default function MetaMaskTranslation({ translationKey, variables }) {
   );
 }
 
-MetaMaskTranslation.propTypes = {
+AcriaWalletTranslation.propTypes = {
   /**
    * Translation object key
    */
   translationKey: PropTypes.string.isRequired,
   /**
-   * Array of variables for the MetaMaskTranslation component
+   * Array of variables for the AcriaWalletTranslation component
    */
   variables: PropTypes.arrayOf(
     PropTypes.oneOfType([

@@ -17,7 +17,7 @@ const ZENDESK_URLS = {
     'https://metamask.zendesk.com/hc/en-us/articles/360059386712',
   LEGACY_WEB3: 'https://metamask.zendesk.com/hc/en-us/articles/360053147012',
   NFT_TOKENS:
-    'https://metamask.zendesk.com/hc/en-us/articles/360058238591-NFT-tokens-in-MetaMask-wallet',
+    'https://metamask.zendesk.com/hc/en-us/articles/360058238591-NFT-tokens-in-AcriaWallet-wallet',
   PASSWORD_ARTICLE:
     'https://metamask.zendesk.com/hc/en-us/articles/4404722782107',
   SECRET_RECOVERY_PHRASE:

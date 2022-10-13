@@ -101,7 +101,7 @@ export async function estimateGasLimitForSend({
       // TODO: Figure out what's going on here. According to eth_estimateGas
       // docs this value can be zero, or undefined, yet we are setting it to a
       // value here when the value is undefined or zero. For more context:
-      // https://github.com/MetaMask/metamask-extension/pull/6195
+      // https://github.com/AcriaWallet/metamask-extension/pull/6195
       paramsForGasEstimate.value = '0xff';
     }
   }

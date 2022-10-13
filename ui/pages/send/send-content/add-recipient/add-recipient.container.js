@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import {
   getAddressBook,
   getAddressBookEntry,
-  getMetaMaskAccountsOrdered,
+  getAcriaWalletAccountsOrdered,
 } from '../../../../selectors';
 
 import {
@@ -35,7 +35,7 @@ function mapStateToProps(state) {
 
   const addressBook = getAddressBook(state);
 
-  const ownedAccounts = getMetaMaskAccountsOrdered(state);
+  const ownedAccounts = getAcriaWalletAccountsOrdered(state);
 
   return {
     addressBook,

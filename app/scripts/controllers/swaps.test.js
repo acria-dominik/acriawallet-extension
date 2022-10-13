@@ -434,7 +434,7 @@ describe('SwapsController', function () {
           performance: '0.0297',
           fee: '0.02',
           metaMaskFee: '0.0205',
-          medianMetaMaskFee: '0.0202',
+          medianAcria WalletFee: '0.0202',
         };
 
         const [topAggId, resultQuotes] =
@@ -582,7 +582,7 @@ describe('SwapsController', function () {
               performance: '0.0297',
               fee: '0.015',
               metaMaskFee: '0.0204',
-              medianMetaMaskFee: '0.0201',
+              medianAcria WalletFee: '0.0201',
             },
           },
           [TEST_AGG_ID_3]: {
@@ -645,7 +645,7 @@ describe('SwapsController', function () {
               performance: '0.0297',
               fee: '0.015',
               metaMaskFee: '0.0204',
-              medianMetaMaskFee: '0.0201',
+              medianAcria WalletFee: '0.0201',
             },
           },
         };
@@ -694,7 +694,7 @@ describe('SwapsController', function () {
             metaMaskFee: '0.5050505050505050505',
             performance: '6',
             total: '5.4949494949494949495',
-            medianMetaMaskFee: '0.44444444444444444444',
+            medianAcria WalletFee: '0.44444444444444444444',
           },
           ethFee: '5.033165',
           overallValueOfQuote: '44.966835',
@@ -1350,7 +1350,7 @@ function getTopQuoteAndSavingsBaseExpectedResults() {
         performance: '0.0396',
         fee: '0.025',
         metaMaskFee: '0.0205',
-        medianMetaMaskFee: '0.0201',
+        medianAcria WalletFee: '0.0201',
       },
     },
     [TEST_AGG_ID_2]: {

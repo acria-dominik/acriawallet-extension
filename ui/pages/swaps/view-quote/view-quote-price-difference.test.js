@@ -78,7 +78,7 @@ describe('View Price Quote Difference', () => {
         fee: '0.005581',
         metaMaskFee: '0.00875844985551091729',
         total: '-0.0010983796043856393',
-        medianMetaMaskFee: '0.00874009740688812165',
+        medianAcriaWalletFee: '0.00874009740688812165',
       },
     },
     sourceTokenValue: '1',

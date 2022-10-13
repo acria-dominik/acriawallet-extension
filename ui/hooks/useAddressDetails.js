@@ -3,14 +3,14 @@ import { useSelector } from 'react-redux';
 import { toChecksumHexAddress } from '../../shared/modules/hexstring-utils';
 import {
   getAddressBook,
-  getMetaMaskIdentities,
+  getAcriaWalletIdentities,
   getTokenList,
 } from '../selectors';
 import { shortenAddress } from '../helpers/utils/util';
 
 const useAddressDetails = (toAddress) => {
   const addressBook = useSelector(getAddressBook);
-  const identities = useSelector(getMetaMaskIdentities);
+  const identities = useSelector(getAcriaWalletIdentities);
   const tokenList = useSelector(getTokenList);
   const checksummedAddress = toChecksumHexAddress(toAddress);
 

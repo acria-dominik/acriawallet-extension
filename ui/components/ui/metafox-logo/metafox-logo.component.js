@@ -27,15 +27,18 @@ export default class MetaFoxLogo extends PureComponent {
           'app-header__logo-container--clickable': Boolean(onClick),
         })}
       >
-        <MetaFoxHorizontalLogo
+        <img
+          src="./images/logo/acria_horizontal.png"
+          style={{paddingTop: 10 + 'px', paddingBottom: 10 + 'px'}}
           className={classnames({
             'app-header__metafox-logo--horizontal': !isOnboarding,
             'onboarding-app-header__metafox-logo--horizontal': isOnboarding,
           })}
+          alt=""
         />
         <img
           {...iconProps}
-          src="./images/logo/metamask-fox.svg"
+          src="./images/logo/acria_circles.png"
           className={classnames({
             'app-header__metafox-logo--icon': !isOnboarding,
             'onboarding-app-header__metafox-logo--icon': isOnboarding,

@@ -33,7 +33,7 @@
     "message": "aktivitetslog"
   },
   "addAcquiredTokens": {
-    "message": "Tilføj de tokens du har erhvervet ved hjælp af MetaMask"
+    "message": "Tilføj de tokens du har erhvervet ved hjælp af Acria Wallet"
   },
   "addAlias": {
     "message": "Tilføj alias"
@@ -61,15 +61,15 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Acria Wallet",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMask Beta",
+    "message": "Acria Wallet Beta",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
-    "message": "MetaMask Flask",
+    "message": "Acria Wallet Flask",
     "description": "The name of the application (Flask)"
   },
   "approve": {
@@ -97,7 +97,7 @@
     "message": "Timer for automatisk udlogning (minutter)"
   },
   "autoLockTimeLimitDescription": {
-    "message": "Indstil den passive tid i minutter, før MetaMask automatisk logger dig ud"
+    "message": "Indstil den passive tid i minutter, før Acria Wallet automatisk logger dig ud"
   },
   "average": {
     "message": "Gennemsnit"
@@ -109,7 +109,7 @@
     "message": "Tilbage til Alle"
   },
   "backupApprovalInfo": {
-    "message": "Den hemmelige kode er påkrævet for at gendanne din pung, hvis du mister din enhed, glemmer dit kodeord, er nødt til at geninstallere MetaMask eller ønsker adgang til din pung fra en anden enhed."
+    "message": "Den hemmelige kode er påkrævet for at gendanne din pung, hvis du mister din enhed, glemmer dit kodeord, er nødt til at geninstallere Acria Wallet eller ønsker adgang til din pung fra en anden enhed."
   },
   "backupApprovalNotice": {
     "message": "Sikkerhedskopiér din Hemmelige Gendannelseskode for at holde din tegnebog og dine penge sikre."
@@ -140,7 +140,7 @@
     "message": "Køb $1 med Wyre"
   },
   "buyWithWyreDescription": {
-    "message": "Wyre lader dig bruge et kreditkort til at indbetale $1 på din MetaMask-konto."
+    "message": "Wyre lader dig bruge et kreditkort til at indbetale $1 på din Acria Wallet-konto."
   },
   "bytes": {
     "message": "Byte"
@@ -158,7 +158,7 @@
     "message": "Kæde-ID"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "Du skal bruge MetaMask i Google Chrome for at forbinde med din Hardware Wallet."
+    "message": "Du skal bruge Acria Wallet i Google Chrome for at forbinde med din Hardware Wallet."
   },
   "clickToRevealSeed": {
     "message": "Klik her for at se hemmelige ord"
@@ -308,13 +308,13 @@
     "message": "Del aldrig frasen med nogen."
   },
   "endOfFlowMessage5": {
-    "message": "Vær varsom med phishing! MetaMask vil aldrig spontant bede om din seedfrase."
+    "message": "Vær varsom med phishing! Acria Wallet vil aldrig spontant bede om din seedfrase."
   },
   "endOfFlowMessage6": {
     "message": "Hvis du får brug for at lave en backup af din seedfrase igen, kan du finde det under Indstillinger -> Sikkerhed."
   },
   "endOfFlowMessage8": {
-    "message": "MetaMask kan ikke gendanne din seed-sætning. Få mere at vide."
+    "message": "Acria Wallet kan ikke gendanne din seed-sætning. Få mere at vide."
   },
   "endOfFlowMessage9": {
     "message": "Lær mere. "
@@ -412,7 +412,7 @@
     "message": "Tilslut en hardware-tegnebog"
   },
   "hardwareWalletsMsg": {
-    "message": "Vælg en hardware-pung du vil bruge med MetaMask"
+    "message": "Vælg en hardware-pung du vil bruge med Acria Wallet"
   },
   "here": {
     "message": "her",
@@ -438,7 +438,7 @@
     "message": "Importer konto"
   },
   "importAccountMsg": {
-    "message": "Importerede konti vil ikke blive forbundet med din oprindeligt oprettede seed-sætning for din MetaMask-konto. Få mere at vide om importerede konti"
+    "message": "Importerede konti vil ikke blive forbundet med din oprindeligt oprettede seed-sætning for din Acria Wallet-konto. Få mere at vide om importerede konti"
   },
   "importAccountSeedPhrase": {
     "message": "Importér en Konto med Seedfrase"
@@ -573,8 +573,8 @@
   "newPassword": {
     "message": "Ny adgangskode (min. 8 tegn)"
   },
-  "newToMetaMask": {
-    "message": "Ny på MetaMask?"
+  "newToAcriaWallet": {
+    "message": "Ny på Acria Wallet?"
   },
   "newTotal": {
     "message": "Ny Sum"
@@ -625,7 +625,7 @@
     "message": "Deltag i MetaMetrics"
   },
   "participateInMetaMetricsDescription": {
-    "message": "Deltag i MetaMetrics for at hjælpe os med at gøre MetaMask bedre"
+    "message": "Deltag i MetaMetrics for at hjælpe os med at gøre Acria Wallet bedre"
   },
   "password": {
     "message": "Adgangskode"
@@ -882,16 +882,16 @@
     "message": "Sørg for at der ikke er nogen der kigger på din skærm, når du scanner denne kode"
   },
   "syncWithMobileComplete": {
-    "message": "Dine data er blevet synkroniseret korrekt. Nyd MetaMask-mobilappen!"
+    "message": "Dine data er blevet synkroniseret korrekt. Nyd Acria Wallet-mobilappen!"
   },
   "syncWithMobileDesc": {
-    "message": "Du kan synkronisere dine konti og informationer med din mobilenhed. Åbn MetaMask-mobilappen, gå til \"Indstillinger\" og tryk på \"Synkroniser fra browserudvidelse\""
+    "message": "Du kan synkronisere dine konti og informationer med din mobilenhed. Åbn Acria Wallet-mobilappen, gå til \"Indstillinger\" og tryk på \"Synkroniser fra browserudvidelse\""
   },
   "syncWithMobileDescNewUsers": {
-    "message": "Hvis du netop har åbnet MetaMask-mobilappen for første gang, skal du blot følge trinnene på din telefon."
+    "message": "Hvis du netop har åbnet Acria Wallet-mobilappen for første gang, skal du blot følge trinnene på din telefon."
   },
   "syncWithMobileScanThisCode": {
-    "message": "Scan denne kode med din MetaMask-mobilapp"
+    "message": "Scan denne kode med din Acria Wallet-mobilapp"
   },
   "syncWithMobileTitle": {
     "message": "Synkroniser med mobil"
@@ -976,7 +976,7 @@
     "message": "Prøv igen"
   },
   "typePassword": {
-    "message": "Skriv din MetaMask-adgangskode"
+    "message": "Skriv din Acria Wallet-adgangskode"
   },
   "unapproved": {
     "message": "Ikke godkendt"
@@ -1027,7 +1027,7 @@
     "message": "Besøg vores webside"
   },
   "welcome": {
-    "message": "Velkommen til MetaMask"
+    "message": "Velkommen til Acria Wallet"
   },
   "welcomeBack": {
     "message": "Velkommen tilbage!"

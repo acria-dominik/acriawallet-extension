@@ -56,7 +56,7 @@ const t = (key) => {
     case 'autoLockTimeLimit':
       return 'Auto-lock timer (minutes)';
     case 'autoLockTimeLimitDescription':
-      return 'Set the idle time in minutes before MetaMask will become locked.';
+      return 'Set the idle time in minutes before AcriaWallet will become locked.';
     case 'syncWithThreeBox':
       return 'Sync data with 3Box (experimental)';
     case 'syncWithThreeBoxDescription':
@@ -88,7 +88,7 @@ const t = (key) => {
     case 'participateInMetaMetrics':
       return 'Participate in MetaMetrics';
     case 'participateInMetaMetricsDescription':
-      return 'Participate in MetaMetrics to help us make MetaMask better';
+      return 'Participate in MetaMetrics to help us make AcriaWallet better';
     case 'alerts':
       return 'Alerts';
     case 'alertSettingsUnconnectedAccount':
@@ -126,9 +126,9 @@ const t = (key) => {
     case 'about':
       return 'About';
     case 'metamaskVersion':
-      return 'MetaMask Version';
+      return 'AcriaWallet Version';
     case 'builtAroundTheWorld':
-      return 'MetaMask is designed and built around the world.';
+      return 'AcriaWallet is designed and built around the world.';
     case 'links':
       return 'Links';
     case 'privacyMsg':

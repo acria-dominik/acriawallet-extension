@@ -83,14 +83,14 @@ const QuoteDetails = ({
       <div className="quote-details__row quote-details__row--high">
         <div className="quote-details__detail-header">
           <img
-            src="./images/logo/metamask-fox.svg"
+            src="./images/logo/acria_circles.png"
             className="quote-details__metafox-logo"
             alt=""
           />
-          {t('swapMetaMaskFee')}
+          {t('swapAcriaWalletFee')}
         </div>
         <div className="quote-details__detail-content">
-          {t('swapMetaMaskFeeDescription', [metaMaskFee])}
+          {t('swapAcriaWalletFeeDescription', [metaMaskFee])}
         </div>
       </div>
     </div>

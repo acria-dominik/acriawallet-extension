@@ -3,10 +3,10 @@ import { setupLocale } from '.';
 const enMessages = {
   troubleStarting: {
     message:
-      'MetaMask had trouble starting. This error could be intermittent, so try restarting the extension.',
+      'AcriaWallet had trouble starting. This error could be intermittent, so try restarting the extension.',
   },
   restartMetamask: {
-    message: 'Restart MetaMask',
+    message: 'Restart AcriaWallet',
   },
   stillGettingMessage: {
     message: 'Still getting this message?',
@@ -19,7 +19,7 @@ const enMessages = {
 const esMessages = {
   troubleStarting: {
     message:
-      'MetaMask tuvo problemas para iniciarse. Este error podría ser intermitente, así que intente reiniciar la extensión.',
+      'AcriaWallet tuvo problemas para iniciarse. Este error podría ser intermitente, así que intente reiniciar la extensión.',
   },
   restartMetamask: {
     message: 'Reiniciar metamáscara',

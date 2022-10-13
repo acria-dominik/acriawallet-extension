@@ -169,7 +169,7 @@ export default function FeeCard({
               {t('swapIncludesMMFee', [metaMaskFee])}
               <InfoTooltip
                 position="top"
-                contentText={t('swapMetaMaskFeeDescription', [metaMaskFee])}
+                contentText={t('swapAcriaWalletFeeDescription', [metaMaskFee])}
                 wrapperClassName="fee-card__info-tooltip-container"
               />
             </div>

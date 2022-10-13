@@ -400,7 +400,7 @@ export default class MetamaskController extends EventEmitter {
     });
 
     this.on('update', (update) => {
-      this.metaMetricsController.handleMetaMaskStateUpdate(update);
+      this.metaMetricsController.handleAcriaWalletStateUpdate(update);
     });
 
     const gasFeeMessenger = this.controllerMessenger.getRestricted({
@@ -897,7 +897,7 @@ export default class MetamaskController extends EventEmitter {
           const transactionData = parseStandardTokenTransactionData(data);
           // Sometimes the tokenId value is parsed as "_value" param. Not seeing this often any more, but still occasionally:
           // i.e. call approve() on BAYC contract - https://etherscan.io/token/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d#writeContract, and tokenId shows up as _value,
-          // not sure why since it doesn't match the ERC721 ABI spec we use to parse these transactions - https://github.com/MetaMask/metamask-eth-abis/blob/d0474308a288f9252597b7c93a3a8deaad19e1b2/src/abis/abiERC721.ts#L62.
+          // not sure why since it doesn't match the ERC721 ABI spec we use to parse these transactions - https://github.com/Acria Wallet/metamask-eth-abis/blob/d0474308a288f9252597b7c93a3a8deaad19e1b2/src/abis/abiERC721.ts#L62.
           const transactionDataTokenId =
             getTokenIdParam(transactionData) ??
             getTokenValueParam(transactionData);
@@ -1138,11 +1138,11 @@ export default class MetamaskController extends EventEmitter {
     this.setupControllerEventSubscriptions();
 
     // For more information about these legacy streams, see here:
-    // https://github.com/MetaMask/metamask-extension/issues/15491
+    // https://github.com/Acria Wallet/metamask-extension/issues/15491
     // TODO:LegacyProvider: Delete
     this.publicConfigStore = this.createPublicConfigStore();
 
-    // Multiple MetaMask instances launched warning
+    // Multiple Acria Wallet instances launched warning
     this.extension.runtime.onMessageExternal.addListener(onMessageReceived);
     // Fire a ping message to check if other extensions are running
     checkForMultipleVersionsRunning();
@@ -1240,7 +1240,7 @@ export default class MetamaskController extends EventEmitter {
    * for more information.
    *
    * Note that account-related notifications emitted when the extension
-   * becomes unlocked are handled in MetaMaskController._onUnlock.
+   * becomes unlocked are handled in Acria WalletController._onUnlock.
    */
   setupControllerEventSubscriptions() {
     const handleAccountsChange = async (origin, newAccounts) => {
@@ -1372,7 +1372,7 @@ export default class MetamaskController extends EventEmitter {
     const providerOpts = {
       static: {
         eth_syncing: false,
-        web3_clientVersion: `MetaMask/v${version}`,
+        web3_clientVersion: `Acria Wallet/v${version}`,
       },
       version,
       // account mgmt
@@ -1469,7 +1469,7 @@ export default class MetamaskController extends EventEmitter {
   /**
    * Gets network state relevant for external providers.
    *
-   * @param {object} [memState] - The MetaMask memState. If not provided,
+   * @param {object} [memState] - The Acria Wallet memState. If not provided,
    * this function will retrieve the most recent state.
    * @returns {object} An object with relevant network state properties.
    */
@@ -2073,7 +2073,7 @@ export default class MetamaskController extends EventEmitter {
     }
   }
 
-  async requestAddNetworkApproval(customRpc, originIsMetaMask) {
+  async requestAddNetworkApproval(customRpc, originIsAcriaWallet) {
     try {
       await this.approvalController.addAndShowApprovalRequest({
         origin: 'metamask',
@@ -2089,7 +2089,7 @@ export default class MetamaskController extends EventEmitter {
       });
     } catch (error) {
       if (
-        !(originIsMetaMask && error.message === 'User rejected the request.')
+        !(originIsAcriaWallet && error.message === 'User rejected the request.')
       ) {
         throw error;
       }
@@ -2203,7 +2203,7 @@ export default class MetamaskController extends EventEmitter {
 
       // This must be set as soon as possible to communicate to the
       // keyring's iframe and have the setting initialized properly
-      // Optimistically called to not block MetaMask login due to
+      // Optimistically called to not block Acria Wallet login due to
       // Ledger Keyring GitHub downtime
       const transportPreference =
         this.preferencesController.getLedgerTransportPreference();
@@ -2380,7 +2380,7 @@ export default class MetamaskController extends EventEmitter {
 
     // This must be set as soon as possible to communicate to the
     // keyring's iframe and have the setting initialized properly
-    // Optimistically called to not block MetaMask login due to
+    // Optimistically called to not block Acria Wallet login due to
     // Ledger Keyring GitHub downtime
     const transportPreference =
       this.preferencesController.getLedgerTransportPreference();
@@ -2460,7 +2460,7 @@ export default class MetamaskController extends EventEmitter {
       keyring.setHdPath(hdPath);
     }
     if (deviceName === DEVICE_NAMES.LATTICE) {
-      keyring.appName = 'MetaMask';
+      keyring.appName = 'Acria Wallet';
     }
     if (deviceName === DEVICE_NAMES.TREZOR) {
       const model = keyring.getModel();
@@ -2543,10 +2543,10 @@ export default class MetamaskController extends EventEmitter {
 
   /**
    * Retrieves the keyring for the selected address and using the .type returns
-   * a subtype for the account. Either 'hardware', 'imported' or 'MetaMask'.
+   * a subtype for the account. Either 'hardware', 'imported' or 'Acria Wallet'.
    *
    * @param {string} address - Address to retrieve keyring for
-   * @returns {'hardware' | 'imported' | 'MetaMask'}
+   * @returns {'hardware' | 'imported' | 'Acria Wallet'}
    */
   async getAccountType(address) {
     const keyring = await this.keyringController.getKeyringForAccount(address);
@@ -2559,7 +2559,7 @@ export default class MetamaskController extends EventEmitter {
       case KEYRING_TYPES.IMPORTED:
         return 'imported';
       default:
-        return 'MetaMask';
+        return 'Acria Wallet';
     }
   }
 
@@ -2860,7 +2860,7 @@ export default class MetamaskController extends EventEmitter {
     let promise;
     // 64 hex + "0x" at the beginning
     // This is needed because Ethereum's EcSign works only on 32 byte numbers
-    // For 67 length see: https://github.com/MetaMask/metamask-extension/pull/12679/files#r749479607
+    // For 67 length see: https://github.com/Acria Wallet/metamask-extension/pull/12679/files#r749479607
     if (data.length === 66 || data.length === 67) {
       promise = this.messageManager.addUnapprovedMessageAsync(msgParams, req);
       this.sendUpdate();
@@ -2906,7 +2906,7 @@ export default class MetamaskController extends EventEmitter {
    * @returns {Promise<object>} Full state update.
    */
   async signMessage(msgParams) {
-    log.info('MetaMaskController - signMessage');
+    log.info('Acria WalletController - signMessage');
     const msgId = msgParams.metamaskId;
     try {
       // sets the status op the message to 'approved'
@@ -2918,7 +2918,7 @@ export default class MetamaskController extends EventEmitter {
       this.messageManager.setMsgStatusSigned(msgId, rawSig);
       return this.getState();
     } catch (error) {
-      log.info('MetaMaskController - eth_sign failed', error);
+      log.info('Acria WalletController - eth_sign failed', error);
       this.messageManager.errorMessage(msgId, error);
       throw error;
     }
@@ -2965,7 +2965,7 @@ export default class MetamaskController extends EventEmitter {
    * @returns {Promise<object>} A full state update.
    */
   async signPersonalMessage(msgParams) {
-    log.info('MetaMaskController - signPersonalMessage');
+    log.info('Acria WalletController - signPersonalMessage');
     const msgId = msgParams.metamaskId;
     // sets the status op the message to 'approved'
     // and removes the metamaskId for signing
@@ -2981,7 +2981,7 @@ export default class MetamaskController extends EventEmitter {
       this.personalMessageManager.setMsgStatusSigned(msgId, rawSig);
       return this.getState();
     } catch (error) {
-      log.info('MetaMaskController - eth_personalSign failed', error);
+      log.info('Acria WalletController - eth_personalSign failed', error);
       this.personalMessageManager.errorMessage(msgId, error);
       throw error;
     }
@@ -3024,7 +3024,7 @@ export default class MetamaskController extends EventEmitter {
    * @returns {Promise<object>} A full state update.
    */
   async decryptMessageInline(msgParams) {
-    log.info('MetaMaskController - decryptMessageInline');
+    log.info('Acria WalletController - decryptMessageInline');
     // decrypt the message inline
     const msgId = msgParams.metamaskId;
     const msg = this.decryptMessageManager.getMsg(msgId);
@@ -3050,7 +3050,7 @@ export default class MetamaskController extends EventEmitter {
    * @returns {Promise<object>} A full state update.
    */
   async decryptMessage(msgParams) {
-    log.info('MetaMaskController - decryptMessage');
+    log.info('Acria WalletController - decryptMessage');
     const msgId = msgParams.metamaskId;
     // sets the status op the message to 'approved'
     // and removes the metamaskId for decryption
@@ -3070,7 +3070,7 @@ export default class MetamaskController extends EventEmitter {
       // tells the listener that the message has been decrypted and can be returned to the dapp
       this.decryptMessageManager.setMsgStatusDecrypted(msgId, rawMess);
     } catch (error) {
-      log.info('MetaMaskController - eth_decrypt failed.', error);
+      log.info('Acria WalletController - eth_decrypt failed.', error);
       this.decryptMessageManager.errorMessage(msgId, error);
     }
     return this.getState();
@@ -3152,7 +3152,7 @@ export default class MetamaskController extends EventEmitter {
    * @returns {Promise<object>} A full state update.
    */
   async encryptionPublicKey(msgParams) {
-    log.info('MetaMaskController - encryptionPublicKey');
+    log.info('Acria WalletController - encryptionPublicKey');
     const msgId = msgParams.metamaskId;
     // sets the status op the message to 'approved'
     // and removes the metamaskId for decryption
@@ -3171,7 +3171,7 @@ export default class MetamaskController extends EventEmitter {
       this.encryptionPublicKeyManager.setMsgStatusReceived(msgId, publicKey);
     } catch (error) {
       log.info(
-        'MetaMaskController - eth_getEncryptionPublicKey failed.',
+        'Acria WalletController - eth_getEncryptionPublicKey failed.',
         error,
       );
       this.encryptionPublicKeyManager.errorMessage(msgId, error);
@@ -3218,7 +3218,7 @@ export default class MetamaskController extends EventEmitter {
    * @returns {object} Full state update.
    */
   async signTypedMessage(msgParams) {
-    log.info('MetaMaskController - eth_signTypedData');
+    log.info('Acria WalletController - eth_signTypedData');
     const msgId = msgParams.metamaskId;
     const { version } = msgParams;
     try {
@@ -3241,7 +3241,7 @@ export default class MetamaskController extends EventEmitter {
       this.typedMessageManager.setMsgStatusSigned(msgId, signature);
       return this.getState();
     } catch (error) {
-      log.info('MetaMaskController - eth_signTypedData failed.', error);
+      log.info('Acria WalletController - eth_signTypedData failed.', error);
       this.typedMessageManager.errorMessage(msgId, error);
       throw error;
     }
@@ -3280,7 +3280,7 @@ export default class MetamaskController extends EventEmitter {
    * ).CustomGasSettings} [customGasSettings] - overrides to use for gas params
    *  instead of allowing this method to generate them
    * @param newTxMetaProps
-   * @returns {object} MetaMask state
+   * @returns {object} Acria Wallet state
    */
   async createCancelTransaction(
     originalTxId,
@@ -3307,7 +3307,7 @@ export default class MetamaskController extends EventEmitter {
    * ).CustomGasSettings} [customGasSettings] - overrides to use for gas params
    *  instead of allowing this method to generate them
    * @param newTxMetaProps
-   * @returns {object} MetaMask state
+   * @returns {object} Acria Wallet state
    */
   async createSpeedUpTransaction(
     originalTxId,
@@ -3486,7 +3486,7 @@ export default class MetamaskController extends EventEmitter {
    * for sending the reload attempt to.
    * @param {string} hostname - The hostname that triggered the suspicion.
    * @param {object} phishingTestResponse - Result of calling `phishingController.test`,
-   * which is the result of calling eth-phishing-detects detector.check method https://github.com/MetaMask/eth-phishing-detect/blob/master/src/detector.js#L55-L112
+   * which is the result of calling eth-phishing-detects detector.check method https://github.com/Acria Wallet/eth-phishing-detect/blob/master/src/detector.js#L55-L112
    */
   sendPhishingWarning(connectionStream, hostname, phishingTestResponse) {
     const newIssueUrl = PHISHING_NEW_ISSUE_URLS[phishingTestResponse?.name];
@@ -3998,7 +3998,7 @@ export default class MetamaskController extends EventEmitter {
 
     // In the current implementation, this handler is triggered by a
     // KeyringController event. Other controllers subscribe to the 'unlock'
-    // event of the MetaMaskController itself.
+    // event of the Acria WalletController itself.
     this.emit('unlock');
   }
 
@@ -4016,7 +4016,7 @@ export default class MetamaskController extends EventEmitter {
 
     // In the current implementation, this handler is triggered by a
     // KeyringController event. Other controllers subscribe to the 'lock'
-    // event of the MetaMaskController itself.
+    // event of the Acria WalletController itself.
     this.emit('lock');
   }
 
@@ -4039,7 +4039,7 @@ export default class MetamaskController extends EventEmitter {
   // misc
 
   /**
-   * A method for emitting the full MetaMask state to all registered listeners.
+   * A method for emitting the full Acria Wallet state to all registered listeners.
    *
    * @private
    */
@@ -4298,7 +4298,7 @@ export default class MetamaskController extends EventEmitter {
   // TODO: Replace isClientOpen methods with `controllerConnectionChanged` events.
   /* eslint-disable accessor-pairs */
   /**
-   * A method for recording whether the MetaMask user interface is open or not.
+   * A method for recording whether the Acria Wallet user interface is open or not.
    *
    * @param {boolean} open
    */
@@ -4351,7 +4351,7 @@ export default class MetamaskController extends EventEmitter {
   }
 
   /**
-   * Locks MetaMask
+   * Locks Acria Wallet
    */
   setLocked() {
     const [trezorKeyring] = this.keyringController.getKeyringsByType(

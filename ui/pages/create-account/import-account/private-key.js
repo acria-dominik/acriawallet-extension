@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions';
-import { getMetaMaskAccounts } from '../../../selectors';
+import { getAcriaWalletAccounts } from '../../../selectors';
 import Button from '../../../components/ui/button';
 import { getMostRecentOverviewPage } from '../../../ducks/history/history';
 import { EVENT, EVENT_NAMES } from '../../../../shared/constants/metametrics';
@@ -142,7 +142,7 @@ export default compose(
 function mapStateToProps(state) {
   return {
     error: state.appState.warning,
-    firstAddress: Object.keys(getMetaMaskAccounts(state))[0],
+    firstAddress: Object.keys(getAcriaWalletAccounts(state))[0],
     mostRecentOverviewPage: getMostRecentOverviewPage(state),
   };
 }

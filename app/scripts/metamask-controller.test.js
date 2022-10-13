@@ -115,7 +115,7 @@ const createLoggerMiddlewareMock = () => (req, res, next) => {
   next();
 };
 
-const MetaMaskController = proxyquire('./metamask-controller', {
+const Acria WalletController = proxyquire('./metamask-controller', {
   './controllers/threebox': { default: ThreeBoxControllerMock },
   './lib/createLoggerMiddleware': { default: createLoggerMiddlewareMock },
 }).default;
@@ -133,7 +133,7 @@ const TEST_ADDRESS_ALT = '0xc42edfcc21ed14dda456aa0756c153f7985d8813';
 const CUSTOM_RPC_URL = 'http://localhost:8545';
 const CUSTOM_RPC_CHAIN_ID = '0x539';
 
-describe('MetaMaskController', function () {
+describe('Acria WalletController', function () {
   let metamaskController;
   const sandbox = sinon.createSandbox();
   const noop = () => undefined;
@@ -152,7 +152,7 @@ describe('MetaMaskController', function () {
       sendMessage: sandbox.stub().rejects(),
     });
 
-    metamaskController = new MetaMaskController({
+    metamaskController = new Acria WalletController({
       showUserConfirmation: noop,
       encryptor: {
         encrypt(_, object) {
@@ -985,7 +985,7 @@ describe('MetaMaskController', function () {
       } catch (error) {
         assert.equal(
           error.message,
-          'MetaMask Message Signature: from field is required.',
+          'Acria Wallet Message Signature: from field is required.',
         );
       }
     });

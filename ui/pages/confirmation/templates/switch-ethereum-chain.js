@@ -12,7 +12,7 @@ const PENDING_TX_DROP_NOTICE = {
   content: {
     element: 'span',
     children: {
-      element: 'MetaMaskTranslation',
+      element: 'AcriaWalletTranslation',
       props: {
         translationKey: 'switchingNetworksCancelsPendingConfirmations',
       },

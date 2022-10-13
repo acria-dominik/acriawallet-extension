@@ -22,7 +22,7 @@ const UNRECOGNIZED_CHAIN = {
   content: {
     element: 'span',
     children: {
-      element: 'MetaMaskTranslation',
+      element: 'AcriaWalletTranslation',
       props: {
         translationKey: 'unrecognizedChain',
       },
@@ -35,7 +35,7 @@ const MISMATCHED_CHAIN_RECOMMENDATION = {
   content: {
     element: 'span',
     children: {
-      element: 'MetaMaskTranslation',
+      element: 'AcriaWalletTranslation',
       props: {
         translationKey: 'mismatchedChainRecommendation',
         variables: [
@@ -48,7 +48,7 @@ const MISMATCHED_CHAIN_RECOMMENDATION = {
               tabIndex: 0,
             },
             children: {
-              element: 'MetaMaskTranslation',
+              element: 'AcriaWalletTranslation',
               props: {
                 translationKey: 'mismatchedChainLinkText',
               },
@@ -66,7 +66,7 @@ const MISMATCHED_NETWORK_NAME = {
   content: {
     element: 'span',
     children: {
-      element: 'MetaMaskTranslation',
+      element: 'AcriaWalletTranslation',
       props: {
         translationKey: 'mismatchedNetworkName',
       },
@@ -80,7 +80,7 @@ const MISMATCHED_NETWORK_SYMBOL = {
   content: {
     element: 'span',
     children: {
-      element: 'MetaMaskTranslation',
+      element: 'AcriaWalletTranslation',
       props: {
         translationKey: 'mismatchedNetworkSymbol',
       },
@@ -94,7 +94,7 @@ const MISMATCHED_NETWORK_RPC = {
   content: {
     element: 'span',
     children: {
-      element: 'MetaMaskTranslation',
+      element: 'AcriaWalletTranslation',
       props: {
         translationKey: 'mismatchedRpcUrl',
       },
@@ -111,8 +111,8 @@ async function getAlerts(pendingApproval) {
       chain.chainId === parseInt(pendingApproval.requestData.chainId, 16),
   );
 
-  const originIsMetaMask = pendingApproval.origin === 'metamask';
-  if (originIsMetaMask && Boolean(matchedChain)) {
+  const originIsAcriaWallet = pendingApproval.origin === 'metamask';
+  if (originIsAcriaWallet && Boolean(matchedChain)) {
     return [];
   }
 
@@ -147,12 +147,12 @@ async function getAlerts(pendingApproval) {
 }
 
 function getValues(pendingApproval, t, actions, history) {
-  const originIsMetaMask = pendingApproval.origin === 'metamask';
+  const originIsAcriaWallet = pendingApproval.origin === 'metamask';
 
   return {
     content: [
       {
-        hide: !originIsMetaMask,
+        hide: !originIsAcriaWallet,
         element: 'Box',
         key: 'network-box',
         props: {
@@ -177,7 +177,7 @@ function getValues(pendingApproval, t, actions, history) {
       {
         element: 'Typography',
         key: 'title',
-        children: originIsMetaMask
+        children: originIsAcriaWallet
           ? t('wantToAddThisNetwork')
           : t('addEthereumChainConfirmationTitle'),
         props: {
@@ -197,7 +197,7 @@ function getValues(pendingApproval, t, actions, history) {
           variant: TYPOGRAPHY.H7,
           align: 'center',
           boxProps: {
-            margin: originIsMetaMask ? [0, 8, 4] : [0, 0, 4],
+            margin: originIsAcriaWallet ? [0, 8, 4] : [0, 0, 4],
           },
         },
       },
@@ -209,12 +209,12 @@ function getValues(pendingApproval, t, actions, history) {
             element: 'b',
             key: 'bolded-text',
             props: {
-              style: { display: originIsMetaMask && '-webkit-box' },
+              style: { display: originIsAcriaWallet && '-webkit-box' },
             },
             children: [
               `${t('addEthereumChainConfirmationRisks')} `,
               {
-                hide: !originIsMetaMask,
+                hide: !originIsAcriaWallet,
                 element: 'Tooltip',
                 key: 'tooltip-info',
                 props: {
@@ -259,7 +259,7 @@ function getValues(pendingApproval, t, actions, history) {
             ],
           },
           {
-            element: 'MetaMaskTranslation',
+            element: 'AcriaWalletTranslation',
             key: 'learn-about-risks',
             props: {
               translationKey: 'addEthereumChainConfirmationRisksLearnMore',
@@ -280,7 +280,7 @@ function getValues(pendingApproval, t, actions, history) {
         props: {
           variant: TYPOGRAPHY.H7,
           boxProps: {
-            margin: originIsMetaMask ? [0, 8] : 0,
+            margin: originIsAcriaWallet ? [0, 8] : 0,
             display: DISPLAY.FLEX,
             flexDirection: FLEX_DIRECTION.COLUMN,
             alignItems: ALIGN_ITEMS.CENTER,
@@ -330,7 +330,7 @@ function getValues(pendingApproval, t, actions, history) {
         pendingApproval.id,
         pendingApproval.requestData,
       );
-      if (originIsMetaMask) {
+      if (originIsAcriaWallet) {
         actions.addCustomNetwork(pendingApproval.requestData);
         history.push(DEFAULT_ROUTE);
       }
@@ -340,7 +340,7 @@ function getValues(pendingApproval, t, actions, history) {
         pendingApproval.id,
         ethErrors.provider.userRejectedRequest().serialize(),
       ),
-    networkDisplay: !originIsMetaMask,
+    networkDisplay: !originIsAcriaWallet,
   };
 }
 

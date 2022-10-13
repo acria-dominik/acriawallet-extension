@@ -109,8 +109,8 @@ describe('Typed Message Manager', () => {
   });
 
   it('approves messages', async () => {
-    const messageMetaMaskId = messages[0].msgParams;
-    typedMessageManager.approveMessage(messageMetaMaskId);
+    const messageAcria WalletId = messages[0].msgParams;
+    typedMessageManager.approveMessage(messageAcria WalletId);
     expect(messages[0].status).toStrictEqual(TRANSACTION_STATUSES.APPROVED);
   });
 

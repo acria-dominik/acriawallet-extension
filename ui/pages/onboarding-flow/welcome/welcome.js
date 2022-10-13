@@ -40,10 +40,10 @@ export default function OnboardingWelcome() {
             align={TEXT_ALIGN.CENTER}
             fontWeight={FONT_WEIGHT.BOLD}
           >
-            {t('welcomeToMetaMask')}
+            {t('welcomeToAcriaWallet')}
           </Typography>
           <Typography align={TEXT_ALIGN.CENTER} marginLeft={6} marginRight={6}>
-            {t('welcomeToMetaMaskIntro')}
+            {t('welcomeToAcriaWalletIntro')}
           </Typography>
           <div className="onboarding-welcome__mascot">
             <Mascot

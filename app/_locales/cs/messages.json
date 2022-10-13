@@ -22,15 +22,15 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Acria Wallet",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMask Beta",
+    "message": "Acria Wallet Beta",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
-    "message": "MetaMask Flask",
+    "message": "Acria Wallet Flask",
     "description": "The name of the application (Flask)"
   },
   "approve": {
@@ -164,7 +164,7 @@
     "message": "Import účtu"
   },
   "importAccountMsg": {
-    "message": "Importované účty nebudou spojeny s vaší původní MetaMaskovou klíčovou frází. Zjistěte více o importovaných účtech "
+    "message": "Importované účty nebudou spojeny s vaší původní Acria Walletovou klíčovou frází. Zjistěte více o importovaných účtech "
   },
   "imported": {
     "message": "Importováno",
@@ -217,7 +217,7 @@
     "message": "Zpráva"
   },
   "metamaskDescription": {
-    "message": "MetaMask je bezpečný osobní trezor pro Ethereum."
+    "message": "Acria Wallet je bezpečný osobní trezor pro Ethereum."
   },
   "mustSelectOne": {
     "message": "Musíte zvolit aspoň 1 token."
@@ -417,7 +417,7 @@
     "message": "Navštivte naši stránku"
   },
   "welcome": {
-    "message": "Vítejte v MetaMask"
+    "message": "Vítejte v Acria Wallet"
   },
   "youSign": {
     "message": "Podepisujete"

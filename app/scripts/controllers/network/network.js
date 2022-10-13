@@ -384,7 +384,7 @@ export default class NetworkController extends EventEmitter {
         }
       }
     } catch (err) {
-      log.warn(`MetaMask - Infura availability check failed`, err);
+      log.warn(`Acria Wallet - Infura availability check failed`, err);
     }
   }
 

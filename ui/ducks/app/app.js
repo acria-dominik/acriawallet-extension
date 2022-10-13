@@ -45,7 +45,7 @@ export default function reduceApp(state = {}, action) {
     show3BoxModalAfterImport: false,
     threeBoxLastUpdated: null,
     requestAccountTabs: {},
-    openMetaMaskTabs: {},
+    openAcriaWalletTabs: {},
     currentWindowTab: {},
     showWhatsNewPopup: true,
     singleExceptions: {
@@ -355,7 +355,7 @@ export default function reduceApp(state = {}, action) {
     case actionConstants.SET_OPEN_METAMASK_TAB_IDS:
       return {
         ...appState,
-        openMetaMaskTabs: action.value,
+        openAcriaWalletTabs: action.value,
       };
 
     case actionConstants.SET_CURRENT_WINDOW_TAB:

@@ -4,8 +4,8 @@ import SignatureRequestSIWEHeader from '.';
 
 const primaryIdentity = Object.values(testData.metamask.identities)[0];
 const subjectMetadata = {
-  iconUrl: '/images/logo/metamask-fox.svg',
-  name: 'MetaMask',
+  iconUrl: '/images/logo/acria_circles.png',
+  name: 'AcriaWallet',
   origin: 'http://localhost:8080',
 };
 

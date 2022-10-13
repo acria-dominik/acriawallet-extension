@@ -10,7 +10,7 @@ import {
   getSelectedIdentity,
   getRpcPrefsForCurrentProvider,
   getCurrentChainId,
-  getMetaMaskAccountsOrdered,
+  getAcriaWalletAccountsOrdered,
   getBlockExplorerLinkText,
 } from '../../../../selectors';
 import AccountDetailsModal from './account-details-modal.component';
@@ -21,7 +21,7 @@ const mapStateToProps = (state) => {
     selectedIdentity: getSelectedIdentity(state),
     keyrings: state.metamask.keyrings,
     rpcPrefs: getRpcPrefsForCurrentProvider(state),
-    accounts: getMetaMaskAccountsOrdered(state),
+    accounts: getAcriaWalletAccountsOrdered(state),
     blockExplorerLinkText: getBlockExplorerLinkText(state, true),
   };
 };

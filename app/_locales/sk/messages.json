@@ -33,7 +33,7 @@
     "message": "protokol aktivity"
   },
   "addAcquiredTokens": {
-    "message": "Pridajte tokeny, ktoré ste získali pomocou MetaMask"
+    "message": "Pridajte tokeny, ktoré ste získali pomocou Acria Wallet"
   },
   "addAlias": {
     "message": "Pridať alias"
@@ -61,15 +61,15 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Acria Wallet",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMask Beta",
+    "message": "Acria Wallet Beta",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
-    "message": "MetaMask Flask",
+    "message": "Acria Wallet Flask",
     "description": "The name of the application (Flask)"
   },
   "approve": {
@@ -94,7 +94,7 @@
     "message": "Časovač automatického odhlásenia (minúty)"
   },
   "autoLockTimeLimitDescription": {
-    "message": "Nastavte čas nečinnosti v minútach skôr, než sa MetaMask automaticky odhlási"
+    "message": "Nastavte čas nečinnosti v minútach skôr, než sa Acria Wallet automaticky odhlási"
   },
   "average": {
     "message": "Priemerný"
@@ -106,7 +106,7 @@
     "message": "Späť na všetko"
   },
   "backupApprovalInfo": {
-    "message": "Tento tajný kód je potrebný na obnovenie peňaženky v prípade straty zariadenia, zabudnutia hesla, preinštalovania MetaMask alebo prístupu k peňaženke na inom zariadení."
+    "message": "Tento tajný kód je potrebný na obnovenie peňaženky v prípade straty zariadenia, zabudnutia hesla, preinštalovania Acria Wallet alebo prístupu k peňaženke na inom zariadení."
   },
   "backupApprovalNotice": {
     "message": "Zálohujte si svoj tajný kód na obnovenie, aby bola vaša peňaženka a prostriedky bezpečné."
@@ -134,7 +134,7 @@
     "message": "Kúpte $1 s Wyre"
   },
   "buyWithWyreDescription": {
-    "message": "Wyre vám umožňuje použiť kreditnú kartu na vloženie depozitu $1 priamo na váš účet MetaMask."
+    "message": "Wyre vám umožňuje použiť kreditnú kartu na vloženie depozitu $1 priamo na váš účet Acria Wallet."
   },
   "bytes": {
     "message": "Bajty"
@@ -152,7 +152,7 @@
     "message": "ID reťazca"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "Ak sa chcete pripojiť k svojej hardvérovej peňaženke, musíte v Google Chrome použiť MetaMask."
+    "message": "Ak sa chcete pripojiť k svojej hardvérovej peňaženke, musíte v Google Chrome použiť Acria Wallet."
   },
   "clickToRevealSeed": {
     "message": "Kliknutím sem odkryjete tajné slová"
@@ -302,13 +302,13 @@
     "message": "Nikdy nezdieľajte frázu s niekým iným."
   },
   "endOfFlowMessage5": {
-    "message": "Dávajte pozor na phishing! MetaMask nikdy nebude spontánne požadovať vašu seed frázu."
+    "message": "Dávajte pozor na phishing! Acria Wallet nikdy nebude spontánne požadovať vašu seed frázu."
   },
   "endOfFlowMessage6": {
     "message": "Ak potrebujete backup frázu znova zálohovať, nájdete ju v časti Nastavenia -> Zabezpečenie."
   },
   "endOfFlowMessage8": {
-    "message": "MetaMask nemôže obnoviť vašu seed frázu. Zistiť viac."
+    "message": "Acria Wallet nemôže obnoviť vašu seed frázu. Zistiť viac."
   },
   "endOfFlowMessage9": {
     "message": "Dozvedieť sa viac."
@@ -413,7 +413,7 @@
     "message": "Pripojiť hardvérovú peňaženku"
   },
   "hardwareWalletsMsg": {
-    "message": "Vyberte hardvérovú peňaženku, ktorú chcete používať s MetaMask"
+    "message": "Vyberte hardvérovú peňaženku, ktorú chcete používať s Acria Wallet"
   },
   "here": {
     "message": "zde",
@@ -432,7 +432,7 @@
     "message": "Import účtu"
   },
   "importAccountMsg": {
-    "message": "Importované účty nebudou spojeny s vaší původní MetaMaskovou klíčovou frází. Zjistěte více o importovaných účtech "
+    "message": "Importované účty nebudou spojeny s vaší původní Acria Walletovou klíčovou frází. Zjistěte více o importovaných účtech "
   },
   "importAccountSeedPhrase": {
     "message": "Importovať účet so seed frázou"
@@ -518,10 +518,10 @@
     "message": "Zpráva"
   },
   "metamaskDescription": {
-    "message": "MetaMask je bezpečný osobní trezor pro Ethereum."
+    "message": "Acria Wallet je bezpečný osobní trezor pro Ethereum."
   },
   "metamaskVersion": {
-    "message": "Verzia MetaMask"
+    "message": "Verzia Acria Wallet"
   },
   "mustSelectOne": {
     "message": "Musíte zvolit aspoň 1 token."
@@ -564,8 +564,8 @@
   "newPassword": {
     "message": "Nové heslo (min 8 znaků)"
   },
-  "newToMetaMask": {
-    "message": "Ste noví na MetaMask?"
+  "newToAcriaWallet": {
+    "message": "Ste noví na Acria Wallet?"
   },
   "newTotal": {
     "message": "Nový súčet"
@@ -616,7 +616,7 @@
     "message": "Zúčastnite sa na MetaMetrics"
   },
   "participateInMetaMetricsDescription": {
-    "message": "Zúčastnite sa na MetaMetrics a pomôžte nám vylepšiť MetaMask"
+    "message": "Zúčastnite sa na MetaMetrics a pomôžte nám vylepšiť Acria Wallet"
   },
   "password": {
     "message": "Heslo"
@@ -876,16 +876,16 @@
     "message": "Pri skenovaní tohto kódu sa uistite, že sa nikto iný nedíva na vašu obrazovku"
   },
   "syncWithMobileComplete": {
-    "message": "Vaše údaje boli úspešne synchronizované. Užite si mobilnú aplikáciu MetaMask!"
+    "message": "Vaše údaje boli úspešne synchronizované. Užite si mobilnú aplikáciu Acria Wallet!"
   },
   "syncWithMobileDesc": {
-    "message": "Svoje účty a informácie môžete synchronizovať so svojim mobilným zariadením. Otvorte mobilnú aplikáciu MetaMask, prejdite na „Nastavenia“ a kliknite na „Synchronizovať z rozšírenia prehliadača“."
+    "message": "Svoje účty a informácie môžete synchronizovať so svojim mobilným zariadením. Otvorte mobilnú aplikáciu Acria Wallet, prejdite na „Nastavenia“ a kliknite na „Synchronizovať z rozšírenia prehliadača“."
   },
   "syncWithMobileDescNewUsers": {
-    "message": "Ak otvoríte mobilnú aplikáciu MetaMask prvýkrát, postupujte podľa pokynov v telefóne."
+    "message": "Ak otvoríte mobilnú aplikáciu Acria Wallet prvýkrát, postupujte podľa pokynov v telefóne."
   },
   "syncWithMobileScanThisCode": {
-    "message": "Naskenujte tento kód pomocou mobilnej aplikácie MetaMask"
+    "message": "Naskenujte tento kód pomocou mobilnej aplikácie Acria Wallet"
   },
   "syncWithMobileTitle": {
     "message": "Synchronizácia s mobilom"
@@ -1024,7 +1024,7 @@
     "message": "Navštivte naši stránku"
   },
   "welcome": {
-    "message": "Vitajte v MetaMask"
+    "message": "Vitajte v Acria Wallet"
   },
   "welcomeBack": {
     "message": "Vitajte späť!"

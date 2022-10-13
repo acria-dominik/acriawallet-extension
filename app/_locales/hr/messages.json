@@ -33,7 +33,7 @@
     "message": "zapisnik aktivnosti"
   },
   "addAcquiredTokens": {
-    "message": "Dodajte tokene koje ste kupili uslugom MetaMask"
+    "message": "Dodajte tokene koje ste kupili uslugom Acria Wallet"
   },
   "addAlias": {
     "message": "Dodaj pseudonim"
@@ -61,15 +61,15 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Acria Wallet",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMask Beta",
+    "message": "Acria Wallet Beta",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
-    "message": "MetaMask Flask",
+    "message": "Acria Wallet Flask",
     "description": "The name of the application (Flask)"
   },
   "approve": {
@@ -97,7 +97,7 @@
     "message": "Brojač za automatsko odjavljivanje (minute)"
   },
   "autoLockTimeLimitDescription": {
-    "message": "Postavite stanje u mirovanju u minutama prije nego što se MetaMask automatski odjavi"
+    "message": "Postavite stanje u mirovanju u minutama prije nego što se Acria Wallet automatski odjavi"
   },
   "average": {
     "message": "Prosječno"
@@ -109,7 +109,7 @@
     "message": "Natrag na sve"
   },
   "backupApprovalInfo": {
-    "message": "Ovaj je sigurnosni kôd potreban za obnavljanje novčanika ako izgubite svoj uređaj, zaboravite svoju lozinku, morate ponovno instalirati MetaMask ili želite pristupiti svojem novčaniku na drugom uređaju."
+    "message": "Ovaj je sigurnosni kôd potreban za obnavljanje novčanika ako izgubite svoj uređaj, zaboravite svoju lozinku, morate ponovno instalirati Acria Wallet ili želite pristupiti svojem novčaniku na drugom uređaju."
   },
   "backupApprovalNotice": {
     "message": "Sigurnosno kopirajte svoj sigurnosni kôd za obnavljanje kako biste zaštitili svoj novčanik i sredstva."
@@ -140,7 +140,7 @@
     "message": "Kupi $1 Wyerom"
   },
   "buyWithWyreDescription": {
-    "message": "Wyreom vam se omogućava korištenje kreditnom karticom za polaganje $1 -a izravno na vaš račun za MetaMask."
+    "message": "Wyreom vam se omogućava korištenje kreditnom karticom za polaganje $1 -a izravno na vaš račun za Acria Wallet."
   },
   "bytes": {
     "message": "Bajtovi"
@@ -158,7 +158,7 @@
     "message": "Identifikacijska oznaka bloka"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "Trebate upotrebljavati MetaMask u pregledniku Google Chrome kako biste ga povezali s vašim hardverskim novčanikom."
+    "message": "Trebate upotrebljavati Acria Wallet u pregledniku Google Chrome kako biste ga povezali s vašim hardverskim novčanikom."
   },
   "clickToRevealSeed": {
     "message": "Ovdje kliknite za otkrivanje tajnih riječi"
@@ -308,13 +308,13 @@
     "message": "Nikada ne dijelite rečenicu ni s kim."
   },
   "endOfFlowMessage5": {
-    "message": "Pazite na krađu identiteta! Na usluzi MetaMask nikada vas se neće pitati početna rečenica."
+    "message": "Pazite na krađu identiteta! Na usluzi Acria Wallet nikada vas se neće pitati početna rečenica."
   },
   "endOfFlowMessage6": {
     "message": "Ako trebate ponovno sigurnosno kopirati svoju početnu rečenicu, možete je pronaći unutar stavke Postavke --> Sigurnost."
   },
   "endOfFlowMessage8": {
-    "message": "Osoblje MetaMask ne može obnoviti vašu početnu rečenicu. Saznajte više."
+    "message": "Osoblje Acria Wallet ne može obnoviti vašu početnu rečenicu. Saznajte više."
   },
   "endOfFlowMessage9": {
     "message": "Saznajte više."
@@ -415,7 +415,7 @@
     "message": "Poveži hardverski novčanik"
   },
   "hardwareWalletsMsg": {
-    "message": "Odaberite hardverski novčanik koji biste željeli upotrebljavati s uslugom MetaMask"
+    "message": "Odaberite hardverski novčanik koji biste željeli upotrebljavati s uslugom Acria Wallet"
   },
   "here": {
     "message": "ovdje",
@@ -441,7 +441,7 @@
     "message": "Uvezi račun"
   },
   "importAccountMsg": {
-    "message": "Uvezeni se računi ne pridružuju vašoj izvorno stvorenoj početnoj rečenici za MetaMask. Saznajte više o uvezenim računima"
+    "message": "Uvezeni se računi ne pridružuju vašoj izvorno stvorenoj početnoj rečenici za Acria Wallet. Saznajte više o uvezenim računima"
   },
   "importAccountSeedPhrase": {
     "message": "Uvezi račun početnom rečenicom"
@@ -539,7 +539,7 @@
     "message": "Povezujete se na Ethereum i decentralizirani internet."
   },
   "metamaskVersion": {
-    "message": "Inačica usluge MetaMask"
+    "message": "Inačica usluge Acria Wallet"
   },
   "mustSelectOne": {
     "message": "Mora se odabrati barem jedan token."
@@ -582,8 +582,8 @@
   "newPassword": {
     "message": "Nova lozinka (najmanje osam znakova)"
   },
-  "newToMetaMask": {
-    "message": "Novi korisnik usluge MetaMask?"
+  "newToAcriaWallet": {
+    "message": "Novi korisnik usluge Acria Wallet?"
   },
   "newTotal": {
     "message": "Novi ukupni zbroj"
@@ -637,7 +637,7 @@
     "message": "Sudjelujte u anketi MetaMetrics"
   },
   "participateInMetaMetricsDescription": {
-    "message": "Sudjelujte u anketi MetaMetrics kako biste nam pomogli poboljšati uslugu MetaMask"
+    "message": "Sudjelujte u anketi MetaMetrics kako biste nam pomogli poboljšati uslugu Acria Wallet"
   },
   "password": {
     "message": "Zaporka"
@@ -900,16 +900,16 @@
     "message": "Pazite da nitko ne gleda u vaš zaslon dok skenirate ovaj kôd"
   },
   "syncWithMobileComplete": {
-    "message": "Vaši su podatci uspješno sinkronizirani. Uživajte u mobilnoj aplikaciji MetaMask!"
+    "message": "Vaši su podatci uspješno sinkronizirani. Uživajte u mobilnoj aplikaciji Acria Wallet!"
   },
   "syncWithMobileDesc": {
-    "message": "Možete sinkronizirati svoje račune i informacije s vašim mobilnim telefonom. Otvorite mobilnu aplikaciju MetaMask, idite u stavku „Postavke” i dodirnite „Sinkroniziraj iz dodatka preglednika”"
+    "message": "Možete sinkronizirati svoje račune i informacije s vašim mobilnim telefonom. Otvorite mobilnu aplikaciju Acria Wallet, idite u stavku „Postavke” i dodirnite „Sinkroniziraj iz dodatka preglednika”"
   },
   "syncWithMobileDescNewUsers": {
-    "message": "Kad otvorite mobilnu aplikaciju MetaMask po prvi puta, pridržavajte se koraka koji se prikazuju na telefonu."
+    "message": "Kad otvorite mobilnu aplikaciju Acria Wallet po prvi puta, pridržavajte se koraka koji se prikazuju na telefonu."
   },
   "syncWithMobileScanThisCode": {
-    "message": "Skenirajte ovaj kôd uporabom mobilne aplikacije MetaMask"
+    "message": "Skenirajte ovaj kôd uporabom mobilne aplikacije Acria Wallet"
   },
   "syncWithMobileTitle": {
     "message": "Sinkroniziraj s mobilnim telefonom"
@@ -997,7 +997,7 @@
     "message": "Pokušaj ponovo"
   },
   "typePassword": {
-    "message": "Upišite svoju lozinku MetaMask."
+    "message": "Upišite svoju lozinku Acria Wallet."
   },
   "unapproved": {
     "message": "Neodobreno"
@@ -1048,7 +1048,7 @@
     "message": "Posjetite naše mrežno mjesto"
   },
   "welcome": {
-    "message": "Dobro došli u uslugu MetaMask"
+    "message": "Dobro došli u uslugu Acria Wallet"
   },
   "welcomeBack": {
     "message": "Dobro došli natrag!"

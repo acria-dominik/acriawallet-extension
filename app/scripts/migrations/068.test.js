@@ -207,7 +207,7 @@ function getOldState() {
         'https://faucet.metamask.io': {
           permissions: [
             {
-              '@context': ['https://github.com/MetaMask/rpc-cap'],
+              '@context': ['https://github.com/Acria Wallet/rpc-cap'],
               caveats: [
                 {
                   name: 'primaryAccountOnly',
@@ -230,7 +230,7 @@ function getOldState() {
         'https://metamask.github.io': {
           permissions: [
             {
-              '@context': ['https://github.com/MetaMask/rpc-cap'],
+              '@context': ['https://github.com/Acria Wallet/rpc-cap'],
               caveats: [
                 {
                   name: 'primaryAccountOnly',
@@ -253,7 +253,7 @@ function getOldState() {
         'https://xdai.io': {
           permissions: [
             {
-              '@context': ['https://github.com/MetaMask/rpc-cap'],
+              '@context': ['https://github.com/Acria Wallet/rpc-cap'],
               caveats: [
                 {
                   name: 'primaryAccountOnly',
@@ -385,7 +385,7 @@ function getOldState() {
             jsonrpc: '2.0',
             result: [
               {
-                '@context': ['https://github.com/MetaMask/rpc-cap'],
+                '@context': ['https://github.com/Acria Wallet/rpc-cap'],
                 caveats: [
                   {
                     name: 'primaryAccountOnly',

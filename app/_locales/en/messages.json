@@ -120,7 +120,7 @@
     "message": "Access your wallet with your Secret Recovery Phrase"
   },
   "accessYourWalletWithSRPDescription": {
-    "message": "MetaMask cannot recover your password. We will use your Secret Recovery Phrase to validate your ownership, restore your wallet and set up a new password. First, enter the Secret Recovery Phrase that you were given when you created your wallet. $1",
+    "message": "Acria Wallet cannot recover your password. We will use your Secret Recovery Phrase to validate your ownership, restore your wallet and set up a new password. First, enter the Secret Recovery Phrase that you were given when you created your wallet. $1",
     "description": "$1 is the words 'Learn More' from key 'learnMore', separated here so that it can be added as a link"
   },
   "accessingYourCamera": {
@@ -170,7 +170,7 @@
     "message": "Add a nickname"
   },
   "addAcquiredTokens": {
-    "message": "Add the tokens you've acquired using MetaMask"
+    "message": "Add the tokens you've acquired using Acria Wallet"
   },
   "addAlias": {
     "message": "Add alias"
@@ -189,10 +189,10 @@
     "description": "$1 is a blockchain explorer for a specific network, e.g. Etherscan for Ethereum"
   },
   "addEthereumChainConfirmationDescription": {
-    "message": "This will allow this network to be used within MetaMask."
+    "message": "This will allow this network to be used within Acria Wallet."
   },
   "addEthereumChainConfirmationRisks": {
-    "message": "MetaMask does not verify custom networks."
+    "message": "Acria Wallet does not verify custom networks."
   },
   "addEthereumChainConfirmationRisksLearnMore": {
     "message": "Learn about $1.",
@@ -313,15 +313,15 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Acria Wallet",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMask Beta",
+    "message": "Acria Wallet Beta",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
-    "message": "MetaMask Flask",
+    "message": "Acria Wallet Flask",
     "description": "The name of the application (Flask)"
   },
   "approve": {
@@ -391,7 +391,7 @@
     "message": "Auto-lock timer (minutes)"
   },
   "autoLockTimeLimitDescription": {
-    "message": "Set the idle time in minutes before MetaMask will become locked."
+    "message": "Set the idle time in minutes before Acria Wallet will become locked."
   },
   "average": {
     "message": "Average"
@@ -406,7 +406,7 @@
     "message": "Backup"
   },
   "backupApprovalInfo": {
-    "message": "This secret code is required to recover your wallet in case you lose your device, forget your password, have to re-install MetaMask, or want to access your wallet on another device."
+    "message": "This secret code is required to recover your wallet in case you lose your device, forget your password, have to re-install Acria Wallet, or want to access your wallet on another device."
   },
   "backupApprovalNotice": {
     "message": "Backup your Secret Recovery Phrase to keep your wallet and funds secure."
@@ -436,10 +436,10 @@
     "message": "Be careful"
   },
   "betaMetamaskDescription": {
-    "message": "Trusted by millions, MetaMask is a secure wallet making the world of web3 accessible to all."
+    "message": "Trusted by millions, Acria Wallet is a secure wallet making the world of web3 accessible to all."
   },
   "betaMetamaskDescriptionExplanation": {
-    "message": "Use this version to test upcoming features before they’re released. Your use and feedback helps us build the best version of MetaMask possible. Your use of MetaMask Beta is subject to our standard $1 as well as our $2. As a Beta, there may be an increased risk of bugs. By proceeding, you accept and acknowledge these risks, as well as those risks found in our Terms and Beta Terms.",
+    "message": "Use this version to test upcoming features before they’re released. Your use and feedback helps us build the best version of Acria Wallet possible. Your use of Acria Wallet Beta is subject to our standard $1 as well as our $2. As a Beta, there may be an increased risk of bugs. By proceeding, you accept and acknowledge these risks, as well as those risks found in our Terms and Beta Terms.",
     "description": "$1 represents localization item betaMetamaskDescriptionExplanationTermsLinkText.  $2 represents localization item betaMetamaskDescriptionExplanationBetaTermsLinkText"
   },
   "betaMetamaskDescriptionExplanationBetaTermsLinkText": {
@@ -449,13 +449,13 @@
     "message": "Terms"
   },
   "betaMetamaskVersion": {
-    "message": "MetaMask Beta Version"
+    "message": "Acria Wallet Beta Version"
   },
   "betaPortfolioSite": {
     "message": "beta portfolio site"
   },
   "betaWelcome": {
-    "message": "Welcome to MetaMask Beta"
+    "message": "Welcome to Acria Wallet Beta"
   },
   "blockExplorerAccountAction": {
     "message": "Account",
@@ -489,7 +489,7 @@
     "message": "Build your contact list"
   },
   "builtAroundTheWorld": {
-    "message": "MetaMask is designed and built around the world."
+    "message": "Acria Wallet is designed and built around the world."
   },
   "busy": {
     "message": "Busy"
@@ -514,21 +514,21 @@
     "description": "$1 represents the cypto symbol to be purchased"
   },
   "buyCryptoWithMoonPayDescription": {
-    "message": "MoonPay supports popular payment methods, including Visa, Mastercard, Apple / Google / Samsung Pay, and bank transfers in 145+ countries. Tokens deposit into your MetaMask account."
+    "message": "MoonPay supports popular payment methods, including Visa, Mastercard, Apple / Google / Samsung Pay, and bank transfers in 145+ countries. Tokens deposit into your Acria Wallet account."
   },
   "buyCryptoWithTransak": {
     "message": "Buy $1 with Transak",
     "description": "$1 represents the cypto symbol to be purchased"
   },
   "buyCryptoWithTransakDescription": {
-    "message": "Transak supports credit & debit cards, Apple Pay, MobiKwik, and bank transfers (depending on location) in 100+ countries. $1 deposits directly into your MetaMask account.",
+    "message": "Transak supports credit & debit cards, Apple Pay, MobiKwik, and bank transfers (depending on location) in 100+ countries. $1 deposits directly into your Acria Wallet account.",
     "description": "$1 represents the crypto symbol to be purchased"
   },
   "buyWithWyre": {
     "message": "Buy $1 with Wyre"
   },
   "buyWithWyreDescription": {
-    "message": "Easy onboarding for purchases up to $ 1000. Fast interactive high limit purchase verification. Supports Debit/Credit Card, Apple Pay, Bank Transfers. Available in 100+ countries. Tokens deposit into your MetaMask Account"
+    "message": "Easy onboarding for purchases up to $ 1000. Fast interactive high limit purchase verification. Supports Debit/Credit Card, Apple Pay, Bank Transfers. Available in 100+ countries. Tokens deposit into your Acria Wallet Account"
   },
   "bytes": {
     "message": "Bytes"
@@ -583,7 +583,7 @@
     "description": "$1 is the chain id currently entered in the network form and $2 is the return value of nativeCurrency.symbol from chainlist.network"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "You need to use MetaMask on Google Chrome in order to connect to your Hardware Wallet."
+    "message": "You need to use Acria Wallet on Google Chrome in order to connect to your Hardware Wallet."
   },
   "clickToConnectLedgerViaWebHID": {
     "message": "Click here to connect your Ledger via WebHID",
@@ -667,8 +667,8 @@
     "message": "$1 accounts",
     "description": "$1 is the number of accounts to which the web3 site/application is asking to connect; this will substitute $1 in connectToMultiple"
   },
-  "connectWithMetaMask": {
-    "message": "Connect with MetaMask"
+  "connectWithAcriaWallet": {
+    "message": "Connect with Acria Wallet"
   },
   "connectedAccountsDescriptionPlural": {
     "message": "You have $1 accounts connected to this site.",
@@ -678,7 +678,7 @@
     "message": "You have 1 account connected to this site."
   },
   "connectedAccountsEmptyDescription": {
-    "message": "MetaMask is not connected to this site. To connect to a web3 site, find and click the connect button."
+    "message": "Acria Wallet is not connected to this site. To connect to a web3 site, find and click the connect button."
   },
   "connectedSites": {
     "message": "Connected sites"
@@ -759,7 +759,7 @@
     "message": "Token contract"
   },
   "convertTokenToNFTDescription": {
-    "message": "We've detected that this asset is an NFT. MetaMask now has full native support for NFTs. Would you like to remove it from your token list and add it as an NFT?"
+    "message": "We've detected that this asset is an NFT. Acria Wallet now has full native support for NFTs. Would you like to remove it from your token list and add it as an NFT?"
   },
   "convertTokenToNFTExistDescription": {
     "message": "We’ve detected that this asset has been added as an NFT. Would you like to remove it from your token list?"
@@ -891,7 +891,7 @@
     "message": "Data"
   },
   "dataBackupFoundInfo": {
-    "message": "Some of your account data was backed up during a previous installation of MetaMask. This could include your settings, contacts, and tokens. Would you like to restore this data now?"
+    "message": "Some of your account data was backed up during a previous installation of Acria Wallet. This could include your settings, contacts, and tokens. Would you like to restore this data now?"
   },
   "dataBackupSeemsCorrupt": {
     "message": "Can not restore your data. The file appears to be corrupt."
@@ -1203,7 +1203,7 @@
     "message": "Never share the phrase with anyone."
   },
   "endOfFlowMessage5": {
-    "message": "Be careful of phishing! MetaMask will never spontaneously ask for your Secret Recovery Phrase."
+    "message": "Be careful of phishing! Acria Wallet will never spontaneously ask for your Secret Recovery Phrase."
   },
   "endOfFlowMessage6": {
     "message": "If you need to back up your Secret Recovery Phrase again, you can find it in Settings > Security."
@@ -1213,7 +1213,7 @@
     "description": "$1 is a clickable link with text defined by the 'here' key. The link will open to a form where users can file support tickets."
   },
   "endOfFlowMessage8": {
-    "message": "MetaMask cannot recover your Secret Recovery Phrase."
+    "message": "Acria Wallet cannot recover your Secret Recovery Phrase."
   },
   "endOfFlowMessage9": {
     "message": "Learn more."
@@ -1280,7 +1280,7 @@
     "description": "Message displayed on generic error page in the popup UI, $1 is a clickable link with text defined by the 'here' key. The link will open to a form where users can file support tickets."
   },
   "errorPageTitle": {
-    "message": "MetaMask encountered an error",
+    "message": "Acria Wallet encountered an error",
     "description": "Title of generic error page"
   },
   "errorStack": {
@@ -1371,15 +1371,15 @@
   },
   "flaskWelcomeWarning2": {
     "message": "We do not guarantee the safety or stability of this extension. The new APIs offered by Flask are not hardened against phishing attacks, meaning that any site or snap that requires Flask might be a malicious attempt to steal your assets.",
-    "description": "This explains the risks of using MetaMask Flask"
+    "description": "This explains the risks of using Acria Wallet Flask"
   },
   "flaskWelcomeWarning3": {
-    "message": "All Flask APIs are experimental. They may be changed or removed without notice, or they might stay on Flask indefinitely without ever being migrated to stable MetaMask. Use them at your own risk.",
+    "message": "All Flask APIs are experimental. They may be changed or removed without notice, or they might stay on Flask indefinitely without ever being migrated to stable Acria Wallet. Use them at your own risk.",
     "description": "This message warns developers about unstable Flask APIs"
   },
   "flaskWelcomeWarning4": {
-    "message": "Make sure to disable your regular MetaMask extension when using Flask.",
-    "description": "This message calls to pay attention about multiple versions of MetaMask running on the same site (Flask + Prod)"
+    "message": "Make sure to disable your regular Acria Wallet extension when using Flask.",
+    "description": "This message calls to pay attention about multiple versions of Acria Wallet running on the same site (Flask + Prod)"
   },
   "flaskWelcomeWarningAcceptButton": {
     "message": "I accept the risks",
@@ -1563,7 +1563,7 @@
     "message": "Connect a hardware wallet"
   },
   "hardwareWalletsMsg": {
-    "message": "Select a hardware wallet you'd like to use with MetaMask."
+    "message": "Select a hardware wallet you'd like to use with Acria Wallet."
   },
   "here": {
     "message": "here",
@@ -1624,7 +1624,7 @@
     "message": "Error importing account."
   },
   "importAccountMsg": {
-    "message": "Imported accounts will not be associated with your originally created MetaMask account Secret Recovery Phrase. Learn more about imported accounts"
+    "message": "Imported accounts will not be associated with your originally created Acria Wallet account Secret Recovery Phrase. Learn more about imported accounts"
   },
   "importAccountSeedPhrase": {
     "message": "Import a wallet with Secret Recovery Phrase"
@@ -1683,7 +1683,7 @@
     "message": "in your Settings"
   },
   "infuraBlockedNotification": {
-    "message": "MetaMask is unable to connect to the blockchain host. Review possible reasons $1.",
+    "message": "Acria Wallet is unable to connect to the blockchain host. Review possible reasons $1.",
     "description": "$1 is a clickable link with with text defined by the 'here' key"
   },
   "initialTransactionConfirmed": {
@@ -1843,7 +1843,7 @@
     "message": "Open and unlock Ledger Live App"
   },
   "ledgerConnectionPreferenceDescription": {
-    "message": "Customize how you connect your Ledger to MetaMask. $1 is recommended, but other options are available. Read more here: $2",
+    "message": "Customize how you connect your Ledger to Acria Wallet. $1 is recommended, but other options are available. Read more here: $2",
     "description": "A description that appears above a dropdown where users can select between up to three options - Ledger Live, U2F or WebHID - depending on what is supported in their browser. $1 is the recommended browser option, it will be either WebHID or U2f. $2 is a link to an article where users can learn more, but will be the translation of the learnMore message."
   },
   "ledgerDeviceOpenFailureMessage": {
@@ -1851,7 +1851,7 @@
   },
   "ledgerLive": {
     "message": "Ledger Live",
-    "description": "The name of a desktop app that can be used with your ledger device. We can also use it to connect a users Ledger device to MetaMask."
+    "description": "The name of a desktop app that can be used with your ledger device. We can also use it to connect a users Ledger device to Acria Wallet."
   },
   "ledgerLiveApp": {
     "message": "Ledger Live App"
@@ -1973,7 +1973,7 @@
     "message": "Message"
   },
   "metaMaskConnectStatusParagraphOne": {
-    "message": "You now have more control over your account connections in MetaMask."
+    "message": "You now have more control over your account connections in Acria Wallet."
   },
   "metaMaskConnectStatusParagraphThree": {
     "message": "Click it to manage your connected accounts."
@@ -1985,10 +1985,10 @@
     "message": "Connecting you to Ethereum and the Decentralized Web."
   },
   "metamaskSwapsOfflineDescription": {
-    "message": "MetaMask Swaps is undergoing maintenance. Please check back later."
+    "message": "Acria Wallet Swaps is undergoing maintenance. Please check back later."
   },
   "metamaskVersion": {
-    "message": "MetaMask Version"
+    "message": "Acria Wallet Version"
   },
   "metametricsCommitmentsAllowOptOut": {
     "message": "Always allow you to opt-out via Settings"
@@ -2001,7 +2001,7 @@
     "description": "This string is localized separately from some of the commitments so that we can bold it"
   },
   "metametricsCommitmentsIntro": {
-    "message": "MetaMask will.."
+    "message": "Acria Wallet will.."
   },
   "metametricsCommitmentsNeverCollect": {
     "message": "Never collect keys, addresses, transactions, balances, hashes, or any personal information"
@@ -2027,17 +2027,17 @@
   "metametricsCommitmentsSendAnonymizedEvents": {
     "message": "Send anonymized click & pageview events"
   },
-  "metametricsHelpImproveMetaMask": {
-    "message": "Help us improve MetaMask"
+  "metametricsHelpImproveAcriaWallet": {
+    "message": "Help us improve Acria Wallet"
   },
   "metametricsOptInDescription": {
-    "message": "MetaMask would like to gather usage data to better understand how our users interact with the extension. This data will be used to continually improve the usability and user experience of our product and the Ethereum ecosystem."
+    "message": "Acria Wallet would like to gather usage data to better understand how our users interact with the extension. This data will be used to continually improve the usability and user experience of our product and the Ethereum ecosystem."
   },
   "metametricsOptInDescription2": {
     "message": "We would like to gather basic usage data to improve the usability of our product.  These metrics will..."
   },
   "metametricsTitle": {
-    "message": "Join 6M+ users to improve MetaMask"
+    "message": "Join 6M+ users to improve Acria Wallet"
   },
   "mismatchedChainLinkText": {
     "message": "verify the network details",
@@ -2069,7 +2069,7 @@
     "message": "Don't see your token?"
   },
   "mobileSyncWarning": {
-    "message": "The 'Sync with extension' feature is temporarily disabled. If you want to use your extension wallet on MetaMask mobile, then on your mobile app: go back to the wallet setup options and select the 'Import with Secret Recovery Phrase' option. Use your extension wallet's secret phrase to then import your wallet into mobile."
+    "message": "The 'Sync with extension' feature is temporarily disabled. If you want to use your extension wallet on Acria Wallet mobile, then on your mobile app: go back to the wallet setup options and select the 'Import with Secret Recovery Phrase' option. Use your extension wallet's secret phrase to then import your wallet into mobile."
   },
   "mustSelectOne": {
     "message": "Must select at least 1 token."
@@ -2085,7 +2085,7 @@
     "description": "$1 represents the name of the native token on the current network"
   },
   "needCryptoInWallet": {
-    "message": "To interact with decentralized applications using MetaMask, you’ll need $1 in your wallet.",
+    "message": "To interact with decentralized applications using Acria Wallet, you’ll need $1 in your wallet.",
     "description": "$1 represents the cypto symbol to be purchased"
   },
   "needHelp": {
@@ -2096,7 +2096,7 @@
     "message": "Share your feedback"
   },
   "needHelpLinkText": {
-    "message": "MetaMask support"
+    "message": "Acria Wallet support"
   },
   "needHelpSubmitTicket": {
     "message": "Submit a ticket"
@@ -2196,7 +2196,7 @@
     "message": "New contract"
   },
   "newNFTDetectedMessage": {
-    "message": "Allow MetaMask to automatically detect NFTs from Opensea and display in your wallet."
+    "message": "Allow Acria Wallet to automatically detect NFTs from Opensea and display in your wallet."
   },
   "newNFTsDetected": {
     "message": "New! NFT detection"
@@ -2207,8 +2207,8 @@
   "newPassword": {
     "message": "New password (8 characters min)"
   },
-  "newToMetaMask": {
-    "message": "New to MetaMask?"
+  "newToAcriaWallet": {
+    "message": "New to Acria Wallet?"
   },
   "newTokensImportedMessage": {
     "message": "You’ve successfully imported $1.",
@@ -2231,7 +2231,7 @@
   },
   "nextNonceWarning": {
     "message": "Nonce is higher than suggested nonce of $1",
-    "description": "The next nonce according to MetaMask's internal logic"
+    "description": "The next nonce according to Acria Wallet's internal logic"
   },
   "nft": {
     "message": "NFT"
@@ -2364,19 +2364,19 @@
     "message": "The Ethereum Merge is here!"
   },
   "notifications1Description": {
-    "message": "MetaMask Mobile users can now swap tokens inside their mobile wallet. Scan the QR code to get the mobile app and start swapping.",
+    "message": "Acria Wallet Mobile users can now swap tokens inside their mobile wallet. Scan the QR code to get the mobile app and start swapping.",
     "description": "Description of a notification in the 'See What's New' popup. Describes the swapping on mobile feature."
   },
   "notifications1Title": {
     "message": "Swapping on mobile is here!",
-    "description": "Title for a notification in the 'See What's New' popup. Tells users that they can now use MetaMask Swaps on Mobile."
+    "description": "Title for a notification in the 'See What's New' popup. Tells users that they can now use Acria Wallet Swaps on Mobile."
   },
   "notifications3ActionText": {
     "message": "Read more",
     "description": "The 'call to action' on the button, or link, of the 'Stay secure' notification. Upon clicking, users will be taken to a page about security on the metamask support website."
   },
   "notifications3Description": {
-    "message": "Stay up to date on MetaMask security best practices and get the latest security tips from official MetaMask support.",
+    "message": "Stay up to date on Acria Wallet security best practices and get the latest security tips from official Acria Wallet support.",
     "description": "Description of a notification in the 'See What's New' popup. Describes the information they can get on security from the linked support page."
   },
   "notifications3Title": {
@@ -2388,7 +2388,7 @@
     "description": "The 'call to action' on the button, or link, of the 'Swap on Binance Smart Chain!' notification. Upon clicking, users will be taken to a page where then can swap tokens on Binance Smart Chain."
   },
   "notifications4Description": {
-    "message": "Get the best prices on token swaps right inside your wallet. MetaMask now connects you to multiple decentralized exchange aggregators and professional market makers on Binance Smart Chain.",
+    "message": "Get the best prices on token swaps right inside your wallet. Acria Wallet now connects you to multiple decentralized exchange aggregators and professional market makers on Binance Smart Chain.",
     "description": "Description of a notification in the 'See What's New' popup."
   },
   "notifications4Title": {
@@ -2400,11 +2400,11 @@
     "description": "Description of a notification in the 'See What's New' popup. Describes the seed phrase wording update."
   },
   "notifications6DescriptionOne": {
-    "message": "As of Chrome version 91, the API that enabled our Ledger support (U2F) no longer supports hardware wallets. MetaMask has implemented a new Ledger Live support that allows you to continue to connect to your Ledger device via the Ledger Live desktop app.",
+    "message": "As of Chrome version 91, the API that enabled our Ledger support (U2F) no longer supports hardware wallets. Acria Wallet has implemented a new Ledger Live support that allows you to continue to connect to your Ledger device via the Ledger Live desktop app.",
     "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
   },
   "notifications6DescriptionThree": {
-    "message": "When interacting with your Ledger account in MetaMask, a new tab will open and you will be asked to open the Ledger Live app.  Once the app opens, you'll be asked to allow a WebSocket connection to your MetaMask account.  That's all!",
+    "message": "When interacting with your Ledger account in Acria Wallet, a new tab will open and you will be asked to open the Ledger Live app.  Once the app opens, you'll be asked to allow a WebSocket connection to your Acria Wallet account.  That's all!",
     "description": "Description of a notification in the 'See What's New' popup. Describes the Ledger support update."
   },
   "notifications6DescriptionTwo": {
@@ -2416,7 +2416,7 @@
     "description": "Title for a notification in the 'See What's New' popup. Lets users know about the Ledger support update"
   },
   "notifications7DescriptionOne": {
-    "message": "MetaMask v10.1.0 included new support for EIP-1559 transactions when using Ledger devices.",
+    "message": "Acria Wallet v10.1.0 included new support for EIP-1559 transactions when using Ledger devices.",
     "description": "Description of a notification in the 'See What's New' popup. Describes changes for ledger and EIP1559 in v10.1.0"
   },
   "notifications7DescriptionTwo": {
@@ -2432,7 +2432,7 @@
     "description": "Description on an action button that appears in the What's New popup. Tells the user that if they click it, they will go to our Advanced settings page."
   },
   "notifications8DescriptionOne": {
-    "message": "As of MetaMask v10.4.0, you no longer need Ledger Live to connect your Ledger device to MetaMask.",
+    "message": "As of Acria Wallet v10.4.0, you no longer need Ledger Live to connect your Ledger device to Acria Wallet.",
     "description": "Description of a notification in the 'See What's New' popup. Describes changes for how Ledger Live is no longer needed to connect the device."
   },
   "notifications8DescriptionTwo": {
@@ -2509,16 +2509,16 @@
     "message": "Click the browser extension icon"
   },
   "onboardingPinExtensionDescription": {
-    "message": "Pin MetaMask on your browser so it's accessible and easy to view transaction confirmations."
+    "message": "Pin Acria Wallet on your browser so it's accessible and easy to view transaction confirmations."
   },
   "onboardingPinExtensionDescription2": {
-    "message": "You can open MetaMask by clicking on the extension and access your wallet with 1 click."
+    "message": "You can open Acria Wallet by clicking on the extension and access your wallet with 1 click."
   },
   "onboardingPinExtensionDescription3": {
     "message": "Click browser extension icon to access it instantly"
   },
   "onboardingPinExtensionLabel": {
-    "message": "Pin MetaMask"
+    "message": "Pin Acria Wallet"
   },
   "onboardingPinExtensionStep1": {
     "message": "1"
@@ -2527,7 +2527,7 @@
     "message": "2"
   },
   "onboardingPinExtensionTitle": {
-    "message": "Your MetaMask install is complete!"
+    "message": "Your Acria Wallet install is complete!"
   },
   "onboardingReturnNotice": {
     "message": "\"$1\" will close this tab and direct back to $2",
@@ -2548,8 +2548,8 @@
     "message": "Only connect with sites you trust."
   },
   "openFullScreenForLedgerWebHid": {
-    "message": "Open MetaMask in full screen to connect your ledger via WebHID.",
-    "description": "Shown to the user on the confirm screen when they are viewing MetaMask in a popup window but need to connect their ledger via webhid."
+    "message": "Open Acria Wallet in full screen to connect your ledger via WebHID.",
+    "description": "Shown to the user on the confirm screen when they are viewing Acria Wallet in a popup window but need to connect their ledger via webhid."
   },
   "openInBlockExplorer": {
     "message": "Open in block explorer"
@@ -2579,7 +2579,7 @@
     "message": "Participate in MetaMetrics"
   },
   "participateInMetaMetricsDescription": {
-    "message": "Participate in MetaMetrics to help us make MetaMask better"
+    "message": "Participate in MetaMetrics to help us make Acria Wallet better"
   },
   "password": {
     "message": "Password"
@@ -2588,7 +2588,7 @@
     "message": "Password not long enough"
   },
   "passwordSetupDetails": {
-    "message": "This password will unlock your MetaMask wallet only on this device. MetaMask can not recover this password."
+    "message": "This password will unlock your Acria Wallet wallet only on this device. Acria Wallet can not recover this password."
   },
   "passwordStrength": {
     "message": "Password strength: $1",
@@ -2598,7 +2598,7 @@
     "message": "A strong password can improve the security of your wallet should your device be stolen or compromised."
   },
   "passwordTermsWarning": {
-    "message": "I understand that MetaMask cannot recover this password for me. $1"
+    "message": "I understand that Acria Wallet cannot recover this password for me. $1"
   },
   "passwordsDontMatch": {
     "message": "Passwords don't match"
@@ -2641,7 +2641,7 @@
     "description": "The description for the `wallet_snap_*` permission. $1 is the name of the Snap."
   },
   "permission_customConfirmation": {
-    "message": "Display a confirmation in MetaMask.",
+    "message": "Display a confirmation in Acria Wallet.",
     "description": "The description for the `snap_confirm` permission"
   },
   "permission_ethereumAccounts": {
@@ -2781,7 +2781,7 @@
     "message": "Never share your Secret Recovery Phrase with anyone"
   },
   "recoveryPhraseReminderItemTwo": {
-    "message": "The MetaMask team will never ask for your Secret Recovery Phrase"
+    "message": "The Acria Wallet team will never ask for your Secret Recovery Phrase"
   },
   "recoveryPhraseReminderSubText": {
     "message": "Your Secret Recovery Phrase controls all of your accounts."
@@ -2857,7 +2857,7 @@
     "message": "Reset wallet"
   },
   "resetWalletSubHeader": {
-    "message": "MetaMask does not keep a copy of your password. If you’re having trouble unlocking your account, you will need to reset your wallet. You can do this by providing the Secret Recovery Phrase you used when you set up your wallet."
+    "message": "Acria Wallet does not keep a copy of your password. If you’re having trouble unlocking your account, you will need to reset your wallet. You can do this by providing the Secret Recovery Phrase you used when you set up your wallet."
   },
   "resetWalletUsingSRP": {
     "message": "This action will delete your current wallet and Secret Recovery Phrase from this device, along with the list of accounts you’ve curated. After resetting with a Secret Recovery Phrase, you’ll see a list of accounts based on the Secret Recovery Phrase you use to reset. This new list will automatically include accounts that have a balance. You’ll also be able to $1 created previously. Custom accounts that you’ve imported will need to be $2, and any custom tokens you’ve added to an account will need to be $3 as well."
@@ -2866,7 +2866,7 @@
     "message": "Make sure you’re using the correct Secret Recovery Phrase before proceeding. You will not be able to undo this."
   },
   "restartMetamask": {
-    "message": "Restart MetaMask"
+    "message": "Restart Acria Wallet"
   },
   "restore": {
     "message": "Restore"
@@ -3004,7 +3004,7 @@
     "message": "If someone asks for your recovery phrase they are likely trying to scam you and steal your wallet funds."
   },
   "seedPhraseIntroSidebarCopyTwo": {
-    "message": "Never, ever share your Secret Recovery Phrase, not even with MetaMask!"
+    "message": "Never, ever share your Secret Recovery Phrase, not even with Acria Wallet!"
   },
   "seedPhraseIntroSidebarTitleOne": {
     "message": "What is a Secret Recovery Phrase?"
@@ -3043,7 +3043,7 @@
     "message": "Select an account"
   },
   "selectAnAccountAlreadyConnected": {
-    "message": "This account has already been connected to MetaMask"
+    "message": "This account has already been connected to Acria Wallet"
   },
   "selectEachPhrase": {
     "message": "Please select each phrase in order to make sure it is correct."
@@ -3100,7 +3100,7 @@
     "message": "Set advanced privacy settings"
   },
   "setAdvancedPrivacySettingsDetails": {
-    "message": "MetaMask uses these trusted third-party services to enhance product usability and safety."
+    "message": "Acria Wallet uses these trusted third-party services to enhance product usability and safety."
   },
   "setApprovalForAll": {
     "message": "Set approval for all"
@@ -3336,7 +3336,7 @@
     "message": "Error in retrieving state logs."
   },
   "stateLogFileName": {
-    "message": "MetaMask state logs"
+    "message": "Acria Wallet state logs"
   },
   "stateLogs": {
     "message": "State logs"
@@ -3357,7 +3357,7 @@
     "message": "Make sure your Lattice1 is ready to connect"
   },
   "step1LatticeWalletMsg": {
-    "message": "You can connect MetaMask to your Lattice1 device once it is set up and online. Unlock your device and have your Device ID ready. For more on using hardware wallets, $1",
+    "message": "You can connect Acria Wallet to your Lattice1 device once it is set up and online. Unlock your device and have your Device ID ready. For more on using hardware wallets, $1",
     "description": "$1 represents the `hardwareWalletSupportLinkConversion` localization key"
   },
   "step1LedgerWallet": {
@@ -3415,7 +3415,7 @@
     "message": "Try your swap again. We’ll be here to protect you against similar risks next time."
   },
   "stxDescription": {
-    "message": "MetaMask Swaps just got a whole lot smarter! Enabling Smart Transactions will allow MetaMask to programmatically optimize your Swap to help:"
+    "message": "Acria Wallet Swaps just got a whole lot smarter! Enabling Smart Transactions will allow Acria Wallet to programmatically optimize your Swap to help:"
   },
   "stxErrorNotEnoughFunds": {
     "message": "Not enough funds for a smart transaction."
@@ -3428,7 +3428,7 @@
   },
   "stxFailureDescription": {
     "message": "Sudden market changes can cause failures. If the problem persists, please reach out to $1.",
-    "description": "This message is shown to a user if their swap fails. The $1 will be replaced by support.metamask.io"
+    "description": "This message is shown to a user if their swap fails. The $1 will be replaced by support.acriawallet.com"
   },
   "stxFallbackPendingTx": {
     "message": "Smart Transactions are temporarily unavailable because you have a pending transaction."
@@ -3556,7 +3556,7 @@
     "message": "Edit limit"
   },
   "swapEnableDescription": {
-    "message": "This is required and gives MetaMask permission to swap your $1.",
+    "message": "This is required and gives Acria Wallet permission to swap your $1.",
     "description": "Gives the user info about the required approval transaction for swaps. $1 will be the symbol of a token being approved for swaps."
   },
   "swapEnableTokenForSwapping": {
@@ -3571,7 +3571,7 @@
   },
   "swapFailedErrorDescriptionWithSupportLink": {
     "message": "Transaction failures happen and we are here to help. If this issue persists, you can reach our customer support at $1 for further assistance.",
-    "description": "This message is shown to a user if their swap fails. The $1 will be replaced by support.metamask.io"
+    "description": "This message is shown to a user if their swap fails. The $1 will be replaced by support.acriawallet.com"
   },
   "swapFailedErrorTitle": {
     "message": "Swap failed"
@@ -3606,14 +3606,14 @@
     "message": "Gas fees on the previous screen are split between these two transactions."
   },
   "swapGasFeesSummary": {
-    "message": "Gas fees are paid to crypto miners who process transactions on the $1 network. MetaMask does not profit from gas fees.",
+    "message": "Gas fees are paid to crypto miners who process transactions on the $1 network. Acria Wallet does not profit from gas fees.",
     "description": "$1 is the selected network, e.g. Ethereum or BSC"
   },
   "swapHighSlippageWarning": {
     "message": "Slippage amount is very high."
   },
   "swapIncludesMMFee": {
-    "message": "Includes a $1% MetaMask fee.",
+    "message": "Includes a $1% Acria Wallet fee.",
     "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapLowSlippageError": {
@@ -3622,10 +3622,10 @@
   "swapMaxSlippage": {
     "message": "Max slippage"
   },
-  "swapMetaMaskFee": {
-    "message": "MetaMask fee"
+  "swapAcriaWalletFee": {
+    "message": "Acria Wallet fee"
   },
-  "swapMetaMaskFeeDescription": {
+  "swapAcriaWalletFeeDescription": {
     "message": "We find the best price from the top liquidity sources, every time. A fee of $1% is automatically factored into this quote.",
     "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
@@ -3810,7 +3810,7 @@
     "message": "View in activity"
   },
   "switchEthereumChainConfirmationDescription": {
-    "message": "This will switch the selected network within MetaMask to a previously added network:"
+    "message": "This will switch the selected network within Acria Wallet to a previously added network:"
   },
   "switchEthereumChainConfirmationTitle": {
     "message": "Allow this site to switch the network?"
@@ -3853,16 +3853,16 @@
     "message": "Make sure nobody else is looking at your screen when you scan this code"
   },
   "syncWithMobileComplete": {
-    "message": "Your data has been synced successfully. Enjoy the MetaMask mobile app!"
+    "message": "Your data has been synced successfully. Enjoy the Acria Wallet mobile app!"
   },
   "syncWithMobileDesc": {
-    "message": "You can sync your accounts and information with your mobile device. Open the MetaMask mobile app, go to \"Settings\" and tap on \"Sync from Browser Extension\""
+    "message": "You can sync your accounts and information with your mobile device. Open the Acria Wallet mobile app, go to \"Settings\" and tap on \"Sync from Browser Extension\""
   },
   "syncWithMobileDescNewUsers": {
-    "message": "If you just open the MetaMask Mobile app for the first time, just follow the steps in your phone."
+    "message": "If you just open the Acria Wallet Mobile app for the first time, just follow the steps in your phone."
   },
   "syncWithMobileScanThisCode": {
-    "message": "Scan this code with your MetaMask mobile app"
+    "message": "Scan this code with your Acria Wallet mobile app"
   },
   "syncWithMobileTitle": {
     "message": "Sync with mobile"
@@ -3895,7 +3895,7 @@
     "message": "Theme"
   },
   "themeDescription": {
-    "message": "Choose your preferred MetaMask theme."
+    "message": "Choose your preferred Acria Wallet theme."
   },
   "thingsToKeep": {
     "message": "Things to keep in mind:"
@@ -4000,7 +4000,7 @@
     "message": "Site suggested"
   },
   "transactionDetailDappGasTooltip": {
-    "message": "Edit to use MetaMask's recommended gas fee based on the latest block."
+    "message": "Edit to use Acria Wallet's recommended gas fee based on the latest block."
   },
   "transactionDetailGasHeading": {
     "message": "Estimated gas fee"
@@ -4015,7 +4015,7 @@
     "message": "Gas fees are set by the network and fluctuate based on network traffic and transaction complexity."
   },
   "transactionDetailGasTooltipIntro": {
-    "message": "Gas fees are paid to crypto miners who process transactions on the $1 network. MetaMask does not profit from gas fees."
+    "message": "Gas fees are paid to crypto miners who process transactions on the $1 network. Acria Wallet does not profit from gas fees."
   },
   "transactionDetailGasTotalSubtitle": {
     "message": "Amount + gas fee"
@@ -4085,7 +4085,7 @@
     "description": "$1 is the wallet device name; $2 is a link to wallet connection guide"
   },
   "troubleStarting": {
-    "message": "MetaMask had trouble starting. This error could be intermittent, so try restarting the extension."
+    "message": "Acria Wallet had trouble starting. This error could be intermittent, so try restarting the extension."
   },
   "troubleTokenBalances": {
     "message": "We had trouble loading your token balances. You can view them ",
@@ -4110,14 +4110,14 @@
     "message": "Transaction insights not supported for this contract at this time."
   },
   "typePassword": {
-    "message": "Type your MetaMask password"
+    "message": "Type your Acria Wallet password"
   },
   "typeYourSRP": {
     "message": "Type your Secret Recovery Phrase"
   },
   "u2f": {
     "message": "U2F",
-    "description": "A name on an API for the browser to interact with devices that support the U2F protocol. On some browsers we use it to connect MetaMask to Ledger devices."
+    "description": "A name on an API for the browser to interact with devices that support the U2F protocol. On some browsers we use it to connect Acria Wallet to Ledger devices."
   },
   "unapproved": {
     "message": "Unapproved"
@@ -4255,10 +4255,10 @@
     "message": "You’ve successfully protected your wallet. Keep your Secret Recovery Phrase safe and secret -- it’s your responsibility!"
   },
   "walletCreationSuccessReminder1": {
-    "message": "MetaMask can’t recover your Secret Recovery Phrase."
+    "message": "Acria Wallet can’t recover your Secret Recovery Phrase."
   },
   "walletCreationSuccessReminder2": {
-    "message": "MetaMask will never ask you for your Secret Recovery Phrase."
+    "message": "Acria Wallet will never ask you for your Secret Recovery Phrase."
   },
   "walletCreationSuccessReminder3": {
     "message": "$1 with anyone or risk your funds being stolen",
@@ -4293,7 +4293,7 @@
     "description": "Refers to a interface for connecting external devices to the browser. Used for connecting ledger to the browser. Read more here https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API"
   },
   "welcome": {
-    "message": "Welcome to MetaMask"
+    "message": "Welcome to Acria Wallet"
   },
   "welcomeBack": {
     "message": "Welcome back!"
@@ -4305,20 +4305,20 @@
     "message": "Explore decentralized apps"
   },
   "welcomeLoginDescription": {
-    "message": "Use your MetaMask to login to decentralized apps - no signup needed."
+    "message": "Use your Acria Wallet to login to decentralized apps - no signup needed."
   },
   "welcomeLoginTitle": {
     "message": "Say hello to your wallet"
   },
-  "welcomeToMetaMask": {
+  "welcomeToAcriaWallet": {
     "message": "Let's get started"
   },
-  "welcomeToMetaMaskIntro": {
-    "message": "Trusted by millions, MetaMask is a secure wallet making the world of web3 accessible to all."
+  "welcomeToAcriaWalletIntro": {
+    "message": "Trusted by millions, Acria Wallet is a secure wallet making the world of web3 accessible to all."
   },
   "whatsNew": {
     "message": "What's new",
-    "description": "This is the title of a popup that gives users notifications about new features and updates to MetaMask."
+    "description": "This is the title of a popup that gives users notifications about new features and updates to Acria Wallet."
   },
   "whatsThis": {
     "message": "What's this?"

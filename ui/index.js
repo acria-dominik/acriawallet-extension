@@ -54,15 +54,15 @@ export const updateBackgroundConnection = (backgroundConnection) => {
   });
 };
 
-export default function launchMetamaskUi(opts, cb) {
+export default function launchAcriaWalletUi(opts, cb) {
   const { backgroundConnection } = opts;
   // check if we are unlocked first
-  backgroundConnection.getState(function (err, metamaskState) {
+  backgroundConnection.getState(function (err, acriaWalletState) {
     if (err) {
-      cb(err, metamaskState);
+      cb(err, acriaWalletState);
       return;
     }
-    startApp(metamaskState, backgroundConnection, opts).then((store) => {
+    startApp(acriaWalletState, backgroundConnection, opts).then((store) => {
       setupDebuggingHelpers(store);
       cb(null, store);
     });

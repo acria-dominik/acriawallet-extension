@@ -21,7 +21,7 @@ import {
   getCustomNonceValue,
   getIsMainnet,
   getKnownMethodData,
-  getMetaMaskAccounts,
+  getAcriaWalletAccounts,
   getUseNonceField,
   transactionFeeSelector,
   getNoGasPriceFetched,
@@ -106,7 +106,7 @@ const mapStateToProps = (state, ownProps) => {
     value: amount,
     data,
   } = (transaction && transaction.txParams) || txParams;
-  const accounts = getMetaMaskAccounts(state);
+  const accounts = getAcriaWalletAccounts(state);
 
   const transactionData = parseStandardTokenTransactionData(data);
   const tokenToAddress = getTokenAddressParam(transactionData);

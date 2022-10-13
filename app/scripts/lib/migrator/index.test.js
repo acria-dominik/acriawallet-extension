@@ -115,7 +115,7 @@ describe('migrations', () => {
       });
       await expect(async () => {
         await migrator.migrateData({ meta: { version: 0 } });
-      }).rejects.toThrow('Error: MetaMask Migration Error #1: test');
+      }).rejects.toThrow('Error: Acria Wallet Migration Error #1: test');
     });
   });
 });

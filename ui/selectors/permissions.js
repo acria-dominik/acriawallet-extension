@@ -1,6 +1,6 @@
 import { CaveatTypes } from '../../shared/constants/permissions';
 import {
-  getMetaMaskAccountsOrdered,
+  getAcriaWalletAccountsOrdered,
   getOriginOfCurrentTab,
   getSelectedAddress,
   getSubjectMetadata,
@@ -214,7 +214,7 @@ export function getOrderedConnectedAccountsForActiveTab(state) {
   const permissionHistoryByAccount =
     // eslint-disable-next-line camelcase
     permissionHistory[activeTab.origin]?.eth_accounts?.accounts;
-  const orderedAccounts = getMetaMaskAccountsOrdered(state);
+  const orderedAccounts = getAcriaWalletAccountsOrdered(state);
   const connectedAccounts = getPermittedAccountsForCurrentTab(state);
 
   return orderedAccounts
@@ -263,7 +263,7 @@ export function activeTabHasPermissions(state) {
 /**
  * Get the connected accounts history for all origins.
  *
- * @param {Record<string, unknown>} state - The MetaMask state.
+ * @param {Record<string, unknown>} state - The AcriaWallet state.
  * @returns {Record<string, { accounts: Record<string, number> }>} An object
  * with account connection histories by origin.
  */

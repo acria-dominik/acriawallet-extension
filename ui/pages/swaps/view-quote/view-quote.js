@@ -666,7 +666,7 @@ export default function ViewQuote() {
       showModal({
         name: 'EDIT_APPROVAL_PERMISSION',
         decimals: selectedFromToken.decimals,
-        origin: 'MetaMask',
+        origin: 'AcriaWallet',
         setCustomAmount: (newCustomPermissionAmount) => {
           const customPermissionAmount =
             newCustomPermissionAmount === ''

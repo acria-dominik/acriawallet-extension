@@ -57,7 +57,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    lockMetaMask: () => dispatch(lockMetamask(false)),
+    lockAcriaWallet: () => dispatch(lockMetamask(false)),
     setCurrentCurrencyToUSD: () => dispatch(setCurrentCurrency('usd')),
     setMouseUserState: (isMouseUser) =>
       dispatch(setMouseUserState(isMouseUser)),

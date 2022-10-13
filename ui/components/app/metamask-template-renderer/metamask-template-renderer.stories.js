@@ -1,7 +1,7 @@
 import React from 'react';
 import { object } from '@storybook/addon-knobs';
 import { COLORS, TYPOGRAPHY } from '../../../helpers/constants/design-system';
-import MetaMaskTemplateRenderer from '.';
+import AcriaWalletTemplateRenderer from '.';
 
 export default {
   title: 'Components/App/MetamaskTemplateRenderer',
@@ -84,13 +84,13 @@ const SECTIONS = {
 };
 
 export const DefaultStory = () => (
-  <MetaMaskTemplateRenderer sections={object('sections', SECTIONS)} />
+  <AcriaWalletTemplateRenderer sections={object('sections', SECTIONS)} />
 );
 
 DefaultStory.storyName = 'Default';
 
 export const WithInvalidElement = () => (
-  <MetaMaskTemplateRenderer
+  <AcriaWalletTemplateRenderer
     sections={object('sections', [
       {
         ...SECTIONS,

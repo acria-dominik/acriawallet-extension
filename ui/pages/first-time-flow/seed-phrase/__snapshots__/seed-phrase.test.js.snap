@@ -194,7 +194,7 @@ exports[`SeedPhrase Component should match snapshot 1`] = `
         alt=""
         class="app-header__metafox-logo--icon"
         height="42"
-        src="./images/logo/metamask-fox.svg"
+        src="./images/logo/acria_circles.png"
         width="42"
       />
     </div>

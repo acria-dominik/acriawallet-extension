@@ -97,7 +97,7 @@ const PHISHING_WARNING_PAGE_TIMEOUT = ONE_SECOND_IN_MILLISECONDS;
 const initApp = async (remotePort) => {
   browser.runtime.onConnect.removeListener(initApp);
   await initialize(remotePort);
-  log.info('MetaMask initialization complete.');
+  log.info('Acria Wallet initialization complete.');
 };
 
 if (isManifestV3) {
@@ -112,9 +112,9 @@ if (isManifestV3) {
  */
 
 /**
- * The data emitted from the MetaMaskController.store EventEmitter, also used to initialize the MetaMaskController. Available in UI on React state as state.metamask.
+ * The data emitted from the Acria WalletController.store EventEmitter, also used to initialize the Acria WalletController. Available in UI on React state as state.metamask.
  *
- * @typedef MetaMaskState
+ * @typedef Acria WalletState
  * @property {boolean} isInitialized - Whether the first vault has been created.
  * @property {boolean} isUnlocked - Whether the vault is currently decrypted and accounts are available for selection.
  * @property {boolean} isAccountMenuOpen - Represents whether the main account selection UI is currently displayed.
@@ -131,7 +131,7 @@ if (isManifestV3) {
  * @property {string} currentLocale - A locale string matching the user's preferred display language.
  * @property {object} provider - The current selected network provider.
  * @property {string} provider.rpcUrl - The address for the RPC API, if using an RPC API.
- * @property {string} provider.type - An identifier for the type of network selected, allows MetaMask to use custom provider strategies for known networks.
+ * @property {string} provider.type - An identifier for the type of network selected, allows Acria Wallet to use custom provider strategies for known networks.
  * @property {string} network - A stringified number of the current network ID.
  * @property {object} accounts - An object mapping lower-case hex addresses to objects with "balance" and "address" keys, both storing hex string values.
  * @property {hex} currentBlockGasLimit - The most recently seen block gas limit, in a lower case hex prefixed string.
@@ -158,12 +158,12 @@ if (isManifestV3) {
 
 /**
  * @typedef VersionedData
- * @property {MetaMaskState} data - The data emitted from MetaMask controller, or used to initialize it.
+ * @property {Acria WalletState} data - The data emitted from Acria Wallet controller, or used to initialize it.
  * @property {number} version - The latest migration version that has been run.
  */
 
 /**
- * Initializes the MetaMask controller, and sets up all platform configuration.
+ * Initializes the Acria Wallet controller, and sets up all platform configuration.
  *
  * @param {string} remotePort - remote application port connecting to extension.
  * @returns {Promise} Setup complete.
@@ -173,7 +173,7 @@ async function initialize(remotePort) {
   const initLangCode = await getFirstPreferredLangCode();
   await setupController(initState, initLangCode, remotePort);
   await loadPhishingWarningPage();
-  log.info('MetaMask initialization complete.');
+  log.info('Acria Wallet initialization complete.');
 }
 
 /**
@@ -250,7 +250,7 @@ async function loadPhishingWarningPage() {
  * Loads any stored data, prioritizing the latest storage strategy.
  * Migrates that data schema in case it was last loaded on an older version.
  *
- * @returns {Promise<MetaMaskState>} Last data emitted from previous instance of MetaMask.
+ * @returns {Promise<Acria WalletState>} Last data emitted from previous instance of Acria Wallet.
  */
 async function loadStateFromPersistence() {
   // migrations
@@ -269,7 +269,7 @@ async function loadStateFromPersistence() {
   if (versionedData && !versionedData.data) {
     // unable to recover, clear state
     versionedData = migrator.generateInitialState(firstTimeState);
-    sentry.captureMessage('MetaMask - Empty vault found - unable to recover');
+    sentry.captureMessage('Acria Wallet - Empty vault found - unable to recover');
   }
 
   // report migration errors to sentry
@@ -285,7 +285,7 @@ async function loadStateFromPersistence() {
   // migrate data
   versionedData = await migrator.migrateData(versionedData);
   if (!versionedData) {
-    throw new Error('MetaMask - migrator returned undefined');
+    throw new Error('Acria Wallet - migrator returned undefined');
   }
 
   // write to disk
@@ -294,7 +294,7 @@ async function loadStateFromPersistence() {
   } else {
     // throw in setTimeout so as to not block boot
     setTimeout(() => {
-      throw new Error('MetaMask - Localstore not supported');
+      throw new Error('Acria Wallet - Localstore not supported');
     });
   }
 
@@ -303,7 +303,7 @@ async function loadStateFromPersistence() {
 }
 
 /**
- * Initializes the MetaMask Controller with any initial state and default language.
+ * Initializes the Acria Wallet Controller with any initial state and default language.
  * Configures platform-specific error reporting strategy.
  * Streams emitted state updates to platform-specific storage strategy.
  * Creates platform listeners for new Dapps/Contexts, and sets up their data connections to the controller.
@@ -315,7 +315,7 @@ async function loadStateFromPersistence() {
  */
 function setupController(initState, initLangCode, remoteSourcePort) {
   //
-  // MetaMask Controller
+  // Acria Wallet Controller
   //
 
   controller = new MetamaskController({
@@ -356,7 +356,7 @@ function setupController(initState, initLangCode, remoteSourcePort) {
     storeTransformStream(versionifyData),
     createStreamSink(persistData),
     (error) => {
-      log.error('MetaMask - Persistence pipeline failed', error);
+      log.error('Acria Wallet - Persistence pipeline failed', error);
     },
   );
 
@@ -365,7 +365,7 @@ function setupController(initState, initLangCode, remoteSourcePort) {
   /**
    * Assigns the given state to the versioned object (with metadata), and returns that.
    *
-   * @param {object} state - The state object as emitted by the MetaMaskController.
+   * @param {object} state - The state object as emitted by the Acria WalletController.
    * @returns {VersionedData} The state object wrapped in an object that includes a metadata key.
    */
   function versionifyData(state) {
@@ -377,10 +377,10 @@ function setupController(initState, initLangCode, remoteSourcePort) {
 
   async function persistData(state) {
     if (!state) {
-      throw new Error('MetaMask - updated state is missing');
+      throw new Error('Acria Wallet - updated state is missing');
     }
     if (!state.data) {
-      throw new Error('MetaMask - updated state does not have data');
+      throw new Error('Acria Wallet - updated state does not have data');
     }
     if (localStore.isSupported) {
       try {
@@ -444,8 +444,8 @@ function setupController(initState, initLangCode, remoteSourcePort) {
    */
 
   /**
-   * Connects a Port to the MetaMask controller via a multiplexed duplex stream.
-   * This method identifies trusted (MetaMask) interfaces, and connects them differently from untrusted (web pages).
+   * Connects a Port to the Acria Wallet controller via a multiplexed duplex stream.
+   * This method identifies trusted (Acria Wallet) interfaces, and connects them differently from untrusted (web pages).
    *
    * @param {Port} remotePort - The port provided by a new context.
    */
@@ -456,13 +456,13 @@ function setupController(initState, initLangCode, remoteSourcePort) {
       return;
     }
 
-    let isMetaMaskInternalProcess = false;
+    let isAcriaWalletInternalProcess = false;
     const sourcePlatform = getPlatform();
 
     if (sourcePlatform === PLATFORM_FIREFOX) {
-      isMetaMaskInternalProcess = metamaskInternalProcessHash[processName];
+      isAcriaWalletInternalProcess = metamaskInternalProcessHash[processName];
     } else {
-      isMetaMaskInternalProcess =
+      isAcriaWalletInternalProcess =
         remotePort.sender.origin === `chrome-extension://${browser.runtime.id}`;
     }
 
@@ -470,7 +470,7 @@ function setupController(initState, initLangCode, remoteSourcePort) {
       ? new URL(remotePort.sender.url)
       : null;
 
-    if (isMetaMaskInternalProcess) {
+    if (isAcriaWalletInternalProcess) {
       const portStream = new PortStream(remotePort);
       // communication with popup
       controller.isClientOpen = true;
@@ -774,7 +774,7 @@ const addAppInstalledEvent = () => {
   }, 1000);
 };
 
-// On first install, open a new tab with MetaMask
+// On first install, open a new tab with Acria Wallet
 browser.runtime.onInstalled.addListener(({ reason }) => {
   if (
     reason === 'install' &&

@@ -27,7 +27,7 @@
     "message": "የእንቅስቃሴ ምዝግብ ማስታወሻ"
   },
   "addAcquiredTokens": {
-    "message": "MetaMask በመጠቀም የገዟቸውን ተለዋጭ ስሞች ያክሉ"
+    "message": "Acria Wallet በመጠቀም የገዟቸውን ተለዋጭ ስሞች ያክሉ"
   },
   "addAlias": {
     "message": "ተለዋጭ ስም አክል"
@@ -55,15 +55,15 @@
     "description": "The description of the application"
   },
   "appName": {
-    "message": "MetaMask",
+    "message": "Acria Wallet",
     "description": "The name of the application"
   },
   "appNameBeta": {
-    "message": "MetaMask Beta",
+    "message": "Acria Wallet Beta",
     "description": "The name of the application (Beta)"
   },
   "appNameFlask": {
-    "message": "MetaMask Flask",
+    "message": "Acria Wallet Flask",
     "description": "The name of the application (Flask)"
   },
   "approve": {
@@ -91,7 +91,7 @@
     "message": "በራስ ሰር ዘግቶ መውጫ ሰዓት ቆጣሪ (ደቂቃ)"
   },
   "autoLockTimeLimitDescription": {
-    "message": "MetaMask በራስ ሰር መንገድ ዘግቶ ከመውጣቱ በፊት የቦዘነ ጊዜን በደቂቃዎች ሙላ"
+    "message": "Acria Wallet በራስ ሰር መንገድ ዘግቶ ከመውጣቱ በፊት የቦዘነ ጊዜን በደቂቃዎች ሙላ"
   },
   "average": {
     "message": "አማካይ"
@@ -103,7 +103,7 @@
     "message": "ወደ ሁሉም ተመለስ"
   },
   "backupApprovalInfo": {
-    "message": "መሳሪያዎ ቢጠፋ፣ የይለፍ ቃልዎን ቢረሱ፣ MetaMask እንደገና መጫን ቢያስፈልግዎ ወይም በሌላ መሳሪያ ወደ ቋትዎ ለመድረስ ቢፈልጉ ይህ ሚስጥራዊ ኮድ ቋትዎን መልሶ ለማግኘት ያስፈልጋል።"
+    "message": "መሳሪያዎ ቢጠፋ፣ የይለፍ ቃልዎን ቢረሱ፣ Acria Wallet እንደገና መጫን ቢያስፈልግዎ ወይም በሌላ መሳሪያ ወደ ቋትዎ ለመድረስ ቢፈልጉ ይህ ሚስጥራዊ ኮድ ቋትዎን መልሶ ለማግኘት ያስፈልጋል።"
   },
   "backupApprovalNotice": {
     "message": "የቋትዎንና የገነዘብዎን ደህንነት ለማስጠበቅ ሚስጥራዊ የማስመለሻ ኮድዎን መጠባበቂያ ይያዙ።"
@@ -134,7 +134,7 @@
     "message": "$1 በ Wyre ይግዙ"
   },
   "buyWithWyreDescription": {
-    "message": "Wyre ክሬዲት ካርድ ተጠቅመው $1 በቀጥታ በ MetaMask መለያዎ ላይ እንዲያስቀምጡ ያስችልዎታል።"
+    "message": "Wyre ክሬዲት ካርድ ተጠቅመው $1 በቀጥታ በ Acria Wallet መለያዎ ላይ እንዲያስቀምጡ ያስችልዎታል።"
   },
   "bytes": {
     "message": "ባይት"
@@ -152,7 +152,7 @@
     "message": "የሰንሰለት መታወቂያ"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "ከሃርድዌርዎ ቋት ጋር ለመገናኘት MetaMask በ Google Chrome ላይ መጠቀም አለብዎት።"
+    "message": "ከሃርድዌርዎ ቋት ጋር ለመገናኘት Acria Wallet በ Google Chrome ላይ መጠቀም አለብዎት።"
   },
   "clickToRevealSeed": {
     "message": "ሚስጥራዊ ቃላትን ለመግለጽ እዚህ ጠቅ ያድርጉ"
@@ -299,13 +299,13 @@
     "message": "ሐረጉን በጭራሽ ከሌላ ሰው ጋር አይጋሩ።"
   },
   "endOfFlowMessage5": {
-    "message": "አጭበርባሪ ነገሮችን ይጠንቀቁ! MetaMask በድንገት የዘር ሐረግዎን በጭራሽ አይጠይቅዎትም።"
+    "message": "አጭበርባሪ ነገሮችን ይጠንቀቁ! Acria Wallet በድንገት የዘር ሐረግዎን በጭራሽ አይጠይቅዎትም።"
   },
   "endOfFlowMessage6": {
     "message": "የዘር ሐረግዎን በድጋሚ መጠባበቂያ ለመያዝ ከፈለጉ፣ በቅንብሮች -> ግላዊነት ውስጥ ሊያገኙት ይችላሉ።"
   },
   "endOfFlowMessage8": {
-    "message": "MetaMask የዘር ሐረግዎን መልሶ ማግኘት አልቻለም። ተጨማሪ መረጃ ያግኙ።"
+    "message": "Acria Wallet የዘር ሐረግዎን መልሶ ማግኘት አልቻለም። ተጨማሪ መረጃ ያግኙ።"
   },
   "endOfFlowMessage9": {
     "message": "ተጨማሪ ይማሩ"
@@ -410,7 +410,7 @@
     "message": "ከሃርድዌር ቋት ጋር ይገናኙ"
   },
   "hardwareWalletsMsg": {
-    "message": "ከ MetaMask ጋር ሊጠቀሙበት የሚፈልጉትን የሃርድዌር ቋት ይምረጡ"
+    "message": "ከ Acria Wallet ጋር ሊጠቀሙበት የሚፈልጉትን የሃርድዌር ቋት ይምረጡ"
   },
   "here": {
     "message": "እዚህ",
@@ -436,7 +436,7 @@
     "message": "መለያ አስመጣ"
   },
   "importAccountMsg": {
-    "message": "የመጡ መለያዎች በመጀመሪያ ከተፈጠረው የእርስዎ MetaMask መለያ የዘር ሐረግ ጋር አይዛመዱም። ስለሚመጡ መለያዎቸ ተጨማሪ መረጃ ያግኙ"
+    "message": "የመጡ መለያዎች በመጀመሪያ ከተፈጠረው የእርስዎ Acria Wallet መለያ የዘር ሐረግ ጋር አይዛመዱም። ስለሚመጡ መለያዎቸ ተጨማሪ መረጃ ያግኙ"
   },
   "importAccountSeedPhrase": {
     "message": "መለያን በዘር ሐረግ አስመጣ"
@@ -531,7 +531,7 @@
     "message": "ከ Ethereum እና ያልተማከለ መረብ ጋር እርስዎን ማገናኘት።"
   },
   "metamaskVersion": {
-    "message": "የ MetaMask ስሪት"
+    "message": "የ Acria Wallet ስሪት"
   },
   "mustSelectOne": {
     "message": "ቢያንስ 1 ተለዋጭ ስም መምረጥ አለብዎ።"
@@ -574,8 +574,8 @@
   "newPassword": {
     "message": "አዲስ የይለፍ ቃል (ቢያንስ 8 ቁምፊዎች)"
   },
-  "newToMetaMask": {
-    "message": "ለ MetaMask አዲስ ነዎት?"
+  "newToAcriaWallet": {
+    "message": "ለ Acria Wallet አዲስ ነዎት?"
   },
   "newTotal": {
     "message": "አዲስ ድምር"
@@ -892,16 +892,16 @@
     "message": "ይህን ኮድ ስካን ሲያደርጉ ሌላ ሰው የእርስዎን ማያ እየተመለከተ አለመሆኑን ያረጋግጡ"
   },
   "syncWithMobileComplete": {
-    "message": "ውሂብዎ በሚገባ ተሳምሯል። በ MetaMask የሞባይል መተግበሪያ ይደሰቱ!"
+    "message": "ውሂብዎ በሚገባ ተሳምሯል። በ Acria Wallet የሞባይል መተግበሪያ ይደሰቱ!"
   },
   "syncWithMobileDesc": {
-    "message": "መለያዎችዎንና መረጃዎችዎን ከሞባይል መሳሪያዎ ጋር ያሳምሩ። የ MetaMask የሞባይል መተግበሪያን ይክፈቱ፣ ወደ \"ቅንብሮች\" ይሂዱና \"ከማሰሺያ ቅጥያ አሳምር\" የሚለውን ይንኩ"
+    "message": "መለያዎችዎንና መረጃዎችዎን ከሞባይል መሳሪያዎ ጋር ያሳምሩ። የ Acria Wallet የሞባይል መተግበሪያን ይክፈቱ፣ ወደ \"ቅንብሮች\" ይሂዱና \"ከማሰሺያ ቅጥያ አሳምር\" የሚለውን ይንኩ"
   },
   "syncWithMobileDescNewUsers": {
-    "message": "የ MetaMask የሞባይል መተግበሪያን ለመጀመሪያ ጊዜ ገና እየከፈቱ ከሆነ፣ በስልክዎ ላይ ያሉትን ቅደም ተከተሎች ብቻ ይከተሉ።"
+    "message": "የ Acria Wallet የሞባይል መተግበሪያን ለመጀመሪያ ጊዜ ገና እየከፈቱ ከሆነ፣ በስልክዎ ላይ ያሉትን ቅደም ተከተሎች ብቻ ይከተሉ።"
   },
   "syncWithMobileScanThisCode": {
-    "message": "ይህን ኮድ በ MetaMask የሞባይል መተግበሪያዎ ስካን ያድርጉ"
+    "message": "ይህን ኮድ በ Acria Wallet የሞባይል መተግበሪያዎ ስካን ያድርጉ"
   },
   "syncWithMobileTitle": {
     "message": "ከሞባይል ጋር አሳምር"
@@ -992,7 +992,7 @@
     "message": "እንደገና ሞክር"
   },
   "typePassword": {
-    "message": "የ MetaMask የይለፍ ቃልዎን ይጻፉ"
+    "message": "የ Acria Wallet የይለፍ ቃልዎን ይጻፉ"
   },
   "unapproved": {
     "message": "ያልተፈቀደ"
@@ -1043,7 +1043,7 @@
     "message": "ድረ ገጻችንን ይጎብኙ"
   },
   "welcome": {
-    "message": "ወደ MetaMask እንኳን ደህና መጡ"
+    "message": "ወደ Acria Wallet እንኳን ደህና መጡ"
   },
   "welcomeBack": {
     "message": "እንኳን በደህና ተመለሱ"

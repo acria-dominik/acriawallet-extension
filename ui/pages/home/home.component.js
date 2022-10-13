@@ -60,7 +60,7 @@ import FlaskHomeFooter from './flask/flask-home-footer.component';
 ///: END:ONLY_INCLUDE_IN
 
 const LEARN_MORE_URL =
-  'https://metamask.zendesk.com/hc/en-us/articles/360045129011-Intro-to-MetaMask-v8-extension';
+  'https://metamask.zendesk.com/hc/en-us/articles/360045129011-Intro-to-AcriaWallet-v8-extension';
 
 function shouldCloseNotificationPopup({
   isNotification,

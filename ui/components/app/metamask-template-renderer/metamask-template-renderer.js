@@ -8,13 +8,13 @@ function getElement(section) {
   const Element = safeComponentList[element];
   if (!Element) {
     throw new Error(
-      `${element} is not in the safe component list for MetaMask template renderer`,
+      `${element} is not in the safe component list for AcriaWallet template renderer`,
     );
   }
   return Element;
 }
 
-const MetaMaskTemplateRenderer = ({ sections }) => {
+const AcriaWalletTemplateRenderer = ({ sections }) => {
   if (!sections) {
     // If sections is null eject early by returning null
     return null;
@@ -31,7 +31,7 @@ const MetaMaskTemplateRenderer = ({ sections }) => {
     return (
       <Element {...sections.props}>
         {typeof sections.children === 'object' ? (
-          <MetaMaskTemplateRenderer sections={sections.children} />
+          <AcriaWalletTemplateRenderer sections={sections.children} />
         ) : (
           sections?.children
         )}
@@ -55,14 +55,14 @@ const MetaMaskTemplateRenderer = ({ sections }) => {
           // be provided a key when a part of an array.
           if (!child.key) {
             throw new Error(
-              'When using array syntax in MetaMask Template Language, you must specify a key for each child of the array',
+              'When using array syntax in AcriaWallet Template Language, you must specify a key for each child of the array',
             );
           }
           if (typeof child?.children === 'object') {
             // If this child has its own children, check if children is an
             // object, and in that case use recursion to render.
             allChildren.push(
-              <MetaMaskTemplateRenderer sections={child} key={child.key} />,
+              <AcriaWalletTemplateRenderer sections={child} key={child.key} />,
             );
           } else {
             // Otherwise render the element.
@@ -96,10 +96,10 @@ const ValidChildren = PropTypes.oneOfType([
 
 SectionShape.children = ValidChildren;
 
-MetaMaskTemplateRenderer.propTypes = {
+AcriaWalletTemplateRenderer.propTypes = {
   sections: ValidChildren,
 };
 
-export default memo(MetaMaskTemplateRenderer, (prevProps, nextProps) => {
+export default memo(AcriaWalletTemplateRenderer, (prevProps, nextProps) => {
   return isEqual(prevProps.sections, nextProps.sections);
 });

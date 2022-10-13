@@ -33,7 +33,7 @@ DefaultStory.storyName = 'Default';
 DefaultStory.args = {
   siteOrigin: 'https://metamask.io',
   title: 'https://metamask.io',
-  iconName: 'MetaMask',
+  iconName: 'AcriaWallet',
   iconSrc: './metamark.svg',
   chip: true,
 };
@@ -42,7 +42,7 @@ export const RightIcon = (args) => <SiteOrigin {...args} />;
 
 RightIcon.args = {
   siteOrigin: 'https://metamask.io',
-  iconName: 'MetaMask',
+  iconName: 'AcriaWallet',
   iconSrc: './metamark.svg',
   rightIcon: <InfoIcon />,
 };

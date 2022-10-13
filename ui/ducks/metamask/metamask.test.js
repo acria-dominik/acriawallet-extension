@@ -11,7 +11,7 @@ import reduceMetamask, {
   isNotEIP1559Network,
 } from './metamask';
 
-describe('MetaMask Reducers', () => {
+describe('AcriaWallet Reducers', () => {
   const mockState = {
     metamask: reduceMetamask(
       {
@@ -114,16 +114,16 @@ describe('MetaMask Reducers', () => {
     expect.anything(initState);
   });
 
-  it('locks MetaMask', () => {
-    const unlockMetaMaskState = {
+  it('locks AcriaWallet', () => {
+    const unlockAcriaWalletState = {
       isUnlocked: true,
       selectedAddress: 'test address',
     };
-    const lockMetaMask = reduceMetamask(unlockMetaMaskState, {
+    const lockAcriaWallet = reduceMetamask(unlockAcriaWalletState, {
       type: actionConstants.LOCK_METAMASK,
     });
 
-    expect(lockMetaMask.isUnlocked).toStrictEqual(false);
+    expect(lockAcriaWallet.isUnlocked).toStrictEqual(false);
   });
 
   it('sets rpc target', () => {

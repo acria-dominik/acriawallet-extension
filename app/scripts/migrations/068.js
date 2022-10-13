@@ -53,7 +53,7 @@ function getPermissionControllerState(PermissionsController) {
    * 'https://metamask.github.io': {
    *   permissions: [
    *     {
-   *       '@context': ['https://github.com/MetaMask/rpc-cap'],
+   *       '@context': ['https://github.com/Acria Wallet/rpc-cap'],
    *       'caveats': [
    *         {
    *           name: 'primaryAccountOnly',

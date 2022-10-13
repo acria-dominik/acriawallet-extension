@@ -53,7 +53,7 @@ const ChooseAccount = ({
         <PermissionsConnectHeader
           iconUrl={targetSubjectMetadata?.iconUrl}
           iconName={targetSubjectMetadata?.name}
-          headerTitle={t('connectWithMetaMask')}
+          headerTitle={t('connectWithAcriaWallet')}
           headerText={
             accounts.length > 0
               ? t('selectAccounts')

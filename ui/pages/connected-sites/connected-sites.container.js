@@ -18,7 +18,7 @@ import { getMostRecentOverviewPage } from '../../ducks/history/history';
 import ConnectedSites from './connected-sites.component';
 
 const mapStateToProps = (state) => {
-  const { openMetaMaskTabs } = state.appState;
+  const { openAcriaWalletTabs } = state.appState;
   const { id } = state.activeTab;
   const connectedSubjects = getConnectedSubjectsForSelectedAddress(state);
   const originOfCurrentTab = getOriginOfCurrentTab(state);
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
     !permittedAccountsByOrigin[originOfCurrentTab]?.length;
 
   let tabToConnect;
-  if (originOfCurrentTab && currentTabHasNoAccounts && !openMetaMaskTabs[id]) {
+  if (originOfCurrentTab && currentTabHasNoAccounts && !openAcriaWalletTabs[id]) {
     tabToConnect = {
       origin: originOfCurrentTab,
     };

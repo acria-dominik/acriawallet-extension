@@ -12,7 +12,7 @@ import { useHistory } from 'react-router-dom';
 import { isEqual } from 'lodash';
 import { produce } from 'immer';
 import Box from '../../components/ui/box';
-import MetaMaskTemplateRenderer from '../../components/app/metamask-template-renderer';
+import AcriaWalletTemplateRenderer from '../../components/app/metamask-template-renderer';
 import { DEFAULT_ROUTE } from '../../helpers/constants/routes';
 import {
   COLORS,
@@ -225,7 +225,7 @@ export default function ConfirmationPage({
             />
           </Box>
         )}
-        <MetaMaskTemplateRenderer sections={templatedValues.content} />
+        <AcriaWalletTemplateRenderer sections={templatedValues.content} />
       </div>
       <ConfirmationFooter
         alerts={
@@ -241,7 +241,7 @@ export default function ConfirmationPage({
                 isLast={idx === filtered.length - 1}
                 isMultiple={filtered.length > 1}
               >
-                <MetaMaskTemplateRenderer sections={alert.content} />
+                <AcriaWalletTemplateRenderer sections={alert.content} />
               </Callout>
             ))
         }

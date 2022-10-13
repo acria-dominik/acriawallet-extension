@@ -29,7 +29,7 @@ const PHISHING_SAFELIST = 'metamask-phishing-safelist';
 const PROVIDER = 'metamask-provider';
 
 // For more information about these legacy streams, see here:
-// https://github.com/MetaMask/metamask-extension/issues/15491
+// https://github.com/Acria Wallet/metamask-extension/issues/15491
 // TODO:LegacyProvider: Delete
 const LEGACY_CONTENT_SCRIPT = 'contentscript';
 const LEGACY_INPAGE = 'inpage';
@@ -64,7 +64,7 @@ function injectScript(content) {
     container.insertBefore(scriptTag, container.children[0]);
     container.removeChild(scriptTag);
   } catch (error) {
-    console.error('MetaMask: Provider injection failed.', error);
+    console.error('Acria Wallet: Provider injection failed.', error);
   }
 }
 
@@ -85,10 +85,10 @@ async function setupPhishingStream() {
   extensionMux.setMaxListeners(25);
 
   pump(pageMux, pageStream, pageMux, (err) =>
-    logStreamDisconnectWarning('MetaMask Inpage Multiplex', err),
+    logStreamDisconnectWarning('Acria Wallet Inpage Multiplex', err),
   );
   pump(extensionMux, extensionStream, extensionMux, (err) => {
-    logStreamDisconnectWarning('MetaMask Background Multiplex', err);
+    logStreamDisconnectWarning('Acria Wallet Background Multiplex', err);
     window.postMessage(
       {
         target: PHISHING_WARNING_PAGE, // the post-message-stream "target"
@@ -132,10 +132,10 @@ async function setupStreams() {
   extensionMux.ignoreStream(LEGACY_PUBLIC_CONFIG); // TODO:LegacyProvider: Delete
 
   pump(pageMux, pageStream, pageMux, (err) =>
-    logStreamDisconnectWarning('MetaMask Inpage Multiplex', err),
+    logStreamDisconnectWarning('Acria Wallet Inpage Multiplex', err),
   );
   pump(extensionMux, extensionStream, extensionMux, (err) => {
-    logStreamDisconnectWarning('MetaMask Background Multiplex', err);
+    logStreamDisconnectWarning('Acria Wallet Background Multiplex', err);
     notifyInpageOfStreamFailure();
   });
 
@@ -159,7 +159,7 @@ async function setupStreams() {
   legacyExtensionMux.setMaxListeners(25);
 
   pump(legacyPageMux, legacyPageStream, legacyPageMux, (err) =>
-    logStreamDisconnectWarning('MetaMask Legacy Inpage Multiplex', err),
+    logStreamDisconnectWarning('Acria Wallet Legacy Inpage Multiplex', err),
   );
   pump(
     legacyExtensionMux,
@@ -167,7 +167,7 @@ async function setupStreams() {
     getNotificationTransformStream(),
     legacyExtensionMux,
     (err) => {
-      logStreamDisconnectWarning('MetaMask Background Legacy Multiplex', err);
+      logStreamDisconnectWarning('Acria Wallet Background Legacy Multiplex', err);
       notifyInpageOfStreamFailure();
     },
   );
@@ -190,7 +190,7 @@ function forwardTrafficBetweenMuxes(channelName, muxA, muxB) {
   const channelB = muxB.createStream(channelName);
   pump(channelA, channelB, channelA, (error) =>
     console.debug(
-      `MetaMask: Muxed traffic for channel "${channelName}" failed.`,
+      `Acria Wallet: Muxed traffic for channel "${channelName}" failed.`,
       error,
     ),
   );
@@ -207,7 +207,7 @@ function forwardNamedTrafficBetweenMuxes(
   const channelB = muxB.createStream(channelBName);
   pump(channelA, channelB, channelA, (error) =>
     console.debug(
-      `MetaMask: Muxed traffic between channels "${channelAName}" and "${channelBName}" failed.`,
+      `Acria Wallet: Muxed traffic between channels "${channelAName}" and "${channelBName}" failed.`,
       error,
     ),
   );
@@ -235,7 +235,7 @@ function getNotificationTransformStream() {
  */
 function logStreamDisconnectWarning(remoteLabel, error) {
   console.debug(
-    `MetaMask: Content script lost connection to "${remoteLabel}".`,
+    `Acria Wallet: Content script lost connection to "${remoteLabel}".`,
     error,
   );
 }
@@ -268,7 +268,7 @@ function notifyInpageOfStreamFailure() {
  * @param data
  */
 function redirectToPhishingWarning(data = {}) {
-  console.debug('MetaMask: Routing to Phishing Warning page.');
+  console.debug('Acria Wallet: Routing to Phishing Warning page.');
   const { hostname, href } = window.location;
   const { newIssueUrl } = data;
   const baseUrl = process.env.PHISHING_WARNING_PAGE_URL;

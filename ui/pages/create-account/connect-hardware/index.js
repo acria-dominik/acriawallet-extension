@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import * as actions from '../../../store/actions';
 import {
   getCurrentChainId,
-  getMetaMaskAccounts,
+  getAcriaWalletAccounts,
   getRpcPrefsForCurrentProvider,
-  getMetaMaskAccountsConnected,
+  getAcriaWalletAccountsConnected,
 } from '../../../selectors';
 import { formatBalance } from '../../../helpers/utils/util';
 import { getMostRecentOverviewPage } from '../../../ducks/history/history';
@@ -28,7 +28,7 @@ const BIP44_PATH = `m/44'/60'/0'/0`;
 const LEDGER_HD_PATHS = [
   { name: 'Ledger Live', value: LEDGER_LIVE_PATH },
   { name: 'Legacy (MEW / MyCrypto)', value: MEW_PATH },
-  { name: `BIP44 Standard (e.g. MetaMask, Trezor)`, value: BIP44_PATH },
+  { name: `BIP44 Standard (e.g. AcriaWallet, Trezor)`, value: BIP44_PATH },
 ];
 
 const LATTICE_STANDARD_BIP44_PATH = `m/44'/60'/0'/0/x`;
@@ -48,7 +48,7 @@ const LATTICE_HD_PATHS = [
 
 const TREZOR_TESTNET_PATH = `m/44'/1'/0'/0`;
 const TREZOR_HD_PATHS = [
-  { name: `BIP44 Standard (e.g. MetaMask, Trezor)`, value: BIP44_PATH },
+  { name: `BIP44 Standard (e.g. AcriaWallet, Trezor)`, value: BIP44_PATH },
   { name: `Trezor Testnets`, value: TREZOR_TESTNET_PATH },
 ];
 
@@ -370,8 +370,8 @@ ConnectHardwareForm.propTypes = {
 const mapStateToProps = (state) => ({
   chainId: getCurrentChainId(state),
   rpcPrefs: getRpcPrefsForCurrentProvider(state),
-  accounts: getMetaMaskAccounts(state),
-  connectedAccounts: getMetaMaskAccountsConnected(state),
+  accounts: getAcriaWalletAccounts(state),
+  connectedAccounts: getAcriaWalletAccountsConnected(state),
   defaultHdPaths: state.appState.defaultHdPaths,
   mostRecentOverviewPage: getMostRecentOverviewPage(state),
   ledgerTransportType: state.metamask.ledgerTransportType,
