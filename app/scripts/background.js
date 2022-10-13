@@ -19,13 +19,6 @@ import {
   PLATFORM_FIREFOX,
 } from '../../shared/constants/app';
 import { SECOND } from '../../shared/constants/time';
-import {
-  REJECT_NOTFICIATION_CLOSE,
-  REJECT_NOTFICIATION_CLOSE_SIG,
-  EVENT,
-  EVENT_NAMES,
-  TRAITS,
-} from '../../shared/constants/metametrics';
 import { isManifestV3 } from '../../shared/modules/mv3.utils';
 import { maskObject } from '../../shared/modules/object.utils';
 import migrations from './migrations';
@@ -33,7 +26,6 @@ import Migrator from './lib/migrator';
 import ExtensionPlatform from './platforms/extension';
 import LocalStore from './lib/local-store';
 import ReadOnlyNetworkStore from './lib/network-store';
-import { SENTRY_STATE } from './lib/setupSentry';
 
 import createStreamSink from './lib/createStreamSink';
 import NotificationManager, {
@@ -269,7 +261,9 @@ async function loadStateFromPersistence() {
   if (versionedData && !versionedData.data) {
     // unable to recover, clear state
     versionedData = migrator.generateInitialState(firstTimeState);
-    sentry.captureMessage('Acria Wallet - Empty vault found - unable to recover');
+    sentry.captureMessage(
+      'Acria Wallet - Empty vault found - unable to recover',
+    );
   }
 
   // report migration errors to sentry
@@ -359,8 +353,6 @@ function setupController(initState, initLangCode, remoteSourcePort) {
       log.error('Acria Wallet - Persistence pipeline failed', error);
     },
   );
-
-  setupSentryGetStateGlobal(controller);
 
   /**
    * Assigns the given state to the versioned object (with metadata), and returns that.
@@ -657,44 +649,19 @@ function setupController(initState, initLangCode, remoteSourcePort) {
     );
     controller.messageManager.messages
       .filter((msg) => msg.status === 'unapproved')
-      .forEach((tx) =>
-        controller.messageManager.rejectMsg(
-          tx.id,
-          REJECT_NOTFICIATION_CLOSE_SIG,
-        ),
-      );
+      .forEach((tx) => controller.messageManager.rejectMsg(tx.id));
     controller.personalMessageManager.messages
       .filter((msg) => msg.status === 'unapproved')
-      .forEach((tx) =>
-        controller.personalMessageManager.rejectMsg(
-          tx.id,
-          REJECT_NOTFICIATION_CLOSE_SIG,
-        ),
-      );
+      .forEach((tx) => controller.personalMessageManager.rejectMsg(tx.id));
     controller.typedMessageManager.messages
       .filter((msg) => msg.status === 'unapproved')
-      .forEach((tx) =>
-        controller.typedMessageManager.rejectMsg(
-          tx.id,
-          REJECT_NOTFICIATION_CLOSE_SIG,
-        ),
-      );
+      .forEach((tx) => controller.typedMessageManager.rejectMsg(tx.id));
     controller.decryptMessageManager.messages
       .filter((msg) => msg.status === 'unapproved')
-      .forEach((tx) =>
-        controller.decryptMessageManager.rejectMsg(
-          tx.id,
-          REJECT_NOTFICIATION_CLOSE,
-        ),
-      );
+      .forEach((tx) => controller.decryptMessageManager.rejectMsg(tx.id));
     controller.encryptionPublicKeyManager.messages
       .filter((msg) => msg.status === 'unapproved')
-      .forEach((tx) =>
-        controller.encryptionPublicKeyManager.rejectMsg(
-          tx.id,
-          REJECT_NOTFICIATION_CLOSE,
-        ),
-      );
+      .forEach((tx) => controller.encryptionPublicKeyManager.rejectMsg(tx.id));
 
     // Finally, reject all approvals managed by the ApprovalController
     controller.approvalController.clear(
@@ -755,44 +722,12 @@ async function openPopup() {
   });
 }
 
-// It adds the "App Installed" event into a queue of events, which will be tracked only after a user opts into metrics.
-const addAppInstalledEvent = () => {
-  if (controller) {
-    controller.metaMetricsController.updateTraits({
-      [TRAITS.INSTALL_DATE_EXT]: new Date().toISOString().split('T')[0], // yyyy-mm-dd
-    });
-    controller.metaMetricsController.addEventBeforeMetricsOptIn({
-      category: EVENT.CATEGORIES.APP,
-      event: EVENT_NAMES.APP_INSTALLED,
-      properties: {},
-    });
-    return;
-  }
-  setTimeout(() => {
-    // If the controller is not set yet, we wait and try to add the "App Installed" event again.
-    addAppInstalledEvent();
-  }, 1000);
-};
-
 // On first install, open a new tab with Acria Wallet
 browser.runtime.onInstalled.addListener(({ reason }) => {
   if (
     reason === 'install' &&
     !(process.env.METAMASK_DEBUG || process.env.IN_TEST)
   ) {
-    addAppInstalledEvent();
     platform.openExtensionInBrowser();
   }
 });
-
-function setupSentryGetStateGlobal(store) {
-  global.sentryHooks.getSentryState = function () {
-    const fullState = store.getState();
-    const debugState = maskObject({ metamask: fullState }, SENTRY_STATE);
-    return {
-      browser: window.navigator.userAgent,
-      store: debugState,
-      version: platform.getVersion(),
-    };
-  };
-}

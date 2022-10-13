@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useI18nContext } from '../../../hooks/useI18nContext';
@@ -7,15 +7,12 @@ import Button from '../../ui/button';
 import Box from '../../ui/box/box';
 import { TEXT_ALIGN } from '../../../helpers/constants/design-system';
 import { detectNewTokens } from '../../../store/actions';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
-import { EVENT, EVENT_NAMES } from '../../../../shared/constants/metametrics';
 import {
   getIsTokenDetectionSupported,
   getIsTokenDetectionInactiveOnMainnet,
 } from '../../../selectors';
 
 export default function ImportTokenLink() {
-  const trackEvent = useContext(MetaMetricsContext);
   const t = useI18nContext();
   const history = useHistory();
 
@@ -50,13 +47,6 @@ export default function ImportTokenLink() {
         type="link"
         onClick={() => {
           history.push(IMPORT_TOKEN_ROUTE);
-          trackEvent({
-            event: EVENT_NAMES.TOKEN_IMPORT_BUTTON_CLICKED,
-            category: EVENT.CATEGORIES.NAVIGATION,
-            properties: {
-              location: 'Home',
-            },
-          });
         }}
       >
         {isTokenDetectionAvailable

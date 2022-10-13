@@ -9,14 +9,12 @@ import Identicon from '../../components/ui/identicon';
 import Tooltip from '../../components/ui/tooltip';
 import Copy from '../../components/ui/icon/copy-icon.component';
 
-import { EVENT } from '../../../shared/constants/metametrics';
 import { SECOND } from '../../../shared/constants/time';
 import { conversionUtil } from '../../../shared/modules/conversion.utils';
 
 export default class ConfirmDecryptMessage extends Component {
   static contextTypes = {
     t: PropTypes.func.isRequired,
-    trackEvent: PropTypes.func.isRequired,
   };
 
   static propTypes = {
@@ -45,14 +43,6 @@ export default class ConfirmDecryptMessage extends Component {
 
   copyMessage = () => {
     copyToClipboard(this.state.rawMessage);
-    this.context.trackEvent({
-      category: EVENT.CATEGORIES.MESSAGES,
-      event: 'Copy',
-      properties: {
-        action: 'Decrypt Message Copy',
-        legacy_event: true,
-      },
-    });
     this.setState({ hasCopied: true });
     setTimeout(() => this.setState({ hasCopied: false }), SECOND * 3);
   };
@@ -254,7 +244,7 @@ export default class ConfirmDecryptMessage extends Component {
       mostRecentOverviewPage,
       txData,
     } = this.props;
-    const { trackEvent, t } = this.context;
+    const { t } = this.context;
 
     return (
       <div className="request-decrypt-message__footer">
@@ -264,14 +254,6 @@ export default class ConfirmDecryptMessage extends Component {
           className="request-decrypt-message__footer__cancel-button"
           onClick={async (event) => {
             await cancelDecryptMessage(txData, event);
-            trackEvent({
-              category: EVENT.CATEGORIES.MESSAGES,
-              event: 'Cancel',
-              properties: {
-                action: 'Decrypt Message Request',
-                legacy_event: true,
-              },
-            });
             clearConfirmTransaction();
             history.push(mostRecentOverviewPage);
           }}
@@ -284,14 +266,6 @@ export default class ConfirmDecryptMessage extends Component {
           className="request-decrypt-message__footer__sign-button"
           onClick={async (event) => {
             await decryptMessage(txData, event);
-            trackEvent({
-              category: EVENT.CATEGORIES.MESSAGES,
-              event: 'Confirm',
-              properties: {
-                action: 'Decrypt Message Request',
-                legacy_event: true,
-              },
-            });
             clearConfirmTransaction();
             history.push(mostRecentOverviewPage);
           }}

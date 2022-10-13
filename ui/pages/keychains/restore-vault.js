@@ -13,12 +13,10 @@ import Box from '../../components/ui/box';
 import Typography from '../../components/ui/typography';
 import ZENDESK_URLS from '../../helpers/constants/zendesk-url';
 import { TYPOGRAPHY, COLORS } from '../../helpers/constants/design-system';
-import { EVENT } from '../../../shared/constants/metametrics';
 
 class RestoreVaultPage extends Component {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -41,14 +39,6 @@ class RestoreVaultPage extends Component {
 
     leaveImportSeedScreenState();
     await createNewVaultAndRestore(password, seedPhrase);
-    this.context.trackEvent({
-      category: EVENT.CATEGORIES.RETENTION,
-      event: 'onboardingRestoredVault',
-      properties: {
-        action: 'userEntersSeedPhrase',
-        legacy_event: true,
-      },
-    });
     initializeThreeBox();
     history.push(DEFAULT_ROUTE);
   };

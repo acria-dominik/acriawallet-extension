@@ -15,31 +15,9 @@ describe('Welcome', () => {
     sinon.restore();
   });
 
-  it('routes to the metametrics screen when participateInMetaMetrics is not initialized', () => {
-    const props = {
-      history: {
-        push: sinon.spy(),
-      },
-    };
-
-    const wrapper = mountWithRouter(
-      <Welcome.WrappedComponent {...props} />,
-      store,
-    );
-
-    const getStartedButton = wrapper.find(
-      '.btn-primary.first-time-flow__button',
-    );
-    getStartedButton.simulate('click');
-    expect(props.history.push.getCall(0).args[0]).toStrictEqual(
-      '/initialize/metametrics-opt-in',
-    );
-  });
-
-  it('routes to select action when participateInMetaMetrics is initialized', () => {
+  it('routes to select action', () => {
     const props = {
       welcomeScreenSeen: true,
-      participateInMetaMetrics: false,
       history: {
         push: sinon.spy(),
       },

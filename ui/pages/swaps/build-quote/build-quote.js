@@ -6,7 +6,6 @@ import classnames from 'classnames';
 import { uniqBy, isEqual } from 'lodash';
 import { useHistory } from 'react-router-dom';
 import { getTokenTrackerLink } from '@metamask/etherscan-link';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
 import {
   useTokensToSearch,
   getRenderableTokenData,
@@ -52,7 +51,6 @@ import {
   setReviewSwapClickedTimestamp,
   getSmartTransactionsOptInStatus,
   getSmartTransactionsEnabled,
-  getCurrentSmartTransactionsEnabled,
   getFromTokenInputValue,
   getFromTokenError,
   getMaxSlippage,
@@ -67,8 +65,6 @@ import {
   getCurrentChainId,
   getRpcPrefsForCurrentProvider,
   getTokenList,
-  isHardwareWallet,
-  getHardwareWalletType,
 } from '../../../selectors';
 
 import {
@@ -86,7 +82,6 @@ import {
   isSwapsDefaultTokenAddress,
   isSwapsDefaultTokenSymbol,
 } from '../../../../shared/modules/swaps.utils';
-import { EVENT, EVENT_NAMES } from '../../../../shared/constants/metametrics';
 import {
   SWAPS_CHAINID_DEFAULT_BLOCK_EXPLORER_URL_MAP,
   SWAPS_CHAINID_DEFAULT_TOKEN_MAP,
@@ -129,7 +124,6 @@ export default function BuildQuote({
   const t = useContext(I18nContext);
   const dispatch = useDispatch();
   const history = useHistory();
-  const trackEvent = useContext(MetaMetricsContext);
 
   const [fetchedTokenExchangeRate, setFetchedTokenExchangeRate] =
     useState(undefined);
@@ -156,15 +150,10 @@ export default function BuildQuote({
 
   const tokenConversionRates = useSelector(getTokenExchangeRates, isEqual);
   const conversionRate = useSelector(getConversionRate);
-  const hardwareWalletUsed = useSelector(isHardwareWallet);
-  const hardwareWalletType = useSelector(getHardwareWalletType);
   const smartTransactionsOptInStatus = useSelector(
     getSmartTransactionsOptInStatus,
   );
   const smartTransactionsEnabled = useSelector(getSmartTransactionsEnabled);
-  const currentSmartTransactionsEnabled = useSelector(
-    getCurrentSmartTransactionsEnabled,
-  );
   const smartTransactionFees = useSelector(getSmartTransactionFees);
   const smartTransactionsOptInPopoverDisplayed =
     smartTransactionsOptInStatus !== undefined;
@@ -443,32 +432,10 @@ export default function BuildQuote({
     fromTokenBalance,
   ]);
 
-  const trackBuildQuotePageLoadedEvent = useCallback(() => {
-    trackEvent({
-      event: 'Build Quote Page Loaded',
-      category: EVENT.CATEGORIES.SWAPS,
-      sensitiveProperties: {
-        is_hardware_wallet: hardwareWalletUsed,
-        hardware_wallet_type: hardwareWalletType,
-        stx_enabled: smartTransactionsEnabled,
-        current_stx_enabled: currentSmartTransactionsEnabled,
-        stx_user_opt_in: smartTransactionsOptInStatus,
-      },
-    });
-  }, [
-    trackEvent,
-    hardwareWalletUsed,
-    hardwareWalletType,
-    smartTransactionsEnabled,
-    currentSmartTransactionsEnabled,
-    smartTransactionsOptInStatus,
-  ]);
-
   useEffect(() => {
     dispatch(resetSwapsPostFetchState());
     dispatch(setReviewSwapClickedTimestamp());
-    trackBuildQuotePageLoadedEvent();
-  }, [dispatch, trackBuildQuotePageLoadedEvent]);
+  }, [dispatch]);
 
   useEffect(() => {
     if (smartTransactionsEnabled && smartTransactionFees?.tradeTxFees) {
@@ -483,15 +450,6 @@ export default function BuildQuote({
         className="build-quote__token-etherscan-link build-quote__underline"
         key="build-quote-etherscan-link"
         onClick={() => {
-          trackEvent({
-            event: EVENT_NAMES.EXTERNAL_LINK_CLICKED,
-            category: EVENT.CATEGORIES.SWAPS,
-            properties: {
-              link_type: EVENT.EXTERNAL_LINK_TYPES.TOKEN_TRACKER,
-              location: 'Swaps Confirmation',
-              url_domain: getURLHostName(blockExplorerTokenLink),
-            },
-          });
           global.platform.openTab({
             url: blockExplorerTokenLink,
           });
@@ -548,7 +506,6 @@ export default function BuildQuote({
           history,
           fromTokenInputValue,
           maxSlippage,
-          trackEvent,
           pageRedirectionDisabled,
         ),
       );
@@ -567,7 +524,6 @@ export default function BuildQuote({
     dispatch,
     history,
     maxSlippage,
-    trackEvent,
     isReviewSwapButtonDisabled,
     fromTokenInputValue,
     fromTokenAddress,
@@ -812,17 +768,6 @@ export default function BuildQuote({
                       className="build-quote__token-etherscan-link"
                       key="build-quote-etherscan-link"
                       onClick={() => {
-                        trackEvent({
-                          event: 'Clicked Block Explorer Link',
-                          category: EVENT.CATEGORIES.SWAPS,
-                          properties: {
-                            link_type: 'Token Tracker',
-                            action: 'Swaps Confirmation',
-                            block_explorer_domain: getURLHostName(
-                              blockExplorerTokenLink,
-                            ),
-                          },
-                        });
                         global.platform.openTab({
                           url: blockExplorerTokenLink,
                         });
@@ -876,7 +821,6 @@ export default function BuildQuote({
                 history,
                 fromTokenInputValue,
                 maxSlippage,
-                trackEvent,
               ),
             );
           } else if (areQuotesPresent) {

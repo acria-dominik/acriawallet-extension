@@ -1363,7 +1363,9 @@ const slice = createSlice({
             }) &&
               !isValidDomainName(state.recipientInput))
           ) {
-            draftTransaction.recipient.error = isDefaultAcriaWalletChain(chainId)
+            draftTransaction.recipient.error = isDefaultAcriaWalletChain(
+              chainId,
+            )
               ? INVALID_RECIPIENT_ADDRESS_ERROR
               : INVALID_RECIPIENT_ADDRESS_NOT_ETH_NETWORK_ERROR;
           } else if (

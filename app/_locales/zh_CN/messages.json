@@ -2548,6 +2548,13 @@
   "swap": {
     "message": "兑换 Swap"
   },
+  "swapAcriaWalletFee": {
+    "message": "Acria Wallet 手续费"
+  },
+  "swapAcriaWalletFeeDescription": {
+    "message": "我们每次都能从顶级流动性资源中找到最好的价格。每次报价都会自动收取1%的手续费用，以支持 Acria Wallet 的持续发展，使其更加完善。",
+    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
+  },
   "swapAdvancedSlippageInfo": {
     "message": "如果价格在您下单和确认之间发生变化，这就叫做“滑点”。如果滑点超过您的“最大滑点”设置，您的的兑换将自动取消。"
   },
@@ -2663,13 +2670,6 @@
   },
   "swapMaxSlippage": {
     "message": "最大滑点"
-  },
-  "swapAcriaWalletFee": {
-    "message": "Acria Wallet 手续费"
-  },
-  "swapAcriaWalletFeeDescription": {
-    "message": "我们每次都能从顶级流动性资源中找到最好的价格。每次报价都会自动收取1%的手续费用，以支持 Acria Wallet 的持续发展，使其更加完善。",
-    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapNQuotesWithDot": {
     "message": "$1 报价。",

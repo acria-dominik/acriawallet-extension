@@ -9,7 +9,6 @@ import {
   GAS_ESTIMATE_TYPES,
   CUSTOM_GAS_ESTIMATE,
 } from '../../../../shared/constants/gas';
-import { EVENT } from '../../../../shared/constants/metametrics';
 
 import Button from '../../ui/button';
 import Typography from '../../ui/typography/typography';
@@ -36,7 +35,6 @@ import ActionableMessage from '../../ui/actionable-message/actionable-message';
 
 import { I18nContext } from '../../../contexts/i18n';
 import GasTiming from '../gas-timing';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
 
 export default function EditGasDisplay({
   mode = EDIT_GAS_MODES.MODIFY_IN_PLACE,
@@ -132,7 +130,6 @@ export default function EditGasDisplay({
     errorKey = 'gasEstimatesUnavailableWarning';
   }
 
-  const trackEvent = useContext(MetaMetricsContext);
   return (
     <div className="edit-gas-display">
       <div className="edit-gas-display__content">
@@ -274,14 +271,6 @@ export default function EditGasDisplay({
               className="edit-gas-display__advanced-button"
               onClick={() => {
                 setShowAdvancedForm(!showAdvancedForm);
-                trackEvent({
-                  event: 'Clicked "Advanced options"',
-                  category: EVENT.CATEGORIES.TRANSACTIONS,
-                  properties: {
-                    action: 'Edit Screen',
-                    legacy_event: true,
-                  },
-                });
               }}
             >
               {t('advancedOptions')}{' '}

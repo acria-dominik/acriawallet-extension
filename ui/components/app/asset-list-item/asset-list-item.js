@@ -1,4 +1,4 @@
-import React, { useMemo, useContext } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { useDispatch } from 'react-redux';
@@ -13,9 +13,7 @@ import { startNewDraftTransaction } from '../../../ducks/send';
 import { SEND_ROUTE } from '../../../helpers/constants/routes';
 import { SEVERITIES } from '../../../helpers/constants/design-system';
 import { INVALID_ASSET_TYPE } from '../../../helpers/constants/error-keys';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import { ASSET_TYPES } from '../../../../shared/constants/transaction';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
 
 const AssetListItem = ({
   className,
@@ -35,7 +33,6 @@ const AssetListItem = ({
   const t = useI18nContext();
   const dispatch = useDispatch();
   const history = useHistory();
-  const trackEvent = useContext(MetaMetricsContext);
   const titleIcon = warning ? (
     <Tooltip
       wrapperClassName="asset-list-item__warning-tooltip"
@@ -64,14 +61,6 @@ const AssetListItem = ({
         className="asset-list-item__send-token-button"
         onClick={async (e) => {
           e.stopPropagation();
-          trackEvent({
-            event: 'Clicked Send: Token',
-            category: EVENT.CATEGORIES.NAVIGATION,
-            properties: {
-              action: 'Home',
-              legacy_event: true,
-            },
-          });
           try {
             await dispatch(
               startNewDraftTransaction({
@@ -94,15 +83,7 @@ const AssetListItem = ({
         {t('sendSpecifiedTokens', [tokenSymbol])}
       </Button>
     );
-  }, [
-    tokenSymbol,
-    trackEvent,
-    tokenAddress,
-    tokenDecimals,
-    history,
-    t,
-    dispatch,
-  ]);
+  }, [tokenSymbol, tokenAddress, tokenDecimals, history, t, dispatch]);
 
   return (
     <ListItem

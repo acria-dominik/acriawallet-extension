@@ -6,12 +6,7 @@ import AccountModalContainer from '../account-modal-container';
 import QrView from '../../../ui/qr-code';
 import EditableLabel from '../../../ui/editable-label';
 import Button from '../../../ui/button';
-import { getURLHostName } from '../../../../helpers/utils/util';
 import { isHardwareKeyring } from '../../../../helpers/utils/hardware';
-import {
-  EVENT,
-  EVENT_NAMES,
-} from '../../../../../shared/constants/metametrics';
 import { NETWORKS_ROUTE } from '../../../../helpers/constants/routes';
 
 export default class AccountDetailsModal extends Component {
@@ -30,7 +25,6 @@ export default class AccountDetailsModal extends Component {
 
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   render() {
@@ -71,15 +65,6 @@ export default class AccountDetailsModal extends Component {
 
     const openBlockExplorer = () => {
       const accountLink = getAccountLink(address, chainId, rpcPrefs);
-      this.context.trackEvent({
-        category: EVENT.CATEGORIES.NAVIGATION,
-        event: EVENT_NAMES.EXTERNAL_LINK_CLICKED,
-        properties: {
-          link_type: EVENT.EXTERNAL_LINK_TYPES.ACCOUNT_TRACKER,
-          location: 'Account Details Modal',
-          url_domain: getURLHostName(accountLink),
-        },
-      });
       global.platform.openTab({
         url: accountLink,
       });
@@ -124,14 +109,6 @@ export default class AccountDetailsModal extends Component {
             type="secondary"
             className="account-details-modal__button"
             onClick={() => {
-              this.context.trackEvent({
-                category: EVENT.CATEGORIES.ACCOUNTS,
-                event: EVENT_NAMES.KEY_EXPORT_SELECTED,
-                properties: {
-                  key_type: EVENT.KEY_TYPES.PKEY,
-                  location: 'Account Details Modal',
-                },
-              });
               showExportPrivateKeyModal();
             }}
           >

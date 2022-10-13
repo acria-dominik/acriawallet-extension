@@ -167,7 +167,10 @@ async function setupStreams() {
     getNotificationTransformStream(),
     legacyExtensionMux,
     (err) => {
-      logStreamDisconnectWarning('Acria Wallet Background Legacy Multiplex', err);
+      logStreamDisconnectWarning(
+        'Acria Wallet Background Legacy Multiplex',
+        err,
+      );
       notifyInpageOfStreamFailure();
     },
   );

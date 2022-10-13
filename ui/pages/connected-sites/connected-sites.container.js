@@ -29,7 +29,11 @@ const mapStateToProps = (state) => {
     !permittedAccountsByOrigin[originOfCurrentTab]?.length;
 
   let tabToConnect;
-  if (originOfCurrentTab && currentTabHasNoAccounts && !openAcriaWalletTabs[id]) {
+  if (
+    originOfCurrentTab &&
+    currentTabHasNoAccounts &&
+    !openAcriaWalletTabs[id]
+  ) {
     tabToConnect = {
       origin: originOfCurrentTab,
     };

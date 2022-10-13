@@ -8,14 +8,12 @@ import {
   addPollingTokenToAppState,
   removePollingTokenFromAppState,
 } from '../../../../store/actions';
-import { EVENT } from '../../../../../shared/constants/metametrics';
 import AdvancedTabContent from './advanced-tab-content';
 import BasicTabContent from './basic-tab-content';
 
 export default class GasModalPageContainer extends Component {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -37,7 +35,6 @@ export default class GasModalPageContainer extends Component {
     customModalGasLimitInHex: PropTypes.string,
     cancelAndClose: PropTypes.func,
     customPriceIsSafe: PropTypes.bool,
-    isSpeedUp: PropTypes.bool,
     isRetry: PropTypes.bool,
     disableSave: PropTypes.bool,
     customPriceIsExcessive: PropTypes.bool.isRequired,
@@ -91,7 +88,6 @@ export default class GasModalPageContainer extends Component {
       customModalGasLimitInHex,
       insufficientBalance,
       customPriceIsSafe,
-      isSpeedUp,
       isRetry,
       customPriceIsExcessive,
       infoRowProps: { transactionFee },
@@ -106,7 +102,6 @@ export default class GasModalPageContainer extends Component {
         transactionFee={transactionFee}
         insufficientBalance={insufficientBalance}
         customPriceIsSafe={customPriceIsSafe}
-        isSpeedUp={isSpeedUp}
         isRetry={isRetry}
         customPriceIsExcessive={customPriceIsExcessive}
       />
@@ -205,7 +200,6 @@ export default class GasModalPageContainer extends Component {
       customModalGasPriceInHex,
       customModalGasLimitInHex,
       disableSave,
-      isSpeedUp,
     } = this.props;
 
     return (
@@ -218,16 +212,6 @@ export default class GasModalPageContainer extends Component {
           onCancel={() => cancelAndClose()}
           onClose={() => cancelAndClose()}
           onSubmit={() => {
-            if (isSpeedUp) {
-              this.context.trackEvent({
-                category: EVENT.CATEGORIES.NAVIGATION,
-                event: 'Saved "Speed Up"',
-                properties: {
-                  action: 'Activity Log',
-                  legacy_event: true,
-                },
-              });
-            }
             onSubmit(customModalGasLimitInHex, customModalGasPriceInHex);
           }}
           submitText={this.context.t('save')}

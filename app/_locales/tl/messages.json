@@ -3277,6 +3277,13 @@
   "swap": {
     "message": "I-swap"
   },
+  "swapAcriaWalletFee": {
+    "message": "Bayarin sa Acria Wallet"
+  },
+  "swapAcriaWalletFeeDescription": {
+    "message": "Hinahanap namin ang pinakasulit na presyo mula sa mga nangungunang pinagkukunan ng liquidity, sa lahat ng pagkakataon. Ang bayarin na $1% ay awtomatikong fina-factor sa bawat quote, na sumusuporta sa kasalukuyang development para mas mapahusay ang Acria Wallet.",
+    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
+  },
   "swapAdvancedSlippageInfo": {
     "message": "Kung magbabago ang presyo sa pagitan ng oras ng pag-order mo at sa oras na nakumpirma ito, tinatawag itong “slippage”. Awtomatikong makakansela ang iyong pag-swap kung lalampas ang slippage sa iyong setting na “max slippage”."
   },
@@ -3400,13 +3407,6 @@
   },
   "swapMaxSlippage": {
     "message": "Max na slippage"
-  },
-  "swapAcriaWalletFee": {
-    "message": "Bayarin sa Acria Wallet"
-  },
-  "swapAcriaWalletFeeDescription": {
-    "message": "Hinahanap namin ang pinakasulit na presyo mula sa mga nangungunang pinagkukunan ng liquidity, sa lahat ng pagkakataon. Ang bayarin na $1% ay awtomatikong fina-factor sa bawat quote, na sumusuporta sa kasalukuyang development para mas mapahusay ang Acria Wallet.",
-    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapNQuotesWithDot": {
     "message": "$1 quote.",

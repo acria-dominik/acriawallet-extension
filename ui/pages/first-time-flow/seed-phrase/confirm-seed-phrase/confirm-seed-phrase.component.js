@@ -6,10 +6,6 @@ import {
   INITIALIZE_END_OF_FLOW_ROUTE,
   INITIALIZE_SEED_PHRASE_ROUTE,
 } from '../../../../helpers/constants/routes';
-import {
-  EVENT,
-  EVENT_NAMES,
-} from '../../../../../shared/constants/metametrics';
 import { exportAsFile } from '../../../../../shared/modules/export-utils';
 import DraggableSeed from './draggable-seed.component';
 
@@ -17,7 +13,6 @@ const EMPTY_SEEDS = Array(12).fill(null);
 
 export default class ConfirmSeedPhrase extends PureComponent {
   static contextTypes = {
-    trackEvent: PropTypes.func,
     t: PropTypes.func,
   };
 
@@ -82,30 +77,11 @@ export default class ConfirmSeedPhrase extends PureComponent {
 
     try {
       setSeedPhraseBackedUp(true).then(async () => {
-        this.context.trackEvent({
-          category: EVENT.CATEGORIES.ONBOARDING,
-          event: EVENT_NAMES.WALLET_CREATED,
-          properties: {
-            account_type: EVENT.ACCOUNT_TYPES.DEFAULT,
-            is_backup_skipped: false,
-          },
-        });
-
         initializeThreeBox();
         history.replace(INITIALIZE_END_OF_FLOW_ROUTE);
       });
     } catch (error) {
       console.error(error.message);
-      this.context.trackEvent({
-        category: EVENT.CATEGORIES.ONBOARDING,
-        event: EVENT_NAMES.WALLET_SETUP_FAILED,
-        properties: {
-          account_type: EVENT.ACCOUNT_TYPES.DEFAULT,
-          is_backup_skipped: false,
-          reason: 'Seed Phrase Creation Error',
-          error: error.message,
-        },
-      });
     }
   };
 

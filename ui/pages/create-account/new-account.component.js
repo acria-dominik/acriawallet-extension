@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '../../components/ui/button';
-import { EVENT, EVENT_NAMES } from '../../../shared/constants/metametrics';
 
 export default class NewAccountCreateForm extends Component {
   static defaultProps = {
@@ -22,27 +21,9 @@ export default class NewAccountCreateForm extends Component {
       this.props;
 
     const createClick = (_) => {
-      createAccount(newAccountName || defaultAccountName)
-        .then(() => {
-          this.context.trackEvent({
-            category: EVENT.CATEGORIES.ACCOUNTS,
-            event: EVENT_NAMES.ACCOUNT_ADDED,
-            properties: {
-              account_type: EVENT.ACCOUNT_TYPES.DEFAULT,
-            },
-          });
-          history.push(mostRecentOverviewPage);
-        })
-        .catch((e) => {
-          this.context.trackEvent({
-            category: EVENT.CATEGORIES.ACCOUNTS,
-            event: EVENT_NAMES.ACCOUNT_ADD_FAILED,
-            properties: {
-              account_type: EVENT.ACCOUNT_TYPES.DEFAULT,
-              error: e.message,
-            },
-          });
-        });
+      createAccount(newAccountName || defaultAccountName).then(() => {
+        history.push(mostRecentOverviewPage);
+      });
     };
 
     const accountNameExists = (allAccounts, accountName) => {
@@ -115,5 +96,4 @@ NewAccountCreateForm.propTypes = {
 
 NewAccountCreateForm.contextTypes = {
   t: PropTypes.func,
-  trackEvent: PropTypes.func,
 };

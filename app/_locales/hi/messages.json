@@ -3277,6 +3277,13 @@
   "swap": {
     "message": "स्वैप करें"
   },
+  "swapAcriaWalletFee": {
+    "message": "Acria Wallet शुल्क"
+  },
+  "swapAcriaWalletFeeDescription": {
+    "message": "हम हर बार शीर्ष चलनिधि स्रोतों से सबसे अच्छे मूल्य ढूंढते हैं। इस उद्धरण में $1% का शुल्क स्वतः ही शामिल हो जाता है।",
+    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
+  },
   "swapAdvancedSlippageInfo": {
     "message": "यदि आपके ऑर्डर किए जाने और पुष्टि किए जाने के समय के बीच मूल्य में परिवर्तन होता है, तो इसे “स्लिपेज” कहा जाता है। यदि आपका स्लिपेज आपकी “अधिकतम स्लिपेज” सेटिंग से अधिक हो जाता है, तो आपका स्वैप स्वतः रद्द हो जाएगा।"
   },
@@ -3400,13 +3407,6 @@
   },
   "swapMaxSlippage": {
     "message": "अधिकतम स्लिपेज"
-  },
-  "swapAcriaWalletFee": {
-    "message": "Acria Wallet शुल्क"
-  },
-  "swapAcriaWalletFeeDescription": {
-    "message": "हम हर बार शीर्ष चलनिधि स्रोतों से सबसे अच्छे मूल्य ढूंढते हैं। इस उद्धरण में $1% का शुल्क स्वतः ही शामिल हो जाता है।",
-    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapNQuotesWithDot": {
     "message": "$ 1 उद्धरण।",

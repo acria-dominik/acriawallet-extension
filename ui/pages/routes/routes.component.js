@@ -116,7 +116,6 @@ export default class Routes extends Component {
 
   static contextTypes = {
     t: PropTypes.func,
-    metricsEvent: PropTypes.func,
   };
 
   handleOsTheme() {

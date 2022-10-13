@@ -29,7 +29,7 @@ export default class MetaFoxLogo extends PureComponent {
       >
         <img
           src="./images/logo/acria_horizontal.png"
-          style={{paddingTop: 10 + 'px', paddingBottom: 10 + 'px'}}
+          style={{ paddingTop: `${10}px`, paddingBottom: `${10}px` }}
           className={classnames({
             'app-header__metafox-logo--horizontal': !isOnboarding,
             'onboarding-app-header__metafox-logo--horizontal': isOnboarding,

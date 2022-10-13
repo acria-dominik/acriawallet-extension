@@ -48,7 +48,6 @@ import {
   stopPollingForQuotes,
   setBackgroundSwapRouteState,
 } from '../../../store/actions';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import { SMART_TRANSACTION_STATUSES } from '../../../../shared/constants/transaction';
 
 import SwapsFooter from '../swaps-footer';
@@ -57,7 +56,6 @@ import {
   showRemainingTimeInMinAndSec,
   getFeeForSmartTransaction,
 } from '../swaps.util';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
 import CreateNewSwap from '../create-new-swap';
 import ViewOnBlockExplorer from '../view-on-block-explorer';
 import SuccessIcon from './success-icon';
@@ -145,7 +143,6 @@ export default function SmartTransactionStatus() {
       destinationTokenInfo.decimals,
     ).toPrecision(8);
   }
-  const trackEvent = useContext(MetaMetricsContext);
 
   const isSmartTransactionPending =
     smartTransactionStatus === SMART_TRANSACTION_STATUSES.PENDING;
@@ -153,15 +150,6 @@ export default function SmartTransactionStatus() {
     isSmartTransactionPending ||
     smartTransactionStatus === SMART_TRANSACTION_STATUSES.SUCCESS;
   const txHash = latestSmartTransaction?.statusMetadata?.minedHash;
-
-  useEffect(() => {
-    trackEvent({
-      event: 'STX Status Page Loaded',
-      category: EVENT.CATEGORIES.SWAPS,
-      sensitiveProperties,
-    });
-    // eslint-disable-next-line
-  }, []);
 
   useEffect(() => {
     let intervalId;
@@ -283,11 +271,6 @@ export default function SmartTransactionStatus() {
           onClick={(e) => {
             e?.preventDefault();
             setCancelSwapLinkClicked(true); // We want to hide it after a user clicks on it.
-            trackEvent({
-              event: 'Cancel STX',
-              category: EVENT.CATEGORIES.SWAPS,
-              sensitiveProperties,
-            });
             dispatch(cancelSwapsSmartTransaction(latestSmartTransactionUuid));
           }}
         >

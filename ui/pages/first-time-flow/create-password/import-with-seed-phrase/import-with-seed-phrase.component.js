@@ -5,15 +5,10 @@ import {
   INITIALIZE_END_OF_FLOW_ROUTE,
 } from '../../../../helpers/constants/routes';
 import CreateNewVault from '../../../../components/app/create-new-vault';
-import {
-  EVENT,
-  EVENT_NAMES,
-} from '../../../../../shared/constants/metametrics';
 
 export default class ImportWithSeedPhrase extends PureComponent {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -25,17 +20,7 @@ export default class ImportWithSeedPhrase extends PureComponent {
 
   UNSAFE_componentWillMount() {
     this._onBeforeUnload = () =>
-      this.context.trackEvent({
-        category: EVENT.CATEGORIES.ONBOARDING,
-        event: EVENT_NAMES.WALLET_SETUP_FAILED,
-        properties: {
-          account_type: EVENT.ACCOUNT_TYPES.IMPORTED,
-          account_import_type: EVENT.ACCOUNT_IMPORT_TYPES.SRP,
-          reason: 'Seed Phrase Error',
-          error: this.state.seedPhraseError,
-        },
-      });
-    window.addEventListener('beforeunload', this._onBeforeUnload);
+      window.addEventListener('beforeunload', this._onBeforeUnload);
   }
 
   componentWillUnmount() {
@@ -47,14 +32,6 @@ export default class ImportWithSeedPhrase extends PureComponent {
       this.props;
 
     await onSubmit(password, seedPhrase);
-    this.context.trackEvent({
-      category: EVENT.CATEGORIES.ONBOARDING,
-      event: EVENT_NAMES.WALLET_CREATED,
-      properties: {
-        account_type: EVENT.ACCOUNT_TYPES.IMPORTED,
-        account_import_type: EVENT.ACCOUNT_IMPORT_TYPES.SRP,
-      },
-    });
 
     await setSeedPhraseBackedUp(true);
     initializeThreeBox();
@@ -70,15 +47,6 @@ export default class ImportWithSeedPhrase extends PureComponent {
           <a
             onClick={(e) => {
               e.preventDefault();
-              this.context.trackEvent({
-                category: EVENT.CATEGORIES.ONBOARDING,
-                event: EVENT_NAMES.WALLET_SETUP_CANCELED,
-                properties: {
-                  account_type: EVENT.ACCOUNT_TYPES.IMPORTED,
-                  account_import_type: EVENT.ACCOUNT_IMPORT_TYPES.SRP,
-                  text: 'Back',
-                },
-              });
               this.props.history.push(INITIALIZE_SELECT_ACTION_ROUTE);
             }}
             href="#"

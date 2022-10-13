@@ -25,7 +25,6 @@ import { PRIMARY, SECONDARY } from '../../helpers/constants/common';
 import TextField from '../../components/ui/text-field';
 import ActionableMessage from '../../components/ui/actionable-message';
 import Disclosure from '../../components/ui/disclosure';
-import { EVENT } from '../../../shared/constants/metametrics';
 import {
   TRANSACTION_TYPES,
   TRANSACTION_STATUSES,
@@ -71,7 +70,6 @@ const renderHeartBeatIfNotInTest = () =>
 export default class ConfirmTransactionBase extends Component {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -109,7 +107,6 @@ export default class ConfirmTransactionBase extends Component {
     currentNetworkUnapprovedTxs: PropTypes.object,
     customGas: PropTypes.object,
     // Component props
-    actionKey: PropTypes.string,
     contentComponent: PropTypes.node,
     dataComponent: PropTypes.node,
     dataHexComponent: PropTypes.node,
@@ -276,27 +273,6 @@ export default class ConfirmTransactionBase extends Component {
   }
 
   handleEditGas() {
-    const {
-      actionKey,
-      txData: { origin },
-      methodData = {},
-    } = this.props;
-
-    this.context.trackEvent({
-      category: EVENT.CATEGORIES.TRANSACTIONS,
-      event: 'User clicks "Edit" on gas',
-      properties: {
-        action: 'Confirm Screen',
-        legacy_event: true,
-        recipientKnown: null,
-        functionType:
-          actionKey ||
-          getMethodName(methodData.name) ||
-          TRANSACTION_TYPES.CONTRACT_INTERACTION,
-        origin,
-      },
-    });
-
     this.setState({ editingGas: true });
   }
 
@@ -732,30 +708,7 @@ export default class ConfirmTransactionBase extends Component {
   }
 
   handleEdit() {
-    const {
-      txData,
-      tokenData,
-      tokenProps,
-      onEdit,
-      actionKey,
-      txData: { origin },
-      methodData = {},
-    } = this.props;
-
-    this.context.trackEvent({
-      category: EVENT.CATEGORIES.TRANSACTIONS,
-      event: 'Edit Transaction',
-      properties: {
-        action: 'Confirm Screen',
-        legacy_event: true,
-        recipientKnown: null,
-        functionType:
-          actionKey ||
-          getMethodName(methodData.name) ||
-          TRANSACTION_TYPES.CONTRACT_INTERACTION,
-        origin,
-      },
-    });
+    const { txData, tokenData, tokenProps, onEdit } = this.props;
 
     onEdit({ txData, tokenData, tokenProps });
   }
@@ -971,23 +924,7 @@ export default class ConfirmTransactionBase extends Component {
 
   componentDidMount() {
     this._isMounted = true;
-    const {
-      toAddress,
-      txData: { origin } = {},
-      getNextNonce,
-      tryReverseResolveAddress,
-    } = this.props;
-    const { trackEvent } = this.context;
-    trackEvent({
-      category: EVENT.CATEGORIES.TRANSACTIONS,
-      event: 'Confirm: Started',
-      properties: {
-        action: 'Confirm Screen',
-        legacy_event: true,
-        origin,
-      },
-    });
-
+    const { toAddress, getNextNonce, tryReverseResolveAddress } = this.props;
     getNextNonce();
     if (toAddress) {
       tryReverseResolveAddress(toAddress);

@@ -115,7 +115,7 @@ const createLoggerMiddlewareMock = () => (req, res, next) => {
   next();
 };
 
-const Acria WalletController = proxyquire('./metamask-controller', {
+const AcriaWalletController = proxyquire('./metamask-controller', {
   './controllers/threebox': { default: ThreeBoxControllerMock },
   './lib/createLoggerMiddleware': { default: createLoggerMiddlewareMock },
 }).default;
@@ -152,7 +152,7 @@ describe('Acria WalletController', function () {
       sendMessage: sandbox.stub().rejects(),
     });
 
-    metamaskController = new Acria WalletController({
+    metamaskController = new AcriaWalletController({
       showUserConfirmation: noop,
       encryptor: {
         encrypt(_, object) {

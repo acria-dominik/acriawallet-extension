@@ -12,7 +12,6 @@ import {
 export default class EnsInput extends Component {
   static contextTypes = {
     t: PropTypes.func,
-    metricsEvent: PropTypes.func,
   };
 
   static propTypes = {

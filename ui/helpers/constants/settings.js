@@ -177,13 +177,6 @@ export const SETTINGS_CONSTANTS = [
     icon: 'fa fa-lock',
   },
   {
-    tabMessage: (t) => t('securityAndPrivacy'),
-    sectionMessage: (t) => t('participateInMetaMetrics'),
-    descriptionMessage: (t) => t('participateInMetaMetricsDescription'),
-    route: `${SECURITY_ROUTE}#metrametrics`,
-    icon: 'fa fa-lock',
-  },
-  {
     tabMessage: (t) => t('alerts'),
     sectionMessage: (t) => t('alertSettingsUnconnectedAccount'),
     descriptionMessage: (t) => t('alertSettingsUnconnectedAccount'),

@@ -12,16 +12,13 @@ import Tooltip from '../../ui/tooltip';
 import CancelButton from '../cancel-button';
 import Popover from '../../ui/popover';
 import { SECOND } from '../../../../shared/constants/time';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import { TRANSACTION_TYPES } from '../../../../shared/constants/transaction';
-import { getURLHostName } from '../../../helpers/utils/util';
 import TransactionDecoding from '../transaction-decoding';
 import { NETWORKS_ROUTE } from '../../../helpers/constants/routes';
 
 export default class TransactionListItemDetails extends PureComponent {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static defaultProps = {
@@ -73,16 +70,6 @@ export default class TransactionListItemDetails extends PureComponent {
       onClose();
       history.push(`${NETWORKS_ROUTE}#blockExplorerUrl`);
     } else {
-      this.context.trackEvent({
-        category: EVENT.CATEGORIES.TRANSACTIONS,
-        event: 'Clicked Block Explorer Link',
-        properties: {
-          link_type: 'Transaction Block Explorer',
-          action: 'Transaction Details',
-          block_explorer_domain: getURLHostName(blockExplorerLink),
-        },
-      });
-
       global.platform.openTab({
         url: blockExplorerLink,
       });
@@ -105,15 +92,6 @@ export default class TransactionListItemDetails extends PureComponent {
     const { transactionGroup } = this.props;
     const { primaryTransaction: transaction } = transactionGroup;
     const { hash } = transaction;
-
-    this.context.trackEvent({
-      category: EVENT.CATEGORIES.NAVIGATION,
-      event: 'Copied Transaction ID',
-      properties: {
-        action: 'Activity Log',
-        legacy_event: true,
-      },
-    });
 
     this.setState({ justCopied: true }, () => {
       copyToClipboard(hash);
@@ -240,26 +218,6 @@ export default class TransactionListItemDetails extends PureComponent {
                 recipientNickname={recipientNickname}
                 senderName={senderNickname}
                 senderAddress={senderAddress}
-                onRecipientClick={() => {
-                  this.context.trackEvent({
-                    category: EVENT.CATEGORIES.NAVIGATION,
-                    event: 'Copied "To" Address',
-                    properties: {
-                      action: 'Activity Log',
-                      legacy_event: true,
-                    },
-                  });
-                }}
-                onSenderClick={() => {
-                  this.context.trackEvent({
-                    category: EVENT.CATEGORIES.NAVIGATION,
-                    event: 'Copied "From" Address',
-                    properties: {
-                      action: 'Activity Log',
-                      legacy_event: true,
-                    },
-                  });
-                }}
               />
             </div>
             <div className="transaction-list-item-details__cards-container">

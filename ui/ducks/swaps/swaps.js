@@ -72,7 +72,6 @@ import {
   checkNetworkAndAccountSupports1559,
 } from '../../selectors';
 
-import { EVENT } from '../../../shared/constants/metametrics';
 import {
   ERROR_FETCHING_QUOTES,
   QUOTES_NOT_AVAILABLE_ERROR,
@@ -608,7 +607,6 @@ export const fetchQuotesAndSetQuoteState = (
   history,
   inputValue,
   maxSlippage,
-  trackEvent,
   pageRedirectionDisabled,
 ) => {
   return async (dispatch, getState) => {
@@ -714,32 +712,8 @@ export const fetchQuotesAndSetQuoteState = (
 
     dispatch(setFromToken(selectedFromToken));
 
-    const hardwareWalletUsed = isHardwareWallet(state);
-    const hardwareWalletType = getHardwareWalletType(state);
     const networkAndAccountSupports1559 =
       checkNetworkAndAccountSupports1559(state);
-    const smartTransactionsOptInStatus = getSmartTransactionsOptInStatus(state);
-    const smartTransactionsEnabled = getSmartTransactionsEnabled(state);
-    const currentSmartTransactionsEnabled =
-      getCurrentSmartTransactionsEnabled(state);
-    trackEvent({
-      event: 'Quotes Requested',
-      category: EVENT.CATEGORIES.SWAPS,
-      sensitiveProperties: {
-        token_from: fromTokenSymbol,
-        token_from_amount: String(inputValue),
-        token_to: toTokenSymbol,
-        request_type: balanceError ? 'Quote' : 'Order',
-        slippage: maxSlippage,
-        custom_slippage: maxSlippage !== SLIPPAGE.DEFAULT,
-        is_hardware_wallet: hardwareWalletUsed,
-        hardware_wallet_type: hardwareWalletType,
-        stx_enabled: smartTransactionsEnabled,
-        current_stx_enabled: currentSmartTransactionsEnabled,
-        stx_user_opt_in: smartTransactionsOptInStatus,
-        anonymizedData: true,
-      },
-    });
 
     try {
       const fetchStartTime = Date.now();
@@ -776,53 +750,8 @@ export const fetchQuotesAndSetQuoteState = (
       ]);
 
       if (Object.values(fetchedQuotes)?.length === 0) {
-        trackEvent({
-          event: 'No Quotes Available',
-          category: EVENT.CATEGORIES.SWAPS,
-          sensitiveProperties: {
-            token_from: fromTokenSymbol,
-            token_from_amount: String(inputValue),
-            token_to: toTokenSymbol,
-            request_type: balanceError ? 'Quote' : 'Order',
-            slippage: maxSlippage,
-            custom_slippage: maxSlippage !== SLIPPAGE.DEFAULT,
-            is_hardware_wallet: hardwareWalletUsed,
-            hardware_wallet_type: hardwareWalletType,
-            stx_enabled: smartTransactionsEnabled,
-            current_stx_enabled: currentSmartTransactionsEnabled,
-            stx_user_opt_in: smartTransactionsOptInStatus,
-          },
-        });
         dispatch(setSwapsErrorKey(QUOTES_NOT_AVAILABLE_ERROR));
       } else {
-        const newSelectedQuote = fetchedQuotes[selectedAggId];
-
-        trackEvent({
-          event: 'Quotes Received',
-          category: EVENT.CATEGORIES.SWAPS,
-          sensitiveProperties: {
-            token_from: fromTokenSymbol,
-            token_from_amount: String(inputValue),
-            token_to: toTokenSymbol,
-            token_to_amount: calcTokenAmount(
-              newSelectedQuote.destinationAmount,
-              newSelectedQuote.decimals || 18,
-            ),
-            request_type: balanceError ? 'Quote' : 'Order',
-            slippage: maxSlippage,
-            custom_slippage: maxSlippage !== SLIPPAGE.DEFAULT,
-            response_time: Date.now() - fetchStartTime,
-            best_quote_source: newSelectedQuote.aggregator,
-            available_quotes: Object.values(fetchedQuotes)?.length,
-            is_hardware_wallet: hardwareWalletUsed,
-            hardware_wallet_type: hardwareWalletType,
-            stx_enabled: smartTransactionsEnabled,
-            current_stx_enabled: currentSmartTransactionsEnabled,
-            stx_user_opt_in: smartTransactionsOptInStatus,
-            anonymizedData: true,
-          },
-        });
-
         dispatch(setInitialGasEstimate(selectedAggId));
       }
     } catch (e) {
@@ -843,7 +772,6 @@ export const fetchQuotesAndSetQuoteState = (
 
 export const signAndSendSwapsSmartTransaction = ({
   unsignedTransaction,
-  trackEvent,
   history,
   additionalTrackingParams,
 }) => {
@@ -898,11 +826,6 @@ export const signAndSendSwapsSmartTransaction = ({
       stx_user_opt_in: smartTransactionsOptInStatus,
       ...additionalTrackingParams,
     };
-    trackEvent({
-      event: 'STX Swap Started',
-      category: EVENT.CATEGORIES.SWAPS,
-      sensitiveProperties: swapMetaData,
-    });
 
     if (!isContractAddressValid(usedTradeTxParams.to, chainId)) {
       captureMessage('Invalid contract address', {
@@ -1001,11 +924,7 @@ export const signAndSendSwapsSmartTransaction = ({
   };
 };
 
-export const signAndSendTransactions = (
-  history,
-  trackEvent,
-  additionalTrackingParams,
-) => {
+export const signAndSendTransactions = (history, additionalTrackingParams) => {
   return async (dispatch, getState) => {
     const state = getState();
     const chainId = getCurrentChainId(state);
@@ -1154,12 +1073,6 @@ export const signAndSendTransactions = (
       swapMetaData.max_priority_fee_per_gas = maxPriorityFeePerGas;
       swapMetaData.base_and_priority_fee_per_gas = baseAndPriorityFeePerGas;
     }
-
-    trackEvent({
-      event: 'Swap Started',
-      category: EVENT.CATEGORIES.SWAPS,
-      sensitiveProperties: swapMetaData,
-    });
 
     if (!isContractAddressValid(usedTradeTxParams.to, chainId)) {
       captureMessage('Invalid contract address', {

@@ -6,14 +6,9 @@ import {
   INITIALIZE_SELECT_ACTION_ROUTE,
 } from '../../../../helpers/constants/routes';
 import TextField from '../../../../components/ui/text-field';
-import {
-  EVENT,
-  EVENT_NAMES,
-} from '../../../../../shared/constants/metametrics';
 
 export default class NewAccount extends PureComponent {
   static contextTypes = {
-    trackEvent: PropTypes.func,
     t: PropTypes.func,
   };
 
@@ -100,11 +95,6 @@ export default class NewAccount extends PureComponent {
     try {
       await onSubmit(password);
 
-      this.context.trackEvent({
-        category: EVENT.CATEGORIES.ONBOARDING,
-        event: EVENT_NAMES.ACCOUNT_PASSWORD_CREATED,
-        properties: {},
-      });
       history.push(INITIALIZE_SEED_PHRASE_INTRO_ROUTE);
     } catch (error) {
       this.setState({ passwordError: error.message });

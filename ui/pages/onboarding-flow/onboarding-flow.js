@@ -17,7 +17,6 @@ import {
   ONBOARDING_COMPLETION_ROUTE,
   ONBOARDING_IMPORT_WITH_SRP_ROUTE,
   ONBOARDING_PIN_EXTENSION_ROUTE,
-  ONBOARDING_METAMETRICS,
 } from '../../helpers/constants/routes';
 import {
   getCompletedOnboarding,
@@ -44,7 +43,6 @@ import CreationSuccessful from './creation-successful/creation-successful';
 import OnboardingWelcome from './welcome/welcome';
 import ImportSRP from './import-srp/import-srp';
 import OnboardingPinExtension from './pin-extension/pin-extension';
-import MetaMetricsComponent from './metametrics/metametrics';
 
 export default function OnboardingFlow() {
   const [secretRecoveryPhrase, setSecretRecoveryPhrase] = useState('');
@@ -147,10 +145,6 @@ export default function OnboardingFlow() {
           <Route
             path={ONBOARDING_PIN_EXTENSION_ROUTE}
             component={OnboardingPinExtension}
-          />
-          <Route
-            path={ONBOARDING_METAMETRICS}
-            component={MetaMetricsComponent}
           />
           {
             ///: BEGIN:ONLY_INCLUDE_IN(flask)

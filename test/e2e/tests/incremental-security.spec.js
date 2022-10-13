@@ -38,9 +38,6 @@ describe('Incremental Security', function () {
           tag: 'button',
         });
 
-        // clicks the "No thanks" option on the metametrics opt-in screen
-        await driver.clickElement('.btn-secondary');
-
         // clicks the "Create New Wallet" option
         await driver.clickElement({ text: 'Create a wallet', tag: 'button' });
 

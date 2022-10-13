@@ -6,10 +6,7 @@ import Button from '../../../components/ui/button';
 import Checkbox from '../../../components/ui/check-box';
 import Dropdown from '../../../components/ui/dropdown';
 
-import { getURLHostName } from '../../../helpers/utils/util';
-
 import { DEVICE_NAMES } from '../../../../shared/constants/hardware-wallets';
-import { EVENT } from '../../../../shared/constants/metametrics';
 
 class AccountList extends Component {
   state = {
@@ -136,15 +133,6 @@ class AccountList extends Component {
                     chainId,
                     rpcPrefs,
                   );
-                  this.context.trackEvent({
-                    category: EVENT.CATEGORIES.ACCOUNTS,
-                    event: 'Clicked Block Explorer Link',
-                    properties: {
-                      actions: 'Hardware Connect',
-                      link_type: 'Account Tracker',
-                      block_explorer_domain: getURLHostName(accountLink),
-                    },
-                  });
                   global.platform.openTab({
                     url: accountLink,
                   });
@@ -261,7 +249,6 @@ AccountList.propTypes = {
 
 AccountList.contextTypes = {
   t: PropTypes.func,
-  trackEvent: PropTypes.func,
 };
 
 export default AccountList;

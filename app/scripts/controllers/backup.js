@@ -3,15 +3,10 @@ import { prependZero } from '../../../shared/modules/string-utils';
 
 export default class BackupController {
   constructor(opts = {}) {
-    const {
-      preferencesController,
-      addressBookController,
-      trackMetaMetricsEvent,
-    } = opts;
+    const { preferencesController, addressBookController } = opts;
 
     this.preferencesController = preferencesController;
     this.addressBookController = addressBookController;
-    this._trackMetaMetricsEvent = trackMetaMetricsEvent;
   }
 
   async restoreUserData(jsonString) {
@@ -27,13 +22,6 @@ export default class BackupController {
 
     if (addressBook) {
       this.addressBookController.update(addressBook, true);
-    }
-
-    if (preferences && addressBook) {
-      this._trackMetaMetricsEvent({
-        event: 'User Data Imported',
-        category: 'Backup',
-      });
     }
   }
 
@@ -66,11 +54,6 @@ export default class BackupController {
     )}_${prefixZero(date.getDay())}.json`;
 
     exportAsFile(userDataFileName, result);
-
-    this._trackMetaMetricsEvent({
-      event: 'User Data Exported',
-      category: 'Backup',
-    });
 
     return result;
   }

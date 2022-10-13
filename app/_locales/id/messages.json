@@ -3277,6 +3277,13 @@
   "swap": {
     "message": "Pertukaran"
   },
+  "swapAcriaWalletFee": {
+    "message": "Biaya Acria Wallet"
+  },
+  "swapAcriaWalletFeeDescription": {
+    "message": "Kami menemukan harga terbaik dari sumber likuiditas teratas, setiap waktu. Biaya sebesar $1% otomatis diperhitungkan ke kuotasi ini.",
+    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
+  },
   "swapAdvancedSlippageInfo": {
     "message": "Jika harga berubah antara waktu penempatan dan konfirmasi order Anda, ini disebut “slippage”. Swap akan otomatis dibatalkan jika slippage melebihi pengaturan “slippage maks”."
   },
@@ -3400,13 +3407,6 @@
   },
   "swapMaxSlippage": {
     "message": "Slippage maks"
-  },
-  "swapAcriaWalletFee": {
-    "message": "Biaya Acria Wallet"
-  },
-  "swapAcriaWalletFeeDescription": {
-    "message": "Kami menemukan harga terbaik dari sumber likuiditas teratas, setiap waktu. Biaya sebesar $1% otomatis diperhitungkan ke kuotasi ini.",
-    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapNQuotesWithDot": {
     "message": "$1 kuotasi.",

@@ -257,12 +257,6 @@ function createScriptTasks({
       createDisableConsoleBundle({ buildTarget }),
     );
 
-    // this can run whenever
-    const installSentrySubtask = createTask(
-      `${taskPrefix}:sentry`,
-      createSentryBundle({ buildTarget }),
-    );
-
     // task for initiating browser livereload
     const initiateLiveReload = async () => {
       if (isDevBuild(buildTarget)) {
@@ -284,7 +278,6 @@ function createScriptTasks({
       standardSubtask,
       contentscriptSubtask,
       disableConsoleSubtask,
-      installSentrySubtask,
     ].map((subtask) =>
       runInChildProcess(subtask, {
         applyLavaMoat,
@@ -307,29 +300,6 @@ function createScriptTasks({
    */
   function createDisableConsoleBundle({ buildTarget }) {
     const label = 'disable-console';
-    return createNormalBundle({
-      browserPlatforms,
-      buildTarget,
-      buildType,
-      destFilepath: `${label}.js`,
-      entryFilepath: `./app/scripts/${label}.js`,
-      ignoredFiles,
-      label,
-      policyOnly,
-      shouldLintFenceFiles,
-      version,
-    });
-  }
-
-  /**
-   * Create a bundle for the "sentry-install" module.
-   *
-   * @param {object} options - The build options.
-   * @param {BUILD_TARGETS} options.buildTarget - The current build target.
-   * @returns {Function} A function that creates the bundle.
-   */
-  function createSentryBundle({ buildTarget }) {
-    const label = 'sentry-install';
     return createNormalBundle({
       browserPlatforms,
       buildTarget,

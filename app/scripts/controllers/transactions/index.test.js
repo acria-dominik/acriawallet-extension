@@ -10,12 +10,10 @@ import {
   getTestAccounts,
 } from '../../../../test/stub/provider';
 import mockEstimates from '../../../../test/data/mock-estimates.json';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import {
   TRANSACTION_STATUSES,
   TRANSACTION_TYPES,
   TRANSACTION_ENVELOPE_TYPES,
-  TRANSACTION_EVENTS,
   ASSET_TYPES,
   TOKEN_STANDARDS,
 } from '../../../../shared/constants/transaction';
@@ -79,7 +77,6 @@ describe('Transaction Controller', function () {
       getPermittedAccounts: () => undefined,
       getCurrentChainId: () => currentChainId,
       getParticipateInMetrics: () => false,
-      trackMetaMetricsEvent: () => undefined,
       createEventFragment: () => undefined,
       updateEventFragment: () => undefined,
       finalizeEventFragment: () => undefined,
@@ -324,7 +321,8 @@ describe('Transaction Controller', function () {
       await assert.rejects(
         () => txController.newUnapprovedTransaction(txParams),
         {
-          message: 'Acria Wallet Tx Signature: User denied transaction signature.',
+          message:
+            'Acria Wallet Tx Signature: User denied transaction signature.',
         },
       );
     });
@@ -1462,16 +1460,10 @@ describe('Transaction Controller', function () {
   });
 
   describe('#_trackTransactionMetricsEvent', function () {
-    let trackMetaMetricsEventSpy;
     let createEventFragmentSpy;
     let finalizeEventFragmentSpy;
 
     beforeEach(function () {
-      trackMetaMetricsEventSpy = sinon.spy(
-        txController,
-        '_trackMetaMetricsEvent',
-      );
-
       createEventFragmentSpy = sinon.spy(txController, 'createEventFragment');
 
       finalizeEventFragmentSpy = sinon.spy(
@@ -1485,7 +1477,6 @@ describe('Transaction Controller', function () {
     });
 
     afterEach(function () {
-      trackMetaMetricsEventSpy.restore();
       createEventFragmentSpy.restore();
       finalizeEventFragmentSpy.restore();
     });
@@ -1905,156 +1896,6 @@ describe('Transaction Controller', function () {
         'transaction-added-1',
       );
       assert.deepEqual(finalizeEventFragmentSpy.getCall(0).args[1], undefined);
-    });
-
-    it('should call _trackMetaMetricsEvent with the correct payload (extra params)', async function () {
-      const txMeta = {
-        id: 1,
-        status: TRANSACTION_STATUSES.UNAPPROVED,
-        txParams: {
-          from: fromAccount.address,
-          to: '0x1678a085c290ebd122dc42cba69373b5953b831d',
-          gasPrice: '0x77359400',
-          gas: '0x7b0d',
-          nonce: '0x4b',
-        },
-        type: TRANSACTION_TYPES.SIMPLE_SEND,
-        origin: 'other',
-        chainId: currentChainId,
-        time: 1624408066355,
-        metamaskNetworkId: currentNetworkId,
-      };
-      const expectedPayload = {
-        initialEvent: 'Transaction Added',
-        successEvent: 'Transaction Approved',
-        failureEvent: 'Transaction Rejected',
-        uniqueIdentifier: 'transaction-added-1',
-        persist: true,
-        category: EVENT.CATEGORIES.TRANSACTIONS,
-        properties: {
-          network: '5',
-          referrer: 'other',
-          source: EVENT.SOURCE.TRANSACTION.DAPP,
-          transaction_type: TRANSACTION_TYPES.SIMPLE_SEND,
-          chain_id: '0x5',
-          eip_1559_version: '0',
-          gas_edit_attempted: 'none',
-          gas_edit_type: 'none',
-          account_type: 'Acria Wallet',
-          asset_type: ASSET_TYPES.NATIVE,
-          token_standard: TOKEN_STANDARDS.NONE,
-          device_model: 'N/A',
-          transaction_speed_up: false,
-        },
-        sensitiveProperties: {
-          baz: 3.0,
-          foo: 'bar',
-          gas_price: '2',
-          gas_limit: '0x7b0d',
-          transaction_contract_method: undefined,
-          transaction_replaced: undefined,
-          first_seen: 1624408066355,
-          transaction_envelope_type: TRANSACTION_ENVELOPE_TYPE_NAMES.LEGACY,
-          status: 'unapproved',
-        },
-      };
-
-      await txController._trackTransactionMetricsEvent(
-        txMeta,
-        TRANSACTION_EVENTS.ADDED,
-        {
-          baz: 3.0,
-          foo: 'bar',
-        },
-      );
-      assert.equal(createEventFragmentSpy.callCount, 1);
-      assert.equal(finalizeEventFragmentSpy.callCount, 0);
-      assert.deepEqual(
-        createEventFragmentSpy.getCall(0).args[0],
-        expectedPayload,
-      );
-    });
-
-    it('should call _trackMetaMetricsEvent with the correct payload (EIP-1559)', async function () {
-      const txMeta = {
-        id: 1,
-        status: TRANSACTION_STATUSES.UNAPPROVED,
-        txParams: {
-          from: fromAccount.address,
-          to: '0x1678a085c290ebd122dc42cba69373b5953b831d',
-          maxFeePerGas: '0x77359400',
-          maxPriorityFeePerGas: '0x77359400',
-          gas: '0x7b0d',
-          nonce: '0x4b',
-          estimateSuggested: GAS_RECOMMENDATIONS.MEDIUM,
-          estimateUsed: GAS_RECOMMENDATIONS.HIGH,
-        },
-        type: TRANSACTION_TYPES.SIMPLE_SEND,
-        origin: 'other',
-        chainId: currentChainId,
-        time: 1624408066355,
-        metamaskNetworkId: currentNetworkId,
-        defaultGasEstimates: {
-          estimateType: 'medium',
-          maxFeePerGas: '0x77359400',
-          maxPriorityFeePerGas: '0x77359400',
-        },
-      };
-      const expectedPayload = {
-        initialEvent: 'Transaction Added',
-        successEvent: 'Transaction Approved',
-        failureEvent: 'Transaction Rejected',
-        uniqueIdentifier: 'transaction-added-1',
-        persist: true,
-        category: EVENT.CATEGORIES.TRANSACTIONS,
-        properties: {
-          chain_id: '0x5',
-          eip_1559_version: '1',
-          gas_edit_attempted: 'none',
-          gas_edit_type: 'none',
-          network: '5',
-          referrer: 'other',
-          source: EVENT.SOURCE.TRANSACTION.DAPP,
-          transaction_type: TRANSACTION_TYPES.SIMPLE_SEND,
-          account_type: 'Acria Wallet',
-          asset_type: ASSET_TYPES.NATIVE,
-          token_standard: TOKEN_STANDARDS.NONE,
-          device_model: 'N/A',
-          transaction_speed_up: false,
-        },
-        sensitiveProperties: {
-          baz: 3.0,
-          foo: 'bar',
-          max_fee_per_gas: '2',
-          max_priority_fee_per_gas: '2',
-          gas_limit: '0x7b0d',
-          transaction_contract_method: undefined,
-          transaction_replaced: undefined,
-          first_seen: 1624408066355,
-          transaction_envelope_type: TRANSACTION_ENVELOPE_TYPE_NAMES.FEE_MARKET,
-          status: 'unapproved',
-          estimate_suggested: GAS_RECOMMENDATIONS.MEDIUM,
-          estimate_used: GAS_RECOMMENDATIONS.HIGH,
-          default_estimate: 'medium',
-          default_max_fee_per_gas: '70',
-          default_max_priority_fee_per_gas: '7',
-        },
-      };
-
-      await txController._trackTransactionMetricsEvent(
-        txMeta,
-        TRANSACTION_EVENTS.ADDED,
-        {
-          baz: 3.0,
-          foo: 'bar',
-        },
-      );
-      assert.equal(createEventFragmentSpy.callCount, 1);
-      assert.equal(finalizeEventFragmentSpy.callCount, 0);
-      assert.deepEqual(
-        createEventFragmentSpy.getCall(0).args[0],
-        expectedPayload,
-      );
     });
   });
 

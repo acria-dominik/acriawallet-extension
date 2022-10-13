@@ -1,7 +1,6 @@
 import EventEmitter from 'events';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import Mascot from '../../../components/ui/mascot';
 import Button from '../../../components/ui/button';
@@ -13,22 +12,18 @@ import {
 } from '../../../helpers/constants/design-system';
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import { setFirstTimeFlowType } from '../../../store/actions';
-import { ONBOARDING_METAMETRICS } from '../../../helpers/constants/routes';
 
 export default function OnboardingWelcome() {
   const t = useI18nContext();
   const dispatch = useDispatch();
-  const history = useHistory();
   const [eventEmitter] = useState(new EventEmitter());
 
   const onCreateClick = () => {
     dispatch(setFirstTimeFlowType('create'));
-    history.push(ONBOARDING_METAMETRICS);
   };
 
   const onImportClick = () => {
     dispatch(setFirstTimeFlowType('import'));
-    history.push(ONBOARDING_METAMETRICS);
   };
 
   return (

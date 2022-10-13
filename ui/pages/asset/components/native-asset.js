@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -14,9 +14,6 @@ import {
 } from '../../../selectors/selectors';
 import { showModal } from '../../../store/actions';
 import { DEFAULT_ROUTE } from '../../../helpers/constants/routes';
-import { getURLHostName } from '../../../helpers/utils/util';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import AssetNavigation from './asset-navigation';
 import AssetOptions from './asset-options';
 
@@ -31,7 +28,6 @@ export default function NativeAsset({ nativeCurrency }) {
   const address = useSelector(getSelectedAddress);
   const history = useHistory();
   const accountLink = getAccountLink(address, chainId, rpcPrefs);
-  const trackEvent = useContext(MetaMetricsContext);
   const isCustomNetwork = useSelector(getIsCustomNetwork);
 
   return (
@@ -44,15 +40,6 @@ export default function NativeAsset({ nativeCurrency }) {
           <AssetOptions
             isNativeAsset
             onClickBlockExplorer={() => {
-              trackEvent({
-                event: 'Clicked Block Explorer Link',
-                category: EVENT.CATEGORIES.NAVIGATION,
-                properties: {
-                  link_type: 'Account Tracker',
-                  action: 'Asset Options',
-                  block_explorer_domain: getURLHostName(accountLink),
-                },
-              });
               global.platform.openTab({
                 url: accountLink,
               });

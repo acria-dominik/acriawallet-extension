@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getAccountLink } from '@metamask/etherscan-link';
 import Modal from '../../modal';
-import { addressSummary, getURLHostName } from '../../../../helpers/utils/util';
+import { addressSummary } from '../../../../helpers/utils/util';
 import Identicon from '../../../ui/identicon';
-import { EVENT } from '../../../../../shared/constants/metametrics';
 import ZENDESK_URLS from '../../../../helpers/constants/zendesk-url';
 
 export default class ConfirmRemoveAccount extends Component {
@@ -18,7 +17,6 @@ export default class ConfirmRemoveAccount extends Component {
 
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   handleRemove = () => {
@@ -61,15 +59,6 @@ export default class ConfirmRemoveAccount extends Component {
                 chainId,
                 rpcPrefs,
               );
-              this.context.trackEvent({
-                category: EVENT.CATEGORIES.ACCOUNTS,
-                event: 'Clicked Block Explorer Link',
-                properties: {
-                  link_type: 'Account Tracker',
-                  action: 'Remove Account',
-                  block_explorer_domain: getURLHostName(accountLink),
-                },
-              });
               global.platform.openTab({
                 url: accountLink,
               });

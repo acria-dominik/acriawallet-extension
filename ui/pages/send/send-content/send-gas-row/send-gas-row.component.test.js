@@ -16,7 +16,7 @@ describe('SendGasRow Component', () => {
           gasFeeError
           gasInputMode={GAS_INPUT_MODES.INLINE}
         />,
-        { context: { t: (str) => `${str}_t`, trackEvent: () => ({}) } },
+        { context: { t: (str) => `${str}_t` } },
       );
       wrapper.setProps({ isMainnet: true });
     });

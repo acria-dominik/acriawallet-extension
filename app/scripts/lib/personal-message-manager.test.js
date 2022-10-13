@@ -5,9 +5,7 @@ describe('Personal Message Manager', () => {
   let messageManager;
 
   beforeEach(() => {
-    messageManager = new PersonalMessageManager({
-      metricsEvent: jest.fn(),
-    });
+    messageManager = new PersonalMessageManager();
   });
 
   describe('#getMsgList', () => {

@@ -27,15 +27,12 @@ import SendIcon from '../../ui/icon/overview-send-icon.component';
 import IconButton from '../../ui/icon-button';
 import { INVALID_ASSET_TYPE } from '../../../helpers/constants/error-keys';
 import { showModal } from '../../../store/actions';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
-import { EVENT, EVENT_NAMES } from '../../../../shared/constants/metametrics';
 import { ASSET_TYPES } from '../../../../shared/constants/transaction';
 import WalletOverview from './wallet-overview';
 
 const TokenOverview = ({ className, token }) => {
   const dispatch = useDispatch();
   const t = useContext(I18nContext);
-  const trackEvent = useContext(MetaMetricsContext);
   const history = useHistory();
   const keyring = useSelector(getCurrentKeyring);
   const usingHardwareWallet = isHardwareKeyring(keyring.type);
@@ -83,15 +80,6 @@ const TokenOverview = ({ className, token }) => {
           <IconButton
             className="token-overview__button"
             onClick={async () => {
-              trackEvent({
-                event: EVENT_NAMES.NAV_SEND_BUTTON_CLICKED,
-                category: EVENT.CATEGORIES.NAVIGATION,
-                properties: {
-                  token_symbol: token.symbol,
-                  location: EVENT.SOURCE.SWAPS.TOKEN_VIEW,
-                  text: 'Send',
-                },
-              });
               try {
                 await dispatch(
                   startNewDraftTransaction({
@@ -117,15 +105,6 @@ const TokenOverview = ({ className, token }) => {
             Icon={SwapIcon}
             onClick={() => {
               if (isSwapsChain) {
-                trackEvent({
-                  event: EVENT_NAMES.NAV_SWAP_BUTTON_CLICKED,
-                  category: EVENT.CATEGORIES.SWAPS,
-                  properties: {
-                    token_symbol: token.symbol,
-                    location: EVENT.SOURCE.SWAPS.TOKEN_VIEW,
-                    text: 'Swap',
-                  },
-                });
                 dispatch(
                   setSwapsFromToken({
                     ...token,

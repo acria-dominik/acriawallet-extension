@@ -10,7 +10,6 @@ import {
 } from '../../../selectors';
 import { formatBalance } from '../../../helpers/utils/util';
 import { getMostRecentOverviewPage } from '../../../ducks/history/history';
-import { EVENT, EVENT_NAMES } from '../../../../shared/constants/metametrics';
 import { SECOND } from '../../../../shared/constants/time';
 import {
   DEVICE_NAMES,
@@ -252,26 +251,9 @@ class ConnectHardwareForm extends Component {
       description,
     )
       .then((_) => {
-        this.context.trackEvent({
-          category: EVENT.CATEGORIES.ACCOUNTS,
-          event: EVENT_NAMES.ACCOUNT_ADDED,
-          properties: {
-            account_type: EVENT.ACCOUNT_TYPES.HARDWARE,
-            account_hardware_type: device,
-          },
-        });
         history.push(mostRecentOverviewPage);
       })
       .catch((e) => {
-        this.context.trackEvent({
-          category: EVENT.CATEGORIES.ACCOUNTS,
-          event: EVENT_NAMES.ACCOUNT_ADD_FAILED,
-          properties: {
-            account_type: EVENT.ACCOUNT_TYPES.HARDWARE,
-            account_hardware_type: device,
-            error: e.message,
-          },
-        });
         this.setState({ error: e.message });
       });
   };
@@ -413,7 +395,6 @@ const mapDispatchToProps = (dispatch) => {
 
 ConnectHardwareForm.contextTypes = {
   t: PropTypes.func,
-  trackEvent: PropTypes.func,
 };
 
 export default connect(

@@ -25,7 +25,6 @@ export default class ThreeBoxController {
       addressBookController,
       version,
       getKeyringControllerState,
-      trackMetaMetricsEvent,
     } = opts;
 
     this.preferencesController = preferencesController;
@@ -60,7 +59,6 @@ export default class ThreeBoxController {
         );
       },
     });
-    this._trackMetaMetricsEvent = trackMetaMetricsEvent;
 
     const initState = {
       threeBoxSyncingAllowed: false,
@@ -85,11 +83,6 @@ export default class ThreeBoxController {
   async init() {
     const accounts = await this.keyringController.getAccounts();
     this.address = accounts[0];
-
-    this._trackMetaMetricsEvent({
-      event: '3Box Initiated',
-      category: '3Box',
-    });
 
     if (this.address && !(this.box && this.store.getState().threeBoxSynced)) {
       await this.new3Box();
@@ -148,18 +141,8 @@ export default class ThreeBoxController {
       backupExists = threeBoxConfig.spaces && threeBoxConfig.spaces.metamask;
     } catch (e) {
       if (e.message.match(/^Error: Invalid response \(404\)/u)) {
-        this._trackMetaMetricsEvent({
-          event: '3Box Backup does not exist',
-          category: '3Box',
-        });
-
         backupExists = false;
       } else {
-        this._trackMetaMetricsEvent({
-          event: '3Box Config Error',
-          category: '3Box',
-        });
-
         throw e;
       }
     }
@@ -193,19 +176,9 @@ export default class ThreeBoxController {
             this.store.updateState(stateUpdate);
 
             log.debug('3Box space sync done');
-
-            this._trackMetaMetricsEvent({
-              event: '3Box Synced',
-              category: '3Box',
-            });
           },
         });
       } catch (e) {
-        this._trackMetaMetricsEvent({
-          event: '3Box Initiation Error',
-          category: '3Box',
-        });
-
         console.error(e);
         throw e;
       }
@@ -243,28 +216,13 @@ export default class ThreeBoxController {
     preferences && this.preferencesController.store.updateState(preferences);
     addressBook && this.addressBookController.update(addressBook, true);
     this.setShowRestorePromptToFalse();
-
-    this._trackMetaMetricsEvent({
-      event: '3Box Restored Data',
-      category: '3Box',
-    });
   }
 
   turnThreeBoxSyncingOn() {
-    this._trackMetaMetricsEvent({
-      event: '3Box Sync Turned On',
-      category: '3Box',
-    });
-
     this._registerUpdates();
   }
 
   turnThreeBoxSyncingOff() {
-    this._trackMetaMetricsEvent({
-      event: '3Box Sync Turned Off',
-      category: '3Box',
-    });
-
     this.box.logout();
   }
 

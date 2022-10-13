@@ -3277,6 +3277,13 @@
   "swap": {
     "message": "Hoán đổi"
   },
+  "swapAcriaWalletFee": {
+    "message": "Phí của Acria Wallet"
+  },
+  "swapAcriaWalletFeeDescription": {
+    "message": "Chúng tôi luôn tìm giá tốt nhất từ các nguồn thanh khoản hàng đầu. Phí $1% được tự động tính vào báo giá này.",
+    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
+  },
   "swapAdvancedSlippageInfo": {
     "message": "Khi giá giữa thời điểm đặt lệnh và thời điểm xác nhận lệnh thay đổi, hiện tượng này được gọi là “trượt giá”. Giao dịch hoán đổi của bạn sẽ tự động hủy nếu mức trượt giá vượt quá “mức trượt giá tối đa” đã cài đặt."
   },
@@ -3400,13 +3407,6 @@
   },
   "swapMaxSlippage": {
     "message": "Mức trượt giá tối đa"
-  },
-  "swapAcriaWalletFee": {
-    "message": "Phí của Acria Wallet"
-  },
-  "swapAcriaWalletFeeDescription": {
-    "message": "Chúng tôi luôn tìm giá tốt nhất từ các nguồn thanh khoản hàng đầu. Phí $1% được tự động tính vào báo giá này.",
-    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapNQuotesWithDot": {
     "message": "$1 báo giá.",

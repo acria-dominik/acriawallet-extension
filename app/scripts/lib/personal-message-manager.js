@@ -6,7 +6,6 @@ import log from 'loglevel';
 import { MESSAGE_TYPE } from '../../../shared/constants/app';
 import { METAMASK_CONTROLLER_EVENTS } from '../metamask-controller';
 import createId from '../../../shared/modules/random-id';
-import { EVENT } from '../../../shared/constants/metametrics';
 import { detectSIWE } from '../../../shared/modules/siwe';
 import { addHexPrefix } from './util';
 
@@ -34,16 +33,14 @@ export default class PersonalMessageManager extends EventEmitter {
    * Controller in charge of managing - storing, adding, removing, updating - PersonalMessage.
    *
    * @param options
-   * @param options.metricsEvent
    */
-  constructor({ metricsEvent }) {
+  constructor() {
     super();
     this.memStore = new ObservableStore({
       unapprovedPersonalMsgs: {},
       unapprovedPersonalMsgCount: 0,
     });
     this.messages = [];
-    this.metricsEvent = metricsEvent;
   }
 
   /**
@@ -231,20 +228,8 @@ export default class PersonalMessageManager extends EventEmitter {
    * Sets a PersonalMessage status to 'rejected' via a call to this._setMsgStatus.
    *
    * @param {number} msgId - The id of the PersonalMessage to reject.
-   * @param reason
    */
-  rejectMsg(msgId, reason = undefined) {
-    if (reason) {
-      const msg = this.getMsg(msgId);
-      this.metricsEvent({
-        event: reason,
-        category: EVENT.CATEGORIES.TRANSACTIONS,
-        properties: {
-          action: 'Sign Request',
-          type: msg.type,
-        },
-      });
-    }
+  rejectMsg(msgId) {
     this._setMsgStatus(msgId, 'rejected');
   }
 

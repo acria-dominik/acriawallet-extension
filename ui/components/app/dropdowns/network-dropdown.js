@@ -17,7 +17,6 @@ import { COLORS, SIZES } from '../../../helpers/constants/design-system';
 import { getShowTestNetworks } from '../../../selectors';
 import { getEnvironmentType } from '../../../../app/scripts/lib/util';
 import { ENVIRONMENT_TYPE_POPUP } from '../../../../shared/constants/app';
-import { EVENT, EVENT_NAMES } from '../../../../shared/constants/metametrics';
 import {
   ADD_NETWORK_ROUTE,
   ADD_POPULAR_CUSTOM_NETWORK,
@@ -82,7 +81,6 @@ function mapDispatchToProps(dispatch) {
 class NetworkDropdown extends Component {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -107,20 +105,7 @@ class NetworkDropdown extends Component {
   };
 
   handleClick(newProviderType) {
-    const {
-      provider: { type: providerType },
-      setProviderType,
-    } = this.props;
-    const { trackEvent } = this.context;
-
-    trackEvent({
-      category: EVENT.CATEGORIES.NAVIGATION,
-      event: EVENT_NAMES.NAV_NETWORK_SWITCHED,
-      properties: {
-        from_network: providerType,
-        to_network: newProviderType,
-      },
-    });
+    const { setProviderType } = this.props;
     setProviderType(newProviderType);
   }
 

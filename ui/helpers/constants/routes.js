@@ -63,7 +63,6 @@ const INITIALIZE_BACKUP_SEED_PHRASE_ROUTE = '/initialize/backup-seed-phrase';
 const INITIALIZE_SEED_PHRASE_INTRO_ROUTE = '/initialize/seed-phrase-intro';
 const INITIALIZE_END_OF_FLOW_ROUTE = '/initialize/end-of-flow';
 const INITIALIZE_CONFIRM_SEED_PHRASE_ROUTE = '/initialize/seed-phrase/confirm';
-const INITIALIZE_METAMETRICS_OPT_IN_ROUTE = '/initialize/metametrics-opt-in';
 
 const ONBOARDING_ROUTE = '/onboarding';
 const ONBOARDING_REVIEW_SRP_ROUTE = '/onboarding/review-recovery-phrase';
@@ -79,7 +78,6 @@ const ONBOARDING_SECURE_YOUR_WALLET_ROUTE = '/onboarding/secure-your-wallet';
 const ONBOARDING_PRIVACY_SETTINGS_ROUTE = '/onboarding/privacy-settings';
 const ONBOARDING_PIN_EXTENSION_ROUTE = '/onboarding/pin-extension';
 const ONBOARDING_WELCOME_ROUTE = '/onboarding/welcome';
-const ONBOARDING_METAMETRICS = '/onboarding/metametrics';
 
 ///: BEGIN:ONLY_INCLUDE_IN(flask)
 const INITIALIZE_EXPERIMENTAL_AREA = '/initialize/experimental-area';
@@ -181,7 +179,6 @@ const PATH_NAME_MAP = {
   [INITIALIZE_END_OF_FLOW_ROUTE]: 'End of Initialization Page',
   [INITIALIZE_CONFIRM_SEED_PHRASE_ROUTE]:
     'Initialization Confirm Secret Recovery Phrase Page',
-  [INITIALIZE_METAMETRICS_OPT_IN_ROUTE]: 'MetaMetrics Opt In Page',
   [BUILD_QUOTE_ROUTE]: 'Swaps Build Quote Page',
   [VIEW_QUOTE_ROUTE]: 'Swaps View Quotes Page',
   [LOADING_QUOTES_ROUTE]: 'Swaps Loading Quotes Page',
@@ -229,7 +226,6 @@ export {
   DECRYPT_MESSAGE_REQUEST_PATH,
   ENCRYPTION_PUBLIC_KEY_REQUEST_PATH,
   CONFIRMATION_V_NEXT_ROUTE,
-  INITIALIZE_METAMETRICS_OPT_IN_ROUTE,
   ADVANCED_ROUTE,
   EXPERIMENTAL_ROUTE,
   SECURITY_ROUTE,
@@ -280,7 +276,6 @@ export {
   ONBOARDING_UNLOCK_ROUTE,
   ONBOARDING_PIN_EXTENSION_ROUTE,
   ONBOARDING_WELCOME_ROUTE,
-  ONBOARDING_METAMETRICS,
   ///: BEGIN:ONLY_INCLUDE_IN(flask)
   INITIALIZE_EXPERIMENTAL_AREA,
   ONBOARDING_EXPERIMENTAL_AREA,

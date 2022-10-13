@@ -5,7 +5,6 @@ import {
   MESSAGE_TYPE,
   UNKNOWN_TICKER_SYMBOL,
 } from '../../../../../shared/constants/app';
-import { EVENT } from '../../../../../shared/constants/metametrics';
 import {
   isPrefixedFormattedHexString,
   isSafeChainId,
@@ -23,7 +22,6 @@ const addEthereumChain = {
     findCustomRpcBy: true,
     updateRpcTarget: true,
     requestUserApproval: true,
-    sendMetrics: true,
   },
 };
 export default addEthereumChain;
@@ -40,7 +38,6 @@ async function addEthereumChainHandler(
     findCustomRpcBy,
     updateRpcTarget,
     requestUserApproval,
-    sendMetrics,
   },
 ) {
   if (!req.params?.[0] || typeof req.params[0] !== 'object') {
@@ -288,36 +285,6 @@ async function addEthereumChainHandler(
         },
       }),
     );
-
-    let rpcUrlOrigin;
-    try {
-      rpcUrlOrigin = new URL(firstValidRPCUrl).origin;
-    } catch {
-      // ignore
-    }
-
-    sendMetrics({
-      event: 'Custom Network Added',
-      category: EVENT.CATEGORIES.NETWORK,
-      referrer: {
-        url: origin,
-      },
-      properties: {
-        chain_id: _chainId,
-        network_name: _chainName,
-        // Including network to override the default network
-        // property included in all events. For RPC type networks
-        // the MetaMetrics controller uses the rpcUrl for the network
-        // property.
-        network: rpcUrlOrigin,
-        symbol: ticker,
-        block_explorer_url: firstValidBlockExplorerUrl,
-        source: EVENT.SOURCE.TRANSACTION.DAPP,
-      },
-      sensitiveProperties: {
-        rpc_url: rpcUrlOrigin,
-      },
-    });
 
     // Once the network has been added, the requested is considered successful
     res.result = null;

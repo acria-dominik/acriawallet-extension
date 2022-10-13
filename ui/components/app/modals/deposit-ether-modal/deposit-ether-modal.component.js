@@ -4,10 +4,6 @@ import {
   NETWORK_TO_NAME_MAP,
   BUYABLE_CHAINS_MAP,
 } from '../../../../../shared/constants/network';
-import {
-  EVENT,
-  EVENT_NAMES,
-} from '../../../../../shared/constants/metametrics';
 import Button from '../../../ui/button';
 import LogoMoonPay from '../../../ui/logo/logo-moonpay';
 import LogoWyre from '../../../ui/logo/logo-wyre';
@@ -18,7 +14,6 @@ import LogoDepositEth from '../../../ui/logo/logo-deposit-eth';
 export default class DepositEtherModal extends Component {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func.isRequired,
   };
 
   static propTypes = {
@@ -145,13 +140,6 @@ export default class DepositEtherModal extends Component {
               text: t('buyCryptoWithCoinbasePayDescription', [symbol]),
               buttonLabel: t('continueToCoinbasePay'),
               onButtonClick: () => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.ACCOUNTS,
-                  event: EVENT_NAMES.ONRAMP_PROVIDER_SELECTED,
-                  properties: {
-                    onramp_provider_type: EVENT.ONRAMP_PROVIDER_TYPES.COINBASE,
-                  },
-                });
                 toCoinbasePay(address, chainId);
               },
               hide: !isBuyableCoinbasePayChain,
@@ -162,13 +150,6 @@ export default class DepositEtherModal extends Component {
               text: t('buyCryptoWithTransakDescription', [symbol]),
               buttonLabel: t('continueToTransak'),
               onButtonClick: () => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.ACCOUNTS,
-                  event: EVENT_NAMES.ONRAMP_PROVIDER_SELECTED,
-                  properties: {
-                    onramp_provider_type: EVENT.ONRAMP_PROVIDER_TYPES.TRANSAK,
-                  },
-                });
                 toTransak(address, chainId);
               },
               hide: !isBuyableTransakChain,
@@ -179,13 +160,6 @@ export default class DepositEtherModal extends Component {
               text: t('buyCryptoWithMoonPayDescription', [symbol]),
               buttonLabel: t('continueToMoonPay'),
               onButtonClick: () => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.ACCOUNTS,
-                  event: EVENT_NAMES.ONRAMP_PROVIDER_SELECTED,
-                  properties: {
-                    onramp_provider_type: EVENT.ONRAMP_PROVIDER_TYPES.MOONPAY,
-                  },
-                });
                 toMoonPay(address, chainId);
               },
               hide: !isBuyableMoonPayChain,
@@ -196,13 +170,6 @@ export default class DepositEtherModal extends Component {
               text: t('buyWithWyreDescription', [symbol]),
               buttonLabel: t('continueToWyre'),
               onButtonClick: () => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.ACCOUNTS,
-                  event: EVENT_NAMES.ONRAMP_PROVIDER_SELECTED,
-                  properties: {
-                    onramp_provider_type: EVENT.ONRAMP_PROVIDER_TYPES.WYRE,
-                  },
-                });
                 toWyre(address, chainId);
               },
               hide: !isBuyableWyreChain,
@@ -215,14 +182,6 @@ export default class DepositEtherModal extends Component {
               text: t('directDepositCryptoExplainer', [symbol]),
               buttonLabel: t('viewAccount'),
               onButtonClick: () => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.ACCOUNTS,
-                  event: EVENT_NAMES.ONRAMP_PROVIDER_SELECTED,
-                  properties: {
-                    onramp_provider_type:
-                      EVENT.ONRAMP_PROVIDER_TYPES.SELF_DEPOSIT,
-                  },
-                });
                 this.goToAccountDetailsModal();
               },
             })}

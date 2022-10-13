@@ -5,11 +5,6 @@ import Fuse from 'fuse.js';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import classnames from 'classnames';
 import { ENVIRONMENT_TYPE_POPUP } from '../../../../shared/constants/app';
-import {
-  EVENT,
-  EVENT_NAMES,
-  CONTEXT_PROPS,
-} from '../../../../shared/constants/metametrics';
 import { getEnvironmentType } from '../../../../app/scripts/lib/util';
 import Identicon from '../../ui/identicon';
 import SiteIcon from '../../ui/site-icon';
@@ -76,7 +71,6 @@ AccountMenuItem.propTypes = {
 export default class AccountMenu extends Component {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -212,13 +206,6 @@ export default class AccountMenu extends Component {
         <button
           className="account-menu__account account-menu__item--clickable"
           onClick={() => {
-            this.context.trackEvent({
-              category: EVENT.CATEGORIES.NAVIGATION,
-              event: EVENT_NAMES.NAV_ACCOUNT_SWITCHED,
-              properties: {
-                location: 'Main Menu',
-              },
-            });
             showAccountDetail(identity.address);
           }}
           key={identity.address}
@@ -302,7 +289,7 @@ export default class AccountMenu extends Component {
   }
 
   render() {
-    const { t, trackEvent } = this.context;
+    const { t } = this.context;
     const {
       shouldShowAccountsSearch,
       isAccountMenuOpen,
@@ -359,14 +346,6 @@ export default class AccountMenu extends Component {
         <AccountMenuItem
           onClick={() => {
             toggleAccountMenu();
-            trackEvent({
-              category: EVENT.CATEGORIES.NAVIGATION,
-              event: EVENT_NAMES.ACCOUNT_ADD_SELECTED,
-              properties: {
-                account_type: EVENT.ACCOUNT_TYPES.DEFAULT,
-                location: 'Main Menu',
-              },
-            });
             history.push(NEW_ACCOUNT_ROUTE);
           }}
           icon={<IconPlus color="var(--color-icon-alternative)" />}
@@ -375,14 +354,6 @@ export default class AccountMenu extends Component {
         <AccountMenuItem
           onClick={() => {
             toggleAccountMenu();
-            trackEvent({
-              category: EVENT.CATEGORIES.NAVIGATION,
-              event: EVENT_NAMES.ACCOUNT_ADD_SELECTED,
-              properties: {
-                account_type: EVENT.ACCOUNT_TYPES.IMPORTED,
-                location: 'Main Menu',
-              },
-            });
             history.push(IMPORT_ACCOUNT_ROUTE);
           }}
           icon={
@@ -396,14 +367,6 @@ export default class AccountMenu extends Component {
         <AccountMenuItem
           onClick={() => {
             toggleAccountMenu();
-            trackEvent({
-              category: EVENT.CATEGORIES.NAVIGATION,
-              event: EVENT_NAMES.ACCOUNT_ADD_SELECTED,
-              properties: {
-                account_type: EVENT.ACCOUNT_TYPES.HARDWARE,
-                location: 'Main Menu',
-              },
-            });
             if (getEnvironmentType() === ENVIRONMENT_TYPE_POPUP) {
               global.platform.openExtensionInBrowser(CONNECT_HARDWARE_ROUTE);
             } else {
@@ -445,18 +408,6 @@ export default class AccountMenu extends Component {
         }
         <AccountMenuItem
           onClick={() => {
-            trackEvent(
-              {
-                category: EVENT.CATEGORIES.NAVIGATION,
-                event: EVENT_NAMES.SUPPORT_LINK_CLICKED,
-                properties: {
-                  url: supportLink,
-                },
-              },
-              {
-                contextPropsIntoEventProperties: [CONTEXT_PROPS.PAGE_TITLE],
-              },
-            );
             global.platform.openTab({ url: supportLink });
           }}
           icon={
@@ -472,13 +423,6 @@ export default class AccountMenu extends Component {
           onClick={() => {
             toggleAccountMenu();
             history.push(SETTINGS_ROUTE);
-            this.context.trackEvent({
-              category: EVENT.CATEGORIES.NAVIGATION,
-              event: EVENT_NAMES.NAV_SETTINGS_OPENED,
-              properties: {
-                location: 'Main Menu',
-              },
-            });
           }}
           icon={
             <IconCog
