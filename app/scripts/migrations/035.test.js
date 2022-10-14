@@ -53,7 +53,6 @@ describe('migration #35', () => {
           suggestedTokens: {},
           useBlockie: false,
           knownMethodData: {},
-          participateInMetaMetrics: null,
           firstTimeFlowType: null,
           currentLocale: 'en',
           identities: {},
@@ -64,8 +63,6 @@ describe('migration #35', () => {
           },
           completedOnboarding: false,
           migratedPrivacyMode: false,
-          metaMetricsId: null,
-          metaMetricsSendCount: 0,
         },
       },
     };

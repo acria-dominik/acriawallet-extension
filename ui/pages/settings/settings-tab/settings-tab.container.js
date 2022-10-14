@@ -5,7 +5,6 @@ import {
   updateCurrentLocale,
   setUseNativeCurrencyAsPrimaryCurrencyPreference,
   setHideZeroBalanceTokens,
-  setParticipateInMetaMetrics,
 } from '../../../store/actions';
 import { getTokenList, getPreferences } from '../../../selectors';
 import SettingsTab from './settings-tab.component';
@@ -50,8 +49,6 @@ const mapDispatchToProps = (dispatch) => {
     setUseNativeCurrencyAsPrimaryCurrencyPreference: (value) => {
       return dispatch(setUseNativeCurrencyAsPrimaryCurrencyPreference(value));
     },
-    setParticipateInMetaMetrics: (val) =>
-      dispatch(setParticipateInMetaMetrics(val)),
     setHideZeroBalanceTokens: (value) =>
       dispatch(setHideZeroBalanceTokens(value)),
   };

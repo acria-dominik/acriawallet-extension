@@ -3,7 +3,6 @@ import { ObservableStore } from '@metamask/obs-store';
 import { ethErrors } from 'eth-rpc-errors';
 import log from 'loglevel';
 import { MESSAGE_TYPE } from '../../../shared/constants/app';
-import { EVENT } from '../../../shared/constants/metametrics';
 import { METAMASK_CONTROLLER_EVENTS } from '../metamask-controller';
 import createId from '../../../shared/modules/random-id';
 
@@ -37,7 +36,6 @@ export default class EncryptionPublicKeyManager extends EventEmitter {
       unapprovedEncryptionPublicKeyMsgCount: 0,
     });
     this.messages = [];
-    this.metricsEvent = opts.metricsEvent;
   }
 
   /**
@@ -211,18 +209,8 @@ export default class EncryptionPublicKeyManager extends EventEmitter {
    * Sets a EncryptionPublicKey status to 'rejected' via a call to this._setMsgStatus.
    *
    * @param {number} msgId - The id of the EncryptionPublicKey to reject.
-   * @param reason
    */
-  rejectMsg(msgId, reason = undefined) {
-    if (reason) {
-      this.metricsEvent({
-        event: reason,
-        category: EVENT.CATEGORIES.MESSAGES,
-        properties: {
-          action: 'Encryption public key Request',
-        },
-      });
-    }
+  rejectMsg(msgId) {
     this._setMsgStatus(msgId, 'rejected');
   }
 

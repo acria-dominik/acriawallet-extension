@@ -29,10 +29,6 @@ export const DefaultStory = (args) => {
 
 DefaultStory.storyName = 'Default';
 
-DefaultStory.args = {
-  forceUpdateMetamaskState: () => ({
-    participateInMetaMetrics: true,
-  }),
-};
+DefaultStory.args = {};
 
 DefaultStory.storyName = 'Default';

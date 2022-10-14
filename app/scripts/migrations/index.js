@@ -52,8 +52,6 @@ import m045 from './045';
 import m046 from './046';
 import m047 from './047';
 import m048 from './048';
-import m049 from './049';
-import m050 from './050';
 import m051 from './051';
 import m052 from './052';
 import m053 from './053';
@@ -65,10 +63,7 @@ import m058 from './058';
 import m059 from './059';
 import m060 from './060';
 import m061 from './061';
-import m062 from './062';
 import m063 from './063';
-import m064 from './064';
-import m065 from './065';
 import m066 from './066';
 import m067 from './067';
 import m068 from './068';
@@ -127,8 +122,6 @@ const migrations = [
   m046,
   m047,
   m048,
-  m049,
-  m050,
   m051,
   m052,
   m053,
@@ -140,10 +133,7 @@ const migrations = [
   m059,
   m060,
   m061,
-  m062,
   m063,
-  m064,
-  m065,
   m066,
   m067,
   m068,

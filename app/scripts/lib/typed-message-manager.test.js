@@ -16,7 +16,6 @@ describe('Typed Message Manager', () => {
   beforeEach(async () => {
     typedMessageManager = new TypedMessageManager({
       getCurrentChainId: sinon.fake.returns('0x1'),
-      metricsEvent: sinon.fake(),
     });
 
     msgParamsV1 = {
@@ -109,8 +108,8 @@ describe('Typed Message Manager', () => {
   });
 
   it('approves messages', async () => {
-    const messageAcria WalletId = messages[0].msgParams;
-    typedMessageManager.approveMessage(messageAcria WalletId);
+    const messageAcriaWalletId = messages[0].msgParams;
+    typedMessageManager.approveMessage(messageAcriaWalletId);
     expect(messages[0].status).toStrictEqual(TRANSACTION_STATUSES.APPROVED);
   });
 

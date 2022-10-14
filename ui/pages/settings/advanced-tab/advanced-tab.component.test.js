@@ -178,7 +178,6 @@ describe('AdvancedTab Component', () => {
       />,
       {
         context: {
-          trackEvent: () => undefined,
           t: (s) => `_${s}`,
         },
       },

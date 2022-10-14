@@ -17,8 +17,6 @@ import {
   TYPOGRAPHY,
   FONT_WEIGHT,
 } from '../../../helpers/constants/design-system';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
-import { EVENT } from '../../../../shared/constants/metametrics';
 
 const GAS_FEES_LEARN_MORE_URL =
   'https://community.metamask.io/t/what-is-gas-why-do-transactions-take-so-long/3172';
@@ -55,7 +53,6 @@ export default function FeeCard({
         throw new Error('This network is not supported for token swaps');
     }
   };
-  const trackEvent = useContext(MetaMetricsContext);
 
   const tokenApprovalTextComponent = (
     <span key="fee-card-approve-symbol" className="fee-card__bold">
@@ -90,10 +87,6 @@ export default function FeeCard({
                           <a
                             className="fee-card__link"
                             onClick={() => {
-                              trackEvent({
-                                event: 'Clicked "Gas Fees: Learn More" Link',
-                                category: EVENT.CATEGORIES.SWAPS,
-                              });
                               global.platform.openTab({
                                 url: GAS_FEES_LEARN_MORE_URL,
                               });

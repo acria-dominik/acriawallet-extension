@@ -39,7 +39,6 @@ import {
   LEDGER_TRANSPORT_TYPES,
   LEDGER_USB_VENDOR_ID,
 } from '../../shared/constants/hardware-wallets';
-import { EVENT } from '../../shared/constants/metametrics';
 import { parseSmartTransactionsError } from '../pages/swaps/swaps.util';
 import { isEqualCaseInsensitive } from '../../shared/modules/string-utils';
 ///: BEGIN:ONLY_INCLUDE_IN(flask)
@@ -1832,10 +1831,14 @@ export function removeAndIgnoreCollectible(
 ) {
   return async (dispatch) => {
     if (!address) {
-      throw new Error('AcriaWallet - Cannot ignore collectible without address');
+      throw new Error(
+        'AcriaWallet - Cannot ignore collectible without address',
+      );
     }
     if (!tokenID) {
-      throw new Error('AcriaWallet - Cannot ignore collectible without tokenID');
+      throw new Error(
+        'AcriaWallet - Cannot ignore collectible without tokenID',
+      );
     }
     if (!dontShowLoadingIndicator) {
       dispatch(showLoadingIndication());
@@ -1858,10 +1861,14 @@ export function removeAndIgnoreCollectible(
 export function removeCollectible(address, tokenID, dontShowLoadingIndicator) {
   return async (dispatch) => {
     if (!address) {
-      throw new Error('AcriaWallet - Cannot remove collectible without address');
+      throw new Error(
+        'AcriaWallet - Cannot remove collectible without address',
+      );
     }
     if (!tokenID) {
-      throw new Error('AcriaWallet - Cannot remove collectible without tokenID');
+      throw new Error(
+        'AcriaWallet - Cannot remove collectible without tokenID',
+      );
     }
     if (!dontShowLoadingIndicator) {
       dispatch(showLoadingIndication());
@@ -2627,32 +2634,6 @@ export async function forceUpdateMetamaskState(dispatch) {
 export function toggleAccountMenu() {
   return {
     type: actionConstants.TOGGLE_ACCOUNT_MENU,
-  };
-}
-
-export function setParticipateInMetaMetrics(val) {
-  return (dispatch) => {
-    log.debug(`background.setParticipateInMetaMetrics`);
-    return new Promise((resolve, reject) => {
-      callBackgroundMethod(
-        'setParticipateInMetaMetrics',
-        [val],
-        (err, metaMetricsId) => {
-          log.debug(err);
-          if (err) {
-            dispatch(displayWarning(err.message));
-            reject(err);
-            return;
-          }
-
-          dispatch({
-            type: actionConstants.SET_PARTICIPATE_IN_METAMETRICS,
-            value: val,
-          });
-          resolve([val, metaMetricsId]);
-        },
-      );
-    });
   };
 }
 
@@ -3590,23 +3571,6 @@ export async function closeNotificationPopup() {
   global.platform.closeCurrentWindow();
 }
 
-// MetaMetrics
-/**
- * @typedef {import('../../shared/constants/metametrics').MetaMetricsEventPayload} MetaMetricsEventPayload
- * @typedef {import('../../shared/constants/metametrics').MetaMetricsEventOptions} MetaMetricsEventOptions
- * @typedef {import('../../shared/constants/metametrics').MetaMetricsPagePayload} MetaMetricsPagePayload
- * @typedef {import('../../shared/constants/metametrics').MetaMetricsPageOptions} MetaMetricsPageOptions
- */
-
-/**
- * @param {MetaMetricsEventPayload} payload - details of the event to track
- * @param {MetaMetricsEventOptions} options - options for routing/handling of event
- * @returns {Promise<void>}
- */
-export function trackMetaMetricsEvent(payload, options) {
-  return submitRequestToBackground('trackMetaMetricsEvent', [payload, options]);
-}
-
 export function createEventFragment(options) {
   return submitRequestToBackground('createEventFragment', [options]);
 }
@@ -3624,14 +3588,6 @@ export function updateEventFragment(id, payload) {
 
 export function finalizeEventFragment(id, options) {
   return submitRequestToBackground('finalizeEventFragment', [id, options]);
-}
-
-/**
- * @param {MetaMetricsPagePayload} payload - details of the page viewed
- * @param {MetaMetricsPageOptions} options - options for handling the page view
- */
-export function trackMetaMetricsPage(payload, options) {
-  return submitRequestToBackground('trackMetaMetricsPage', [payload, options]);
 }
 
 export function updateViewedNotifications(notificationIdViewedStatusMap) {
@@ -3656,20 +3612,7 @@ export async function setWeb3ShimUsageAlertDismissed(origin) {
 }
 
 // Smart Transactions Controller
-export async function setSmartTransactionsOptInStatus(
-  optInState,
-  prevOptInState,
-) {
-  trackMetaMetricsEvent({
-    event: 'STX OptIn',
-    category: EVENT.CATEGORIES.SWAPS,
-    sensitiveProperties: {
-      stx_enabled: true,
-      current_stx_enabled: true,
-      stx_user_opt_in: optInState,
-      stx_prev_user_opt_in: prevOptInState,
-    },
-  });
+export async function setSmartTransactionsOptInStatus(optInState) {
   await submitRequestToBackground('setSmartTransactionsOptInStatus', [
     optInState,
   ]);

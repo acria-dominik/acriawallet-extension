@@ -10,17 +10,12 @@ import {
   DEFAULT_ROUTE,
   INITIALIZE_SEED_PHRASE_INTRO_ROUTE,
 } from '../../../../helpers/constants/routes';
-import {
-  EVENT,
-  EVENT_NAMES,
-} from '../../../../../shared/constants/metametrics';
 import { returnToOnboardingInitiatorTab } from '../../onboarding-initiator-util';
 import { exportAsFile } from '../../../../../shared/modules/export-utils';
 
 export default class RevealSeedPhrase extends PureComponent {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -46,12 +41,6 @@ export default class RevealSeedPhrase extends PureComponent {
     const { isShowingSeedPhrase } = this.state;
     const { history } = this.props;
 
-    this.context.trackEvent({
-      category: EVENT.CATEGORIES.ONBOARDING,
-      event: EVENT_NAMES.SRP_TO_CONFIRM_BACKUP,
-      properties: {},
-    });
-
     if (!isShowingSeedPhrase) {
       return;
     }
@@ -67,30 +56,12 @@ export default class RevealSeedPhrase extends PureComponent {
       onboardingInitiator,
     } = this.props;
 
-    await Promise.all([setCompletedOnboarding(), setSeedPhraseBackedUp(false)])
-      .then(() => {
-        this.context.trackEvent({
-          category: EVENT.CATEGORIES.ONBOARDING,
-          event: EVENT_NAMES.WALLET_CREATED,
-          properties: {
-            account_type: EVENT.ACCOUNT_TYPES.DEFAULT,
-            is_backup_skipped: true,
-          },
-        });
-      })
-      .catch((error) => {
-        console.error(error.message);
-        this.context.trackEvent({
-          category: EVENT.CATEGORIES.ONBOARDING,
-          event: EVENT_NAMES.WALLET_SETUP_FAILED,
-          properties: {
-            account_type: EVENT.ACCOUNT_TYPES.DEFAULT,
-            is_backup_skipped: true,
-            reason: 'Seed Phrase Creation Error',
-            error: error.message,
-          },
-        });
-      });
+    await Promise.all([
+      setCompletedOnboarding(),
+      setSeedPhraseBackedUp(false),
+    ]).catch((error) => {
+      console.error(error.message);
+    });
 
     if (onboardingInitiator) {
       await returnToOnboardingInitiatorTab(onboardingInitiator);
@@ -119,11 +90,6 @@ export default class RevealSeedPhrase extends PureComponent {
           <div
             className="reveal-seed-phrase__secret-blocker"
             onClick={() => {
-              this.context.trackEvent({
-                category: EVENT.CATEGORIES.ONBOARDING,
-                event: EVENT_NAMES.KEY_EXPORT_REVEALED,
-                properties: {},
-              });
               this.setState({ isShowingSeedPhrase: true });
             }}
           >

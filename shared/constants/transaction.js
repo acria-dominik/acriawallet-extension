@@ -316,7 +316,6 @@ export const TRANSACTION_GROUP_CATEGORIES = {
 /**
  * Defines the possible types
  *
- * @typedef {object} TransactionMetaMetricsEvents
  * @property {'Transaction Added'} ADDED - All transactions, except incoming
  *  ones, are added to the controller state in an unapproved status. When this
  *  happens we fire the Transaction Added event to show that the transaction
@@ -340,24 +339,6 @@ export const TRANSACTION_GROUP_CATEGORIES = {
  *  or being confirmed. When this happens we track this event, along with the
  *  status.
  */
-
-/**
- * This type will work anywhere you expect a string that can be one of the
- * above transaction event types.
- *
- * @typedef {TransactionMetaMetricsEvents[keyof TransactionMetaMetricsEvents]} TransactionMetaMetricsEventString
- */
-
-/**
- * @type {TransactionMetaMetricsEvents}
- */
-export const TRANSACTION_EVENTS = {
-  ADDED: 'Transaction Added',
-  APPROVED: 'Transaction Approved',
-  FINALIZED: 'Transaction Finalized',
-  REJECTED: 'Transaction Rejected',
-  SUBMITTED: 'Transaction Submitted',
-};
 
 /**
  * @typedef {object} AssetTypes

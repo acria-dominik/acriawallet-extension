@@ -24,15 +24,11 @@ describe('ConfirmSeedPhrase Component', () => {
   });
 
   it('should add/remove selected on click', () => {
-    const trackEventSpy = sinon.spy();
     const replaceSpy = sinon.spy();
     const component = shallowRender(
       {
         seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
         history: { replace: replaceSpy },
-      },
-      {
-        trackEvent: trackEventSpy,
       },
     );
 
@@ -57,16 +53,12 @@ describe('ConfirmSeedPhrase Component', () => {
   });
 
   it('should render correctly on hover', () => {
-    const trackEventSpy = sinon.spy();
     const replaceSpy = sinon.spy();
     const component = shallowRender(
       {
         seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
         history: { replace: replaceSpy },
-      },
-      {
-        trackEvent: trackEventSpy,
-      },
+      }
     );
 
     const seeds = component.find('.confirm-seed-phrase__seed-word--sorted');
@@ -92,15 +84,11 @@ describe('ConfirmSeedPhrase Component', () => {
   });
 
   it('should insert seed in place on drop', () => {
-    const trackEventSpy = sinon.spy();
     const replaceSpy = sinon.spy();
     const component = shallowRender(
       {
         seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
         history: { replace: replaceSpy },
-      },
-      {
-        trackEvent: trackEventSpy,
       },
     );
 
@@ -137,7 +125,6 @@ describe('ConfirmSeedPhrase Component', () => {
       '狗',
       '豬',
     ];
-    const trackEventSpy = sinon.spy();
     const replaceSpy = sinon.spy();
     const initialize3BoxSpy = sinon.spy();
     const component = shallowRender(
@@ -146,9 +133,6 @@ describe('ConfirmSeedPhrase Component', () => {
         history: { replace: replaceSpy },
         setSeedPhraseBackedUp: () => Promise.resolve(),
         initializeThreeBox: initialize3BoxSpy,
-      },
-      {
-        trackEvent: trackEventSpy,
       },
     );
 
@@ -166,14 +150,6 @@ describe('ConfirmSeedPhrase Component', () => {
 
     await new Promise((resolve) => setTimeout(resolve, 100));
 
-    expect(trackEventSpy.args[0][0]).toStrictEqual({
-      category: 'Onboarding',
-      event: 'Wallet Created',
-      properties: {
-        account_type: 'metamask',
-        is_backup_skipped: false,
-      },
-    });
     expect(initialize3BoxSpy.calledOnce).toStrictEqual(true);
     expect(replaceSpy.args[0][0]).toStrictEqual('/initialize/end-of-flow');
   });

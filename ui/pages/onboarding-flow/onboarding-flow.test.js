@@ -17,7 +17,6 @@ import {
   ONBOARDING_COMPLETION_ROUTE,
   ONBOARDING_IMPORT_WITH_SRP_ROUTE,
   ONBOARDING_PIN_EXTENSION_ROUTE,
-  ONBOARDING_METAMETRICS,
 } from '../../helpers/constants/routes';
 import {
   createNewVaultAndGetSeedPhrase,
@@ -210,27 +209,5 @@ describe('Onboarding Flow', () => {
 
     const pinExtension = queryByTestId('onboarding-pin-extension');
     expect(pinExtension).toBeInTheDocument();
-  });
-
-  it('should render onboarding metametrics screen', () => {
-    const { queryByTestId } = renderWithProvider(
-      <OnboardingFlow />,
-      store,
-      ONBOARDING_METAMETRICS,
-    );
-
-    const onboardingMetametrics = queryByTestId('onboarding-metametrics');
-    expect(onboardingMetametrics).toBeInTheDocument();
-  });
-
-  it('should render onboarding experimental screen', () => {
-    const { queryByTestId } = renderWithProvider(
-      <OnboardingFlow />,
-      store,
-      ONBOARDING_EXPERIMENTAL_AREA,
-    );
-
-    const onboardingMetametrics = queryByTestId('experimental-area');
-    expect(onboardingMetametrics).toBeInTheDocument();
   });
 });

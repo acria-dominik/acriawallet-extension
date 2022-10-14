@@ -7,15 +7,9 @@ import TextField from '../../components/ui/text-field';
 import Mascot from '../../components/ui/mascot';
 import { SUPPORT_LINK } from '../../helpers/constants/common';
 import { DEFAULT_ROUTE } from '../../helpers/constants/routes';
-import {
-  EVENT,
-  EVENT_NAMES,
-  CONTEXT_PROPS,
-} from '../../../shared/constants/metametrics';
 
 export default class UnlockPage extends Component {
   static contextTypes = {
-    trackEvent: PropTypes.func,
     t: PropTypes.func,
   };
 
@@ -40,10 +34,6 @@ export default class UnlockPage extends Component {
      * Force update metamask data state
      */
     forceUpdateMetamaskState: PropTypes.func,
-    /**
-     * Event handler to show metametrics modal
-     */
-    showOptInModal: PropTypes.func,
   };
 
   state = {
@@ -70,7 +60,7 @@ export default class UnlockPage extends Component {
     event.stopPropagation();
 
     const { password } = this.state;
-    const { onSubmit, forceUpdateMetamaskState, showOptInModal } = this.props;
+    const { onSubmit, forceUpdateMetamaskState } = this.props;
 
     if (password === '' || this.submitting) {
       return;
@@ -81,39 +71,12 @@ export default class UnlockPage extends Component {
 
     try {
       await onSubmit(password);
-      const newState = await forceUpdateMetamaskState();
-      this.context.trackEvent(
-        {
-          category: EVENT.CATEGORIES.NAVIGATION,
-          event: EVENT_NAMES.APP_UNLOCKED,
-          properties: {
-            failed_attempts: this.failed_attempts,
-          },
-        },
-        {
-          isNewVisit: true,
-        },
-      );
-
-      if (
-        newState.participateInMetaMetrics === null ||
-        newState.participateInMetaMetrics === undefined
-      ) {
-        showOptInModal();
-      }
+      await forceUpdateMetamaskState();
     } catch ({ message }) {
       this.failed_attempts += 1;
 
       if (message === 'Incorrect password') {
         await forceUpdateMetamaskState();
-        this.context.trackEvent({
-          category: EVENT.CATEGORIES.NAVIGATION,
-          event: EVENT_NAMES.APP_UNLOCKED_FAILED,
-          properties: {
-            reason: 'incorrect_password',
-            failed_attempts: this.failed_attempts,
-          },
-        });
       }
 
       this.setState({ error: message });
@@ -210,22 +173,6 @@ export default class UnlockPage extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
                 key="need-help-link"
-                onClick={() => {
-                  this.context.trackEvent(
-                    {
-                      category: EVENT.CATEGORIES.NAVIGATION,
-                      event: EVENT_NAMES.SUPPORT_LINK_CLICKED,
-                      properties: {
-                        url: SUPPORT_LINK,
-                      },
-                    },
-                    {
-                      contextPropsIntoEventProperties: [
-                        CONTEXT_PROPS.PAGE_TITLE,
-                      ],
-                    },
-                  );
-                }}
               >
                 {t('needHelpLinkText')}
               </a>,

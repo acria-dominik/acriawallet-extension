@@ -7,15 +7,13 @@ import {
   getEthConversionFromWeiHex,
   getValueFromWeiHex,
 } from '../../../helpers/utils/conversions.util';
-import { formatDate, getURLHostName } from '../../../helpers/utils/util';
-import { EVENT } from '../../../../shared/constants/metametrics';
+import { formatDate } from '../../../helpers/utils/util';
 import TransactionActivityLogIcon from './transaction-activity-log-icon';
 import { CONFIRMED_STATUS } from './transaction-activity-log.constants';
 
 export default class TransactionActivityLog extends PureComponent {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -35,16 +33,6 @@ export default class TransactionActivityLog extends PureComponent {
   handleActivityClick = (activity) => {
     const { rpcPrefs } = this.props;
     const etherscanUrl = getBlockExplorerLink(activity, rpcPrefs);
-
-    this.context.trackEvent({
-      category: EVENT.CATEGORIES.TRANSACTIONS,
-      event: 'Clicked Block Explorer Link',
-      properties: {
-        link_type: 'Transaction Block Explorer',
-        action: 'Activity Details',
-        block_explorer_domain: getURLHostName(etherscanUrl),
-      },
-    });
 
     global.platform.openTab({ url: etherscanUrl });
   };

@@ -3277,6 +3277,13 @@
   "swap": {
     "message": "Takas"
   },
+  "swapAcriaWalletFee": {
+    "message": "Acria Wallet ücreti"
+  },
+  "swapAcriaWalletFeeDescription": {
+    "message": "Her defasında en iyi likidite kaynaklarından en iyi fiyatı buluyoruz. %$1 oranında bir ücret otomatik olarak bu teklife dahil edilmiştir.",
+    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
+  },
   "swapAdvancedSlippageInfo": {
     "message": "Emrinizin verildiği ve onaylandığı zamanlar arasında fiyat farkı oluşursa buna \"fark\" denir. Fark, \"maks. fark\" ayarınızı aşarsa takas işleminiz otomatik olarak iptal edilir."
   },
@@ -3400,13 +3407,6 @@
   },
   "swapMaxSlippage": {
     "message": "Maks. fark"
-  },
-  "swapAcriaWalletFee": {
-    "message": "Acria Wallet ücreti"
-  },
-  "swapAcriaWalletFeeDescription": {
-    "message": "Her defasında en iyi likidite kaynaklarından en iyi fiyatı buluyoruz. %$1 oranında bir ücret otomatik olarak bu teklife dahil edilmiştir.",
-    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapNQuotesWithDot": {
     "message": "$1 teklif.",

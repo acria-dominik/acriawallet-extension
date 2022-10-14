@@ -3277,6 +3277,13 @@
   "swap": {
     "message": "Ανταλλαγή"
   },
+  "swapAcriaWalletFee": {
+    "message": "Τέλος Acria Wallet"
+  },
+  "swapAcriaWalletFeeDescription": {
+    "message": "Βρίσκουμε την καλύτερη τιμή από τις κορυφαίες πηγές ρευστότητας, κάθε φορά. Μια αμοιβή $1% λαμβάνεται αυτόματα υπόψη σε αυτή την προσφορά.",
+    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
+  },
   "swapAdvancedSlippageInfo": {
     "message": "Εάν η τιμή αλλάζει μεταξύ της ώρας που τοποθετείται η παραγγελία σας και της επιβεβαίωσης, αυτό ονομάζεται \"ολίσθηση\". Η ανταλλαγή σας θα ακυρωθεί αυτόματα αν η ολίσθηση υπερβαίνει τη ρύθμιση \"ανοχή ολίσθησης\"."
   },
@@ -3400,13 +3407,6 @@
   },
   "swapMaxSlippage": {
     "message": "Μέγιστη ολίσθηση"
-  },
-  "swapAcriaWalletFee": {
-    "message": "Τέλος Acria Wallet"
-  },
-  "swapAcriaWalletFeeDescription": {
-    "message": "Βρίσκουμε την καλύτερη τιμή από τις κορυφαίες πηγές ρευστότητας, κάθε φορά. Μια αμοιβή $1% λαμβάνεται αυτόματα υπόψη σε αυτή την προσφορά.",
-    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapNQuotesWithDot": {
     "message": "$1 προσφορές.",

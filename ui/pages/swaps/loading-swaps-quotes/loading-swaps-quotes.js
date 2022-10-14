@@ -1,26 +1,12 @@
 import EventEmitter from 'events';
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { shuffle } from 'lodash';
 import { useHistory } from 'react-router-dom';
-import isEqual from 'lodash/isEqual';
-import {
-  navigateBackToBuildQuote,
-  getFetchParams,
-  getQuotesFetchStartTime,
-  getSmartTransactionsOptInStatus,
-  getSmartTransactionsEnabled,
-  getCurrentSmartTransactionsEnabled,
-} from '../../../ducks/swaps/swaps';
-import {
-  isHardwareWallet,
-  getHardwareWalletType,
-} from '../../../selectors/selectors';
+import { navigateBackToBuildQuote } from '../../../ducks/swaps/swaps';
 import { I18nContext } from '../../../contexts/i18n';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
 import Mascot from '../../../components/ui/mascot';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import SwapsFooter from '../swaps-footer';
 import BackgroundAnimation from './background-animation';
 
@@ -30,40 +16,9 @@ export default function LoadingSwapsQuotes({
   onDone,
 }) {
   const t = useContext(I18nContext);
-  const trackEvent = useContext(MetaMetricsContext);
   const dispatch = useDispatch();
   const history = useHistory();
   const animationEventEmitter = useRef(new EventEmitter());
-
-  const fetchParams = useSelector(getFetchParams, isEqual);
-  const quotesFetchStartTime = useSelector(getQuotesFetchStartTime);
-  const hardwareWalletUsed = useSelector(isHardwareWallet);
-  const hardwareWalletType = useSelector(getHardwareWalletType);
-  const smartTransactionsOptInStatus = useSelector(
-    getSmartTransactionsOptInStatus,
-  );
-  const smartTransactionsEnabled = useSelector(getSmartTransactionsEnabled);
-  const currentSmartTransactionsEnabled = useSelector(
-    getCurrentSmartTransactionsEnabled,
-  );
-  const quotesRequestCancelledEventConfig = {
-    event: 'Quotes Request Cancelled',
-    category: EVENT.CATEGORIES.SWAPS,
-    sensitiveProperties: {
-      token_from: fetchParams?.sourceTokenInfo?.symbol,
-      token_from_amount: fetchParams?.value,
-      request_type: fetchParams?.balanceError,
-      token_to: fetchParams?.destinationTokenInfo?.symbol,
-      slippage: fetchParams?.slippage,
-      custom_slippage: fetchParams?.slippage !== 2,
-      response_time: Date.now() - quotesFetchStartTime,
-      is_hardware_wallet: hardwareWalletUsed,
-      hardware_wallet_type: hardwareWalletType,
-      stx_enabled: smartTransactionsEnabled,
-      current_stx_enabled: currentSmartTransactionsEnabled,
-      stx_user_opt_in: smartTransactionsOptInStatus,
-    },
-  };
 
   const [aggregatorNames] = useState(() =>
     shuffle(Object.keys(aggregatorMetadata)),
@@ -154,7 +109,6 @@ export default function LoadingSwapsQuotes({
       <SwapsFooter
         submitText={t('back')}
         onSubmit={async () => {
-          trackEvent(quotesRequestCancelledEventConfig);
           await dispatch(navigateBackToBuildQuote(history));
         }}
         hideCancel

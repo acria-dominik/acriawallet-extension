@@ -5,9 +5,7 @@ describe('Message Manager', () => {
   let messageManager;
 
   beforeEach(() => {
-    messageManager = new MessageManager({
-      metricsEvent: jest.fn(),
-    });
+    messageManager = new MessageManager();
   });
 
   describe('#getMsgList', () => {

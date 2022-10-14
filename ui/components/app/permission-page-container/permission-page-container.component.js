@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { isEqual } from 'lodash';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import { PageContainerFooter } from '../../ui/page-container';
 import PermissionsConnectFooter from '../permissions-connect-footer';
 import { PermissionPageContainerContent } from '.';
@@ -32,7 +31,6 @@ export default class PermissionPageContainer extends Component {
 
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   state = {
@@ -61,17 +59,6 @@ export default class PermissionPageContainer extends Component {
 
   getRequestedMethodNames(props) {
     return Object.keys(props.request.permissions || {});
-  }
-
-  componentDidMount() {
-    this.context.trackEvent({
-      category: EVENT.CATEGORIES.AUTH,
-      event: 'Tab Opened',
-      properties: {
-        action: 'Connect',
-        legacy_event: true,
-      },
-    });
   }
 
   onCancel = () => {

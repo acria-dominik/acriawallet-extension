@@ -20,7 +20,6 @@ import {
   LEDGER_TRANSPORT_TYPES,
   LEDGER_USB_VENDOR_ID,
 } from '../../../../shared/constants/hardware-wallets';
-import { EVENT, EVENT_NAMES } from '../../../../shared/constants/metametrics';
 import { exportAsFile } from '../../../../shared/modules/export-utils';
 import ActionableMessage from '../../../components/ui/actionable-message';
 import ZENDESK_URLS from '../../../helpers/constants/zendesk-url';
@@ -30,7 +29,6 @@ const CORRUPT_JSON_FILE = 'CORRUPT_JSON_FILE';
 export default class AdvancedTab extends PureComponent {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -331,11 +329,6 @@ export default class AdvancedTab extends PureComponent {
               className="settings-tab__button--red"
               onClick={(event) => {
                 event.preventDefault();
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.SETTINGS,
-                  event: EVENT_NAMES.ACCOUNT_RESET,
-                  properties: {},
-                });
                 showResetAccountConfirmationModal();
               }}
             >
@@ -837,14 +830,6 @@ export default class AdvancedTab extends PureComponent {
             <ToggleButton
               value={useTokenDetection}
               onToggle={(value) => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.SETTINGS,
-                  event: 'Token Detection',
-                  properties: {
-                    action: 'Token Detection',
-                    legacy_event: true,
-                  },
-                });
                 setUseTokenDetection(!value);
               }}
               offLabel={t('off')}

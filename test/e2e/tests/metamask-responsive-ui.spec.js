@@ -27,9 +27,6 @@ describe('MetaMask Responsive UI', function () {
           // welcome
           await driver.clickElement('[data-testid="onboarding-create-wallet"]');
 
-          // metrics
-          await driver.clickElement('[data-testid="metametrics-no-thanks"]');
-
           // create password
           await driver.fill(
             '[data-testid="create-password-new"]',
@@ -86,9 +83,6 @@ describe('MetaMask Responsive UI', function () {
             tag: 'button',
           });
           await driver.delay(tinyDelayMs);
-
-          // clicks the "I agree" option on the metametrics opt-in screen
-          await driver.clickElement('.btn-primary');
 
           // clicks the "Create New Wallet" option
           await driver.clickElement({ text: 'Create a wallet', tag: 'button' });

@@ -6,18 +6,12 @@ import Button from '../../components/ui/button';
 import Identicon from '../../components/ui/identicon';
 import TokenBalance from '../../components/ui/token-balance';
 import { I18nContext } from '../../contexts/i18n';
-import { MetaMetricsContext } from '../../contexts/metametrics';
 import { getMostRecentOverviewPage } from '../../ducks/history/history';
 import { getTokens } from '../../ducks/metamask/metamask';
 import ZENDESK_URLS from '../../helpers/constants/zendesk-url';
 import { isEqualCaseInsensitive } from '../../../shared/modules/string-utils';
 import { getSuggestedAssets } from '../../selectors';
 import { rejectWatchAsset, acceptWatchAsset } from '../../store/actions';
-import { EVENT, EVENT_NAMES } from '../../../shared/constants/metametrics';
-import {
-  ASSET_TYPES,
-  TOKEN_STANDARDS,
-} from '../../../shared/constants/transaction';
 
 function getTokenName(name, symbol) {
   return name === undefined ? symbol : `${name} (${symbol})`;
@@ -70,8 +64,6 @@ const ConfirmAddSuggestedToken = () => {
   const suggestedAssets = useSelector(getSuggestedAssets);
   const tokens = useSelector(getTokens);
 
-  const trackEvent = useContext(MetaMetricsContext);
-
   const knownTokenActionableMessage = useMemo(() => {
     return (
       hasDuplicateAddress(suggestedAssets, tokens) && (
@@ -113,27 +105,13 @@ const ConfirmAddSuggestedToken = () => {
 
   const handleAddTokensClick = useCallback(async () => {
     await Promise.all(
-      suggestedAssets.map(async ({ asset, id }) => {
+      suggestedAssets.map(async ({ _, id }) => {
         await dispatch(acceptWatchAsset(id));
-
-        trackEvent({
-          event: EVENT_NAMES.TOKEN_ADDED,
-          category: EVENT.CATEGORIES.WALLET,
-          sensitiveProperties: {
-            token_symbol: asset.symbol,
-            token_contract_address: asset.address,
-            token_decimal_precision: asset.decimals,
-            unlisted: asset.unlisted,
-            source: EVENT.SOURCE.TOKEN.DAPP,
-            token_standard: TOKEN_STANDARDS.ERC20,
-            asset_type: ASSET_TYPES.TOKEN,
-          },
-        });
       }),
     );
 
     history.push(mostRecentOverviewPage);
-  }, [dispatch, history, trackEvent, mostRecentOverviewPage, suggestedAssets]);
+  }, [dispatch, history, mostRecentOverviewPage, suggestedAssets]);
 
   const goBackIfNoSuggestedAssetsOnFirstRender = () => {
     if (!suggestedAssets.length) {

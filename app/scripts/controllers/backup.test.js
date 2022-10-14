@@ -38,7 +38,6 @@ describe('BackupController', function () {
     return new BackupController({
       preferencesController: getMockController(),
       addressBookController: getMockController(),
-      trackMetaMetricsEvent: sinon.stub(),
     });
   };
 

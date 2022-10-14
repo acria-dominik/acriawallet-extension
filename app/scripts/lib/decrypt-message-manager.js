@@ -4,7 +4,6 @@ import { bufferToHex, stripHexPrefix } from 'ethereumjs-util';
 import { ethErrors } from 'eth-rpc-errors';
 import log from 'loglevel';
 import { MESSAGE_TYPE } from '../../../shared/constants/app';
-import { EVENT } from '../../../shared/constants/metametrics';
 import { METAMASK_CONTROLLER_EVENTS } from '../metamask-controller';
 import createId from '../../../shared/modules/random-id';
 import { addHexPrefix } from './util';
@@ -41,7 +40,6 @@ export default class DecryptMessageManager extends EventEmitter {
       unapprovedDecryptMsgCount: 0,
     });
     this.messages = [];
-    this.metricsEvent = opts.metricsEvent;
   }
 
   /**
@@ -222,18 +220,8 @@ export default class DecryptMessageManager extends EventEmitter {
    * Sets a DecryptMessage status to 'rejected' via a call to this._setMsgStatus.
    *
    * @param {number} msgId - The id of the DecryptMessage to reject.
-   * @param reason
    */
-  rejectMsg(msgId, reason = undefined) {
-    if (reason) {
-      this.metricsEvent({
-        event: reason,
-        category: EVENT.CATEGORIES.MESSAGES,
-        properties: {
-          action: 'Decrypt Message Request',
-        },
-      });
-    }
+  rejectMsg(msgId) {
     this._setMsgStatus(msgId, 'rejected');
   }
 

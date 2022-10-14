@@ -3498,6 +3498,13 @@
   "swap": {
     "message": "Swap"
   },
+  "swapAcriaWalletFee": {
+    "message": "Acria Wallet fee"
+  },
+  "swapAcriaWalletFeeDescription": {
+    "message": "We find the best price from the top liquidity sources, every time. A fee of $1% is automatically factored into this quote.",
+    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
+  },
   "swapAdvancedSlippageInfo": {
     "message": "If the price changes between the time your order is placed and confirmed it’s called “slippage”. Your swap will automatically cancel if slippage exceeds your “max slippage” setting."
   },
@@ -3621,13 +3628,6 @@
   },
   "swapMaxSlippage": {
     "message": "Max slippage"
-  },
-  "swapAcriaWalletFee": {
-    "message": "Acria Wallet fee"
-  },
-  "swapAcriaWalletFeeDescription": {
-    "message": "We find the best price from the top liquidity sources, every time. A fee of $1% is automatically factored into this quote.",
-    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapNQuotesWithDot": {
     "message": "$1 quotes.",

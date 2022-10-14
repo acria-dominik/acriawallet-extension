@@ -18,7 +18,6 @@ import {
   getChainType,
 } from '../../lib/util';
 import { calcGasTotal } from '../../../../ui/pages/send/send.utils';
-import { getSwapsTokensReceivedFromTxMeta } from '../../../../ui/pages/swaps/swaps.util';
 import {
   hexWEIToDecGWEI,
   decimalToHex,
@@ -30,7 +29,6 @@ import {
   TRANSACTION_APPROVAL_AMOUNT_TYPE,
   TOKEN_STANDARDS,
   TRANSACTION_ENVELOPE_TYPES,
-  TRANSACTION_EVENTS,
 } from '../../../../shared/constants/transaction';
 import { TRANSACTION_ENVELOPE_TYPE_NAMES } from '../../../../ui/helpers/constants/transactions';
 import { METAMASK_CONTROLLER_EVENTS } from '../../metamask-controller';
@@ -43,7 +41,6 @@ import {
 } from '../../../../shared/constants/gas';
 import { decGWEIToHexWEI } from '../../../../shared/modules/conversion.utils';
 import { isSwapsDefaultTokenAddress } from '../../../../shared/modules/swaps.utils';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import {
   HARDFORKS,
   MAINNET,
@@ -83,7 +80,6 @@ const VALID_UNAPPROVED_TRANSACTION_TYPES = [
 
 /**
  * @typedef {import('../../../../shared/constants/transaction').TransactionMeta} TransactionMeta
- * @typedef {import('../../../../shared/constants/transaction').TransactionMetaMetricsEventString} TransactionMetaMetricsEventString
  */
 
 const METRICS_STATUS_FAILED = 'failed on-chain';
@@ -141,7 +137,6 @@ export default class TransactionController extends EventEmitter {
     this.blockTracker = opts.blockTracker;
     this.signEthTx = opts.signTransaction;
     this.inProcessOfSigning = new Set();
-    this._trackMetaMetricsEvent = opts.trackMetaMetricsEvent;
     this._getParticipateInMetrics = opts.getParticipateInMetrics;
     this._getEIP1559GasFeeEstimates = opts.getEIP1559GasFeeEstimates;
     this.createEventFragment = opts.createEventFragment;
@@ -299,7 +294,6 @@ export default class TransactionController extends EventEmitter {
   addTransaction(txMeta) {
     this.txStateManager.addTransaction(txMeta);
     this.emit(`${txMeta.id}:unapproved`, txMeta);
-    this._trackTransactionMetricsEvent(txMeta, TRANSACTION_EVENTS.ADDED);
   }
 
   /**
@@ -320,7 +314,9 @@ export default class TransactionController extends EventEmitter {
    */
   async newUnapprovedTransaction(txParams, opts = {}) {
     log.debug(
-      `Acria WalletController newUnapprovedTransaction ${JSON.stringify(txParams)}`,
+      `Acria WalletController newUnapprovedTransaction ${JSON.stringify(
+        txParams,
+      )}`,
     );
 
     const initialTxMeta = await this.addUnapprovedTransaction(
@@ -1332,7 +1328,6 @@ export default class TransactionController extends EventEmitter {
       // sign transaction
       const rawTx = await this.signTransaction(txId);
       await this.publishTransaction(txId, rawTx);
-      this._trackTransactionMetricsEvent(txMeta, TRANSACTION_EVENTS.APPROVED);
       // must set transaction to submitted/failed before releasing lock
       nonceLock.releaseLock();
     } catch (err) {
@@ -1493,8 +1488,6 @@ export default class TransactionController extends EventEmitter {
     this.setTxHash(txId, txHash);
 
     this.txStateManager.setTxStatusSubmitted(txId);
-
-    this._trackTransactionMetricsEvent(txMeta, TRANSACTION_EVENTS.SUBMITTED);
   }
 
   async updatePostTxBalance({ txMeta, txId, numberOfAttempts = 6 }) {
@@ -1580,12 +1573,6 @@ export default class TransactionController extends EventEmitter {
         // metricsParams.error = TODO: figure out a way to get the on-chain failure reason
       }
 
-      this._trackTransactionMetricsEvent(
-        txMeta,
-        TRANSACTION_EVENTS.FINALIZED,
-        metricsParams,
-      );
-
       this.txStateManager.updateTransaction(
         txMeta,
         'transactions#confirmTransaction - add txReceipt',
@@ -1640,12 +1627,6 @@ export default class TransactionController extends EventEmitter {
         // metricsParams.error = TODO: figure out a way to get the on-chain failure reason
       }
 
-      this._trackTransactionMetricsEvent(
-        txMeta,
-        TRANSACTION_EVENTS.FINALIZED,
-        metricsParams,
-      );
-
       this.txStateManager.updateTransaction(
         txMeta,
         'transactions#confirmTransaction - add txReceipt',
@@ -1669,9 +1650,7 @@ export default class TransactionController extends EventEmitter {
    * @returns {Promise<void>}
    */
   async cancelTransaction(txId) {
-    const txMeta = this.txStateManager.getTransaction(txId);
     this.txStateManager.setTxStatusRejected(txId);
-    this._trackTransactionMetricsEvent(txMeta, TRANSACTION_EVENTS.REJECTED);
   }
 
   /**
@@ -1692,8 +1671,7 @@ export default class TransactionController extends EventEmitter {
    * fragment does not exist in state.
    *
    * @param {number} transactionId - The transaction id to create the event
-   *  fragment for
-   * @param {valueOf<TRANSACTION_EVENTS>} event - event type to create
+   * @param event
    */
   async createTransactionEventFragment(transactionId, event) {
     const txMeta = this.txStateManager.getTransaction(transactionId);
@@ -1954,63 +1932,6 @@ export default class TransactionController extends EventEmitter {
         hexWEIToDecETH(tradeAndApprovalGasCost),
       ),
     };
-  }
-
-  _trackSwapsMetrics(txMeta, approvalTxMeta) {
-    if (this._getParticipateInMetrics() && txMeta.swapMetaData) {
-      if (txMeta.txReceipt.status === '0x0') {
-        this._trackMetaMetricsEvent({
-          event: 'Swap Failed',
-          sensitiveProperties: { ...txMeta.swapMetaData },
-          category: EVENT.CATEGORIES.SWAPS,
-        });
-      } else {
-        const tokensReceived = getSwapsTokensReceivedFromTxMeta(
-          txMeta.destinationTokenSymbol,
-          txMeta,
-          txMeta.destinationTokenAddress,
-          txMeta.txParams.from,
-          txMeta.destinationTokenDecimals,
-          approvalTxMeta,
-          txMeta.chainId,
-        );
-
-        const quoteVsExecutionRatio = tokensReceived
-          ? `${new BigNumber(tokensReceived, 10)
-              .div(txMeta.swapMetaData.token_to_amount, 10)
-              .times(100)
-              .round(2)}%`
-          : null;
-
-        const estimatedVsUsedGasRatio =
-          txMeta.txReceipt.gasUsed && txMeta.swapMetaData.estimated_gas
-            ? `${new BigNumber(txMeta.txReceipt.gasUsed, 16)
-                .div(txMeta.swapMetaData.estimated_gas, 10)
-                .times(100)
-                .round(2)}%`
-            : null;
-
-        const transactionsCost = this._calculateTransactionsCost(
-          txMeta,
-          approvalTxMeta,
-        );
-
-        this._trackMetaMetricsEvent({
-          event: 'Swap Completed',
-          category: EVENT.CATEGORIES.SWAPS,
-          sensitiveProperties: {
-            ...txMeta.swapMetaData,
-            token_to_amount_received: tokensReceived,
-            quote_vs_executionRatio: quoteVsExecutionRatio,
-            estimated_vs_used_gasRatio: estimatedVsUsedGasRatio,
-            approval_gas_cost_in_eth: transactionsCost.approvalGasCostInEth,
-            trade_gas_cost_in_eth: transactionsCost.tradeGasCostInEth,
-            trade_and_approval_gas_cost_in_eth:
-              transactionsCost.tradeAndApprovalGasCostInEth,
-          },
-        });
-      }
-    }
   }
 
   /**
@@ -2296,179 +2217,178 @@ export default class TransactionController extends EventEmitter {
     return { properties, sensitiveProperties };
   }
 
-  /**
-   * Helper method that checks for the presence of an existing fragment by id
-   * appropriate for the type of event that triggered fragment creation. If the
-   * appropriate fragment exists, then nothing is done. If it does not exist a
-   * new event fragment is created with the appropriate payload.
-   *
-   * @param {TransactionMeta} txMeta - Transaction meta object
-   * @param {TransactionMetaMetricsEventString} event - The event type that
-   *  triggered fragment creation
-   * @param {object} properties - properties to include in the fragment
-   * @param {object} [sensitiveProperties] - sensitive properties to include in
-   *  the fragment
-   */
-  _createTransactionEventFragment(
-    txMeta,
-    event,
-    properties,
-    sensitiveProperties,
-  ) {
-    const isSubmitted = [
-      TRANSACTION_EVENTS.FINALIZED,
-      TRANSACTION_EVENTS.SUBMITTED,
-    ].includes(event);
-    const uniqueIdentifier = `transaction-${
-      isSubmitted ? 'submitted' : 'added'
-    }-${txMeta.id}`;
+  // /**
+  //  * Helper method that checks for the presence of an existing fragment by id
+  //  * appropriate for the type of event that triggered fragment creation. If the
+  //  * appropriate fragment exists, then nothing is done. If it does not exist a
+  //  * new event fragment is created with the appropriate payload.
+  //  *
+  //  * @param {TransactionMeta} txMeta - Transaction meta object
+  //  *  triggered fragment creation
+  //  * @param event
+  //  * @param {object} properties - properties to include in the fragment
+  //  * @param {object} [sensitiveProperties] - sensitive properties to include in
+  //  *  the fragment
+  //  */
+  // _createTransactionEventFragment(
+  //   txMeta,
+  //   event,
+  //   properties,
+  //   sensitiveProperties,
+  // ) {
+  //   const isSubmitted = [
+  //     TRANSACTION_EVENTS.FINALIZED,
+  //     TRANSACTION_EVENTS.SUBMITTED,
+  //   ].includes(event);
+  //   const uniqueIdentifier = `transaction-${
+  //     isSubmitted ? 'submitted' : 'added'
+  //   }-${txMeta.id}`;
 
-    const fragment = this.getEventFragmentById(uniqueIdentifier);
-    if (typeof fragment !== 'undefined') {
-      return;
-    }
+  //   const fragment = this.getEventFragmentById(uniqueIdentifier);
+  //   if (typeof fragment !== 'undefined') {
+  //   }
 
-    switch (event) {
-      // When a transaction is added to the controller, we know that the user
-      // will be presented with a confirmation screen. The user will then
-      // either confirm or reject that transaction. Each has an associated
-      // event we want to track. While we don't necessarily need an event
-      // fragment to model this, having one allows us to record additional
-      // properties onto the event from the UI. For example, when the user
-      // edits the transactions gas params we can record that property and
-      // then get analytics on the number of transactions in which gas edits
-      // occur.
-      case TRANSACTION_EVENTS.ADDED:
-        this.createEventFragment({
-          category: EVENT.CATEGORIES.TRANSACTIONS,
-          initialEvent: TRANSACTION_EVENTS.ADDED,
-          successEvent: TRANSACTION_EVENTS.APPROVED,
-          failureEvent: TRANSACTION_EVENTS.REJECTED,
-          properties,
-          sensitiveProperties,
-          persist: true,
-          uniqueIdentifier,
-        });
-        break;
-      // If for some reason an approval or rejection occurs without the added
-      // fragment existing in memory, we create the added fragment but without
-      // the initialEvent firing. This is to prevent possible duplication of
-      // events. A good example why this might occur is if the user had
-      // unapproved transactions in memory when updating to the version that
-      // includes this change. A migration would have also helped here but this
-      // implementation hardens against other possible bugs where a fragment
-      // does not exist.
-      case TRANSACTION_EVENTS.APPROVED:
-      case TRANSACTION_EVENTS.REJECTED:
-        this.createEventFragment({
-          category: EVENT.CATEGORIES.TRANSACTIONS,
-          successEvent: TRANSACTION_EVENTS.APPROVED,
-          failureEvent: TRANSACTION_EVENTS.REJECTED,
-          properties,
-          sensitiveProperties,
-          persist: true,
-          uniqueIdentifier,
-        });
-        break;
-      // When a transaction is submitted it will always result in updating
-      // to a finalized state (dropped, failed, confirmed) -- eventually.
-      // However having a fragment started at this stage allows augmenting
-      // analytics data with user interactions such as speeding up and
-      // canceling the transactions. From this controllers perspective a new
-      // transaction with a new id is generated for speed up and cancel
-      // transactions, but from the UI we could augment the previous ID with
-      // supplemental data to show user intent. Such as when they open the
-      // cancel UI but don't submit. We can record that this happened and add
-      // properties to the transaction event.
-      case TRANSACTION_EVENTS.SUBMITTED:
-        this.createEventFragment({
-          category: EVENT.CATEGORIES.TRANSACTIONS,
-          initialEvent: TRANSACTION_EVENTS.SUBMITTED,
-          successEvent: TRANSACTION_EVENTS.FINALIZED,
-          properties,
-          sensitiveProperties,
-          persist: true,
-          uniqueIdentifier,
-        });
-        break;
-      // If for some reason a transaction is finalized without the submitted
-      // fragment existing in memory, we create the submitted fragment but
-      // without the initialEvent firing. This is to prevent possible
-      // duplication of events. A good example why this might occur is if th
-      // user had pending transactions in memory when updating to the version
-      // that includes this change. A migration would have also helped here but
-      // this implementation hardens against other possible bugs where a
-      // fragment does not exist.
-      case TRANSACTION_EVENTS.FINALIZED:
-        this.createEventFragment({
-          category: EVENT.CATEGORIES.TRANSACTIONS,
-          successEvent: TRANSACTION_EVENTS.FINALIZED,
-          properties,
-          sensitiveProperties,
-          persist: true,
-          uniqueIdentifier,
-        });
-        break;
-      default:
-        break;
-    }
-  }
+  // switch (event) {
+  //   // When a transaction is added to the controller, we know that the user
+  //   // will be presented with a confirmation screen. The user will then
+  //   // either confirm or reject that transaction. Each has an associated
+  //   // event we want to track. While we don't necessarily need an event
+  //   // fragment to model this, having one allows us to record additional
+  //   // properties onto the event from the UI. For example, when the user
+  //   // edits the transactions gas params we can record that property and
+  //   // then get analytics on the number of transactions in which gas edits
+  //   // occur.
+  //   case TRANSACTION_EVENTS.ADDED:
+  //     this.createEventFragment({
+  //       category: EVENT.CATEGORIES.TRANSACTIONS,
+  //       initialEvent: TRANSACTION_EVENTS.ADDED,
+  //       successEvent: TRANSACTION_EVENTS.APPROVED,
+  //       failureEvent: TRANSACTION_EVENTS.REJECTED,
+  //       properties,
+  //       sensitiveProperties,
+  //       persist: true,
+  //       uniqueIdentifier,
+  //     });
+  //     break;
+  //   // If for some reason an approval or rejection occurs without the added
+  //   // fragment existing in memory, we create the added fragment but without
+  //   // the initialEvent firing. This is to prevent possible duplication of
+  //   // events. A good example why this might occur is if the user had
+  //   // unapproved transactions in memory when updating to the version that
+  //   // includes this change. A migration would have also helped here but this
+  //   // implementation hardens against other possible bugs where a fragment
+  //   // does not exist.
+  //   case TRANSACTION_EVENTS.APPROVED:
+  //   case TRANSACTION_EVENTS.REJECTED:
+  //     this.createEventFragment({
+  //       category: EVENT.CATEGORIES.TRANSACTIONS,
+  //       successEvent: TRANSACTION_EVENTS.APPROVED,
+  //       failureEvent: TRANSACTION_EVENTS.REJECTED,
+  //       properties,
+  //       sensitiveProperties,
+  //       persist: true,
+  //       uniqueIdentifier,
+  //     });
+  //     break;
+  //   // When a transaction is submitted it will always result in updating
+  //   // to a finalized state (dropped, failed, confirmed) -- eventually.
+  //   // However having a fragment started at this stage allows augmenting
+  //   // analytics data with user interactions such as speeding up and
+  //   // canceling the transactions. From this controllers perspective a new
+  //   // transaction with a new id is generated for speed up and cancel
+  //   // transactions, but from the UI we could augment the previous ID with
+  //   // supplemental data to show user intent. Such as when they open the
+  //   // cancel UI but don't submit. We can record that this happened and add
+  //   // properties to the transaction event.
+  //   case TRANSACTION_EVENTS.SUBMITTED:
+  //     this.createEventFragment({
+  //       category: EVENT.CATEGORIES.TRANSACTIONS,
+  //       initialEvent: TRANSACTION_EVENTS.SUBMITTED,
+  //       successEvent: TRANSACTION_EVENTS.FINALIZED,
+  //       properties,
+  //       sensitiveProperties,
+  //       persist: true,
+  //       uniqueIdentifier,
+  //     });
+  //     break;
+  //   // If for some reason a transaction is finalized without the submitted
+  //   // fragment existing in memory, we create the submitted fragment but
+  //   // without the initialEvent firing. This is to prevent possible
+  //   // duplication of events. A good example why this might occur is if th
+  //   // user had pending transactions in memory when updating to the version
+  //   // that includes this change. A migration would have also helped here but
+  //   // this implementation hardens against other possible bugs where a
+  //   // fragment does not exist.
+  //   case TRANSACTION_EVENTS.FINALIZED:
+  //     this.createEventFragment({
+  //       category: EVENT.CATEGORIES.TRANSACTIONS,
+  //       successEvent: TRANSACTION_EVENTS.FINALIZED,
+  //       properties,
+  //       sensitiveProperties,
+  //       persist: true,
+  //       uniqueIdentifier,
+  //     });
+  //     break;
+  //   default:
+  //     break;
+  // }
+  // }
 
-  /**
-   * Extracts relevant properties from a transaction meta
-   * object and uses them to create and send metrics for various transaction
-   * events.
-   *
-   * @param {object} txMeta - the txMeta object
-   * @param {TransactionMetaMetricsEventString} event - the name of the transaction event
-   * @param {object} extraParams - optional props and values to include in sensitiveProperties
-   */
-  async _trackTransactionMetricsEvent(txMeta, event, extraParams = {}) {
-    if (!txMeta) {
-      return;
-    }
-    const { properties, sensitiveProperties } =
-      await this._buildEventFragmentProperties(txMeta, extraParams);
+  // /**
+  //  * Extracts relevant properties from a transaction meta
+  //  * object and uses them to create and send metrics for various transaction
+  //  * events.
+  //  *
+  //  * @param {object} txMeta - the txMeta object
+  //  * @param event
+  //  * @param {object} extraParams - optional props and values to include in sensitiveProperties
+  //  */
+  // async _trackTransactionMetricsEvent(txMeta, event, extraParams = {}) {
+  //   if (!txMeta) {
+  //     return;
+  //   }
+  //   const { properties, sensitiveProperties } =
+  //     await this._buildEventFragmentProperties(txMeta, extraParams);
 
-    // Create event fragments for event types that spawn fragments, and ensure
-    // existence of fragments for event types that act upon them.
-    this._createTransactionEventFragment(
-      txMeta,
-      event,
-      properties,
-      sensitiveProperties,
-    );
+  //   // Create event fragments for event types that spawn fragments, and ensure
+  //   // existence of fragments for event types that act upon them.
+  //   this._createTransactionEventFragment(
+  //     txMeta,
+  //     event,
+  //     properties,
+  //     sensitiveProperties,
+  //   );
 
-    let id;
+  //   let id;
 
-    switch (event) {
-      // If the user approves a transaction, finalize the transaction added
-      // event fragment.
-      case TRANSACTION_EVENTS.APPROVED:
-        id = `transaction-added-${txMeta.id}`;
-        this.updateEventFragment(id, { properties, sensitiveProperties });
-        this.finalizeEventFragment(id);
-        break;
-      // If the user rejects a transaction, finalize the transaction added
-      // event fragment. with the abandoned flag set.
-      case TRANSACTION_EVENTS.REJECTED:
-        id = `transaction-added-${txMeta.id}`;
-        this.updateEventFragment(id, { properties, sensitiveProperties });
-        this.finalizeEventFragment(id, {
-          abandoned: true,
-        });
-        break;
-      // When a transaction is finalized, also finalize the transaction
-      // submitted event fragment.
-      case TRANSACTION_EVENTS.FINALIZED:
-        id = `transaction-submitted-${txMeta.id}`;
-        this.updateEventFragment(id, { properties, sensitiveProperties });
-        this.finalizeEventFragment(`transaction-submitted-${txMeta.id}`);
-        break;
-      default:
-        break;
-    }
-  }
+  //   switch (event) {
+  //     // If the user approves a transaction, finalize the transaction added
+  //     // event fragment.
+  //     case TRANSACTION_EVENTS.APPROVED:
+  //       id = `transaction-added-${txMeta.id}`;
+  //       this.updateEventFragment(id, { properties, sensitiveProperties });
+  //       this.finalizeEventFragment(id);
+  //       break;
+  //     // If the user rejects a transaction, finalize the transaction added
+  //     // event fragment. with the abandoned flag set.
+  //     case TRANSACTION_EVENTS.REJECTED:
+  //       id = `transaction-added-${txMeta.id}`;
+  //       this.updateEventFragment(id, { properties, sensitiveProperties });
+  //       this.finalizeEventFragment(id, {
+  //         abandoned: true,
+  //       });
+  //       break;
+  //     // When a transaction is finalized, also finalize the transaction
+  //     // submitted event fragment.
+  //     case TRANSACTION_EVENTS.FINALIZED:
+  //       id = `transaction-submitted-${txMeta.id}`;
+  //       this.updateEventFragment(id, { properties, sensitiveProperties });
+  //       this.finalizeEventFragment(`transaction-submitted-${txMeta.id}`);
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // }
 
   _getTransactionCompletionTime(submittedTime) {
     return Math.round((Date.now() - submittedTime) / 1000).toString();
@@ -2488,17 +2408,9 @@ export default class TransactionController extends EventEmitter {
 
   _failTransaction(txId, error) {
     this.txStateManager.setTxStatusFailed(txId, error);
-    const txMeta = this.txStateManager.getTransaction(txId);
-    this._trackTransactionMetricsEvent(txMeta, TRANSACTION_EVENTS.FINALIZED, {
-      error: error.message,
-    });
   }
 
   _dropTransaction(txId) {
     this.txStateManager.setTxStatusDropped(txId);
-    const txMeta = this.txStateManager.getTransaction(txId);
-    this._trackTransactionMetricsEvent(txMeta, TRANSACTION_EVENTS.FINALIZED, {
-      dropped: true,
-    });
   }
 }

@@ -3277,6 +3277,13 @@
   "swap": {
     "message": "Swap"
   },
+  "swapAcriaWalletFee": {
+    "message": "Taxa da Acria Wallet"
+  },
+  "swapAcriaWalletFeeDescription": {
+    "message": "Encontramos o melhor preço das principais fontes de liquidez – todas as vezes. Uma taxa de $1% é automaticamente incorporada nessa cotação.",
+    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
+  },
   "swapAdvancedSlippageInfo": {
     "message": "Se o preço varia entre o momento em que a sua ordem é efetuada e o momento em que é confirmada, isso recebe o nome de \"slippage\". Sua troca será automaticamente cancelada se o slippage exceder a sua configuração de \"slippage máximo\"."
   },
@@ -3400,13 +3407,6 @@
   },
   "swapMaxSlippage": {
     "message": "Slippage máximo"
-  },
-  "swapAcriaWalletFee": {
-    "message": "Taxa da Acria Wallet"
-  },
-  "swapAcriaWalletFeeDescription": {
-    "message": "Encontramos o melhor preço das principais fontes de liquidez – todas as vezes. Uma taxa de $1% é automaticamente incorporada nessa cotação.",
-    "description": "Provides information about the fee that metamask takes for swaps. $1 is a decimal number."
   },
   "swapNQuotesWithDot": {
     "message": "$1 cotações.",

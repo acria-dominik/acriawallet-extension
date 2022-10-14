@@ -5,7 +5,6 @@ import { ethErrors } from 'eth-rpc-errors';
 import { MESSAGE_TYPE } from '../../../shared/constants/app';
 import { METAMASK_CONTROLLER_EVENTS } from '../metamask-controller';
 import createId from '../../../shared/modules/random-id';
-import { EVENT } from '../../../shared/constants/metametrics';
 
 /**
  * Represents, and contains data about, an 'eth_sign' type signature request. These are created when a signature for
@@ -28,16 +27,14 @@ export default class MessageManager extends EventEmitter {
    * Controller in charge of managing - storing, adding, removing, updating - Messages.
    *
    * @param {object} opts - Controller options
-   * @param {Function} opts.metricsEvent - A function for emitting a metric event.
    */
-  constructor({ metricsEvent }) {
+  constructor() {
     super();
     this.memStore = new ObservableStore({
       unapprovedMsgs: {},
       unapprovedMsgCount: 0,
     });
     this.messages = [];
-    this.metricsEvent = metricsEvent;
   }
 
   /**
@@ -205,20 +202,8 @@ export default class MessageManager extends EventEmitter {
    * Sets a Message status to 'rejected' via a call to this._setMsgStatus.
    *
    * @param {number} msgId - The id of the Message to reject.
-   * @param reason
    */
-  rejectMsg(msgId, reason = undefined) {
-    if (reason) {
-      const msg = this.getMsg(msgId);
-      this.metricsEvent({
-        event: reason,
-        category: EVENT.CATEGORIES.TRANSACTIONS,
-        properties: {
-          action: 'Sign Request',
-          type: msg.type,
-        },
-      });
-    }
+  rejectMsg(msgId) {
     this._setMsgStatus(msgId, 'rejected');
   }
 

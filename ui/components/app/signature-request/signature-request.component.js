@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Identicon from '../../ui/identicon';
 import LedgerInstructionField from '../ledger-instruction-field';
 import { sanitizeMessage } from '../../../helpers/utils/util';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import SiteOrigin from '../../ui/site-origin';
 import Header from './signature-request-header';
 import Footer from './signature-request-footer';
@@ -43,7 +42,6 @@ export default class SignatureRequest extends PureComponent {
 
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   state = {
@@ -65,8 +63,7 @@ export default class SignatureRequest extends PureComponent {
     const {
       fromAccount,
       txData: {
-        msgParams: { data, origin, version },
-        type,
+        msgParams: { data, origin },
       },
       cancel,
       sign,
@@ -75,34 +72,13 @@ export default class SignatureRequest extends PureComponent {
     } = this.props;
     const { address: fromAddress } = fromAccount;
     const { message, domain = {}, primaryType, types } = JSON.parse(data);
-    const { trackEvent } = this.context;
 
     const onSign = (event) => {
       sign(event);
-      trackEvent({
-        category: EVENT.CATEGORIES.TRANSACTIONS,
-        event: 'Confirm',
-        properties: {
-          action: 'Sign Request',
-          legacy_event: true,
-          type,
-          version,
-        },
-      });
     };
 
     const onCancel = (event) => {
       cancel(event);
-      trackEvent({
-        category: EVENT.CATEGORIES.TRANSACTIONS,
-        event: 'Cancel',
-        properties: {
-          action: 'Sign Request',
-          legacy_event: true,
-          type,
-          version,
-        },
-      });
     };
 
     const messageIsScrollable =

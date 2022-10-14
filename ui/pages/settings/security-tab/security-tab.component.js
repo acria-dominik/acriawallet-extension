@@ -7,19 +7,15 @@ import {
   getNumberOfSettingsInSection,
   handleSettingsRefs,
 } from '../../../helpers/utils/settings-search';
-import { EVENT, EVENT_NAMES } from '../../../../shared/constants/metametrics';
 
 export default class SecurityTab extends PureComponent {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
     warning: PropTypes.string,
     history: PropTypes.object,
-    participateInMetaMetrics: PropTypes.bool.isRequired,
-    setParticipateInMetaMetrics: PropTypes.func.isRequired,
     showIncomingTransactions: PropTypes.bool.isRequired,
     setShowIncomingTransactionsFeatureFlag: PropTypes.func.isRequired,
     setUsePhishDetect: PropTypes.func.isRequired,
@@ -63,46 +59,11 @@ export default class SecurityTab extends PureComponent {
               large
               onClick={(event) => {
                 event.preventDefault();
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.SETTINGS,
-                  event: EVENT_NAMES.KEY_EXPORT_SELECTED,
-                  properties: {
-                    key_type: EVENT.KEY_TYPES.SRP,
-                    location: 'Settings',
-                  },
-                });
                 history.push(REVEAL_SEED_ROUTE);
               }}
             >
               {t('revealSeedWords')}
             </Button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  renderMetaMetricsOptIn() {
-    const { t } = this.context;
-    const { participateInMetaMetrics, setParticipateInMetaMetrics } =
-      this.props;
-
-    return (
-      <div ref={this.settingsRefs[3]} className="settings-page__content-row">
-        <div className="settings-page__content-item">
-          <span>{t('participateInMetaMetrics')}</span>
-          <div className="settings-page__content-description">
-            <span>{t('participateInMetaMetricsDescription')}</span>
-          </div>
-        </div>
-        <div className="settings-page__content-item">
-          <div className="settings-page__content-item-col">
-            <ToggleButton
-              value={participateInMetaMetrics}
-              onToggle={(value) => setParticipateInMetaMetrics(!value)}
-              offLabel={t('off')}
-              onLabel={t('on')}
-            />
           </div>
         </div>
       </div>
@@ -173,7 +134,6 @@ export default class SecurityTab extends PureComponent {
         {this.renderSeedWords()}
         {this.renderIncomingTransactionsOptIn()}
         {this.renderPhishingDetectionToggle()}
-        {this.renderMetaMetricsOptIn()}
       </div>
     );
   }

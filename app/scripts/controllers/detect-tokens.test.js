@@ -236,7 +236,6 @@ describe('DetectTokensController', function () {
       tokenList: tokenListController,
       tokensController,
       assetsContractController,
-      trackMetaMetricsEvent: noop,
     });
     controller.isOpen = true;
     controller.isUnlocked = true;
@@ -287,7 +286,6 @@ describe('DetectTokensController', function () {
       tokenList: tokenListController,
       tokensController,
       assetsContractController,
-      trackMetaMetricsEvent: noop,
     });
     controller.isOpen = true;
     controller.isUnlocked = true;

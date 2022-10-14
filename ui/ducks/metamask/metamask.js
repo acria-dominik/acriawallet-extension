@@ -44,7 +44,6 @@ export default function reduceMetamask(state = {}, action) {
     firstTimeFlowType: null,
     completedOnboarding: false,
     knownMethodData: {},
-    participateInMetaMetrics: null,
     nextNonce: null,
     conversionRate: null,
     nativeCurrency: 'ETH',
@@ -124,12 +123,6 @@ export default function reduceMetamask(state = {}, action) {
         currentNetworkTxList,
       };
     }
-
-    case actionConstants.SET_PARTICIPATE_IN_METAMETRICS:
-      return {
-        ...metamaskState,
-        participateInMetaMetrics: action.value,
-      };
 
     case actionConstants.SET_USE_BLOCKIE:
       return {

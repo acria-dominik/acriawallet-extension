@@ -7,7 +7,6 @@ import TokenListDisplay from '../../../../components/app/token-list-display';
 import UserPreferencedCurrencyDisplay from '../../../../components/app/user-preferenced-currency-display';
 import { PRIMARY } from '../../../../helpers/constants/common';
 import { isEqualCaseInsensitive } from '../../../../../shared/modules/string-utils';
-import { EVENT } from '../../../../../shared/constants/metametrics';
 import {
   ASSET_TYPES,
   ERC20,
@@ -51,7 +50,6 @@ export default class SendAssetRow extends Component {
 
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   state = {
@@ -92,15 +90,6 @@ export default class SendAssetRow extends Component {
         isShowingDropdown: false,
       },
       () => {
-        this.context.trackEvent({
-          category: EVENT.CATEGORIES.TRANSACTIONS,
-          event: 'User clicks "Assets" dropdown',
-          properties: {
-            action: 'Send Screen',
-            legacy_event: true,
-            assetSelected: this.getAssetSelected(type, token),
-          },
-        });
         this.props.updateSendAsset({
           type,
           details: type === ASSET_TYPES.NATIVE ? null : token,

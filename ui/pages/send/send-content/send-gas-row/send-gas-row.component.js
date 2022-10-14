@@ -17,7 +17,6 @@ export default class SendGasRow extends Component {
 
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   render() {

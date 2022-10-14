@@ -50,9 +50,8 @@ describe('Sentry errors', function () {
         }, 10000);
         const [mockedRequest] = await mockedEndpoint.getSeenRequests();
         const mockJsonBody = mockedRequest.body.json;
-        const { level, extra } = mockJsonBody;
+        const { level } = mockJsonBody;
         const [{ type, value }] = mockJsonBody.exception.values;
-        const { participateInMetaMetrics } = extra.appState.store.metamask;
         // Verify request
         assert.equal(type, 'BigNumber Error');
         assert.equal(
@@ -60,7 +59,6 @@ describe('Sentry errors', function () {
           'new BigNumber() not a base 16 number: 0x-de0b6b3a7640000',
         );
         assert.equal(level, 'error');
-        assert.equal(participateInMetaMetrics, true);
       },
     );
   });

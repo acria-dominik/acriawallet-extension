@@ -5,11 +5,6 @@ import { MAINNET_CHAIN_ID } from '../../../shared/constants/network';
 import { STATIC_MAINNET_TOKEN_LIST } from '../../../shared/constants/tokens';
 import { isTokenDetectionEnabledForNetwork } from '../../../shared/modules/network.utils';
 import { isEqualCaseInsensitive } from '../../../shared/modules/string-utils';
-import {
-  ASSET_TYPES,
-  TOKEN_STANDARDS,
-} from '../../../shared/constants/transaction';
-import { EVENT, EVENT_NAMES } from '../../../shared/constants/metametrics';
 
 // By default, poll every 3 minutes
 const DEFAULT_INTERVAL = MINUTE * 3;
@@ -30,7 +25,6 @@ export default class DetectTokensController {
    * @param config.tokenList
    * @param config.tokensController
    * @param config.assetsContractController
-   * @param config.trackMetaMetricsEvent
    */
   constructor({
     interval = DEFAULT_INTERVAL,
@@ -40,7 +34,6 @@ export default class DetectTokensController {
     tokenList,
     tokensController,
     assetsContractController = null,
-    trackMetaMetricsEvent,
   } = {}) {
     this.assetsContractController = assetsContractController;
     this.tokensController = tokensController;
@@ -58,7 +51,6 @@ export default class DetectTokensController {
     this.hiddenTokens = this.tokensController?.state.ignoredTokens;
     this.detectedTokens = this.tokensController?.state.detectedTokens;
     this.chainId = this.getChainIdFromNetworkStore(network);
-    this._trackMetaMetricsEvent = trackMetaMetricsEvent;
 
     preferences?.store.subscribe(({ selectedAddress, useTokenDetection }) => {
       if (
@@ -165,15 +157,6 @@ export default class DetectTokensController {
         }
 
         if (tokensWithBalance.length > 0) {
-          this._trackMetaMetricsEvent({
-            event: EVENT_NAMES.TOKEN_DETECTED,
-            category: EVENT.CATEGORIES.WALLET,
-            properties: {
-              tokens: eventTokensDetails,
-              token_standard: TOKEN_STANDARDS.ERC20,
-              asset_type: ASSET_TYPES.TOKEN,
-            },
-          });
           await this.tokensController.addDetectedTokens(tokensWithBalance);
         }
       }

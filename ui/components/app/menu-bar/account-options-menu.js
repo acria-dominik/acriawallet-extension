@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,8 +21,6 @@ import {
 import { useI18nContext } from '../../../hooks/useI18nContext';
 import { getEnvironmentType } from '../../../../app/scripts/lib/util';
 import { ENVIRONMENT_TYPE_FULLSCREEN } from '../../../../shared/constants/app';
-import { EVENT, EVENT_NAMES } from '../../../../shared/constants/metametrics';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
 
 export default function AccountOptionsMenu({ anchorElement, onClose }) {
   const t = useI18nContext();
@@ -37,7 +35,6 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
   const addressLink = getAccountLink(address, chainId, rpcPrefs);
   const { blockExplorerUrl } = rpcPrefs;
   const blockExplorerUrlSubTitle = getURLHostName(blockExplorerUrl);
-  const trackEvent = useContext(MetaMetricsContext);
   const blockExplorerLinkText = useSelector(getBlockExplorerLinkText);
 
   const isRemovable = keyring.type !== 'HD Key Tree';
@@ -47,15 +44,6 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
   };
 
   const openBlockExplorer = () => {
-    trackEvent({
-      event: EVENT_NAMES.EXTERNAL_LINK_CLICKED,
-      category: EVENT.CATEGORIES.NAVIGATION,
-      properties: {
-        link_type: EVENT.EXTERNAL_LINK_TYPES.ACCOUNT_TRACKER,
-        location: 'Account Options',
-        url_domain: getURLHostName(addressLink),
-      },
-    });
     global.platform.openTab({
       url: addressLink,
     });
@@ -93,13 +81,6 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
       {getEnvironmentType() === ENVIRONMENT_TYPE_FULLSCREEN ? null : (
         <MenuItem
           onClick={() => {
-            trackEvent({
-              event: EVENT_NAMES.APP_WINDOW_EXPANDED,
-              category: EVENT.CATEGORIES.NAVIGATION,
-              properties: {
-                location: 'Account Options',
-              },
-            });
             global.platform.openExtensionInBrowser();
             onClose();
           }}
@@ -112,13 +93,6 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
         data-testid="account-options-menu__account-details"
         onClick={() => {
           dispatch(showModal({ name: 'ACCOUNT_DETAILS' }));
-          trackEvent({
-            event: EVENT_NAMES.NAV_ACCOUNT_DETAILS_OPENED,
-            category: EVENT.CATEGORIES.NAVIGATION,
-            properties: {
-              location: 'Account Options',
-            },
-          });
           onClose();
         }}
         iconClassName="fas fa-qrcode"
@@ -128,13 +102,6 @@ export default function AccountOptionsMenu({ anchorElement, onClose }) {
       <MenuItem
         data-testid="account-options-menu__connected-sites"
         onClick={() => {
-          trackEvent({
-            event: EVENT_NAMES.NAV_CONNECTED_SITES_OPENED,
-            category: EVENT.CATEGORIES.NAVIGATION,
-            properties: {
-              location: 'Account Options',
-            },
-          });
           history.push(CONNECTED_ROUTE);
           onClose();
         }}

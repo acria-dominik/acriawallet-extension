@@ -6,13 +6,11 @@ import {
   handleSettingsRefs,
 } from '../../../helpers/utils/settings-search';
 import Dropdown from '../../../components/ui/dropdown';
-import { EVENT } from '../../../../shared/constants/metametrics';
 import { THEME_TYPE } from './experimental-tab.constant';
 
 export default class ExperimentalTab extends PureComponent {
   static contextTypes = {
     t: PropTypes.func,
-    trackEvent: PropTypes.func,
   };
 
   static propTypes = {
@@ -78,14 +76,6 @@ export default class ExperimentalTab extends PureComponent {
             <ToggleButton
               value={useCollectibleDetection}
               onToggle={(value) => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.SETTINGS,
-                  event: 'Collectible Detection',
-                  properties: {
-                    action: 'Collectible Detection',
-                    legacy_event: true,
-                  },
-                });
                 if (!value && !openSeaEnabled) {
                   setOpenSeaEnabled(!value);
                 }
@@ -128,14 +118,6 @@ export default class ExperimentalTab extends PureComponent {
             <ToggleButton
               value={openSeaEnabled}
               onToggle={(value) => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.SETTINGS,
-                  event: 'Enabled/Disable OpenSea',
-                  properties: {
-                    action: 'Enabled/Disable OpenSea',
-                    legacy_event: true,
-                  },
-                });
                 // value is positive when being toggled off
                 if (value && useCollectibleDetection) {
                   setUseCollectibleDetection(false);
@@ -177,14 +159,6 @@ export default class ExperimentalTab extends PureComponent {
             <ToggleButton
               value={eip1559V2Enabled}
               onToggle={(value) => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.SETTINGS,
-                  event: 'Enable/Disable Advanced Gas UI',
-                  properties: {
-                    action: 'Enable/Disable Advanced Gas UI',
-                    legacy_event: true,
-                  },
-                });
                 setEIP1559V2Enabled(!value);
               }}
               offLabel={t('off')}
@@ -216,13 +190,6 @@ export default class ExperimentalTab extends PureComponent {
     ];
 
     const onChange = (newTheme) => {
-      this.context.trackEvent({
-        category: EVENT.CATEGORIES.SETTINGS,
-        event: 'Theme Changed',
-        properties: {
-          theme_selected: newTheme,
-        },
-      });
       setTheme(newTheme);
     };
 
@@ -266,14 +233,6 @@ export default class ExperimentalTab extends PureComponent {
             <ToggleButton
               value={customNetworkListEnabled}
               onToggle={(value) => {
-                this.context.trackEvent({
-                  category: EVENT.CATEGORIES.SETTINGS,
-                  event: 'Enabled/Disable CustomNetworkList',
-                  properties: {
-                    action: 'Enabled/Disable CustomNetworkList',
-                    legacy_event: true,
-                  },
-                });
                 setCustomNetworkListEnabled(!value);
               }}
               offLabel={t('off')}

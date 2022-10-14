@@ -227,9 +227,6 @@ const completeImportSRPOnboardingFlow = async (
     // welcome
     await driver.clickElement('[data-testid="onboarding-import-wallet"]');
 
-    // metrics
-    await driver.clickElement('[data-testid="metametrics-no-thanks"]');
-
     // import with recovery phrase
     await driver.fill('[data-testid="import-srp-text"]', seedPhrase);
     await driver.clickElement('[data-testid="import-srp-confirm"]');
@@ -253,9 +250,6 @@ const completeImportSRPOnboardingFlow = async (
       text: enLocaleMessages.getStarted.message,
       tag: 'button',
     });
-
-    // clicks the "No thanks" option on the metametrics opt-in screen
-    await driver.clickElement('.btn-secondary');
 
     // clicks the "Import Wallet" option
     await driver.clickElement({ text: 'Import wallet', tag: 'button' });
@@ -295,9 +289,6 @@ const completeImportSRPOnboardingFlowWordByWord = async (
     text: enLocaleMessages.getStarted.message,
     tag: 'button',
   });
-
-  // clicks the "No thanks" option on the metametrics opt-in screen
-  await driver.clickElement('.btn-secondary');
 
   // clicks the "Import Wallet" option
   await driver.clickElement({ text: 'Import wallet', tag: 'button' });

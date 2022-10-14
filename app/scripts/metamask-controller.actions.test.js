@@ -36,7 +36,7 @@ const createLoggerMiddlewareMock = () => (req, res, next) => {
 const TEST_SEED =
   'debris dizzy just program just float decrease vacant alarm reduce speak stadium';
 
-const Acria WalletController = proxyquire('./metamask-controller', {
+const AcriaWalletController = proxyquire('./metamask-controller', {
   './lib/createLoggerMiddleware': { default: createLoggerMiddlewareMock },
 }).default;
 
@@ -50,7 +50,7 @@ describe('Acria WalletController', function () {
   });
 
   beforeEach(function () {
-    metamaskController = new Acria WalletController({
+    metamaskController = new AcriaWalletController({
       showUserConfirmation: noop,
       encryptor: {
         encrypt(_, object) {

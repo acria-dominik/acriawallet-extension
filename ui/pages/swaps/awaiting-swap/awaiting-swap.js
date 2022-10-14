@@ -7,12 +7,6 @@ import isEqual from 'lodash/isEqual';
 import { getBlockExplorerLink } from '@metamask/etherscan-link';
 import { I18nContext } from '../../../contexts/i18n';
 import { SUPPORT_LINK } from '../../../helpers/constants/common';
-import { MetaMetricsContext } from '../../../contexts/metametrics';
-import {
-  EVENT,
-  EVENT_NAMES,
-  CONTEXT_PROPS,
-} from '../../../../shared/constants/metametrics';
 
 import {
   getCurrentChainId,
@@ -74,7 +68,6 @@ export default function AwaitingSwap({
   submittingSwap,
 }) {
   const t = useContext(I18nContext);
-  const trackEvent = useContext(MetaMetricsContext);
   const history = useHistory();
   const dispatch = useDispatch();
   const animationEventEmitter = useRef(new EventEmitter());
@@ -163,20 +156,6 @@ export default function AwaitingSwap({
         href={SUPPORT_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => {
-          trackEvent(
-            {
-              category: EVENT.CATEGORIES.SWAPS,
-              event: EVENT_NAMES.SUPPORT_LINK_CLICKED,
-              properties: {
-                url: SUPPORT_LINK,
-              },
-            },
-            {
-              contextPropsIntoEventProperties: [CONTEXT_PROPS.PAGE_TITLE],
-            },
-          );
-        }}
       >
         {new URL(SUPPORT_LINK).hostname}
       </a>,
@@ -197,11 +176,6 @@ export default function AwaitingSwap({
 
     if (!trackedQuotesExpiredEvent) {
       setTrackedQuotesExpiredEvent(true);
-      trackEvent({
-        event: 'Quotes Timed Out',
-        category: EVENT.CATEGORIES.SWAPS,
-        sensitiveProperties,
-      });
     }
   } else if (errorKey === ERROR_FETCHING_QUOTES) {
     headerText = t('swapFetchingQuotesErrorTitle');
@@ -293,7 +267,6 @@ export default function AwaitingSwap({
                 history,
                 fromTokenInputValue,
                 maxSlippage,
-                trackEvent,
               ),
             );
           } else if (errorKey) {

@@ -85,10 +85,6 @@ const t = (key) => {
       return 'Use phishing detection';
     case 'usePhishingDetectionDescription':
       return 'Display a warning for phishing domains targeting Ethereum users';
-    case 'participateInMetaMetrics':
-      return 'Participate in MetaMetrics';
-    case 'participateInMetaMetricsDescription':
-      return 'Participate in MetaMetrics to help us make AcriaWallet better';
     case 'alerts':
       return 'Alerts';
     case 'alertSettingsUnconnectedAccount':
