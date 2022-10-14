@@ -25,8 +25,6 @@ import createId from '../../../shared/modules/random-id';
 export default class MessageManager extends EventEmitter {
   /**
    * Controller in charge of managing - storing, adding, removing, updating - Messages.
-   *
-   * @param {object} opts - Controller options
    */
   constructor() {
     super();

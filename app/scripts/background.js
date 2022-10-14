@@ -20,7 +20,6 @@ import {
 } from '../../shared/constants/app';
 import { SECOND } from '../../shared/constants/time';
 import { isManifestV3 } from '../../shared/modules/mv3.utils';
-import { maskObject } from '../../shared/modules/object.utils';
 import migrations from './migrations';
 import Migrator from './lib/migrator';
 import ExtensionPlatform from './platforms/extension';

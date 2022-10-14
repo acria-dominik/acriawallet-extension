@@ -1,8 +1,6 @@
-import EventEmitter from 'events';
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
-import Mascot from '../../../components/ui/mascot';
 import Button from '../../../components/ui/button';
 import Typography from '../../../components/ui/typography/typography';
 import {
@@ -16,7 +14,6 @@ import { setFirstTimeFlowType } from '../../../store/actions';
 export default function OnboardingWelcome() {
   const t = useI18nContext();
   const dispatch = useDispatch();
-  const [eventEmitter] = useState(new EventEmitter());
 
   const onCreateClick = () => {
     dispatch(setFirstTimeFlowType('create'));
@@ -41,11 +38,7 @@ export default function OnboardingWelcome() {
             {t('welcomeToAcriaWalletIntro')}
           </Typography>
           <div className="onboarding-welcome__mascot">
-            <Mascot
-              animationEventEmitter={eventEmitter}
-              width="250"
-              height="250"
-            />
+            <img src="./images/icon-128.png" />
           </div>
         </div>
         <div>

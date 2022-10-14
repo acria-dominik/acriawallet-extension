@@ -1,15 +1,12 @@
 import EventEmitter from 'events';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Mascot from '../../../components/ui/mascot';
 import Button from '../../../components/ui/button';
 import {
   INITIALIZE_CREATE_PASSWORD_ROUTE,
   INITIALIZE_SELECT_ACTION_ROUTE,
 } from '../../../helpers/constants/routes';
-import { isBeta } from '../../../helpers/utils/build-types';
 import WelcomeFooter from './welcome-footer.component';
-import BetaWelcomeFooter from './beta-welcome-footer.component';
 
 export default class Welcome extends PureComponent {
   static propTypes = {
@@ -48,12 +45,8 @@ export default class Welcome extends PureComponent {
     return (
       <div className="welcome-page__wrapper">
         <div className="welcome-page">
-          <Mascot
-            animationEventEmitter={this.animationEventEmitter}
-            width="125"
-            height="125"
-          />
-          {isBeta() ? <BetaWelcomeFooter /> : <WelcomeFooter />}
+          <img src="./images/icon-64.png" />
+          <WelcomeFooter />
           <Button
             type="primary"
             className="first-time-flow__button"

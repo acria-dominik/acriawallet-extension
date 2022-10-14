@@ -1,4 +1,3 @@
-import EventEmitter from 'events';
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -6,7 +5,6 @@ import { shuffle } from 'lodash';
 import { useHistory } from 'react-router-dom';
 import { navigateBackToBuildQuote } from '../../../ducks/swaps/swaps';
 import { I18nContext } from '../../../contexts/i18n';
-import Mascot from '../../../components/ui/mascot';
 import SwapsFooter from '../swaps-footer';
 import BackgroundAnimation from './background-animation';
 
@@ -18,7 +16,6 @@ export default function LoadingSwapsQuotes({
   const t = useContext(I18nContext);
   const dispatch = useDispatch();
   const history = useHistory();
-  const animationEventEmitter = useRef(new EventEmitter());
 
   const [aggregatorNames] = useState(() =>
     shuffle(Object.keys(aggregatorMetadata)),
@@ -97,12 +94,7 @@ export default function LoadingSwapsQuotes({
             className="loading-swaps-quotes__mascot-container"
             ref={mascotContainer}
           >
-            <Mascot
-              animationEventEmitter={animationEventEmitter.current}
-              width="90"
-              height="90"
-              lookAtTarget={midPointTarget}
-            />
+            <img src="./images/icon-64.png" />
           </div>
         </div>
       </div>

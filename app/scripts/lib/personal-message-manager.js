@@ -31,8 +31,6 @@ const hexRe = /^[0-9A-Fa-f]+$/gu;
 export default class PersonalMessageManager extends EventEmitter {
   /**
    * Controller in charge of managing - storing, adding, removing, updating - PersonalMessage.
-   *
-   * @param options
    */
   constructor() {
     super();

@@ -25,12 +25,10 @@ describe('ConfirmSeedPhrase Component', () => {
 
   it('should add/remove selected on click', () => {
     const replaceSpy = sinon.spy();
-    const component = shallowRender(
-      {
-        seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
-        history: { replace: replaceSpy },
-      },
-    );
+    const component = shallowRender({
+      seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
+      history: { replace: replaceSpy },
+    });
 
     const seeds = component.find('.confirm-seed-phrase__seed-word--sorted');
 
@@ -54,12 +52,10 @@ describe('ConfirmSeedPhrase Component', () => {
 
   it('should render correctly on hover', () => {
     const replaceSpy = sinon.spy();
-    const component = shallowRender(
-      {
-        seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
-        history: { replace: replaceSpy },
-      }
-    );
+    const component = shallowRender({
+      seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
+      history: { replace: replaceSpy },
+    });
 
     const seeds = component.find('.confirm-seed-phrase__seed-word--sorted');
 
@@ -85,12 +81,10 @@ describe('ConfirmSeedPhrase Component', () => {
 
   it('should insert seed in place on drop', () => {
     const replaceSpy = sinon.spy();
-    const component = shallowRender(
-      {
-        seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
-        history: { replace: replaceSpy },
-      },
-    );
+    const component = shallowRender({
+      seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
+      history: { replace: replaceSpy },
+    });
 
     const seeds = component.find('.confirm-seed-phrase__seed-word--sorted');
 
@@ -127,14 +121,12 @@ describe('ConfirmSeedPhrase Component', () => {
     ];
     const replaceSpy = sinon.spy();
     const initialize3BoxSpy = sinon.spy();
-    const component = shallowRender(
-      {
-        seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
-        history: { replace: replaceSpy },
-        setSeedPhraseBackedUp: () => Promise.resolve(),
-        initializeThreeBox: initialize3BoxSpy,
-      },
-    );
+    const component = shallowRender({
+      seedPhrase: '鼠 牛 虎 兔 龍 蛇 馬 羊 猴 雞 狗 豬',
+      history: { replace: replaceSpy },
+      setSeedPhraseBackedUp: () => Promise.resolve(),
+      initializeThreeBox: initialize3BoxSpy,
+    });
 
     const sorted = component.state().sortedSeedWords;
     const seeds = component.find('.confirm-seed-phrase__seed-word--sorted');
